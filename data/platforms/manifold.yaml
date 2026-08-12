@@ -5,10 +5,13 @@ mechanism: play-money
 status: live
 launched: 2021
 geo:
-  us_access: yes
-  notes: "Play-money (mana); open to anyone."
+  model: everyone
+  source: https://docs.manifold.markets/terms
+  as_of: "2026-08-12"
+  notes: "Play-money; no country list beyond boilerplate (mobile apps in US-embargoed countries; prize drawings void where prohibited)."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

@@ -27,12 +27,14 @@ An issue-form submission flow (bot-vetted, auto-merged) is coming — see
 
 - **Descriptions:** one factual sentence, ≤200 chars, no marketing superlatives unless
   measurable ("largest by volume" only if it is).
-- **`geo.us_access`:** factual "who may trade" per the platform's own terms —
-  never workarounds or evasion guidance.
+- **`geo`:** factual "who may trade" per the platform's own terms — never workarounds
+  or evasion guidance. Always include `source` (the terms page you read) and `as_of`;
+  country codes are ISO 3166-1 alpha-2, lowercase.
 - **`data.known_gaps`:** be specific ("no bulk trade endpoint; archives have week-long
   gaps"), it's the most valuable field in the repo.
-- **Dead things stay listed** (status `deprecated`/`dead`) when historically relevant —
-  point `url` somewhere durable, e.g. the GitHub org.
+- **Dead things keep their data file** (status `deprecated`/`dead`) — the build drops
+  them from the README automatically. Point `url` somewhere durable, e.g. the GitHub
+  org, and don't delete the file: other entries may cross-link it.
 
 ## What gets an entry
 

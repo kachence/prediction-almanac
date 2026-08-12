@@ -6,10 +6,11 @@ chain: Gnosis Chain
 status: deprecated
 launched: 2020
 geo:
-  us_access: yes
+  model: permissionless
   notes: "Permissionless protocol; frontend unmaintained."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

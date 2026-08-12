@@ -5,10 +5,13 @@ mechanism: forecasting
 status: live
 launched: 2015
 geo:
-  us_access: yes
-  notes: "Reputation-based forecasting, no stakes; open to anyone."
+  model: everyone
+  source: https://www.metaculus.com/terms-of-use/
+  as_of: "2026-08-12"
+  notes: "Forecasting open everywhere; tournament cash prizes are not paid to residents of US-sanctioned jurisdictions, who may still compete for rankings."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

@@ -5,8 +5,15 @@ mechanism: onchain-clob
 chain: Blast
 status: live
 launched: 2024
+geo:
+  model: global-restrictions
+  restricted: [au, be, cu, fr, gb, ir, kp, pl, sg, sy, th, tw, us]
+  source: https://docs.predict.fun/terms-of-service
+  as_of: "2026-08-12"
+  notes: "Sanctioned jurisdictions fully restricted; trading additionally barred for US, UK, France, Ontario (Canada), Singapore, Poland, Thailand, Australia, Belgium, Taiwan."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

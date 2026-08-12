@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**21 platforms · 11 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**17 platforms · 11 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -26,47 +26,46 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 
 ### On-chain markets
 
-| Platform | Type | Since | Status | 30d volume | US access | Description |
-|---|---|---|---|---|---|---|
-| **[Augur](https://github.com/AugurProject)** | CLOB · Ethereum | 2018 | dead | — | yes | The pioneering decentralized prediction market on Ethereum; v2 shipped 2020, development wound down. |
-| **[Azuro](https://azuro.org)** | AMM · Polygon, Gnosis + | 2022 | live | — | — | On-chain betting liquidity protocol that powers third-party sportsbook and prediction frontends. |
-| **[Drift BET](https://app.drift.trade/bet)** | CLOB · Solana | 2024 | live | — | restricted | Prediction markets built into the Drift protocol on Solana. |
-| **[Limitless](https://limitless.exchange)** | CLOB · Base | 2024 | live | — | — | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
-| **[Omen](https://github.com/protofire/omen-exchange)** | AMM · Gnosis Chain | 2020 | deprecated | — | yes | DXdao's AMM prediction market on Gnosis Chain, built on the Conditional Token Framework; unmaintained. |
-| **[Overtime](https://overtimemarkets.xyz)** | AMM · Optimism, Arbitrum, Base | 2022 | live | — | — | Sports-focused on-chain AMM markets from the Thales protocol family. |
-| **[Polymarket](https://polymarket.com)** | CLOB · Polygon | 2020 | live | — | restricted | Largest on-chain prediction market; USDC-settled CLOB on Polygon. |
-| **[predict.fun](https://predict.fun)** | CLOB · Blast | 2024 | live | — | — | Polymarket-style on-chain CLOB prediction market on Blast. |
-| **[Zeitgeist](https://zeitgeist.pm)** | AMM · Polkadot parachain | 2022 | live | — | — | Prediction-market parachain in the Polkadot ecosystem with on-chain market governance. |
+| Platform | Type | Since | Volume | Who can trade | Description |
+|---|---|---|---|---|---|
+| **[Azuro](https://azuro.org)** | AMM · Polygon, Gnosis + | 2022 | — | [🌍 exc. 26 countries](https://gem.azuro.org/terms-of-use) | On-chain betting liquidity protocol that powers third-party sportsbook and prediction frontends. |
+| **[Limitless](https://limitless.exchange)** | CLOB · Base | 2024 | — | [🌍 exc. 7 countries](https://docs.limitless.exchange/user-guide/terms-of-service) | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
+| **[Overtime](https://overtimemarkets.xyz)** | AMM · Optimism, Arbitrum, Base | 2022 | — | [🌍 exc. 13 countries](https://docs.overtime.io/resources/terms-of-use) | Sports-focused on-chain AMM markets from the Thales protocol family. |
+| **[Polymarket](https://polymarket.com)** | CLOB · Polygon | 2020 | — | [🌍 exc. 43 countries](https://polymarket.com/tos) | Largest on-chain prediction market; USDC-settled CLOB on Polygon. |
+| **[predict.fun](https://predict.fun)** | CLOB · Blast | 2024 | — | [🌍 exc. 13 countries](https://docs.predict.fun/terms-of-service) | Polymarket-style on-chain CLOB prediction market on Blast. |
+| **[Zeitgeist](https://zeitgeist.pm)** | AMM · Polkadot parachain | 2022 | — | [🌍 exc. 🇺🇸](https://app.zeitgeist.pm/terms) | Prediction-market parachain in the Polkadot ecosystem with on-chain market governance. |
 
 ### Regulated & traditional exchanges
 
-| Platform | Type | Since | Status | 30d volume | US access | Description |
-|---|---|---|---|---|---|---|
-| **[Betfair Exchange](https://www.betfair.com/exchange)** | Regulated exchange | 2000 | live | — | no | The largest betting exchange; politics and current-affairs markets alongside sports. |
-| **[ForecastEx](https://forecastex.com)** | Regulated exchange | 2024 | live | — | regulated | Interactive Brokers' CFTC-regulated event exchange; yes/no contracts on economics and climate. |
-| **[Iowa Electronic Markets](https://iem.uiowa.edu)** | Regulated exchange | 1988 | live | — | regulated | The original academic real-money market, run by the University of Iowa since 1988. |
-| **[Kalshi](https://kalshi.com)** | Regulated exchange | 2021 | live | — | regulated | CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports. |
-| **[PredictIt](https://www.predictit.org)** | Regulated exchange | 2014 | live | — | regulated | Long-running US political research market; capped stakes and a small contract universe. |
-| **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | live | — | no | UK-licensed betting exchange with notably deep political markets. |
+| Platform | Type | Since | Volume | Who can trade | Description |
+|---|---|---|---|---|---|
+| **[Betfair Exchange](https://www.betfair.com/exchange)** | Regulated exchange | 2000 | — | [licensed countries only](https://support.betfair.com/app/answers/detail/betfair-general-terms-and-conditions/) | The largest betting exchange; politics and current-affairs markets alongside sports. |
+| **[ForecastEx](https://forecastex.com)** | Regulated exchange | 2024 | — | [only 🇺🇸🇨🇦🇭🇰🇮🇪](https://www.interactivebrokers.com/en/general/about/mediaRelations/4-1-25.php) | Interactive Brokers' CFTC-regulated event exchange; yes/no contracts on economics and climate. |
+| **[Iowa Electronic Markets](https://iem.uiowa.edu)** | Regulated exchange | 1988 | — | [🌍 everyone](https://iemweb.biz.uiowa.edu/faq/) | The original academic real-money market, run by the University of Iowa since 1988. |
+| **[Kalshi](https://kalshi.com)** | Regulated exchange | 2021 | — | [🌍 exc. 55 countries](https://kalshi.com/docs/kalshi-member-agreement.pdf) | CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports. |
+| **[PredictIt](https://www.predictit.org)** | Regulated exchange | 2014 | — | [only 🇺🇸](https://www.predictit.org/terms-and-conditions) | Long-running US political research market; capped stakes and a small contract universe. |
+| **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | — | [🌍 exc. 19 countries](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions) | UK-licensed betting exchange with notably deep political markets. |
 
 ### Play-money markets
 
-| Platform | Type | Since | Status | 30d volume | US access | Description |
-|---|---|---|---|---|---|---|
-| **[Futuur](https://futuur.com)** | Play-money | 2017 | live | — | restricted | Social prediction markets in play-money and real-money (crypto) flavors. |
-| **[Hypermind](https://www.hypermind.com)** | Play-money | 2014 | live | — | yes | Prize-based prediction market and forecasting panel; long-running French-American operation. |
-| **[Manifold](https://manifold.markets)** | Play-money | 2021 | live | — | yes | Play-money markets anyone can create; the most open API and data of any platform. |
+| Platform | Type | Since | Who can trade | Description |
+|---|---|---|---|---|
+| **[Futuur](https://futuur.com)** | Play-money | 2017 | [🌍 exc. 39 countries](https://help.futuur.com/Terms-of-Service-a2f757178971446cba1402b3cdc9a799) | Social prediction markets in play-money and real-money (crypto) flavors. |
+| **[Hypermind](https://www.hypermind.com)** | Play-money | 2014 | [🌍 everyone](https://predict.hypermind.com/hypermind/RulesTextPage.html) | Prize-based prediction market and forecasting panel; long-running French-American operation. |
+| **[Manifold](https://manifold.markets)** | Play-money | 2021 | [🌍 everyone](https://docs.manifold.markets/terms) | Play-money markets anyone can create; the most open API and data of any platform. |
 
 ### Forecasting platforms
 
-| Platform | Type | Since | Status | 30d volume | US access | Description |
-|---|---|---|---|---|---|---|
-| **[Good Judgment Open](https://www.gjopen.com)** | Forecasting | 2015 | live | — | yes | Public forecasting tournament from Good Judgment, of Superforecasting fame. |
-| **[INFER](https://www.infer-pub.com)** | Forecasting | 2020 | live | — | yes | US policy-focused crowd forecasting site (originally CSET Foretell), now run under the RAND Forecasting Initiative. |
-| **[Metaculus](https://www.metaculus.com)** | Forecasting | 2015 | live | — | yes | Long-horizon forecasting community with tournaments and track records; aggregates probabilistic forecasts rather than trading. |
+| Platform | Type | Since | Who can trade | Description |
+|---|---|---|---|---|
+| **[Good Judgment Open](https://www.gjopen.com)** | Forecasting | 2015 | [🌍 everyone](https://www.gjopen.com/terms) | Public forecasting tournament from Good Judgment, of Superforecasting fame. |
+| **[Metaculus](https://www.metaculus.com)** | Forecasting | 2015 | [🌍 everyone](https://www.metaculus.com/terms-of-use/) | Long-horizon forecasting community with tournaments and track records; aggregates probabilistic forecasts rather than trading. |
 
-*US access is factual (“who may trade”), per each platform’s own terms — not advice.
-Volume is 30-day notional in USD where a platform exposes it.*
+*“Who can trade” is factual, per each platform’s own terms (each cell links to its
+source; 🌐 permissionless = protocol enforces nothing, official frontends may geoblock) —
+not advice, and never guidance around restrictions. Volume is notional USD over the
+stated period. Dead or deprecated platforms keep their entry in [`data/`](data/) but
+aren’t listed here.*
 
 ## Data coverage
 
@@ -75,21 +74,17 @@ backtesting, or building. Per platform first, then the concrete sources.
 
 | Platform | Public API | Live book | Historical | Granularity | Free archive | Known gaps |
 |---|---|---|---|---|---|---|
-| [Augur](https://github.com/AugurProject) | — | — | partial | on-chain events | — | Data only recoverable from Ethereum archives and old subgraphs. |
 | [Azuro](https://azuro.org) | ✓ | — | partial | on-chain (subgraph) | — | Data via subgraphs per chain; no unified archive. |
 | [Betfair Exchange](https://www.betfair.com/exchange) | ✓ | ✓ | partial | odds ticks+book | — | Historical exchange data is a separate paid product (historicdata.betfair.com). |
-| [Drift BET](https://app.drift.trade/bet) | ✓ | ✓ | partial | trade | — | Prediction markets share Drift's data pipeline; no market-specific archive. |
 | [ForecastEx](https://forecastex.com) | — | — | none | — | — | Market data flows through Interactive Brokers platforms/APIs; no standalone public data API. |
 | [Futuur](https://futuur.com) | ✓ | — | none | current odds | — | API serves current markets/odds; no historical endpoint. |
 | [Good Judgment Open](https://www.gjopen.com) | — | — | none | — | — | No public API; forecast data is not exported. |
 | [Hypermind](https://www.hypermind.com) | — | — | none | — | — | No public API. |
-| [INFER](https://www.infer-pub.com) | — | — | none | — | — | No public API. |
 | [Iowa Electronic Markets](https://iem.uiowa.edu) | — | — | full | daily prices | — | History published as per-market files on the site; no API. |
 | [Kalshi](https://kalshi.com) | ✓ | ✓ | partial | trade+candlestick | [prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) | History served per-market via API (trades, candlesticks); no official bulk archive. |
 | [Limitless](https://limitless.exchange) | ✓ | ✓ | none | live markets+book | — | No historical archive; markets are short-lived by design. |
 | [Manifold](https://manifold.markets) | ✓ | — | full | bet-level | — | Full history only via paginated API; rate limits make whole-site pulls slow. |
 | [Metaculus](https://www.metaculus.com) | ✓ | — | full | aggregate forecast history | — | Individual forecasts mostly private; aggregates and resolutions are public via API. |
-| [Omen](https://github.com/protofire/omen-exchange) | — | — | partial | on-chain events | — | Data recoverable from Gnosis Chain and subgraphs; canonical frontend gone. |
 | [Overtime](https://overtimemarkets.xyz) | ✓ | — | partial | on-chain (subgraph) | — | Data via per-chain subgraphs. |
 | [Polymarket](https://polymarket.com) | ✓ | ✓ | partial | trade+book | [pmxt](https://pmxt.dev) | No official bulk historical-trade endpoint; third-party archives have day/week gaps on some markets. |
 | [predict.fun](https://predict.fun) | ✓ | ✓ | none | live markets+book | — | No historical archive. |

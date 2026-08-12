@@ -115,6 +115,57 @@ def mark(value):
     return "✓" if value else "—"
 
 
+def flags(codes):
+    """ISO 3166-1 alpha-2 codes -> regional-indicator emoji."""
+    return "".join(
+        "".join(chr(0x1F1E6 + ord(c) - ord("a")) for c in code) for code in codes
+    )
+
+
+MAX_FLAGS = 6  # above this, show a count instead of a wall of flags
+
+
+def geo_cell(platform):
+    """Compact 'who may trade' cell; links to the terms page we read it from."""
+    geo = platform.get("geo")
+    if not geo:
+        return "—"
+    model = geo["model"]
+    if model == "everyone":
+        text = "🌍 everyone"
+    elif model == "permissionless":
+        text = "🌐 permissionless"
+    elif model == "global-restrictions":
+        excluded = geo.get("restricted") or []
+        if not excluded:
+            text = "🌍 everyone"
+        elif len(excluded) <= MAX_FLAGS:
+            text = f"🌍 exc. {flags(excluded)}"
+        else:
+            text = f"🌍 exc. {len(excluded)} countries"
+    elif model == "allowlist":
+        allowed = geo.get("allowed") or []
+        if allowed and len(allowed) <= MAX_FLAGS:
+            text = f"only {flags(allowed)}"
+        elif allowed:
+            text = f"only {len(allowed)} countries"
+        else:
+            text = "licensed countries only"
+    else:  # unreachable while the schema enum holds
+        text = "—"
+    source = geo.get("source")
+    return f"[{text}]({source})" if source else text
+
+
+def vol(platform):
+    metrics = platform.get("metrics") or {}
+    volume = metrics.get("volume_usd")
+    if volume is None:
+        return "—"
+    period = metrics.get("period")
+    return f"{usd(volume)}/{period}" if period else usd(volume)
+
+
 def ptype(platform):
     label = MECH_LABEL[platform["mechanism"]]
     if platform.get("chain"):
@@ -125,7 +176,7 @@ def ptype(platform):
 # ---- assembly --------------------------------------------------------------
 
 def volume_key(p):
-    volume = (p.get("metrics") or {}).get("volume_30d_usd")
+    volume = (p.get("metrics") or {}).get("volume_usd")
     return (volume is None, -(volume or 0), p["name"].lower())
 
 
@@ -140,7 +191,13 @@ def group_platforms(platforms, config):
             (p for p in platforms if p["mechanism"] in g["mechanisms"]), key=volume_key
         )
         if members:
-            groups.append({"title": g["title"], "platforms": members})
+            groups.append(
+                {
+                    "title": g["title"],
+                    "platforms": members,
+                    "show_volume": g.get("show_volume", True),
+                }
+            )
     return groups
 
 
@@ -168,7 +225,9 @@ def render(config, platforms, tools, sources, generated_on):
         undefined=StrictUndefined,
         keep_trailing_newline=True,
     )
-    env.filters.update(md=md, usd=usd, num=num, mark=mark, ptype=ptype)
+    env.filters.update(md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=geo_cell, vol=vol)
+    # dead/deprecated entries stay in data/ (cross-links, history) but aren't rendered
+    platforms = [p for p in platforms if p["status"] not in ("dead", "deprecated")]
     return env.get_template("README.md.j2").render(
         config=config,
         platforms=platforms,
@@ -205,7 +264,11 @@ def main():
     today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     output = render(config, platforms, tools, sources, today)
     readme = ROOT / "README.md"
-    summary = f"{len(platforms)} platforms, {len(sources)} sources, {len(tools)} tools"
+    hidden = sum(1 for p in platforms if p["status"] in ("dead", "deprecated"))
+    summary = (
+        f"{len(platforms) - hidden} platforms ({hidden} dead/deprecated kept in data/), "
+        f"{len(sources)} sources, {len(tools)} tools"
+    )
 
     if args.check:
         current = readme.read_text() if readme.exists() else ""

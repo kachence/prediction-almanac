@@ -5,8 +5,15 @@ mechanism: onchain-amm
 chain: Polkadot parachain
 status: live
 launched: 2022
+geo:
+  model: global-restrictions
+  restricted: [us]
+  source: https://app.zeitgeist.pm/terms
+  as_of: "2026-08-12"
+  notes: "Terms bar US clients and unenumerated 'Regulated Jurisdictions'; the parachain itself is permissionless with no evident IP geoblocking."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

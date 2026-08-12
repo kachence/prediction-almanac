@@ -5,10 +5,14 @@ mechanism: regulated-exchange
 status: live
 launched: 2008
 geo:
-  us_access: no
-  notes: "UK/EU-licensed betting exchange; not available to US persons."
+  model: global-restrictions
+  restricted: [au, be, by, ch, cn, cz, dk, fr, hk, it, kz, nl, no, pt, ru, tr, ua, us, za]
+  source: https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions
+  as_of: "2026-08-12"
+  notes: "Blocklist per T&C 2.2, explicitly non-exhaustive; UK customers served under the UKGC licence, all others under the Malta (MGA) licence."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

@@ -3,13 +3,17 @@ name: Drift BET
 url: https://app.drift.trade/bet
 mechanism: onchain-clob
 chain: Solana
-status: live
+status: deprecated
 launched: 2024
 geo:
-  us_access: restricted
-  notes: "Drift blocks US persons per ToS."
+  model: global-restrictions
+  restricted: [us, gb, ca]
+  source: https://docs.velocity.exchange/legal-and-regulations/terms-of-use
+  as_of: "2026-08-12"
+  notes: "Velocity ToS (post-relaunch) bans US persons and lists Restricted Territories incl. Canada and the UK, plus FATF high-risk and sanctioned jurisdictions."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:
@@ -20,5 +24,5 @@ data:
   free_archive: null
   known_gaps: "Prediction markets share Drift's data pipeline; no market-specific archive."
   recorder_support: no
-description: "Prediction markets built into the Drift protocol on Solana."
+description: "Prediction markets built into Solana's Drift protocol; Drift was drained in April 2026 and relaunched as Velocity, leaving BET's status unclear."
 tags: [crypto, solana, clob]

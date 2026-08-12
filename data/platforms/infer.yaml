@@ -2,13 +2,16 @@ slug: infer
 name: INFER
 url: https://www.infer-pub.com
 mechanism: forecasting
-status: live
+status: dead
 launched: 2020
 geo:
-  us_access: yes
-  notes: "No stakes; open to anyone."
+  model: everyone
+  source: https://www.randforecastinginitiative.org/
+  as_of: "2026-08-12"
+  notes: "Program concluded; site is a permanent read-only archive under RAND."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:
@@ -19,5 +22,5 @@ data:
   free_archive: null
   known_gaps: "No public API."
   recorder_support: no
-description: "US policy-focused crowd forecasting site (originally CSET Foretell), now run under the RAND Forecasting Initiative."
+description: "US policy-focused crowd forecasting site (originally CSET Foretell); concluded under the RAND Forecasting Initiative, now a read-only archive."
 tags: [forecasting, policy, us]

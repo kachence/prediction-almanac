@@ -5,8 +5,15 @@ mechanism: onchain-amm
 chain: Optimism, Arbitrum, Base
 status: live
 launched: 2022
+geo:
+  model: global-restrictions
+  restricted: [by, cd, cn, cu, ir, iq, kp, lr, mm, sd, sy, us, zw]
+  source: https://docs.overtime.io/resources/terms-of-use
+  as_of: "2026-08-12"
+  notes: "ToS bars US citizens/access plus listed nations and OFAC SDNs; the contracts are permissionless and docs advertise no geoblocking — the restriction is contractual at the frontend."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

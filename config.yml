@@ -9,19 +9,25 @@ site:
     actually get out of it, and the tools around them.
 
 # Display groups for the Platforms section, in order. Every mechanism must be covered.
+# show_volume: whether the group's table gets a Volume column (real-money groups only —
+# play-money volume isn't USD and forecasting has none).
 platform_groups:
   - key: onchain
     title: On-chain markets
     mechanisms: [onchain-clob, onchain-amm]
+    show_volume: true
   - key: regulated
     title: Regulated & traditional exchanges
     mechanisms: [regulated-exchange]
+    show_volume: true
   - key: play-money
     title: Play-money markets
     mechanisms: [play-money]
+    show_volume: false
   - key: forecasting
     title: Forecasting platforms
     mechanisms: [forecasting]
+    show_volume: false
 
 # Tool categories, in display order. Keys must match schema/tool.schema.json enum.
 tool_categories:

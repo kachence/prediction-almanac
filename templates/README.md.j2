@@ -27,15 +27,26 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 {% for group in platform_groups %}
 ### {{ group.title }}
 
-| Platform | Type | Since | Status | 30d volume | US access | Description |
-|---|---|---|---|---|---|---|
+{% if group.show_volume %}
+| Platform | Type | Since | Volume | Who can trade | Description |
+|---|---|---|---|---|---|
 {% for p in group.platforms %}
-| **[{{ p.name | md }}]({{ p.url }})** | {{ p | ptype }} | {{ p.launched | md }} | {{ p.status }} | {{ ((p.metrics | default({}, true)).volume_30d_usd | default(none, true)) | usd }} | {{ ((p.geo | default({}, true)).us_access | default(none, true)) | md }} | {{ p.description | md }} |
+| **[{{ p.name | md }}]({{ p.url }})** | {{ p | ptype }} | {{ p.launched | md }} | {{ p | vol }} | {{ p | geo }} | {{ p.description | md }} |
 {% endfor %}
+{% else %}
+| Platform | Type | Since | Who can trade | Description |
+|---|---|---|---|---|
+{% for p in group.platforms %}
+| **[{{ p.name | md }}]({{ p.url }})** | {{ p | ptype }} | {{ p.launched | md }} | {{ p | geo }} | {{ p.description | md }} |
+{% endfor %}
+{% endif %}
 
 {% endfor %}
-*US access is factual (“who may trade”), per each platform’s own terms — not advice.
-Volume is 30-day notional in USD where a platform exposes it.*
+*“Who can trade” is factual, per each platform’s own terms (each cell links to its
+source; 🌐 permissionless = protocol enforces nothing, official frontends may geoblock) —
+not advice, and never guidance around restrictions. Volume is notional USD over the
+stated period. Dead or deprecated platforms keep their entry in [`data/`](data/) but
+aren’t listed here.*
 
 ## Data coverage
 

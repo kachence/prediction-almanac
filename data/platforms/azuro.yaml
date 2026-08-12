@@ -5,8 +5,15 @@ mechanism: onchain-amm
 chain: Polygon, Gnosis +
 status: live
 launched: 2022
+geo:
+  model: global-restrictions
+  restricted: [af, bd, bi, bo, bw, cd, dz, eg, et, iq, ir, kh, kp, lb, lr, ls, ly, ml, pk, lk, sd, ss, sy, us, ye, zw]
+  source: https://gem.azuro.org/terms-of-use
+  as_of: "2026-08-12"
+  notes: "azuro.org ToU list (citizens/residents, incl. US territories, plus UN/EU-sanctioned countries); Azuro is B2B — each third-party frontend applies its own geoblocking."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

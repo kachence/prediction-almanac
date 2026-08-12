@@ -5,10 +5,14 @@ mechanism: regulated-exchange
 status: live
 launched: 2014
 geo:
-  us_access: regulated
-  notes: "Operates under CFTC no-action relief as a research market (Victoria University of Wellington); $850 position cap per contract."
+  model: allowlist
+  allowed: [us]
+  source: https://www.predictit.org/terms-and-conditions
+  as_of: "2026-08-12"
+  notes: "Traders must be 'U.S. Persons' (citizens anywhere in the world, or resident aliens) — personhood, not location; operates under CFTC Letter 25-20 (2025) with a $3,500 per-contract cap."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

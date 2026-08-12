@@ -5,10 +5,13 @@ mechanism: regulated-exchange
 status: live
 launched: 1988
 geo:
-  us_access: regulated
-  notes: "Academic real-money market under CFTC no-action letters; investments capped at $500."
+  model: everyone
+  source: https://iemweb.biz.uiowa.edu/faq/
+  as_of: "2026-08-12"
+  notes: "Political markets open to traders worldwide; non-political markets (earnings/returns) restricted to academic traders; accounts capped at $500 under CFTC no-action relief."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

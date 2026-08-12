@@ -17,11 +17,26 @@
     "status": { "enum": ["live", "beta", "deprecated", "dead"] },
     "launched": { "type": ["integer", "null"], "minimum": 1980, "maximum": 2100 },
     "geo": {
+      "description": "Factual 'who may trade' per the platform's own terms — never an evasion guide.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["us_access"],
+      "required": ["model"],
       "properties": {
-        "us_access": { "enum": ["yes", "no", "restricted", "regulated"] },
+        "model": { "enum": ["everyone", "permissionless", "global-restrictions", "allowlist"] },
+        "restricted": {
+          "description": "ISO 3166-1 alpha-2, lowercase; for model: global-restrictions.",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z]{2}$" },
+          "uniqueItems": true
+        },
+        "allowed": {
+          "description": "ISO 3166-1 alpha-2, lowercase; for model: allowlist.",
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z]{2}$" },
+          "uniqueItems": true
+        },
+        "source": { "type": ["string", "null"], "pattern": "^https?://" },
+        "as_of": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
         "notes": { "type": ["string", "null"], "maxLength": 300 }
       }
     },
@@ -30,7 +45,8 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "volume_30d_usd": { "type": ["number", "null"], "minimum": 0 },
+        "volume_usd": { "type": ["number", "null"], "minimum": 0 },
+        "period": { "enum": ["24h", "30d", null] },
         "source": { "type": ["string", "null"] },
         "as_of": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
       }

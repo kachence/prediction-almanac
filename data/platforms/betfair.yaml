@@ -5,10 +5,13 @@ mechanism: regulated-exchange
 status: live
 launched: 2000
 geo:
-  us_access: no
-  notes: "UK/EU-licensed betting exchange; not available to US persons."
+  model: allowlist
+  source: https://support.betfair.com/app/answers/detail/betfair-general-terms-and-conditions/
+  as_of: "2026-08-12"
+  notes: "Separate liquidity pools: .com (UKGC/MGA for GB/IE/MT), betfair.it, betfair.es, betfair.com.au (AU/NZ); official pages block bots so the exact country tail is unverified. Some countries get the Sportsbook but not the Exchange."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

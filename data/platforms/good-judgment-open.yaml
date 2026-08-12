@@ -5,10 +5,13 @@ mechanism: forecasting
 status: live
 launched: 2015
 geo:
-  us_access: yes
-  notes: "No stakes; open to anyone."
+  model: everyone
+  source: https://www.gjopen.com/terms
+  as_of: "2026-08-12"
+  notes: "Terms contain no geographic or sanctions eligibility clauses."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

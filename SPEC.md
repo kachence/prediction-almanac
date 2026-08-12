@@ -78,10 +78,17 @@ enforced by `build.py` (and later by `validate.yml` and the intake bot). Blocks 
 
 **Platform** — a place where people trade or forecast. Key fields: `mechanism`
 (`onchain-clob | onchain-amm | regulated-exchange | play-money | forecasting`), `status`
-(`live | beta | deprecated | dead`), `geo.us_access` (`yes | no | restricted |
-regulated` — factual "who may trade", **never** an evasion guide), auto-filled
-`metrics.volume_30d_usd`, and the `data:` block (public API? live order book? historical
-depth? free archive? known gaps? recorder support?) cross-linked to `sources/` slugs.
+(`live | beta | deprecated | dead` — dead/deprecated entries stay in `data/` for
+cross-links and history but are **not rendered** in the README; pruning is a one-field
+flip), `geo` (factual "who may trade", **never** an evasion guide: `model` is
+`everyone | permissionless | global-restrictions | allowlist` plus ISO-3166
+`restricted`/`allowed` lists, the `source` terms URL, and `as_of` — hand-maintained; the
+refresh bot may later hash `source` pages to flag stale entries, but we never
+scrape/parse legal prose), auto-filled `metrics` (`volume_usd` + `period` of
+`24h | 30d`, so platforms with only cheap 24h numbers aren't presented as 30d), and the
+`data:` block (public API? live order book? historical depth? free archive? known gaps?
+recorder support?) cross-linked to `sources/` slugs. Volume columns render only for
+real-money groups (config `show_volume`) — play-money volume isn't USD.
 
 **Tool** — anything built on top: `category` (`aggregator | analytics | bot | api-sdk |
 dashboard | alerting | arbitrage | data | extension | infra | education`), `platforms`

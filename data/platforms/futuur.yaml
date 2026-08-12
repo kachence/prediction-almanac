@@ -5,10 +5,16 @@ mechanism: play-money
 status: live
 launched: 2017
 geo:
-  us_access: restricted
-  notes: "Play-money worldwide; real-money (crypto) markets exclude US persons per ToS."
+  model: global-restrictions
+  restricted: [ae, at, au, bb, bf, bg, cd, cm, de, es, fr, gb, gi, hr, ht, ir, jm, km,
+               kp, lr, ml, mm, mz, ne, ng, ni, nl, ph, ru, sn, ss, sy, tr, tz, ug, us,
+               vn, ye, za]
+  source: https://help.futuur.com/Terms-of-Service-a2f757178971446cba1402b3cdc9a799
+  as_of: "2026-08-12"
+  notes: "Real-money services only — 39 countries barred (operator licensed in Anjouan, Comoros); play-money (Ooms) has no geographic restriction stated."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

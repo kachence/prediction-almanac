@@ -5,10 +5,14 @@ mechanism: regulated-exchange
 status: live
 launched: 2024
 geo:
-  us_access: regulated
-  notes: "CFTC-regulated exchange; retail access via Interactive Brokers (ForecastTrader)."
+  model: allowlist
+  allowed: [us, ca, hk, ie]
+  source: https://www.interactivebrokers.com/en/general/about/mediaRelations/4-1-25.php
+  as_of: "2026-08-12"
+  notes: "Eligibility is by IBKR carrying entity, not country: IB LLC (US), IB Canada, IB Hong Kong, IB Ireland (standing in for EEA clients); IB Singapore named in IBKR guides but unconfirmed."
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 data:

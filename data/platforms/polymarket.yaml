@@ -7,11 +7,17 @@ chain: Polygon
 status: live                # live | beta | deprecated | dead
 launched: 2020
 geo:                        # factual "who may trade" — never an evasion guide
-  us_access: restricted     # yes | no | restricted | regulated
-  notes: "Blocked US persons per ToS for years; acquired CFTC-licensed QCX in 2025 toward a regulated US re-entry."
+  model: global-restrictions # everyone | permissionless | global-restrictions | allowlist
+  restricted: [au, be, bi, br, by, ca, cd, cf, cu, de, et, fr, gb, hu, ie, iq, ir, it,
+               jp, kp, lb, ly, mm, mt, ni, nl, nz, pl, ru, sd, sg, si, sk, so, ss, sy,
+               th, tw, um, us, ve, ye, zw]   # ISO 3166-1 alpha-2, lowercase
+  source: https://polymarket.com/tos         # the terms page the list was read from
+  as_of: "2026-08-12"
+  notes: "Trading-only restriction; content stays available. US blocked/close-only on the global venue — the CFTC-regulated Polymarket US exchange (Dec 2025, via QCX) is separate. Canada at province level (AB/BC/ON/QC), Ukraine only Crimea/Donetsk/Luhansk; some entries close-only or frontend-only."
 # ---- auto-filled by scripts/refresh.py — seed as nulls ----
 metrics:
-  volume_30d_usd: null
+  volume_usd: null
+  period: null
   source: null
   as_of: null
 # -----------------------------------------------------------
