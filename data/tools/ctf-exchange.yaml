@@ -1,0 +1,14 @@
+slug: ctf-exchange
+name: ctf-exchange
+url: https://github.com/Polymarket/ctf-exchange
+repo: https://github.com/Polymarket/ctf-exchange
+category: infra
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Polymarket's audited on-chain exchange contracts for settling CTF outcome tokens."
+tags: [solidity, contracts, official]

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tool.schema.json",
+  "title": "Tool",
+  "description": "Anything built on top of prediction markets: aggregators, SDKs, bots, dashboards…",
+  "type": "object",
+  "required": ["slug", "name", "url", "category", "description"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "pattern": "^https?://" },
+    "repo": { "type": ["string", "null"], "pattern": "^https://github\\.com/" },
+    "category": {
+      "enum": ["aggregator", "analytics", "bot", "api-sdk", "dashboard", "alerting", "arbitrage", "data", "extension", "infra", "education"]
+    },
+    "platforms": {
+      "description": "Slugs from data/platforms/ this tool covers; empty/omitted = platform-agnostic.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "uniqueItems": true
+    },
+    "github": {
+      "description": "Auto-filled by scripts/refresh.py — seed as nulls.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "stars": { "type": ["integer", "null"], "minimum": 0 },
+        "last_commit": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "license": { "type": ["string", "null"] },
+        "archived": { "type": ["boolean", "null"] },
+        "health": { "enum": ["active", "stale", "archived", null] }
+      }
+    },
+    "description": { "type": "string", "minLength": 10, "maxLength": 200 },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "uniqueItems": true
+    }
+  }
+}

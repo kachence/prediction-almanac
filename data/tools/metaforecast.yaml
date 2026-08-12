@@ -1,0 +1,15 @@
+slug: metaforecast
+name: Metaforecast
+url: https://metaforecast.org
+repo: https://github.com/quantified-uncertainty/metaforecast
+category: aggregator
+platforms: [polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, good-judgment-open, infer]
+# ---- auto-filled by scripts/refresh.py ----
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Meta search engine aggregating forecasts and odds across platforms."
+tags: [search, cross-platform]

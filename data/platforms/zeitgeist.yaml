@@ -1,0 +1,21 @@
+slug: zeitgeist
+name: Zeitgeist
+url: https://zeitgeist.pm
+mechanism: onchain-amm
+chain: Polkadot parachain
+status: live
+launched: 2022
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: partial
+  granularity: on-chain (indexer)
+  free_archive: null
+  known_gaps: "Data via its own indexer/SDK; no simple REST archive."
+  recorder_support: no
+description: "Prediction-market parachain in the Polkadot ecosystem with on-chain market governance."
+tags: [crypto, polkadot, amm]

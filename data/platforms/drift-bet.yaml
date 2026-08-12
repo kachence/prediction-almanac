@@ -1,0 +1,24 @@
+slug: drift-bet
+name: Drift BET
+url: https://app.drift.trade/bet
+mechanism: onchain-clob
+chain: Solana
+status: live
+launched: 2024
+geo:
+  us_access: restricted
+  notes: "Drift blocks US persons per ToS."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: partial
+  granularity: trade
+  free_archive: null
+  known_gaps: "Prediction markets share Drift's data pipeline; no market-specific archive."
+  recorder_support: no
+description: "Prediction markets built into the Drift protocol on Solana."
+tags: [crypto, solana, clob]

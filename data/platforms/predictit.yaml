@@ -1,0 +1,23 @@
+slug: predictit
+name: PredictIt
+url: https://www.predictit.org
+mechanism: regulated-exchange
+status: live
+launched: 2014
+geo:
+  us_access: regulated
+  notes: "Operates under CFTC no-action relief as a research market (Victoria University of Wellington); $850 position cap per contract."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: none
+  granularity: snapshot quotes
+  free_archive: null
+  known_gaps: "Official API is a current-price snapshot only; no historical endpoint."
+  recorder_support: no
+description: "Long-running US political research market; capped stakes and a small contract universe."
+tags: [regulated, us, politics]

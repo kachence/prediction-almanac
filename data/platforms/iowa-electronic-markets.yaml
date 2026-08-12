@@ -1,0 +1,23 @@
+slug: iowa-electronic-markets
+name: Iowa Electronic Markets
+url: https://iem.uiowa.edu
+mechanism: regulated-exchange
+status: live
+launched: 1988
+geo:
+  us_access: regulated
+  notes: "Academic real-money market under CFTC no-action letters; investments capped at $500."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: full
+  granularity: daily prices
+  free_archive: null
+  known_gaps: "History published as per-market files on the site; no API."
+  recorder_support: no
+description: "The original academic real-money market, run by the University of Iowa since 1988."
+tags: [academic, us, politics, economics]

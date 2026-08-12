@@ -1,0 +1,13 @@
+slug: kalshi-api
+name: Kalshi Trading API
+url: https://docs.kalshi.com
+platforms: [kalshi]
+kind: live-api
+format: JSON REST + WebSocket
+granularity: trades, candlesticks, order book
+coverage:
+  range: 2021–present
+  completeness: full
+  known_gaps: "Per-market pagination; no bulk download."
+access: free
+description: "Kalshi's official API; serves live books plus per-market trade and candlestick history."

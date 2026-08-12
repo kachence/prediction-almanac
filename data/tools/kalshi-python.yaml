@@ -1,0 +1,7 @@
+slug: kalshi-python
+name: kalshi-python
+url: https://pypi.org/project/kalshi-python/
+category: api-sdk
+platforms: [kalshi]
+description: "Official Python SDK for Kalshi's trading API."
+tags: [python, official]

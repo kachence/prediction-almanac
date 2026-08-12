@@ -1,0 +1,21 @@
+slug: limitless
+name: Limitless
+url: https://limitless.exchange
+mechanism: onchain-clob
+chain: Base
+status: live
+launched: 2024
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: none
+  granularity: live markets+book
+  free_archive: null
+  known_gaps: "No historical archive; markets are short-lived by design."
+  recorder_support: no
+description: "Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders."
+tags: [crypto, base, short-term]

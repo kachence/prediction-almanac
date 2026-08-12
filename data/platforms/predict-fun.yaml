@@ -1,0 +1,21 @@
+slug: predict-fun
+name: predict.fun
+url: https://predict.fun
+mechanism: onchain-clob
+chain: Blast
+status: live
+launched: 2024
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: none
+  granularity: live markets+book
+  free_archive: null
+  known_gaps: "No historical archive."
+  recorder_support: no
+description: "Polymarket-style on-chain CLOB prediction market on Blast."
+tags: [crypto, blast, clob]

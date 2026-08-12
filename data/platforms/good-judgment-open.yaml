@@ -1,0 +1,23 @@
+slug: good-judgment-open
+name: Good Judgment Open
+url: https://www.gjopen.com
+mechanism: forecasting
+status: live
+launched: 2015
+geo:
+  us_access: yes
+  notes: "No stakes; open to anyone."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: none
+  granularity: null
+  free_archive: null
+  known_gaps: "No public API; forecast data is not exported."
+  recorder_support: no
+description: "Public forecasting tournament from Good Judgment, of Superforecasting fame."
+tags: [forecasting, geopolitics]

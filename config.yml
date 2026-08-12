@@ -1,0 +1,47 @@
+# Build & pipeline configuration. Data lives in data/; this file controls presentation
+# and (later) refresh/intake behavior.
+
+site:
+  title: Prediction Almanac
+  repo: kachence/prediction-almanac
+  tagline: >-
+    The self-updating almanac of prediction markets — every platform, the data you can
+    actually get out of it, and the tools around them.
+
+# Display groups for the Platforms section, in order. Every mechanism must be covered.
+platform_groups:
+  - key: onchain
+    title: On-chain markets
+    mechanisms: [onchain-clob, onchain-amm]
+  - key: regulated
+    title: Regulated & traditional exchanges
+    mechanisms: [regulated-exchange]
+  - key: play-money
+    title: Play-money markets
+    mechanisms: [play-money]
+  - key: forecasting
+    title: Forecasting platforms
+    mechanisms: [forecasting]
+
+# Tool categories, in display order. Keys must match schema/tool.schema.json enum.
+tool_categories:
+  aggregator: Aggregators
+  analytics: Analytics & calibration
+  api-sdk: APIs & SDKs
+  bot: Bots & agents
+  dashboard: Dashboards
+  alerting: Alerting
+  arbitrage: Arbitrage
+  data: Data tooling
+  extension: Extensions
+  infra: Infrastructure
+  education: Education
+
+# Used by scripts/refresh.py (step 2+).
+thresholds:
+  stale_days: 365          # last commit older than this -> github.health: stale
+  liveness_timeout_s: 10
+
+# Used by scripts/intake.py (step 4+).
+intake:
+  auto_merge_confidence: 0.85

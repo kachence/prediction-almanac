@@ -1,0 +1,23 @@
+slug: smarkets
+name: Smarkets
+url: https://smarkets.com
+mechanism: regulated-exchange
+status: live
+launched: 2008
+geo:
+  us_access: no
+  notes: "UK/EU-licensed betting exchange; not available to US persons."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: none
+  granularity: live odds+book
+  free_archive: null
+  known_gaps: "Trading API requires an account; no public historical archive."
+  recorder_support: no
+description: "UK-licensed betting exchange with notably deep political markets."
+tags: [betting-exchange, politics, uk]

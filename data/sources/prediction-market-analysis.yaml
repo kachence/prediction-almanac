@@ -1,0 +1,13 @@
+slug: prediction-market-analysis
+name: prediction-market-analysis
+url: https://github.com/jon-becker/prediction-market-analysis
+platforms: [polymarket, kalshi]
+kind: dataset
+format: bulk files (see repo)
+granularity: trade
+coverage:
+  range: through 2025
+  completeness: partial
+  known_gaps: "Point-in-time snapshots; check the repo for freshness."
+access: free
+description: "Self-described largest public dataset of Polymarket and Kalshi trades."

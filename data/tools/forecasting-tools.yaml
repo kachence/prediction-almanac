@@ -1,0 +1,14 @@
+slug: forecasting-tools
+name: forecasting-tools
+url: https://github.com/Metaculus/forecasting-tools
+repo: https://github.com/Metaculus/forecasting-tools
+category: api-sdk
+platforms: [metaculus]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Python framework for building LLM forecasting bots, used in Metaculus AI tournaments."
+tags: [python, ai, llm]

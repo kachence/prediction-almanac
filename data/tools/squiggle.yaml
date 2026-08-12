@@ -1,0 +1,14 @@
+slug: squiggle
+name: Squiggle
+url: https://www.squiggle-language.com
+repo: https://github.com/quantified-uncertainty/squiggle
+category: infra
+platforms: []
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Probabilistic estimation language for building and sanity-checking forecasts."
+tags: [language, estimation]

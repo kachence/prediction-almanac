@@ -1,0 +1,14 @@
+slug: polymarket-agents
+name: Polymarket Agents
+url: https://github.com/Polymarket/agents
+repo: https://github.com/Polymarket/agents
+category: bot
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Official framework for building LLM trading agents on Polymarket."
+tags: [agents, ai, llm, official]

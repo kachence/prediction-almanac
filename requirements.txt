@@ -1,0 +1,6 @@
+# build
+ruamel.yaml>=0.18
+jsonschema>=4.21
+jinja2>=3.1
+# refresh + intake (steps 2+), kept here so one install covers all scripts
+httpx>=0.27

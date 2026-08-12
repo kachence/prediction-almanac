@@ -1,0 +1,13 @@
+slug: pmxt
+name: pmxt
+url: https://pmxt.dev
+platforms: [polymarket]
+kind: historical-archive   # live-api | historical-archive | subgraph | dataset
+format: parquet (hourly)
+granularity: trade+book
+coverage:
+  range: 2024–present
+  completeness: partial    # full | partial | unknown
+  known_gaps: "Multi-day/week gaps on some markets."
+access: free               # free | paid | gated
+description: "Free parquet archive of Polymarket trades and books, updated hourly."

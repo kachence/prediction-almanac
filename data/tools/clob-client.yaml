@@ -1,0 +1,14 @@
+slug: clob-client
+name: clob-client
+url: https://github.com/Polymarket/clob-client
+repo: https://github.com/Polymarket/clob-client
+category: api-sdk
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Official TypeScript client for the Polymarket CLOB API."
+tags: [typescript, official]

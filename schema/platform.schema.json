@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "platform.schema.json",
+  "title": "Platform",
+  "description": "A place where people trade or forecast: exchange, protocol, or forecasting site.",
+  "type": "object",
+  "required": ["slug", "name", "url", "mechanism", "status", "description"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "pattern": "^https?://" },
+    "mechanism": {
+      "enum": ["onchain-clob", "onchain-amm", "regulated-exchange", "play-money", "forecasting"]
+    },
+    "chain": { "type": ["string", "null"] },
+    "status": { "enum": ["live", "beta", "deprecated", "dead"] },
+    "launched": { "type": ["integer", "null"], "minimum": 1980, "maximum": 2100 },
+    "geo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["us_access"],
+      "properties": {
+        "us_access": { "enum": ["yes", "no", "restricted", "regulated"] },
+        "notes": { "type": ["string", "null"], "maxLength": 300 }
+      }
+    },
+    "metrics": {
+      "description": "Auto-filled by scripts/refresh.py — seed as nulls.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "volume_30d_usd": { "type": ["number", "null"], "minimum": 0 },
+        "source": { "type": ["string", "null"] },
+        "as_of": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
+    "data": {
+      "description": "What data you can get out of this platform; cross-links data/sources/ slugs.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "public_api": { "type": ["boolean", "null"] },
+        "live_orderbook": { "type": ["boolean", "null"] },
+        "historical": { "enum": ["none", "partial", "full", null] },
+        "granularity": { "type": ["string", "null"], "maxLength": 100 },
+        "free_archive": { "type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "known_gaps": { "type": ["string", "null"], "maxLength": 300 },
+        "recorder_support": { "enum": ["yes", "planned", "no", null] }
+      }
+    },
+    "description": { "type": "string", "minLength": 10, "maxLength": 200 },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "uniqueItems": true
+    }
+  }
+}

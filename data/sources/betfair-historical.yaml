@@ -1,0 +1,13 @@
+slug: betfair-historical
+name: Betfair Historical Data
+url: https://historicdata.betfair.com
+platforms: [betfair]
+kind: historical-archive
+format: compressed JSON (market ticks)
+granularity: odds ticks + book
+coverage:
+  range: varies by sport/tier
+  completeness: full
+  known_gaps: "Politics/specials coverage thinner than sports."
+access: paid
+description: "Betfair's official paid archive of exchange odds and book history."

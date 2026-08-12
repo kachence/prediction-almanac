@@ -1,0 +1,27 @@
+# Annotated exemplar — copy this file when adding a platform.
+slug: polymarket            # must equal the filename
+name: Polymarket
+url: https://polymarket.com
+mechanism: onchain-clob     # onchain-clob | onchain-amm | regulated-exchange | play-money | forecasting
+chain: Polygon
+status: live                # live | beta | deprecated | dead
+launched: 2020
+geo:                        # factual "who may trade" — never an evasion guide
+  us_access: restricted     # yes | no | restricted | regulated
+  notes: "Blocked US persons per ToS for years; acquired CFTC-licensed QCX in 2025 toward a regulated US re-entry."
+# ---- auto-filled by scripts/refresh.py — seed as nulls ----
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+# -----------------------------------------------------------
+data:                       # what you can get out — cross-links data/sources/ slugs
+  public_api: true
+  live_orderbook: true
+  historical: partial       # none | partial | full
+  granularity: trade+book
+  free_archive: pmxt        # slug in data/sources/, or null
+  known_gaps: "No official bulk historical-trade endpoint; third-party archives have day/week gaps on some markets."
+  recorder_support: planned # yes | planned | no
+description: "Largest on-chain prediction market; USDC-settled CLOB on Polygon."
+tags: [crypto, clob, politics, sports, weather]

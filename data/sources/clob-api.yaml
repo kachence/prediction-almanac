@@ -1,0 +1,13 @@
+slug: clob-api
+name: Polymarket CLOB API
+url: https://docs.polymarket.com
+platforms: [polymarket]
+kind: live-api
+format: JSON REST + WebSocket
+granularity: L2 order book, prices, recent trades
+coverage:
+  range: live
+  completeness: partial
+  known_gaps: "Live and recent data; not a bulk historical source."
+access: free
+description: "Polymarket's trading API; the live order book and price feeds."

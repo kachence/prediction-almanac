@@ -1,0 +1,24 @@
+slug: omen
+name: Omen
+url: https://github.com/protofire/omen-exchange
+mechanism: onchain-amm
+chain: Gnosis Chain
+status: deprecated
+launched: 2020
+geo:
+  us_access: yes
+  notes: "Permissionless protocol; frontend unmaintained."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: partial
+  granularity: on-chain events
+  free_archive: null
+  known_gaps: "Data recoverable from Gnosis Chain and subgraphs; canonical frontend gone."
+  recorder_support: no
+description: "DXdao's AMM prediction market on Gnosis Chain, built on the Conditional Token Framework; unmaintained."
+tags: [crypto, gnosis, amm, historical]

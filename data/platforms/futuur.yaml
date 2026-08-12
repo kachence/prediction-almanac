@@ -1,0 +1,23 @@
+slug: futuur
+name: Futuur
+url: https://futuur.com
+mechanism: play-money
+status: live
+launched: 2017
+geo:
+  us_access: restricted
+  notes: "Play-money worldwide; real-money (crypto) markets exclude US persons per ToS."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: none
+  granularity: current odds
+  free_archive: null
+  known_gaps: "API serves current markets/odds; no historical endpoint."
+  recorder_support: no
+description: "Social prediction markets in play-money and real-money (crypto) flavors."
+tags: [play-money, crypto, social]

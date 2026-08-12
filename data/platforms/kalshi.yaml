@@ -1,0 +1,23 @@
+slug: kalshi
+name: Kalshi
+url: https://kalshi.com
+mechanism: regulated-exchange
+status: live
+launched: 2021
+geo:
+  us_access: regulated
+  notes: "CFTC-regulated designated contract market; US persons trade directly."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: partial
+  granularity: trade+candlestick
+  free_archive: prediction-market-analysis
+  known_gaps: "History served per-market via API (trades, candlesticks); no official bulk archive."
+  recorder_support: planned
+description: "CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports."
+tags: [regulated, us, politics, economics, sports, weather]

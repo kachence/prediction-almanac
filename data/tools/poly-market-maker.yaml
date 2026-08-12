@@ -1,0 +1,14 @@
+slug: poly-market-maker
+name: poly-market-maker
+url: https://github.com/Polymarket/poly-market-maker
+repo: https://github.com/Polymarket/poly-market-maker
+category: bot
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Reference market-making bot for the Polymarket CLOB."
+tags: [market-making, python, official]

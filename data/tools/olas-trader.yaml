@@ -1,0 +1,14 @@
+slug: olas-trader
+name: Olas Predict trader
+url: https://github.com/valory-xyz/trader
+repo: https://github.com/valory-xyz/trader
+category: bot
+platforms: [omen]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Autonomous prediction-market trading agent that runs as an on-chain Olas service."
+tags: [agents, autonomous, gnosis]

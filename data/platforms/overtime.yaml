@@ -1,0 +1,21 @@
+slug: overtime
+name: Overtime
+url: https://overtimemarkets.xyz
+mechanism: onchain-amm
+chain: Optimism, Arbitrum, Base
+status: live
+launched: 2022
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: partial
+  granularity: on-chain (subgraph)
+  free_archive: null
+  known_gaps: "Data via per-chain subgraphs."
+  recorder_support: no
+description: "Sports-focused on-chain AMM markets from the Thales protocol family."
+tags: [crypto, sports, amm]

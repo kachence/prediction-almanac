@@ -1,0 +1,23 @@
+slug: hypermind
+name: Hypermind
+url: https://www.hypermind.com
+mechanism: play-money
+status: live
+launched: 2014
+geo:
+  us_access: yes
+  notes: "Stakes are virtual; forecasters are paid in prizes."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: none
+  granularity: null
+  free_archive: null
+  known_gaps: "No public API."
+  recorder_support: no
+description: "Prize-based prediction market and forecasting panel; long-running French-American operation."
+tags: [play-money, prizes, forecasting]

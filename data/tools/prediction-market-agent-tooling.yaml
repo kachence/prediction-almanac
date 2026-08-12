@@ -1,0 +1,14 @@
+slug: prediction-market-agent-tooling
+name: prediction-market-agent-tooling
+url: https://github.com/gnosis/prediction-market-agent-tooling
+repo: https://github.com/gnosis/prediction-market-agent-tooling
+category: api-sdk
+platforms: [polymarket, manifold, omen]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Gnosis toolkit for building AI agents that trade on prediction markets."
+tags: [python, agents, ai]

@@ -1,0 +1,7 @@
+slug: calibration-city
+name: Calibration City
+url: https://calibration.city
+category: analytics
+platforms: [polymarket, kalshi, manifold, metaculus]
+description: "Cross-platform calibration explorer scoring how well market prices predict real outcomes."
+tags: [calibration, accuracy, cross-platform]

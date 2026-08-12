@@ -1,0 +1,13 @@
+slug: gamma-api
+name: Polymarket Gamma API
+url: https://gamma-api.polymarket.com
+platforms: [polymarket]
+kind: live-api
+format: JSON REST
+granularity: markets/events metadata + volumes
+coverage:
+  range: 2020–present
+  completeness: full
+  known_gaps: "Metadata and aggregates only — not a trade tape."
+access: free
+description: "Polymarket's public metadata API: markets, events, and volume aggregates."

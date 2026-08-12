@@ -1,0 +1,23 @@
+slug: metaculus
+name: Metaculus
+url: https://www.metaculus.com
+mechanism: forecasting
+status: live
+launched: 2015
+geo:
+  us_access: yes
+  notes: "Reputation-based forecasting, no stakes; open to anyone."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: full
+  granularity: aggregate forecast history
+  free_archive: null
+  known_gaps: "Individual forecasts mostly private; aggregates and resolutions are public via API."
+  recorder_support: no
+description: "Long-horizon forecasting community with tournaments and track records; aggregates probabilistic forecasts rather than trading."
+tags: [forecasting, science, ai, geopolitics]

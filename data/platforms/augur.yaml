@@ -1,0 +1,24 @@
+slug: augur
+name: Augur
+url: https://github.com/AugurProject
+mechanism: onchain-clob
+chain: Ethereum
+status: dead
+launched: 2018
+geo:
+  us_access: yes
+  notes: "Permissionless protocol; now defunct."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: partial
+  granularity: on-chain events
+  free_archive: null
+  known_gaps: "Data only recoverable from Ethereum archives and old subgraphs."
+  recorder_support: no
+description: "The pioneering decentralized prediction market on Ethereum; v2 shipped 2020, development wound down."
+tags: [crypto, ethereum, historical]

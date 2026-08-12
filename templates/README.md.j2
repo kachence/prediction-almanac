@@ -1,0 +1,91 @@
+<!-- ⚠️ GENERATED FILE — do not edit by hand. -->
+<!-- Edit data/*.yaml and run `python scripts/build.py`. CI rejects hand edits. -->
+
+# Prediction Almanac
+
+[![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
+[![README: generated](https://img.shields.io/badge/README-generated_from_data%2F-blue)](SPEC.md)
+
+> {{ config.site.tagline }}
+
+**{{ platforms | length }} platforms · {{ sources | length }} data sources · {{ tools | length }} tools** — generated {{ generated_on }} by [`scripts/build.py`](scripts/build.py)
+
+Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
+Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
+show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
+
+## Contents
+
+- [Platforms](#platforms)
+- [Data coverage](#data-coverage) — *which markets you can actually get data out of*
+- [Tools](#tools)
+- [Contributing](#contributing)
+- [Related](#related)
+
+## Platforms
+
+{% for group in platform_groups %}
+### {{ group.title }}
+
+| Platform | Type | Since | Status | 30d volume | US access | Description |
+|---|---|---|---|---|---|---|
+{% for p in group.platforms %}
+| **[{{ p.name | md }}]({{ p.url }})** | {{ p | ptype }} | {{ p.launched | md }} | {{ p.status }} | {{ ((p.metrics | default({}, true)).volume_30d_usd | default(none, true)) | usd }} | {{ ((p.geo | default({}, true)).us_access | default(none, true)) | md }} | {{ p.description | md }} |
+{% endfor %}
+
+{% endfor %}
+*US access is factual (“who may trade”), per each platform’s own terms — not advice.
+Volume is 30-day notional in USD where a platform exposes it.*
+
+## Data coverage
+
+What nobody else tracks: whether you can actually **get the data out** — for research,
+backtesting, or building. Per platform first, then the concrete sources.
+
+| Platform | Public API | Live book | Historical | Granularity | Free archive | Known gaps |
+|---|---|---|---|---|---|---|
+{% for p in platforms | sort(attribute='name') if p.data %}
+{% set d = p.data %}
+| [{{ p.name | md }}]({{ p.url }}) | {{ d.public_api | default(none, true) | mark }} | {{ d.live_orderbook | default(none, true) | mark }} | {{ d.historical | default(none, true) | md }} | {{ d.granularity | default(none, true) | md }} | {% if d.free_archive | default(none, true) %}[{{ sources_by_slug[d.free_archive].name | md }}]({{ sources_by_slug[d.free_archive].url }}){% else %}—{% endif %} | {{ d.known_gaps | default(none, true) | md }} |
+{% endfor %}
+
+### Sources
+
+| Source | Covers | Kind | Format · granularity | Coverage | Access | Known gaps |
+|---|---|---|---|---|---|---|
+{% for s in sources %}
+{% set cov = s.coverage | default({}, true) %}
+| **[{{ s.name | md }}]({{ s.url }})** | {{ s.platforms | join(', ') | md }} | {{ s.kind }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ s.access }} | {{ cov.known_gaps | default(none, true) | md }} |
+{% endfor %}
+
+## Tools
+
+{% for group in tool_groups %}
+### {{ group.title }}
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+{% for t in group.tools %}
+{% set gh = t.github | default({}, true) %}
+| **[{{ t.name | md }}]({{ t.url }})** | {{ (t.platforms | default([], true)) | join(', ') | md }} | {{ gh.stars | default(none, true) | num }} | {{ gh.last_commit | default(none, true) | md }} | {{ t.description | md }} |
+{% endfor %}
+
+{% endfor %}
+## Contributing
+
+Entries are one YAML file each under [`data/`](data/), validated against
+[`schema/`](schema/) — **edit data, never this README**. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for the two-minute guide. An issue-form intake bot
+(deterministic checks + LLM vetting + auto-merge) is on the
+[roadmap](SPEC.md#7-build-order-each-step-ships-something).
+
+## Related
+
+- [PM Atlas](https://pmatlas.xyz) — hosted dashboard mapping the platform landscape.
+- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) — large public Polymarket + Kalshi trade dataset (also listed in [Sources](#sources)).
+- [sindresorhus/awesome](https://github.com/sindresorhus/awesome) — the genre this almanac grew out of.
+
+---
+
+_Generated {{ generated_on }} from [`data/`](data/). Found something stale or dead? The
+refresh bot will too — but [issues](https://github.com/{{ config.site.repo }}/issues) are welcome._

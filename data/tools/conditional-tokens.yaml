@@ -1,0 +1,14 @@
+slug: conditional-tokens
+name: Conditional Token Framework
+url: https://github.com/gnosis/conditional-tokens-contracts
+repo: https://github.com/gnosis/conditional-tokens-contracts
+category: infra
+platforms: [polymarket, omen]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on."
+tags: [solidity, standard, gnosis]

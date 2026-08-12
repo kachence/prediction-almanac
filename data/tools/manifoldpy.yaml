@@ -1,0 +1,14 @@
+slug: manifoldpy
+name: manifoldpy
+url: https://github.com/vluzko/manifoldpy
+repo: https://github.com/vluzko/manifoldpy
+category: api-sdk
+platforms: [manifold]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Community Python wrapper for the Manifold API."
+tags: [python, community]

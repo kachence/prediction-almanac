@@ -1,0 +1,23 @@
+slug: manifold
+name: Manifold
+url: https://manifold.markets
+mechanism: play-money
+status: live
+launched: 2021
+geo:
+  us_access: yes
+  notes: "Play-money (mana); open to anyone."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: full
+  granularity: bet-level
+  free_archive: null
+  known_gaps: "Full history only via paginated API; rate limits make whole-site pulls slow."
+  recorder_support: no
+description: "Play-money markets anyone can create; the most open API and data of any platform."
+tags: [play-money, social, open-api]

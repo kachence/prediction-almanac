@@ -1,0 +1,14 @@
+slug: py-clob-client
+name: py-clob-client
+url: https://github.com/Polymarket/py-clob-client
+repo: https://github.com/Polymarket/py-clob-client
+category: api-sdk
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Official Python client for the Polymarket CLOB API."
+tags: [python, official]

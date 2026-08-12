@@ -1,0 +1,14 @@
+slug: fatebook
+name: Fatebook
+url: https://fatebook.io
+repo: https://github.com/sage-future/fatebook
+category: analytics
+platforms: []
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Quick personal forecast logging and calibration tracking, from Sage."
+tags: [calibration, personal]

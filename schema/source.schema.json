@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source.schema.json",
+  "title": "Source",
+  "description": "A way to get data out of a platform: live API, archive, subgraph, or dataset.",
+  "type": "object",
+  "required": ["slug", "name", "url", "platforms", "kind", "access"],
+  "additionalProperties": false,
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "pattern": "^https?://" },
+    "platforms": {
+      "description": "Slugs from data/platforms/ this source covers.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "kind": { "enum": ["live-api", "historical-archive", "subgraph", "dataset"] },
+    "format": { "type": ["string", "null"], "maxLength": 100 },
+    "granularity": { "type": ["string", "null"], "maxLength": 100 },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "range": { "type": ["string", "null"], "maxLength": 60 },
+        "completeness": { "enum": ["full", "partial", "unknown", null] },
+        "known_gaps": { "type": ["string", "null"], "maxLength": 300 }
+      }
+    },
+    "access": { "enum": ["free", "paid", "gated"] },
+    "description": { "type": ["string", "null"], "minLength": 10, "maxLength": 200 },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+      "uniqueItems": true
+    }
+  }
+}

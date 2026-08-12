@@ -1,0 +1,23 @@
+slug: betfair
+name: Betfair Exchange
+url: https://www.betfair.com/exchange
+mechanism: regulated-exchange
+status: live
+launched: 2000
+geo:
+  us_access: no
+  notes: "UK/EU-licensed betting exchange; not available to US persons."
+metrics:
+  volume_30d_usd: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: partial
+  granularity: odds ticks+book
+  free_archive: null
+  known_gaps: "Historical exchange data is a separate paid product (historicdata.betfair.com)."
+  recorder_support: no
+description: "The largest betting exchange; politics and current-affairs markets alongside sports."
+tags: [betting-exchange, politics, sports, uk]
