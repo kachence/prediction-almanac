@@ -1,0 +1,13 @@
+slug: electionbettingodds
+name: ElectionBettingOdds
+url: https://electionbettingodds.com
+platforms: [polymarket, kalshi, predictit, betfair, smarkets]
+kind: odds-feed
+format: HTML (no API)
+granularity: per-market odds and cumulative matched USD, by venue
+coverage:
+  range: election markets only
+  completeness: partial
+  known_gaps: "Scraped from the page, with no API and no time series — figures are cumulative per market rather than per period, and only election markets are covered."
+access: free
+description: "The only free place showing the same election market priced and matched side by side across five venues, including Betfair, Smarkets and PredictIt."

@@ -21,7 +21,7 @@ data:
   historical: none
   granularity: snapshot quotes
   free_archive: null
-  known_gaps: "The public API is a price snapshot with no volume; per-market share volume exists via GetMarketChartData but needs US egress, ~15 req/min across ~197 markets, reports shares not USD, and carries non-commercial terms. Nothing recurring is published. The only credible sizing is academic: ~$5.9m traded Sep-Nov 2024, against Kalshi $321m and Polymarket $2.1bn over the same window."
+  known_gaps: "The public API is a price snapshot with no volume; per-market share volume exists via GetMarketChartData but needs US egress, ~15 req/min, and non-commercial terms. Nothing recurring is published, and the credible sizing is academic (~$5.9m Sep-Nov 2024 against Kalshi's $321m). ElectionBettingOdds shows per-market matched totals."
   recorder_support: no
 description: "Long-running US political research market; capped stakes and a small contract universe."
 tags: [regulated, us, politics]

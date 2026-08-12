@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 12 data sources · 22 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 13 data sources · 22 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -101,6 +101,7 @@ its own live endpoints.
 | **[Dune (decoded on-chain tables)](https://dune.com)** | polymarket | dataset | SQL over decoded Polygon tables · on-chain events | 2020–present (full) | gated | Requires writing SQL against raw/decoded contract tables; API export is metered. |
 | **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | bulk files (see repo) · trade | through 2025 (partial) | free | Point-in-time snapshots; check the repo for freshness. |
 | **[Betfair Exchange API](https://developer.betfair.com)** | betfair | odds-feed | JSON-RPC / REST · prices and market book | live only (partial) | gated | Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection. |
+| **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair, smarkets | odds-feed | HTML (no API) · per-market odds and cumulative matched USD, by venue | election markets only (partial) | free | Scraped from the page, with no API and no time series — figures are cumulative per market rather than per period, and only election markets are covered. |
 | **[Pinnacle API](https://github.com/pinnacleapi)** | — | odds-feed | JSON REST · pre-match and live odds, lines, limits | live only (partial) | gated | Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
 | **[The Odds API](https://the-odds-api.com)** | — | odds-feed | JSON REST · odds by bookmaker, per market | live + limited history (partial) | free | Free tier is request-capped and historical odds sit behind a paid plan; bookmaker coverage varies by region. |
 | **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | subgraph | GraphQL · on-chain events (trades, positions, redemptions) | 2020–present (full) | free | Requires a hosted indexer (Goldsky) or self-indexing; schemas shift between versions. |
