@@ -1,0 +1,7 @@
+slug: dune-prediction-markets
+name: "Dune: Prediction Markets"
+url: https://dune.com/datadashboards/prediction-markets
+category: dashboard
+platforms: [polymarket, kalshi, limitless, myriad, predict-fun]
+description: "Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues — the broadest free venue-share view."
+tags: [onchain, venue-share, sql]

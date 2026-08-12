@@ -20,6 +20,10 @@
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
       "uniqueItems": true
     },
+    "access": {
+      "description": "Omit for free tools; state it when money or a signup gates the useful part.",
+      "enum": ["free", "freemium", "paid", null]
+    },
     "github": {
       "description": "Auto-filled by scripts/refresh.py — seed as nulls.",
       "type": "object",

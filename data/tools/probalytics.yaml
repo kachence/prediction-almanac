@@ -1,0 +1,8 @@
+slug: probalytics
+name: Probalytics
+url: https://probalytics.io
+category: data
+platforms: [polymarket]
+access: paid
+description: "Millisecond-granularity Polymarket history — full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo."
+tags: [orderbook-history, backtesting, clickhouse]

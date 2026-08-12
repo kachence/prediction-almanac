@@ -1,0 +1,8 @@
+slug: resolve-markets
+name: Resolve Markets
+url: https://resolvemarkets.com
+category: dashboard
+platforms: [polymarket, kalshi, predict-fun, predictit, manifold]
+access: freemium
+description: "Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool."
+tags: [multi-venue, neg-risk, beta]

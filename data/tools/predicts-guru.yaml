@@ -1,0 +1,7 @@
+slug: predicts-guru
+name: Predicts.guru
+url: https://www.predicts.guru
+category: arbitrage
+platforms: [polymarket, kalshi, limitless]
+description: "No-login wallet checker, smart-money radar and live trade feed, plus an arbitrage scanner matching Polymarket against Kalshi and Limitless."
+tags: [wallet-analysis, arbitrage, no-signup]

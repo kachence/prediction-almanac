@@ -1,0 +1,7 @@
+slug: dune-kalshi-overview
+name: "Dune: Kalshi Overview"
+url: https://dune.com/datadashboards/kalshi-overview
+category: dashboard
+platforms: [kalshi]
+description: "Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription."
+tags: [kalshi, volume]

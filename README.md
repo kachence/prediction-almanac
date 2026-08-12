@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 13 data sources · 33 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 13 data sources · 44 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -138,7 +138,10 @@ its own live endpoints.
 |---|---|---|---|---|
 | **[Polymarket Alpha Bot](https://github.com/chainstacklabs/polymarket-alpha-bot)** | polymarket | 169 | 2026-08-05 | Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes. |
 | **[Adjacent News](https://adj.news)** | polymarket, kalshi, manifold, metaculus | — | — | News and research terminal built around prediction-market data, with a market-data API. |
+| **[Chironus Scanner](https://chironus.com/scanner)** · freemium | polymarket, kalshi | — | — | Scanner across all live Polymarket and Kalshi markets with category, volume, price-band and time-to-close filters; free tier serves delayed prices. |
 | **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair | — | — | Long-running site charting election odds averaged across real-money markets. |
+| **[Prediction Market News](https://predictionmarketnews.org)** | polymarket, kalshi | — | — | Cross-venue screener over 10,752 matched Polymarket and Kalshi markets, showing consensus odds, per-venue spread, open interest, depth and resolution rules. |
+| **[Predicts.guru](https://www.predicts.guru)** | polymarket, kalshi, limitless | — | — | No-login wallet checker, smart-money radar and live trade feed, plus an arbitrage scanner matching Polymarket against Kalshi and Limitless. |
 | **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, infer | 68 | 2025-02-09 · archived | Meta search engine aggregating forecasts and odds across platforms. |
 
 ### Dashboards & market data
@@ -147,7 +150,11 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[Dune: Kalshi Overview](https://dune.com/datadashboards/kalshi-overview)** | kalshi | — | — | Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription. |
+| **[Dune: Prediction Markets](https://dune.com/datadashboards/prediction-markets)** | polymarket, kalshi, limitless, myriad, predict-fun | — | — | Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues — the broadest free venue-share view. |
+| **[Polyguana](https://polyguana.com)** | polymarket | — | — | Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive. |
 | **[Polymarket on Dune](https://dune.com/rchen8/polymarket)** | polymarket | — | — | Community Dune dashboard tracking Polymarket volume, users, and market activity on-chain. |
+| **[Resolve Markets](https://resolvemarkets.com)** · freemium | polymarket, kalshi, predict-fun, predictit, manifold | — | — | Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool. |
 
 ### Analytics & calibration
 
@@ -158,6 +165,9 @@ its own live endpoints.
 | **[Squiggle](https://www.squiggle-language.com)** | — | 218 | 2026-08-11 | Probabilistic estimation language for building and sanity-checking forecasts. |
 | **[Fatebook](https://fatebook.io)** | — | 60 | 2026-06-12 | Quick personal forecast logging and calibration tracking, from Sage. |
 | **[Calibration City](https://calibration.city)** | polymarket, kalshi, manifold, metaculus | — | — | Cross-platform calibration explorer scoring how well market prices predict real outcomes. |
+| **[Dune: How Accurate Is Polymarket](https://dune.com/alexmccullough/how-accurate-is-polymarket)** | polymarket | — | — | Dune dashboard measuring Polymarket's realised accuracy, bias and outcome distribution against resolved markets — forkable and re-queryable. |
+| **[OVERROUND](https://www.overround.pro)** · freemium | polymarket | — | — | Skill-adjusted forecaster leaderboard scoring every on-chain fill against the price paid, with a free public calibration page over 8.9M scored fills. |
+| **[Polysights](https://www.polysights.xyz)** · freemium | polymarket | — | — | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 
 ### APIs, SDKs & CLIs
 
@@ -193,6 +203,14 @@ its own live endpoints.
 |---|---|---|---|---|
 | **[Forecasting Wiki](https://forecasting.wiki)** | — | — | — | Community wiki collecting forecasting concepts, techniques, and platform know-how. |
 | **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | — | — | — | Calibration-training games (estimation, pastcasting) from Sage. |
+
+### Data tooling
+
+*Paid research infrastructure. Listed because reconstructing historical book depth is the one thing no free source in this directory does.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Probalytics](https://probalytics.io)** · paid | polymarket | — | — | Millisecond-granularity Polymarket history — full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
 
 ## Contributing
 

@@ -1,0 +1,7 @@
+slug: prediction-market-news
+name: Prediction Market News
+url: https://predictionmarketnews.org
+category: arbitrage
+platforms: [polymarket, kalshi]
+description: "Cross-venue screener over 10,752 matched Polymarket and Kalshi markets, showing consensus odds, per-venue spread, open interest, depth and resolution rules."
+tags: [screener, spread, cross-venue]

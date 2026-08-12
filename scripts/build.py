@@ -229,6 +229,13 @@ def vol(platform):
     return f"{usd(volume)}/{period}" if period else usd(volume)
 
 
+def tool_name(tool):
+    """Flag anything that isn't simply free — a reader shouldn't click to find a paywall."""
+    label = f"**[{md(tool['name'])}]({tool['url']})**"
+    access = tool.get("access")
+    return f"{label} · {access}" if access in ("freemium", "paid") else label
+
+
 def commit(github):
     """Last commit, flagged when the repo is archived or has gone quiet — the date
     alone doesn't tell a reader the project was retired."""
@@ -317,7 +324,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         keep_trailing_newline=True,
     )
     env.filters.update(
-        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit
+        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit, tname=tool_name
     )
     # dead/deprecated entries stay in data/ (cross-links, history) but aren't rendered
     platforms = [p for p in platforms if p["status"] not in ("dead", "deprecated")]

@@ -101,7 +101,7 @@ its own live endpoints.
 |---|---|---|---|---|
 {% for t in group.tools %}
 {% set gh = t.github | default({}, true) %}
-| **[{{ t.name | md }}]({{ t.url }})** | {{ (t.platforms | default([], true)) | join(', ') | md }} | {{ gh.stars | default(none, true) | num }} | {{ gh | commit }} | {{ t.description | md }} |
+| {{ t | tname }} | {{ (t.platforms | default([], true)) | join(', ') | md }} | {{ gh.stars | default(none, true) | num }} | {{ gh | commit }} | {{ t.description | md }} |
 {% endfor %}
 
 {% endfor %}

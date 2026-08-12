@@ -1,0 +1,8 @@
+slug: overround
+name: OVERROUND
+url: https://www.overround.pro
+category: analytics
+platforms: [polymarket]
+access: freemium
+description: "Skill-adjusted forecaster leaderboard scoring every on-chain fill against the price paid, with a free public calibration page over 8.9M scored fills."
+tags: [calibration, skill-scoring, leaderboard]

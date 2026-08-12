@@ -72,6 +72,9 @@ tool_categories:
     title: Alerting
   - keys: [data]
     title: Data tooling
+    note: >-
+      Paid research infrastructure. Listed because reconstructing historical book
+      depth is the one thing no free source in this directory does.
   - keys: [extension]
     title: Browser extensions
 
