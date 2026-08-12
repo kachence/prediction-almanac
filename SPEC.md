@@ -152,8 +152,23 @@ against a real ~$10.9B/30d, and its volume is denominated in contracts rather th
 dollars. Myriad paginates by `page` (`offset` silently re-serves page 1) and mixes
 collateral tokens, so points markets would be summed as dollars.
 
-Because periods differ (DefiLlama gives 30d; Gemini publishes only 24h), the README
-sorts on a normalized per-day rate while displaying each figure with its own period.
+Two caveats the column carries openly. **Periods differ** — DefiLlama gives 30d, Gemini
+publishes only 24h — so the README sorts on a normalized per-day rate while displaying
+each figure with its own period. **Conventions differ too**: Hyperliquid's figure is
+collateral notional (contracts × $1, both legs), roughly 1.8x a price-weighted figure
+like Polymarket's, because no free source publishes the price-weighted number for a
+whole month. Both are stated in each entry's `metrics.source`.
+
+Hyperliquid HIP-4 deserves its own note, since it took real work to establish. Its
+official API cannot produce a historical figure at all: expired outcome coins are fully
+delisted (`candleSnapshot`, `l2Book`, `allMids` all return null), candle `v` is contracts
+rather than USD and is mirrored across the Yes/No legs, and the exact notional field
+(`dayNtlVlm`) is reachable only over a WebSocket `activeAssetCtx` subscription covering
+the current 06:00-UTC contract day. DefiLlama has no whole-market adapter — only
+builder-code frontends that see ~10% of flow, since ~85% of HIP-4 volume carries no
+builder code. So the 30d number comes from `stats.outcome.xyz`, which is free and
+unauthenticated but **undocumented and therefore fragile**; the durable fix is to
+accumulate our own daily snapshots and treat the third party as backfill.
 GitHub API with the auto-provided `GITHUB_TOKEN` (5k req/h) for
 stars/last-commit/license/archived.
 Plain HTTP for liveness. On-chain long-tail (predict.fun, Limitless, Zeitgeist) via

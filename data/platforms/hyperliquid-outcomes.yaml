@@ -12,17 +12,17 @@ geo:
   as_of: "2026-08-12"
   notes: "ToS 1.5 restricts US persons and sanctioned jurisdictions, plus Ontario, Canada (sub-national, not expressible as an ISO code)."
 metrics:
-  volume_usd: null
-  period: null
-  source: null
-  as_of: null
+  volume_usd: 58561079.05
+  period: 30d
+  source: stats.outcome.xyz (network HIP-4, collateral notional)
+  as_of: "2026-08-12"
 data:
   public_api: true
   live_orderbook: true
   historical: partial
   granularity: trade+book (L2, 20 levels/side)
   free_archive: null
-  known_gaps: "Outcome books and metadata come only from the official API, not open-source node software; no dedicated historical volume endpoint."
+  known_gaps: "Expired outcome coins are fully delisted — candleSnapshot, l2Book and allMids all return null — so the official API reaches back no further than the current 06:00 UTC contract day. Exact live volume needs a WebSocket activeAssetCtx subscription; history only via third parties or S3 node fills."
   recorder_support: planned
 description: "Binary outcome contracts native to Hyperliquid's HyperCore order book (HIP-4); Yes/No books merge to share liquidity, settling 0 or 1 in USDC."
 tags: [onchain, clob, hip-4, binary-outcomes, crypto]

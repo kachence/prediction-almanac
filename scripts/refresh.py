@@ -86,13 +86,40 @@ def fetch_gemini(http):
     return (total or None, "24h", "gemini-api (Σ event volume24h)")
 
 
+def fetch_hyperliquid(http):
+    """HIP-4 outcome markets, via a third party — Hyperliquid's own API cannot do it.
+
+    Expired outcome coins are fully delisted (candleSnapshot, l2Book and allMids all
+    return null for them), so nothing official reaches back beyond the current
+    contract day, and DefiLlama only has builder-code adapters covering ~10% of the
+    market. stats.outcome.xyz publishes network-wide daily volume back to launch.
+
+    Its figure is collateral notional (contracts × $1, i.e. both legs summed), which
+    runs ~1.8x a price-weighted figure like Polymarket's — noted in `source` so the
+    column doesn't imply a like-for-like comparison it can't make.
+    """
+    start = (dt.date.today() - dt.timedelta(days=30)).isoformat()
+    data = get_json(
+        http,
+        "https://stats.outcome.xyz/api/builder/volume-daily",
+        params={"startDate": start, "limitBuilders": 500, "format": "rows"},
+    )
+    rows = (data or {}).get("days") or []
+    if not rows:
+        return None, PERIOD, "stats.outcome.xyz unreachable or empty"
+    total = sum(as_float(r.get("volume")) for r in rows)
+    return total or None, PERIOD, "stats.outcome.xyz (network HIP-4, collateral notional)"
+
+
 # Venues with no DefiLlama adapter but their own usable endpoint.
-FETCHERS = {"gemini-predictions": fetch_gemini}
+FETCHERS = {
+    "gemini-predictions": fetch_gemini,
+    "hyperliquid-outcomes": fetch_hyperliquid,
+}
 
 # Platforms with no free volume anywhere, and why. Shown in the run report so the
 # gaps stay visible instead of looking like an oversight.
 NO_SOURCE = {
-    "hyperliquid-outcomes": "no volume field on outcomeMeta; DefiLlama's Hyperliquid adapter is the spot DEX, not outcomes",
     "manifold": "play-money (mana), not USD",
     "betfair": "no free aggregate volume",
     "smarkets": "no free aggregate volume",
