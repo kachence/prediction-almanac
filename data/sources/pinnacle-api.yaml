@@ -1,0 +1,12 @@
+slug: pinnacle-api
+name: Pinnacle API
+url: https://github.com/pinnacleapi
+kind: odds-feed
+format: JSON REST
+granularity: pre-match and live odds, lines, limits
+coverage:
+  range: live only
+  completeness: partial
+  known_gaps: "Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset."
+access: gated
+description: "Odds feed from the sportsbook most treated as the sharp reference price, useful for pricing sports event contracts against."

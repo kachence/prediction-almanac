@@ -311,7 +311,13 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         platforms=platforms,
         excluded=excluded,
         tools=tools,
-        sources=sorted(sources, key=lambda s: s["name"].lower()),
+        sources=sorted(
+            sources,
+            key=lambda s: (
+                ["historical-archive", "dataset", "odds-feed", "subgraph", "live-api"].index(s["kind"]),
+                s["name"].lower(),
+            ),
+        ),
         sources_by_slug={s["slug"]: s for s in sources},
         platform_groups=group_platforms(platforms, config),
         tool_groups=group_tools(tools, config),

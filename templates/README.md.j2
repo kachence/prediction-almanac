@@ -17,7 +17,7 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 ## Contents
 
 - [Platforms](#platforms)
-- [Data coverage](#data-coverage) — *which markets you can actually get data out of*
+- [Data sources](#data-sources) — *archives and feeds worth building on*
 - [Tools](#tools)
 - [Contributing](#contributing)
 - [Related](#related)
@@ -72,25 +72,19 @@ Disagree? [Open an issue]({{ 'https://github.com/' ~ config.site.repo ~ '/issues
 </details>
 {% endif %}
 
-## Data coverage
+## Data sources
 
-What nobody else tracks: whether you can actually **get the data out** — for research,
-backtesting, or building. Per platform first, then the concrete sources.
+Every venue has a live API for its own book — that part is unremarkable. What is worth
+tracking is where you get **history you can backtest on**, and the **cross-platform odds
+feeds** worth pricing against. A platform missing from this table has nothing better than
+its own live endpoints.
 
-| Platform | Public API | Live book | Historical | Granularity | Free archive | Known gaps |
-|---|---|---|---|---|---|---|
-{% for p in platforms | sort(attribute='name') if p.data %}
-{% set d = p.data %}
-| [{{ p.name | md }}]({{ p.url }}) | {{ d.public_api | default(none, true) | mark }} | {{ d.live_orderbook | default(none, true) | mark }} | {{ d.historical | default(none, true) | md }} | {{ d.granularity | default(none, true) | md }} | {% if d.free_archive | default(none, true) %}[{{ sources_by_slug[d.free_archive].name | md }}]({{ sources_by_slug[d.free_archive].url }}){% else %}—{% endif %} | {{ d.known_gaps | default(none, true) | md }} |
-{% endfor %}
-
-### Sources
 
 | Source | Covers | Kind | Format · granularity | Coverage | Access | Known gaps |
 |---|---|---|---|---|---|---|
 {% for s in sources %}
 {% set cov = s.coverage | default({}, true) %}
-| **[{{ s.name | md }}]({{ s.url }})** | {{ s.platforms | join(', ') | md }} | {{ s.kind }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ s.access }} | {{ cov.known_gaps | default(none, true) | md }} |
+| **[{{ s.name | md }}]({{ s.url }})** | {{ (s.platforms | default([], true)) | join(', ') | md }} | {{ s.kind }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ s.access }} | {{ cov.known_gaps | default(none, true) | md }} |
 {% endfor %}
 
 ## Tools
@@ -117,7 +111,7 @@ Entries are one YAML file each under [`data/`](data/), validated against
 ## Related
 
 - [PM Atlas](https://pmatlas.xyz) — hosted dashboard mapping the platform landscape.
-- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) — large public Polymarket + Kalshi trade dataset (also listed in [Sources](#sources)).
+- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) — large public Polymarket + Kalshi trade dataset (also listed under [Data sources](#data-sources)).
 - [sindresorhus/awesome](https://github.com/sindresorhus/awesome) — the genre this almanac grew out of.
 
 ---

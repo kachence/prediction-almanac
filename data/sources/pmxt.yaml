@@ -1,13 +1,13 @@
 slug: pmxt
 name: pmxt
 url: https://pmxt.dev
-platforms: [polymarket]
-kind: historical-archive   # live-api | historical-archive | subgraph | dataset
-format: parquet (hourly)
+platforms: [polymarket, kalshi, limitless, gemini-predictions, myriad]
+kind: historical-archive
+format: parquet
 granularity: trade+book
 coverage:
   range: 2024–present
-  completeness: partial    # full | partial | unknown
-  known_gaps: "Multi-day/week gaps on some markets."
-access: free               # free | paid | gated
-description: "Free parquet archive of Polymarket trades and books, updated hourly."
+  completeness: partial
+  known_gaps: "Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list."
+access: free
+description: "Free multi-platform parquet archive of prediction-market trades and books — the broadest free history in the space."

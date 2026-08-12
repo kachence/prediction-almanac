@@ -1,0 +1,12 @@
+slug: the-odds-api
+name: The Odds API
+url: https://the-odds-api.com
+kind: odds-feed
+format: JSON REST
+granularity: odds by bookmaker, per market
+coverage:
+  range: live + limited history
+  completeness: partial
+  known_gaps: "Free tier is request-capped and historical odds sit behind a paid plan; bookmaker coverage varies by region."
+access: free
+description: "Aggregated bookmaker odds across dozens of books including Pinnacle, on a free keyed tier — the accessible route to a sports pricing benchmark."

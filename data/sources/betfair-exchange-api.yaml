@@ -1,0 +1,13 @@
+slug: betfair-exchange-api
+name: Betfair Exchange API
+url: https://developer.betfair.com
+platforms: [betfair]
+kind: odds-feed
+format: JSON-RPC / REST
+granularity: prices and market book
+coverage:
+  range: live only
+  completeness: partial
+  known_gaps: "Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection."
+access: gated
+description: "Live exchange prices from the deepest betting-exchange order book, including its politics markets."

@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 14 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 12 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -17,7 +17,7 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 ## Contents
 
 - [Platforms](#platforms)
-- [Data coverage](#data-coverage) — *which markets you can actually get data out of*
+- [Data sources](#data-sources) — *archives and feeds worth building on*
 - [Tools](#tools)
 - [Contributing](#contributing)
 - [Related](#related)
@@ -85,47 +85,28 @@ listed here.*
 Disagree? [Open an issue](https://github.com/kachence/prediction-almanac/issues) — the reasons live in [`data/excluded.yml`](data/excluded.yml), so changing our mind is a one-line edit.
 </details>
 
-## Data coverage
+## Data sources
 
-What nobody else tracks: whether you can actually **get the data out** — for research,
-backtesting, or building. Per platform first, then the concrete sources.
+Every venue has a live API for its own book — that part is unremarkable. What is worth
+tracking is where you get **history you can backtest on**, and the **cross-platform odds
+feeds** worth pricing against. A platform missing from this table has nothing better than
+its own live endpoints.
 
-| Platform | Public API | Live book | Historical | Granularity | Free archive | Known gaps |
-|---|---|---|---|---|---|---|
-| [Betfair Exchange](https://www.betfair.com/exchange) | ✓ | ✓ | partial | odds ticks+book | — | No compliant free path: the free Delayed App Key omits totalMatched, the GBP 499 Live key forbids read-only data collection, and anonymous routes sit behind bot protection. No venue-level figure is published either — Flutter never sizes the Exchange separately, and regulator statistics aggregate all licensed exchanges and report commission rather than turnover. |
-| [Gemini Predictions](https://www.gemini.com/predictions) | ✓ | ✓ | partial | trade+book | — | No REST order-book snapshot; depth is WebSocket-only. Volume comes from a documented per-day endpoint and is counted in contracts at $1 face, not cash exchanged — at the ~$0.41 blended traded price, cash turnover is far lower. Summing the events list instead undercounts ~6.5x, because expired short-dated markets drop out of it. |
-| [IBKR Prediction Markets](https://www.interactivebrokers.com/predictionmarkets/en/home.php) | — | — | none | — | — | Market data only through the authenticated Web API, needing a funded account. Monthly metrics and SEC filings omit event contracts entirely; the one public figure is an earnings-call remark — 286m contract pairs in Q4 2025, roughly $286m of committed capital at $1 settlement — with no time series behind it. |
-| [Kalshi](https://kalshi.com) | ✓ | ✓ | partial | trade+candlestick | [prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) | History served per-market via API (trades, candlesticks); no official bulk archive. |
-| [Limitless](https://limitless.exchange) | ✓ | ✓ | none | live markets+book | — | No historical archive; markets are short-lived by design. |
-| [Manifold](https://manifold.markets) | ✓ | — | full | bet-level | — | Full history only via paginated API; rate limits make whole-site pulls slow. |
-| [Metaculus](https://www.metaculus.com) | ✓ | — | full | aggregate forecast history | — | Individual forecasts mostly private; aggregates and resolutions are public via API. |
-| [Myriad](https://myriad.markets) | ✓ | ✓ | partial | trade+book | — | Order book is BNB Chain only; /markets returns AMM markets unless trading_model=ob\|all, and the book endpoint is keyed by slug not id. No aggregate stats or OHLC history. |
-| [Polymarket](https://polymarket.com) | ✓ | ✓ | partial | trade+book | [pmxt](https://pmxt.dev) | No official bulk historical-trade endpoint; third-party archives have day/week gaps on some markets. |
-| [predict.fun](https://predict.fun) | ✓ | ✓ | none | live markets+book | — | No historical archive. |
-| [PredictIt](https://www.predictit.org) | ✓ | — | none | snapshot quotes | — | The public API is a price snapshot with no volume; per-market share volume exists via GetMarketChartData but needs US egress, ~15 req/min across ~197 markets, reports shares not USD, and carries non-commercial terms. Nothing recurring is published. The only credible sizing is academic: ~$5.9m traded Sep-Nov 2024, against Kalshi $321m and Polymarket $2.1bn over the same window. |
-| [Rain](https://www.rain.trade) | ✓ | — | none | market snapshots (price, 24h change, pool collateral) | — | No trades, candles, or book endpoint, and the API's totalVolume reports pool collateral rather than traded volume (~27x actual fills). DefiLlama reads $0 here — its adapter watches retired factories and AMM-era events — so volume is measured from on-chain fills instead. Read it with care: activity collapsed after 2026-07-19 and the trailing 7 days annualise to roughly $60k/30d. |
-| [Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/) | — | — | none | — | — | No prediction-markets API — prices render only in the app. Volume is disclosed as contracts (13.6bn in Q2 2026), never USD: Robinhood reports notional for equities and crypto but pointedly not for event contracts, so 13.6bn is a ceiling, not a total. Its flow routes through Kalshi, ForecastEx and Rothera, so it must never be added to theirs. |
-| [Smarkets](https://smarkets.com) | ✓ | ✓ | none | live odds+book | — | A documented, unauthenticated /volumes/ endpoint exists, but Smarkets API terms prohibit extraction without commensurate trading, redistribution, and benchmarking liquidity — so this directory does not call it. Volume is also wiped on settlement. Smarkets' own investor page reports $60bn lifetime traded volume and $31.4m of 2024 revenue. |
-| [SX Bet](https://sx.bet) | ✓ | ✓ | partial | trade+book | — | No aggregate volume or stats endpoint, and /trades requires a filter — volume has to be derived by paginating trades. |
-
-### Sources
 
 | Source | Covers | Kind | Format · granularity | Coverage | Access | Known gaps |
 |---|---|---|---|---|---|---|
 | **[Betfair Historical Data](https://historicdata.betfair.com)** | betfair | historical-archive | compressed JSON (market ticks) · odds ticks + book | varies by sport/tier (full) | paid | Politics/specials coverage thinner than sports. |
+| **[pmxt](https://pmxt.dev)** | polymarket, kalshi, limitless, gemini-predictions, myriad | historical-archive | parquet · trade+book | 2024–present (partial) | free | Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list. |
 | **[Dune (decoded on-chain tables)](https://dune.com)** | polymarket | dataset | SQL over decoded Polygon tables · on-chain events | 2020–present (full) | gated | Requires writing SQL against raw/decoded contract tables; API export is metered. |
+| **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | bulk files (see repo) · trade | through 2025 (partial) | free | Point-in-time snapshots; check the repo for freshness. |
+| **[Betfair Exchange API](https://developer.betfair.com)** | betfair | odds-feed | JSON-RPC / REST · prices and market book | live only (partial) | gated | Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection. |
+| **[Pinnacle API](https://github.com/pinnacleapi)** | — | odds-feed | JSON REST · pre-match and live odds, lines, limits | live only (partial) | gated | Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
+| **[The Odds API](https://the-odds-api.com)** | — | odds-feed | JSON REST · odds by bookmaker, per market | live + limited history (partial) | free | Free tier is request-capped and historical odds sit behind a paid plan; bookmaker coverage varies by region. |
+| **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | subgraph | GraphQL · on-chain events (trades, positions, redemptions) | 2020–present (full) | free | Requires a hosted indexer (Goldsky) or self-indexing; schemas shift between versions. |
 | **[Gemini Predictions API](https://api.gemini.com/v1/prediction-markets/events)** | gemini-predictions | live-api | JSON REST + WebSocket · daily volume by category; prices, per-event volume; L2 depth over WebSocket | 2025–present (partial) | free | Daily volume is T-1 only and counted in contracts at $1 face; category rows nest, so only top-level rows may be summed. No REST depth snapshot. |
 | **[Kalshi Trading API](https://docs.kalshi.com)** | kalshi | live-api | JSON REST + WebSocket · trades, candlesticks, order book | 2021–present (full) | free | Per-market pagination; no bulk download. |
 | **[Manifold API](https://docs.manifold.markets/api)** | manifold | live-api | JSON REST · bet-level | 2021–present (full) | free | Rate limits make whole-site pulls slow. |
 | **[Metaculus API](https://www.metaculus.com/api/)** | metaculus | live-api | JSON REST · question + aggregate forecast history | 2015–present (full) | free | Individual forecasts mostly private; aggregates and resolutions are public. |
-| **[Myriad API](https://api-v2.myriadprotocol.com/markets)** | myriad | live-api | JSON REST · markets, order book, 24h volume | 2025–present (partial) | free | Book endpoint keyed by slug, not id; AMM markets returned by default; no OHLC or aggregate stats. |
-| **[pmxt](https://pmxt.dev)** | polymarket | historical-archive | parquet (hourly) · trade+book | 2024–present (partial) | free | Multi-day/week gaps on some markets. |
-| **[Polymarket CLOB API](https://docs.polymarket.com)** | polymarket | live-api | JSON REST + WebSocket · L2 order book, prices, recent trades | live (partial) | free | Live and recent data; not a bulk historical source. |
-| **[Polymarket Gamma API](https://gamma-api.polymarket.com)** | polymarket | live-api | JSON REST · markets/events metadata + volumes | 2020–present (full) | free | Metadata and aggregates only — not a trade tape. |
-| **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | subgraph | GraphQL · on-chain events (trades, positions, redemptions) | 2020–present (full) | free | Requires a hosted indexer (Goldsky) or self-indexing; schemas shift between versions. |
-| **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | bulk files (see repo) · trade | through 2025 (partial) | free | Point-in-time snapshots; check the repo for freshness. |
-| **[PredictIt market data API](https://www.predictit.org/api/marketdata/all/)** | predictit | live-api | JSON (single snapshot endpoint) · current quotes | live snapshot only (partial) | free | No history; unofficial and lightly documented. |
-| **[SX Bet API](https://api.sx.bet)** | sxbet | live-api | JSON REST + WebSocket · order book, trades, market metadata | 2019–present (partial) | free | No aggregate volume endpoint; /trades needs a filter, so totals require pagination. |
 
 ## Tools
 
@@ -195,7 +176,7 @@ Entries are one YAML file each under [`data/`](data/), validated against
 ## Related
 
 - [PM Atlas](https://pmatlas.xyz) — hosted dashboard mapping the platform landscape.
-- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) — large public Polymarket + Kalshi trade dataset (also listed in [Sources](#sources)).
+- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) — large public Polymarket + Kalshi trade dataset (also listed under [Data sources](#data-sources)).
 - [sindresorhus/awesome](https://github.com/sindresorhus/awesome) — the genre this almanac grew out of.
 
 ---

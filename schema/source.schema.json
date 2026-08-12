@@ -4,7 +4,7 @@
   "title": "Source",
   "description": "A way to get data out of a platform: live API, archive, subgraph, or dataset.",
   "type": "object",
-  "required": ["slug", "name", "url", "platforms", "kind", "access"],
+  "required": ["slug", "name", "url", "kind", "access"],
   "additionalProperties": false,
   "properties": {
     "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
@@ -14,10 +14,9 @@
       "description": "Slugs from data/platforms/ this source covers.",
       "type": "array",
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
-      "minItems": 1,
       "uniqueItems": true
     },
-    "kind": { "enum": ["live-api", "historical-archive", "subgraph", "dataset"] },
+    "kind": { "enum": ["live-api", "historical-archive", "subgraph", "dataset", "odds-feed"] },
     "format": { "type": ["string", "null"], "maxLength": 100 },
     "granularity": { "type": ["string", "null"], "maxLength": 100 },
     "coverage": {

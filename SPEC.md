@@ -115,9 +115,15 @@ recorded in `data/excluded.yml` with a reason and rendered in a collapsed README
 so the same submission doesn't return every few weeks and the intake bot can auto-reject
 against it.
 
-**Source** — a way to get data out: `kind` (`live-api | historical-archive | subgraph |
-dataset`), format, granularity, `coverage` (range, completeness, known gaps), `access`
-(`free | paid | gated`). This column is what no other directory has.
+**Source** — a way to get data out that beats the platform's own live endpoints: `kind`
+(`historical-archive | dataset | odds-feed | subgraph | live-api`), format, granularity,
+`coverage` (range, completeness, known gaps), `access` (`free | paid | gated`). This is
+the differentiator no other directory has, so it is curated, not exhaustive: **every venue
+has a live API for its own book, and saying so adds nothing.** A source earns a row only
+if it gives history you can backtest on, or cross-platform odds worth pricing against —
+which is why live-only endpoints were removed and a platform absent from the table can be
+read as having nothing better than its own live feed. `platforms` may be empty for
+cross-cutting feeds such as Pinnacle. Sorted by kind so archives and feeds lead.
 
 See `data/platforms/polymarket.yaml` for the annotated exemplar.
 
