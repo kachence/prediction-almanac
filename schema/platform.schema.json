@@ -11,13 +11,19 @@
     "name": { "type": "string", "minLength": 1 },
     "url": { "type": "string", "pattern": "^https?://" },
     "mechanism": {
-      "enum": ["onchain-clob", "onchain-amm", "regulated-exchange", "play-money", "forecasting"]
+      "enum": ["onchain-clob", "onchain-amm", "regulated-exchange", "broker", "play-money", "forecasting"]
     },
     "chain": { "type": ["string", "null"] },
     "defillama": {
       "description": "DefiLlama protocol slug, if it tracks this venue's volume; used by refresh.py.",
       "type": ["string", "null"],
       "pattern": "^[a-z0-9][a-z0-9.-]*$"
+    },
+    "routes_to": {
+      "description": "For brokers: the exchanges that actually match the orders. These venues are multi-venue routers, so this is a list.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
     },
     "aliases": {
       "description": "Other domains this venue operates under; used for dedupe and to accept a third party listing it under a different host.",

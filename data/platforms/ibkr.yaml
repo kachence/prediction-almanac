@@ -1,0 +1,28 @@
+slug: ibkr
+name: IBKR Prediction Markets
+url: https://www.interactivebrokers.com/predictionmarkets/en/home.php
+mechanism: broker
+routes_to: [ForecastEx, Kalshi, CME]
+status: live
+launched: 2024
+geo:
+  model: allowlist
+  allowed: [us, ca, hk, sg, ie]
+  source: https://forecasttrader.interactivebrokers.ie/en/home.php
+  as_of: "2026-08-12"
+  notes: "Eligibility follows the IBKR entity carrying the account, not the country as such. Belgian clients of IB Ireland are barred outright and MiFID retail clients are prohibited, so the EEA offering is professional-only."
+metrics:
+  volume_usd: null
+  period: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: none
+  granularity: null
+  free_archive: null
+  known_gaps: "Market data only through the authenticated Web API, needing a funded account and market-data permissions. IBKR's monthly brokerage metrics break out stocks, options and futures but never event contracts, so no free volume figure exists at all."
+  recorder_support: no
+description: "Interactive Brokers' retail front-end for binary forecast and event contracts, routing to its wholly-owned ForecastEx exchange plus Kalshi and CME since May 2026."
+tags: [regulated, broker, economics, climate, elections]

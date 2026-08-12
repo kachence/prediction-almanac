@@ -23,6 +23,7 @@ MECH_LABEL = {
     "onchain-clob": "CLOB",
     "onchain-amm": "AMM",
     "regulated-exchange": "Regulated exchange",
+    "broker": "Broker",
     "play-money": "Play-money",
     "forecasting": "Forecasting",
 }
@@ -231,6 +232,9 @@ def ptype(platform):
     label = MECH_LABEL[platform["mechanism"]]
     if platform.get("chain"):
         label = f"{label} · {platform['chain']}"
+    if platform.get("routes_to"):
+        # a broker's real semantics are where its orders match, not its own name
+        label = f"{label} → {', '.join(platform['routes_to'])}"
     return label
 
 

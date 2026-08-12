@@ -17,8 +17,8 @@ platform_groups:
     mechanisms: [onchain-clob, onchain-amm]
     show_volume: true
   - key: regulated
-    title: Regulated & traditional exchanges
-    mechanisms: [regulated-exchange]
+    title: Regulated exchanges & brokers
+    mechanisms: [regulated-exchange, broker]
     show_volume: true
   - key: play-money
     title: Play-money markets

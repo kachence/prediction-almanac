@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**16 platforms · 14 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**18 platforms · 14 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -35,14 +35,16 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 | **[Myriad](https://myriad.markets)** | CLOB · BNB Chain +3 | 2025 | $2M/30d | [🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14](https://help.myriad.markets/myriad-terms-of-use "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more") | Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea. |
 | **[Rain](https://www.rain.trade)** | CLOB · Arbitrum | 2026 | $815.3k/30d | [❔ unverified](https://www.rain.trade/terms-and-conditions) | Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets. |
 
-### Regulated & traditional exchanges
+### Regulated exchanges & brokers
 
 | Platform | Type | Since | Volume | Who can trade | Description |
 |---|---|---|---|---|---|
 | **[Kalshi](https://kalshi.com)** | Regulated exchange | 2021 | $10.9B/30d | [🌍 exc. 🇬🇧🇨🇦🇦🇺🇫🇷 +51](https://kalshi.com/docs/kalshi-member-agreement.pdf "Cannot trade: United Kingdom, Canada, Australia, France, Italy, China, India, Singapore, United Arab Emirates, Afghanistan, Angola, Belgium, Burkina Faso, Bulgaria, Bolivia, +40 more") | CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports. |
 | **[Gemini Predictions](https://www.gemini.com/predictions)** | Regulated exchange | 2025 | $130.3k/24h | [only 🇺🇸](https://www.gemini.com/legal/predictions-user-agreement "Can trade: United States") | CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD. |
 | **[Betfair Exchange](https://www.betfair.com/exchange)** | Regulated exchange | 2000 | — | [licensed countries only](https://support.betfair.com/app/answers/detail/betfair-general-terms-and-conditions/) | The largest betting exchange; politics and current-affairs markets alongside sports. |
+| **[IBKR Prediction Markets](https://www.interactivebrokers.com/predictionmarkets/en/home.php)** | Broker → ForecastEx, Kalshi, CME | 2024 | — | [only 🇺🇸🇨🇦🇸🇬🇭🇰🇮🇪](https://forecasttrader.interactivebrokers.ie/en/home.php "Can trade: United States, Canada, Singapore, Hong Kong, Ireland") | Interactive Brokers' retail front-end for binary forecast and event contracts, routing to its wholly-owned ForecastEx exchange plus Kalshi and CME since May 2026. |
 | **[PredictIt](https://www.predictit.org)** | Regulated exchange | 2014 | — | [only 🇺🇸](https://www.predictit.org/terms-and-conditions "Can trade: United States") | Long-running US political research market; capped stakes and a small contract universe. |
+| **[Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/)** | Broker → Kalshi, ForecastEx, Rothera | 2024 | — | [only 🇺🇸](https://robinhood.com/us/en/support/articles/event-contracts-restrictions/ "Can trade: United States") | Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges. |
 | **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | — | [🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more") | UK-licensed betting exchange with notably deep political markets. |
 
 ### Play-money markets
@@ -92,6 +94,7 @@ backtesting, or building. Per platform first, then the concrete sources.
 | [Gemini Predictions](https://www.gemini.com/predictions) | ✓ | ✓ | partial | trade+book | — | No REST order-book snapshot (depth is WebSocket-only); no candles/OHLC or historical volume series — only per-event cumulative and 24h. |
 | [Good Judgment Open](https://www.gjopen.com) | — | — | none | — | — | No public API; forecast data is not exported. |
 | [Hypermind](https://www.hypermind.com) | — | — | none | — | — | No public API. |
+| [IBKR Prediction Markets](https://www.interactivebrokers.com/predictionmarkets/en/home.php) | — | — | none | — | — | Market data only through the authenticated Web API, needing a funded account and market-data permissions. IBKR's monthly brokerage metrics break out stocks, options and futures but never event contracts, so no free volume figure exists at all. |
 | [Kalshi](https://kalshi.com) | ✓ | ✓ | partial | trade+candlestick | [prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) | History served per-market via API (trades, candlesticks); no official bulk archive. |
 | [Limitless](https://limitless.exchange) | ✓ | ✓ | none | live markets+book | — | No historical archive; markets are short-lived by design. |
 | [Manifold](https://manifold.markets) | ✓ | — | full | bet-level | — | Full history only via paginated API; rate limits make whole-site pulls slow. |
@@ -101,6 +104,7 @@ backtesting, or building. Per platform first, then the concrete sources.
 | [predict.fun](https://predict.fun) | ✓ | ✓ | none | live markets+book | — | No historical archive. |
 | [PredictIt](https://www.predictit.org) | ✓ | — | none | snapshot quotes | — | Official API is a current-price snapshot only; no historical endpoint. |
 | [Rain](https://www.rain.trade) | ✓ | — | none | market snapshots (price, 24h change, pool collateral) | — | No trades, candles, or book endpoint, and the API's totalVolume reports pool collateral rather than traded volume (~27x actual fills). DefiLlama reads $0 here — its adapter watches retired factories and AMM-era events — so volume is measured from on-chain fills instead. Read it with care: activity collapsed after 2026-07-19 and the trailing 7 days annualise to roughly $60k/30d. |
+| [Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/) | — | — | none | — | — | No prediction-markets API of any kind — prices render only in the app, and the sole public developer API is for crypto. Volume is disclosed as contracts traded (13.6bn in Q2 2026), never USD notional, and the flow it routes to Kalshi and ForecastEx is already counted inside those venues' own figures. |
 | [Smarkets](https://smarkets.com) | ✓ | ✓ | none | live odds+book | — | Trading API requires an account; no public historical archive. |
 | [SX Bet](https://sx.bet) | ✓ | ✓ | partial | trade+book | — | No aggregate volume or stats endpoint, and /trades requires a filter — volume has to be derived by paginating trades. |
 

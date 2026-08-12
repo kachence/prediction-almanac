@@ -115,6 +115,8 @@ NO_SOURCE = {
     "betfair": "no free aggregate volume",
     "smarkets": "no free aggregate volume",
     "predictit": "snapshot API only, no volume",
+    "robinhood": "discloses contracts traded, not USD; its routed flow is counted inside Kalshi and ForecastEx",
+    "ibkr": "no free volume anywhere — event contracts are absent from IBKR's monthly metrics",
     "hypermind": "no public API",
     "futuur": "no historical/aggregate volume endpoint",
     "metaculus": "forecasting, no trading volume",

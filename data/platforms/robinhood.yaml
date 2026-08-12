@@ -1,0 +1,28 @@
+slug: robinhood
+name: Robinhood Prediction Markets
+url: https://robinhood.com/us/en/prediction-markets/
+mechanism: broker
+routes_to: [Kalshi, ForecastEx, Rothera]
+status: live
+launched: 2024
+geo:
+  model: allowlist
+  allowed: [us]
+  source: https://robinhood.com/us/en/support/articles/event-contracts-restrictions/
+  as_of: "2026-08-12"
+  notes: "US residents only, 18+, individual brokerage accounts. Maryland residents cannot trade event contracts at all and Nevada residents cannot open new sports contracts; Robinhood warns more state restrictions may follow."
+metrics:
+  volume_usd: null
+  period: null
+  source: null
+  as_of: null
+data:
+  public_api: false
+  live_orderbook: false
+  historical: none
+  granularity: null
+  free_archive: null
+  known_gaps: "No prediction-markets API of any kind — prices render only in the app, and the sole public developer API is for crypto. Volume is disclosed as contracts traded (13.6bn in Q2 2026), never USD notional, and the flow it routes to Kalshi and ForecastEx is already counted inside those venues' own figures."
+  recorder_support: no
+description: "Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges."
+tags: [regulated, us, broker, sports, politics, economics]
