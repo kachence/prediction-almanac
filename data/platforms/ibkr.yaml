@@ -22,7 +22,7 @@ data:
   historical: none
   granularity: null
   free_archive: null
-  known_gaps: "Market data only through the authenticated Web API, needing a funded account and market-data permissions. IBKR's monthly brokerage metrics break out stocks, options and futures but never event contracts, so no free volume figure exists at all."
+  known_gaps: "Market data only through the authenticated Web API, needing a funded account. Monthly metrics and SEC filings omit event contracts entirely; the one public figure is an earnings-call remark — 286m contract pairs in Q4 2025, roughly $286m of committed capital at $1 settlement — with no time series behind it."
   recorder_support: no
 description: "Interactive Brokers' retail front-end for binary forecast and event contracts, routing to its wholly-owned ForecastEx exchange plus Kalshi and CME since May 2026."
 tags: [regulated, broker, economics, climate, elections]

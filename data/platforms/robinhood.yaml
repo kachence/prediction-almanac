@@ -22,7 +22,7 @@ data:
   historical: none
   granularity: null
   free_archive: null
-  known_gaps: "No prediction-markets API of any kind — prices render only in the app, and the sole public developer API is for crypto. Volume is disclosed as contracts traded (13.6bn in Q2 2026), never USD notional, and the flow it routes to Kalshi and ForecastEx is already counted inside those venues' own figures."
+  known_gaps: "No prediction-markets API — prices render only in the app. Volume is disclosed as contracts (13.6bn in Q2 2026), never USD: Robinhood reports notional for equities and crypto but pointedly not for event contracts, so 13.6bn is a ceiling, not a total. Its flow routes through Kalshi, ForecastEx and Rothera, so it must never be added to theirs."
   recorder_support: no
 description: "Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges."
 tags: [regulated, us, broker, sports, politics, economics]

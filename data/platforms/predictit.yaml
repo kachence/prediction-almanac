@@ -21,7 +21,7 @@ data:
   historical: none
   granularity: snapshot quotes
   free_archive: null
-  known_gaps: "The public API is a price snapshot with no volume. Daily share volume does exist per market via GetMarketChartData, but it needs US egress (other regions get a Cloudflare country block), rate-limits to ~15 req/min across ~197 markets, reports shares rather than USD, and its terms restrict use to non-commercial with attribution."
+  known_gaps: "The public API is a price snapshot with no volume; per-market share volume exists via GetMarketChartData but needs US egress, ~15 req/min across ~197 markets, reports shares not USD, and carries non-commercial terms. Nothing recurring is published. The only credible sizing is academic: ~$5.9m traded Sep-Nov 2024, against Kalshi $321m and Polymarket $2.1bn over the same window."
   recorder_support: no
 description: "Long-running US political research market; capped stakes and a small contract universe."
 tags: [regulated, us, politics]
