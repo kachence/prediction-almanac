@@ -4,19 +4,19 @@ url: https://sx.bet
 mechanism: onchain-clob
 chain: SX Rollup
 status: live
+defillama: sx-bet
 launched: 2019
 geo:
   model: global-restrictions
-  restricted: [af, at, au, by, cu, de, es, fr, gb, ir, iq, km, kp, mm, nl, ru, sd, ss,
-               sy, us, ve, ye, zw]
+  restricted: [af, at, au, by, cu, de, es, fr, gb, ir, iq, km, kp, mm, nl, ru, sd, ss, sy, us, ve, ye, zw]
   source: https://help.sx.bet/en/articles/3613372-terms-and-conditions
   as_of: "2026-08-12"
   notes: "Terms bar residents of 22 countries plus Ontario, Canada (sub-national), and frame the service as online gambling. The terms page is stale — it still names DAI and Ether as betting assets where the platform uses USDC."
 metrics:
-  volume_usd: null
-  period: null
-  source: null
-  as_of: null
+  volume_usd: 58231627
+  period: 30d
+  source: defillama (sx-bet)
+  as_of: "2026-08-12"
 data:
   public_api: true
   live_orderbook: true

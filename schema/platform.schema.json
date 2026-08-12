@@ -14,6 +14,11 @@
       "enum": ["onchain-clob", "onchain-amm", "regulated-exchange", "play-money", "forecasting"]
     },
     "chain": { "type": ["string", "null"] },
+    "defillama": {
+      "description": "DefiLlama protocol slug, if it tracks this venue's volume; used by refresh.py.",
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9][a-z0-9.-]*$"
+    },
     "status": { "enum": ["live", "beta", "deprecated", "dead"] },
     "launched": { "type": ["integer", "null"], "minimum": 1980, "maximum": 2100 },
     "geo": {

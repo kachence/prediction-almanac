@@ -4,6 +4,7 @@ url: https://www.rain.trade
 mechanism: onchain-amm
 chain: Arbitrum
 status: live
+defillama: rain
 launched: 2026
 geo:
   model: unknown
@@ -11,10 +12,10 @@ geo:
   as_of: "2026-08-12"
   notes: "Terms render client-side so no country list could be read; the site ships geo-detection and its footer says prediction markets are 'prohibited in some' jurisdictions. Operated under a Liberian National Lottery Authority licence, not a financial one."
 metrics:
-  volume_usd: null
-  period: null
-  source: null
-  as_of: null
+  volume_usd: 40.99
+  period: 30d
+  source: defillama (rain)
+  as_of: "2026-08-12"
 data:
   public_api: true
   live_orderbook: false

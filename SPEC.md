@@ -136,21 +136,26 @@ permissions: { contents: write }
 Write-back must round-trip YAML without clobbering comments/key order — use
 `ruamel.yaml` (already the repo's YAML library), never plain `pyyaml` dump.
 
-Two API traps worth remembering. **Kalshi** volume must come from `/events` with
-`with_nested_markets=true`: `/markets` is dominated by ~200k dormant strikes, and its
-`status` filter has no value matching the `active` state traded markets actually report,
-so summing it yields ~$60k against a real ~$21M. Kalshi also reports volume in
-*contracts*, so USD is estimated as contracts × last price. **Myriad** paginates by
-`page` (not `offset`, which silently re-serves page 1) and denominates markets in
-several tokens, so non-USD collateral is excluded rather than summed as dollars.
+**Volume comes from DefiLlama first** (`api.llama.fi/overview/dexs`, free and key-free,
+`category == "Prediction Market"`). One request covers most venues under a single
+methodology, which is the only thing that makes the column comparable across platforms,
+and it counts markets that *settled* during the window. Each platform carries a
+`defillama:` slug; refresh.py falls back to a per-platform fetcher only where no adapter
+exists (currently just Gemini), and leaves everything else null with a stated reason.
 
-Volume sources, all free and key-free: Polymarket Gamma API, Kalshi trading API,
-Manifold API, `api.gemini.com/v1/prediction-markets/events` (per-event `volume` +
-`volume24h`), `api.hyperliquid.xyz/info`, `api-v2.myriadprotocol.com/markets`,
-`prod-api.rain.trade/markets`, and DefiLlama
-(`api.llama.fi`) for the on-chain long tail under one methodology — preferred over Dune,
-whose free API is credit-metered. GitHub API with
-the auto-provided `GITHUB_TOKEN` (5k req/h) for stars/last-commit/license/archived.
+Hand-rolling per-platform sums was tried and abandoned — recorded here so it isn't
+retried. Summing a venue's own "open markets" endpoint silently undercounts by however
+much volume settled inside the window: Polymarket by ~2.4x, Kalshi by ~14x. Kalshi is
+doubly hostile — `/markets` is ~200k dormant strikes whose `status` filter has no value
+matching the `active` state traded markets report, so the obvious query returns ~$60k
+against a real ~$10.9B/30d, and its volume is denominated in contracts rather than
+dollars. Myriad paginates by `page` (`offset` silently re-serves page 1) and mixes
+collateral tokens, so points markets would be summed as dollars.
+
+Because periods differ (DefiLlama gives 30d; Gemini publishes only 24h), the README
+sorts on a normalized per-day rate while displaying each figure with its own period.
+GitHub API with the auto-provided `GITHUB_TOKEN` (5k req/h) for
+stars/last-commit/license/archived.
 Plain HTTP for liveness. On-chain long-tail (predict.fun, Limitless, Zeitgeist) via
 subgraphs later, manual until then. GitHub auto-disables cron workflows after 60 days of
 repo inactivity — irrelevant here because the refresh commits daily.
@@ -191,9 +196,9 @@ submission). Optional later: MkDocs Material Pages site off the same data.
 
 1. ✅ Schema + `build.py` + hand-seeded platforms/tools/sources → generated README.
 2. ⬜ `refresh.py` for stars/last-commit + liveness → tool-health columns self-update.
-3. 🟡 Volume refresh — `scripts/refresh.py` works locally for Polymarket, Kalshi,
-   Gemini, and Myriad; the rest are null with a documented reason. Still to do: wire it
-   into `refresh.yml` on a schedule.
+3. 🟡 Volume refresh — `scripts/refresh.py` works locally, filling 8 of 15 live
+   platforms via DefiLlama + Gemini; the rest are null with a documented reason. Still
+   to do: wire it into `refresh.yml` on a schedule.
 4. ⬜ Issue-form intake + deterministic enrich + bot PR (human merges).
 5. ⬜ Claude vetting + auto-merge → the flagship, and the launch post:
    *"Every awesome list dies the day the maintainer stops merging PRs. So I built one

@@ -3,6 +3,7 @@ name: Kalshi
 url: https://kalshi.com
 mechanism: regulated-exchange
 status: live
+defillama: kalshi
 launched: 2021
 geo:
   model: global-restrictions
@@ -11,9 +12,9 @@ geo:
   as_of: "2026-08-12"
   notes: "CFTC-regulated US exchange. Restriction applies to trading event contracts only — non-trading access allowed; plus any jurisdiction under US country- or territory-wide sanctions."
 metrics:
-  volume_usd: 20739911.7
-  period: 24h
-  source: kalshi-api (Σ 24h contracts × last price)
+  volume_usd: 10898559799
+  period: 30d
+  source: defillama (kalshi)
   as_of: "2026-08-12"
 data:
   public_api: true

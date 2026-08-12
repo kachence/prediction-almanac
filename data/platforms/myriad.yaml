@@ -4,6 +4,7 @@ url: https://myriad.markets
 mechanism: onchain-clob
 chain: BNB Chain +3
 status: live
+defillama: myriad-markets
 launched: 2025
 geo:
   model: global-restrictions
@@ -12,9 +13,9 @@ geo:
   as_of: "2026-08-12"
   notes: "ToS section 2 'Restricted Use / Prohibited Territories' bars residents of 18 countries plus Ontario, Canada (sub-national), and forbids VPN circumvention."
 metrics:
-  volume_usd: 136439.01
-  period: 24h
-  source: myriad-api (Σ open-market volume24h; 18 non-USD markets excluded)
+  volume_usd: 2028806
+  period: 30d
+  source: defillama (myriad-markets)
   as_of: "2026-08-12"
 data:
   public_api: true

@@ -236,9 +236,18 @@ def ptype(platform):
 
 # ---- assembly --------------------------------------------------------------
 
+PERIOD_DAYS = {"24h": 1, "30d": 30}
+
+
 def volume_key(p):
-    volume = (p.get("metrics") or {}).get("volume_usd")
-    return (volume is None, -(volume or 0), p["name"].lower())
+    """Rank on a per-day rate so a 24h figure isn't sorted against 30d ones as if
+    they were the same quantity. The table still shows each figure as reported."""
+    metrics = p.get("metrics") or {}
+    volume = metrics.get("volume_usd")
+    if volume is None:
+        return (True, 0, p["name"].lower())
+    daily = volume / PERIOD_DAYS.get(metrics.get("period"), 1)
+    return (False, -daily, p["name"].lower())
 
 
 def group_platforms(platforms, config):
