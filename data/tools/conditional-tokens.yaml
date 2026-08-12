@@ -10,5 +10,5 @@ github:
   license: LGPL-3.0
   archived: false
   health: stale
-description: "Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on."
+description: "Gnosis' ERC-1155 outcome-token standard Polymarket settles on — the split and merge mechanics you use to hedge or construct a position from collateral."
 tags: [solidity, standard, gnosis]

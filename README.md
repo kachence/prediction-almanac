@@ -137,6 +137,7 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[Squiggle](https://www.squiggle-language.com)** | — | 218 | 2026-08-11 | Probabilistic estimation language for building and sanity-checking forecasts. |
 | **[Fatebook](https://fatebook.io)** | — | 60 | 2026-06-12 | Quick personal forecast logging and calibration tracking, from Sage. |
 | **[Calibration City](https://calibration.city)** | polymarket, kalshi, manifold, metaculus | — | — | Cross-platform calibration explorer scoring how well market prices predict real outcomes. |
 
@@ -170,8 +171,7 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 · stale | Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on. |
-| **[Squiggle](https://www.squiggle-language.com)** | — | 218 | 2026-08-11 | Probabilistic estimation language for building and sanity-checking forecasts. |
+| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 · stale | Gnosis' ERC-1155 outcome-token standard Polymarket settles on — the split and merge mechanics you use to hedge or construct a position from collateral. |
 | **[ctf-exchange-v2](https://github.com/Polymarket/ctf-exchange-v2)** | polymarket | 75 | 2026-08-03 | Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1. |
 
 ### Research & education
