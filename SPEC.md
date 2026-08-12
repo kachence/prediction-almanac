@@ -92,7 +92,8 @@ recorder support?) cross-linked to `sources/` slugs. Volume columns render only 
 real-money groups (config `show_volume`) — play-money volume isn't USD.
 
 **Tool** — anything built on top: `category` (`aggregator | analytics | bot | api-sdk |
-dashboard | alerting | arbitrage | data | extension | infra | education`), `platforms`
+dashboard | alerting | arbitrage | data | extension | infra | education | research`),
+`platforms`
 covered, auto-filled `github:` block (stars, last_commit, license, archived, derived
 `health: active | stale | archived`).
 
@@ -108,6 +109,14 @@ must do something real. Star counts are gamed in this niche — the research beh
 current list rejected repos with hundreds of stars and four commits advertising win
 rates, keyword-stuffed SEO farms, and one "arbitrage bot" whose contents were a Java
 console game.
+
+Two curation findings worth preserving. **Sources and tools are curated, not exhaustive**
+— every venue has an API and every niche has fifty SEO repos, so listing them all
+destroys the signal the directory exists to provide. And the **Research** section is
+named that deliberately: genuine prediction-market education barely exists (venues
+publish marketing, the independent "guide" layer is affiliate spam), while the 2026
+academic output is free and directly tradeable. Calling it Education invited exactly the
+listicles the bar excludes.
 
 **Why `geo.as_of` earns its place.** These rules move fast enough that an undated list is
 untrustworthy. IBKR's EEA position changed three times in ten months, and archived page
