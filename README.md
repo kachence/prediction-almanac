@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 11 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**18 platforms · 13 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -28,9 +28,11 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 
 | Platform | Type | Since | Volume | Who can trade | Description |
 |---|---|---|---|---|---|
+| **[Hyperliquid Outcomes](https://app.hyperliquid.xyz/outcomes)** | CLOB · HyperCore | 2026 | — | [🌍 exc. 🇺🇸🇨🇺🇮🇷🇰🇵🇸🇾](https://app.hyperliquid.xyz/termsOfUse "Cannot trade: United States, Cuba, Iran, North Korea, Syria") | Binary outcome contracts native to Hyperliquid's HyperCore order book (HIP-4); Yes/No books merge to share liquidity, settling 0 or 1 in USDC. |
 | **[Limitless](https://limitless.exchange)** | CLOB · Base | 2024 | — | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
 | **[Polymarket](https://polymarket.com)** | CLOB · Polygon | 2020 | — | [🌍 exc. 🇺🇸🇬🇧🇨🇦🇦🇺 +39](https://polymarket.com/tos "Cannot trade: United States, United Kingdom, Canada, Australia, Germany, France, Netherlands, Italy, Japan, Singapore, Brazil, Belgium, Burundi, Belarus, DR Congo, +28 more") | Largest on-chain prediction market; USDC-settled CLOB on Polygon. |
 | **[predict.fun](https://predict.fun)** | CLOB · Blast | 2024 | — | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9](https://docs.predict.fun/terms-of-service "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan") | Polymarket-style on-chain CLOB prediction market on Blast. |
+| **[Rain](https://www.rain.trade)** | AMM · Arbitrum | 2026 | — | [❔ unverified](https://www.rain.trade/terms-and-conditions) | Permissionless pool-priced event markets on Arbitrum settled in USDT0, where users create their own politics, sports, and crypto markets. |
 | **[Zeitgeist](https://zeitgeist.pm)** | AMM · Polkadot parachain | 2022 | — | [🌍 exc. 🇺🇸](https://app.zeitgeist.pm/terms "Cannot trade: United States") | Prediction-market parachain in the Polkadot ecosystem with on-chain market governance. |
 
 ### Regulated & traditional exchanges
@@ -39,6 +41,7 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 |---|---|---|---|---|---|
 | **[Betfair Exchange](https://www.betfair.com/exchange)** | Regulated exchange | 2000 | — | [licensed countries only](https://support.betfair.com/app/answers/detail/betfair-general-terms-and-conditions/) | The largest betting exchange; politics and current-affairs markets alongside sports. |
 | **[ForecastEx](https://forecastex.com)** | Regulated exchange | 2024 | — | [only 🇺🇸🇨🇦🇭🇰🇮🇪](https://www.interactivebrokers.com/en/general/about/mediaRelations/4-1-25.php "Can trade: United States, Canada, Hong Kong, Ireland") | Interactive Brokers' CFTC-regulated event exchange; yes/no contracts on economics and climate. |
+| **[Gemini Predictions](https://www.gemini.com/predictions)** | Regulated exchange | 2025 | — | [only 🇺🇸](https://www.gemini.com/legal/predictions-user-agreement "Can trade: United States") | CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD. |
 | **[Iowa Electronic Markets](https://iem.uiowa.edu)** | Regulated exchange | 1988 | — | [🌍 everyone](https://iemweb.biz.uiowa.edu/faq/) | The original academic real-money market, run by the University of Iowa since 1988. |
 | **[Kalshi](https://kalshi.com)** | Regulated exchange | 2021 | — | [🌍 exc. 🇬🇧🇨🇦🇦🇺🇫🇷 +51](https://kalshi.com/docs/kalshi-member-agreement.pdf "Cannot trade: United Kingdom, Canada, Australia, France, Italy, China, India, Singapore, United Arab Emirates, Afghanistan, Angola, Belgium, Burkina Faso, Bulgaria, Bolivia, +40 more") | CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports. |
 | **[PredictIt](https://www.predictit.org)** | Regulated exchange | 2014 | — | [only 🇺🇸](https://www.predictit.org/terms-and-conditions "Can trade: United States") | Long-running US political research market; capped stakes and a small contract universe. |
@@ -86,7 +89,9 @@ backtesting, or building. Per platform first, then the concrete sources.
 | [Betfair Exchange](https://www.betfair.com/exchange) | ✓ | ✓ | partial | odds ticks+book | — | Historical exchange data is a separate paid product (historicdata.betfair.com). |
 | [ForecastEx](https://forecastex.com) | — | — | none | — | — | Market data flows through Interactive Brokers platforms/APIs; no standalone public data API. |
 | [Futuur](https://futuur.com) | ✓ | — | none | current odds | — | API serves current markets/odds; no historical endpoint. |
+| [Gemini Predictions](https://www.gemini.com/predictions) | ✓ | ✓ | partial | trade+book | — | No REST order-book snapshot (depth is WebSocket-only); no candles/OHLC or historical volume series — only per-event cumulative and 24h. |
 | [Good Judgment Open](https://www.gjopen.com) | — | — | none | — | — | No public API; forecast data is not exported. |
+| [Hyperliquid Outcomes](https://app.hyperliquid.xyz/outcomes) | ✓ | ✓ | partial | trade+book (L2, 20 levels/side) | — | Outcome books and metadata come only from the official API, not open-source node software; no dedicated historical volume endpoint. |
 | [Hypermind](https://www.hypermind.com) | — | — | none | — | — | No public API. |
 | [Iowa Electronic Markets](https://iem.uiowa.edu) | — | — | full | daily prices | — | History published as per-market files on the site; no API. |
 | [Kalshi](https://kalshi.com) | ✓ | ✓ | partial | trade+candlestick | [prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) | History served per-market via API (trades, candlesticks); no official bulk archive. |
@@ -96,6 +101,7 @@ backtesting, or building. Per platform first, then the concrete sources.
 | [Polymarket](https://polymarket.com) | ✓ | ✓ | partial | trade+book | [pmxt](https://pmxt.dev) | No official bulk historical-trade endpoint; third-party archives have day/week gaps on some markets. |
 | [predict.fun](https://predict.fun) | ✓ | ✓ | none | live markets+book | — | No historical archive. |
 | [PredictIt](https://www.predictit.org) | ✓ | — | none | snapshot quotes | — | Official API is a current-price snapshot only; no historical endpoint. |
+| [Rain](https://www.rain.trade) | ✓ | — | none | market snapshots (price, 24h change, cumulative volume) | — | No trades, candles, or book endpoint for event markets; API is undocumented and unversioned; the subgraph its frontend references returns 404. |
 | [Smarkets](https://smarkets.com) | ✓ | ✓ | none | live odds+book | — | Trading API requires an account; no public historical archive. |
 | [Zeitgeist](https://zeitgeist.pm) | ✓ | — | partial | on-chain (indexer) | — | Data via its own indexer/SDK; no simple REST archive. |
 
@@ -105,6 +111,8 @@ backtesting, or building. Per platform first, then the concrete sources.
 |---|---|---|---|---|---|---|
 | **[Betfair Historical Data](https://historicdata.betfair.com)** | betfair | historical-archive | compressed JSON (market ticks) · odds ticks + book | varies by sport/tier (full) | paid | Politics/specials coverage thinner than sports. |
 | **[Dune (decoded on-chain tables)](https://dune.com)** | polymarket | dataset | SQL over decoded Polygon tables · on-chain events | 2020–present (full) | gated | Requires writing SQL against raw/decoded contract tables; API export is metered. |
+| **[Gemini Predictions API](https://api.gemini.com/v1/prediction-markets/events)** | gemini-predictions | live-api | JSON REST + WebSocket · prices, per-event volume; L2 depth over WebSocket | 2025–present (partial) | free | No REST depth snapshot, no candles, no historical volume series. |
+| **[Hyperliquid info API](https://api.hyperliquid.xyz/info)** | hyperliquid-outcomes | live-api | JSON POST · L2 book (20 levels/side), mids, outcome metadata | 2026–present (partial) | free | Outcome endpoints are served by the official API only — not by self-hosted nodes; no historical volume series. |
 | **[Kalshi Trading API](https://docs.kalshi.com)** | kalshi | live-api | JSON REST + WebSocket · trades, candlesticks, order book | 2021–present (full) | free | Per-market pagination; no bulk download. |
 | **[Manifold API](https://docs.manifold.markets/api)** | manifold | live-api | JSON REST · bet-level | 2021–present (full) | free | Rate limits make whole-site pulls slow. |
 | **[Metaculus API](https://www.metaculus.com/api/)** | metaculus | live-api | JSON REST · question + aggregate forecast history | 2015–present (full) | free | Individual forecasts mostly private; aggregates and resolutions are public. |

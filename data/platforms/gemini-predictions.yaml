@@ -1,0 +1,27 @@
+slug: gemini-predictions
+name: Gemini Predictions
+url: https://www.gemini.com/predictions
+mechanism: regulated-exchange
+status: live
+launched: 2025
+geo:
+  model: allowlist
+  allowed: [us]
+  source: https://www.gemini.com/legal/predictions-user-agreement
+  as_of: "2026-08-12"
+  notes: "All 50 states via Gemini's own CFTC-licensed DCM affiliate (Gemini Titan, licensed 2025-12-11) — not routed to a partner exchange; UK/EEA/Australia accounts closed April 2026. Several states are litigating sports event contracts."
+metrics:
+  volume_usd: null
+  period: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: true
+  historical: partial
+  granularity: trade+book
+  free_archive: null
+  known_gaps: "No REST order-book snapshot (depth is WebSocket-only); no candles/OHLC or historical volume series — only per-event cumulative and 24h."
+  recorder_support: no
+description: "CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD."
+tags: [regulated, us, clob, politics, sports, economics]

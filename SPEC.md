@@ -136,7 +136,11 @@ permissions: { contents: write }
 Write-back must round-trip YAML without clobbering comments/key order — use
 `ruamel.yaml` (already the repo's YAML library), never plain `pyyaml` dump.
 
-Volume sources: Polymarket Gamma API, Kalshi trading API, Manifold API. GitHub API with
+Volume sources, all free and key-free: Polymarket Gamma API, Kalshi trading API,
+Manifold API, `api.gemini.com/v1/prediction-markets/events` (per-event `volume` +
+`volume24h`), `api.hyperliquid.xyz/info`, `prod-api.rain.trade/markets`, and DefiLlama
+(`api.llama.fi`) for the on-chain long tail under one methodology — preferred over Dune,
+whose free API is credit-metered. GitHub API with
 the auto-provided `GITHUB_TOKEN` (5k req/h) for stars/last-commit/license/archived.
 Plain HTTP for liveness. On-chain long-tail (predict.fun, Limitless, Zeitgeist) via
 subgraphs later, manual until then. GitHub auto-disables cron workflows after 60 days of

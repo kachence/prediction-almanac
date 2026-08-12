@@ -22,7 +22,7 @@
       "additionalProperties": false,
       "required": ["model"],
       "properties": {
-        "model": { "enum": ["everyone", "permissionless", "global-restrictions", "allowlist"] },
+        "model": { "enum": ["everyone", "permissionless", "global-restrictions", "allowlist", "unknown"] },
         "restricted": {
           "description": "ISO 3166-1 alpha-2, lowercase; for model: global-restrictions.",
           "type": "array",

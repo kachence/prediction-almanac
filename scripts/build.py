@@ -185,6 +185,9 @@ def make_geo_cell(config):
             text = "🌍 everyone"
         elif model == "permissionless":
             text = "🌐 permissionless"
+        elif model == "unknown":
+            # We looked and couldn't establish it — better stated than implied.
+            text = "❔ unverified"
         elif model == "global-restrictions":
             excluded = _ordered(geo.get("restricted") or [], notable)
             if not excluded:
