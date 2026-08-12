@@ -54,7 +54,7 @@
         },
         "source": { "type": ["string", "null"], "pattern": "^https?://" },
         "as_of": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
-        "notes": { "type": ["string", "null"], "maxLength": 300 }
+        "notes": { "type": ["string", "null"], "maxLength": 400 }
       }
     },
     "metrics": {

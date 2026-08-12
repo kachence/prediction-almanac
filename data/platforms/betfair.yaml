@@ -5,10 +5,11 @@ mechanism: regulated-exchange
 status: live
 launched: 2000
 geo:
-  model: allowlist
-  source: https://support.betfair.com/app/answers/detail/betfair-general-terms-and-conditions/
+  model: global-restrictions
+  restricted: []            # deliberately empty — the list is not public, see notes
+  source: https://www.sec.gov/Archives/edgar/data/1635327/000163532726000005/flut-20251231.htm
   as_of: "2026-08-12"
-  notes: "Separate liquidity pools: .com (UKGC/MGA for GB/IE/MT), betfair.it, betfair.es, betfair.com.au (AU/NZ); official pages block bots so the exact country tail is unverified. Some countries get the Sportsbook but not the Exchange."
+  notes: "A blocklist, not an allowlist: the .com Exchange blocks a non-public, explicitly non-exhaustive list changed by unilateral closure notice (Japan, Latvia, Sri Lanka Dec 2025; Canada Jan 2026; Mexico May 2026). Separately licensed pools run in Italy, Spain, Romania, Denmark, Brazil and Australia, and the UKGC licenses Exchange and Sportsbook separately, so availability differs."
 metrics:
   volume_usd: null
   period: null

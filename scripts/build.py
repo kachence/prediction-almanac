@@ -192,7 +192,8 @@ def make_geo_cell(config):
         elif model == "global-restrictions":
             excluded = _ordered(geo.get("restricted") or [], notable)
             if not excluded:
-                text = "🌍 everyone"
+                # the model asserts restrictions exist; the list just isn't public
+                text = "🌍 exc. an undisclosed list"
             elif len(excluded) <= max_flags:
                 text = f"🌍 exc. {flags(excluded)}"
                 title = _tooltip("Cannot trade", excluded)
