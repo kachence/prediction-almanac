@@ -1,0 +1,7 @@
+slug: forecastbench
+name: ForecastBench
+url: https://www.forecastbench.org
+category: research
+platforms: []
+description: "Live contamination-free benchmark from Tetlock's Forecasting Research Institute comparing LLM and human forecasting accuracy — evidence for how far to trust a model's edge."
+tags: [benchmark, ai, accuracy]

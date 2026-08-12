@@ -78,9 +78,13 @@ tool_categories:
   - keys: [education]
     title: Docs & training
     note: >-
-      Platform documentation worth reading and the two calibration-practice sites
-      that exist. We looked for newsletters and podcasts and found none current
-      enough to list, which is itself worth knowing.
+      Platform documentation worth reading, and the calibration training that
+      measurably improves forecasting rather than just describing it.
+  - keys: [newsletter]
+    title: Newsletters & regular writing
+    note: >-
+      Free, current, and not owned by an exchange. Podcasts were checked and none
+      qualified: the main one is four months stale and exchange-sponsored.
   - keys: [alerting]
     title: Alerting
   - keys: [extension]

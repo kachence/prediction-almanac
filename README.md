@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 13 data sources · 58 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 13 data sources · 66 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -211,6 +211,7 @@ its own live endpoints.
 |---|---|---|---|---|
 | **[Arbitrage Analysis in Polymarket NBA Markets](https://arxiv.org/abs/2605.00864)** | polymarket | — | — | 75M book snapshots over 173 NBA games: only 7 executable single-market arbs with a median 3.6s life, and combinatorial episodes mostly capped near 15 shares. |
 | **[Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics](https://arxiv.org/abs/2602.19520)** | kalshi, polymarket | — | — | 353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong — political markets stay compressed toward 50%. |
+| **[ForecastBench](https://www.forecastbench.org)** | — | — | — | Live contamination-free benchmark from Tetlock's Forecasting Research Institute comparing LLM and human forecasting accuracy — evidence for how far to trust a model's edge. |
 | **[Interpreting Prediction Market Prices as Probabilities](https://www.nber.org/system/files/working_papers/w12200/w12200.pdf)** | — | — | — | Derives when a market price equals mean belief, and the wedge that risk aversion and belief heterogeneity create — that is, when 60c is not 60%. |
 | **[Logarithmic Market Scoring Rules](https://mason.gmu.edu/~rhanson/mktscore.pdf)** | — | — | — | Hanson's LMSR — a scoring rule doubling as a bounded-loss automated market maker, and the pricing engine behind most subsidised event markets. |
 | **[Makers and Takers: The Economics of the Kalshi Prediction Market](https://www2.gwu.edu/~forcpgm/2026-001.pdf)** | kalshi | — | — | Transaction-level study of 300k+ Kalshi contracts: a strong favorite-longshot bias after fees, and higher realised returns for makers than for takers. |
@@ -224,14 +225,28 @@ its own live endpoints.
 
 ### Docs & training
 
-*Platform documentation worth reading and the two calibration-practice sites that exist. We looked for newsletters and podcasts and found none current enough to list, which is itself worth knowing.*
+*Platform documentation worth reading, and the calibration training that measurably improves forecasting rather than just describing it.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[Calibrate Your Judgment](https://80000hours.org/calibration-training/)** | — | — | — | Calibration web app with thousands of questions scoring whether your 80% really means 80%, charted over time — the direct fix for overconfident sizing. |
 | **[Forecasting Wiki](https://forecasting.wiki)** | — | — | — | Community wiki collecting forecasting concepts, techniques, and platform know-how. |
 | **[IBKR Campus: Predictive Markets](https://www.interactivebrokers.com/campus/traders-academy/predict-market/)** | ibkr | — | — | Two free CFA-accredited courses on event contracts and how they settle — genuinely structured, but explicitly beginner level. |
+| **[Metaculus Scores FAQ](https://www.metaculus.com/help/scores-faq/)** | metaculus | — | — | The clearest free explanation of proper scoring rules — log score, spot, baseline and peer scores, and why honest probabilities beat extremizing. |
 | **[Polymarket Documentation](https://docs.polymarket.com)** | polymarket | — | — | Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks. |
 | **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | — | — | — | Calibration-training games (estimation, pastcasting) from Sage. |
+| **[Ten Commandments for Aspiring Superforecasters](https://fs.blog/ten-commandments-for-superforecasters/)** | — | — | — | Tetlock and Gardner's full checklist — triage, decompose, balance inside and outside views, update in small increments, hunt your own errors. |
+
+### Newsletters & regular writing
+
+*Free, current, and not owned by an exchange. Podcasts were checked and none qualified: the main one is four months stale and exchange-sponsored.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Imperfect Information](https://rajivsethi.substack.com)** | polymarket | — | — | Rajiv Sethi on prediction-market accuracy, wash trading and market design — the most rigorous writing on when prices beat polls and where they fail. |
+| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | — | — | — | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
+| **[Superforecasting the Week Ahead](https://goodjudgment.substack.com)** | — | — | — | Good Judgment's weekly letter, showing how professional superforecasters frame and decompose live questions. Carries some house marketing. |
+| **[The Event Horizon](https://nexteventhorizon.substack.com)** | kalshi, polymarket | — | — | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity. |
 
 ## Contributing
 

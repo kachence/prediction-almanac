@@ -116,7 +116,13 @@ destroys the signal the directory exists to provide. And the **Research** sectio
 named that deliberately: genuine prediction-market education barely exists (venues
 publish marketing, the independent "guide" layer is affiliate spam), while the 2026
 academic output is free and directly tradeable. Calling it Education invited exactly the
-listicles the bar excludes.
+listicles the bar excludes. Newsletters are listed only where free, current and not
+exchange-owned; the one long-running podcast is four months stale and Polymarket-
+sponsored, so it is not listed.
+
+**Link-checker caveat:** `metaculus.com` and `goodjudgment.com` return 403 to automated
+fetchers, so a future liveness sweep will false-positive on them. Treat 401/403/429 as
+alive — bot protection is not death — which is already how the manual sweeps are run.
 
 **Why `geo.as_of` earns its place.** These rules move fast enough that an undated list is
 untrustworthy. IBKR's EEA position changed three times in ten months, and archived page
