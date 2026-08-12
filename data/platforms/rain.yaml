@@ -13,7 +13,7 @@ geo:
   model: unknown
   source: https://www.rain.trade/terms-and-conditions
   as_of: "2026-08-12"
-  notes: "Terms render client-side so no country list could be read; the site ships geo-detection and its footer says prediction markets are 'prohibited in some' jurisdictions. Operated under a Liberian National Lottery Authority licence, not a financial one."
+  notes: "Its config API declares blocked_countries and restricted_countries — a two-tier structure — but both return null, and the terms body renders client-side, so no list is verifiable at source. Front-end run by Mindmarket under a Liberian gaming licence; the Arbitrum protocol itself is permissionless."
 metrics:
   volume_usd: 815279.46
   period: 30d

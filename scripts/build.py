@@ -231,7 +231,7 @@ def vol(platform):
 def ptype(platform):
     label = MECH_LABEL[platform["mechanism"]]
     if platform.get("chain"):
-        label = f"{label} · {platform['chain']}"
+        label = f"{label}, {platform['chain']}"
     if platform.get("routes_to"):
         # a broker's real semantics are where its orders match, not its own name
         label = f"{label} → {', '.join(platform['routes_to'])}"
