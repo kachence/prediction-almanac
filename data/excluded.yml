@@ -1,0 +1,23 @@
+# Considered and deliberately NOT listed, with the reason. This is a real part of the
+# data model: the intake bot checks submissions against it, so a rejected resource does
+# not come back every few weeks, and readers can see what was weighed and why.
+#
+# Scope rule: this directory lists genuine prediction markets — venues trading contracts
+# on the outcome of real-world events. Sportsbooks, casinos, and betting-liquidity
+# protocols are adjacent but out of scope, even when they settle on-chain.
+
+- name: Azuro
+  url: https://azuro.org
+  type: platform
+  reason: >-
+    Sports-betting liquidity protocol powering third-party sportsbooks, not a
+    prediction market venue in its own right.
+  decided: "2026-08-12"
+
+- name: Overtime
+  url: https://overtimemarkets.xyz
+  type: platform
+  reason: >-
+    Sports betting (Thales protocol family) with an AMM, not event-outcome
+    prediction markets.
+  decided: "2026-08-12"

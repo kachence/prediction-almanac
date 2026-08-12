@@ -12,6 +12,7 @@ import re
 import sys
 from pathlib import Path
 
+import pycountry
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from jsonschema import Draft202012Validator
 from ruamel.yaml import YAML
@@ -64,6 +65,18 @@ def validate(kind, entries):
         stem = Path(entry["_file"]).stem
         if entry.get("slug") != stem:
             errors.append(f"{entry['_file']}: slug '{entry.get('slug')}' != filename '{stem}'")
+    return errors
+
+
+def check_country_codes(platforms):
+    """Catch typos like 'uk' (the ISO code for the United Kingdom is 'gb')."""
+    errors = []
+    for p in platforms:
+        geo = p.get("geo") or {}
+        for field in ("restricted", "allowed"):
+            for code in geo.get(field) or []:
+                if not pycountry.countries.get(alpha_2=code.upper()):
+                    errors.append(f"{p['_file']}: geo.{field}: '{code}' is not an ISO 3166-1 alpha-2 code")
     return errors
 
 
@@ -122,39 +135,84 @@ def flags(codes):
     )
 
 
-MAX_FLAGS = 6  # above this, show a count instead of a wall of flags
+# pycountry's common_name covers most awkward official titles ("Iran, Islamic Republic
+# of" -> "Iran"); these three have no common_name and read badly in a tooltip.
+COUNTRY_ALIASES = {
+    "cd": "DR Congo",
+    "ru": "Russia",
+    "um": "US Minor Outlying Islands",
+}
 
 
-def geo_cell(platform):
-    """Compact 'who may trade' cell; links to the terms page we read it from."""
-    geo = platform.get("geo")
-    if not geo:
-        return "—"
-    model = geo["model"]
-    if model == "everyone":
-        text = "🌍 everyone"
-    elif model == "permissionless":
-        text = "🌐 permissionless"
-    elif model == "global-restrictions":
-        excluded = geo.get("restricted") or []
-        if not excluded:
+def country_name(code):
+    if code in COUNTRY_ALIASES:
+        return COUNTRY_ALIASES[code]
+    country = pycountry.countries.get(alpha_2=code.upper())
+    if not country:
+        return code.upper()
+    return getattr(country, "common_name", None) or country.name
+
+
+TOOLTIP_NAMES = 15  # keep the hover text readable; the source link has the full list
+
+
+def _tooltip(label, codes):
+    shown = [country_name(c) for c in codes[:TOOLTIP_NAMES]]
+    if len(codes) > TOOLTIP_NAMES:
+        shown.append(f"+{len(codes) - TOOLTIP_NAMES} more")
+    return f"{label}: {', '.join(shown)}"
+
+
+def _ordered(codes, notable):
+    """Notable countries first (readers scan for their own), then the rest."""
+    ranked = sorted(codes, key=lambda c: (notable.index(c) if c in notable else len(notable), c))
+    return ranked
+
+
+def make_geo_cell(config):
+    """Compact 'who may trade' cell: flags where they fit, notable flags + count where
+    they don't, hover text naming the countries, linked to the terms page we read."""
+    display = config["geo_display"]
+    max_flags, lead, notable = display["max_flags"], display["lead_flags"], display["notable"]
+
+    def geo_cell(platform):
+        geo = platform.get("geo")
+        if not geo:
+            return "—"
+        model = geo["model"]
+        title = None
+        if model == "everyone":
             text = "🌍 everyone"
-        elif len(excluded) <= MAX_FLAGS:
-            text = f"🌍 exc. {flags(excluded)}"
-        else:
-            text = f"🌍 exc. {len(excluded)} countries"
-    elif model == "allowlist":
-        allowed = geo.get("allowed") or []
-        if allowed and len(allowed) <= MAX_FLAGS:
-            text = f"only {flags(allowed)}"
-        elif allowed:
-            text = f"only {len(allowed)} countries"
-        else:
-            text = "licensed countries only"
-    else:  # unreachable while the schema enum holds
-        text = "—"
-    source = geo.get("source")
-    return f"[{text}]({source})" if source else text
+        elif model == "permissionless":
+            text = "🌐 permissionless"
+        elif model == "global-restrictions":
+            excluded = _ordered(geo.get("restricted") or [], notable)
+            if not excluded:
+                text = "🌍 everyone"
+            elif len(excluded) <= max_flags:
+                text = f"🌍 exc. {flags(excluded)}"
+                title = _tooltip("Cannot trade", excluded)
+            else:
+                text = f"🌍 exc. {flags(excluded[:lead])} +{len(excluded) - lead}"
+                title = _tooltip("Cannot trade", excluded)
+        elif model == "allowlist":
+            allowed = _ordered(geo.get("allowed") or [], notable)
+            if not allowed:
+                text = "licensed countries only"
+            elif len(allowed) <= max_flags:
+                text = f"only {flags(allowed)}"
+                title = _tooltip("Can trade", allowed)
+            else:
+                text = f"only {len(allowed)} countries"
+                title = _tooltip("Can trade", allowed)
+        else:  # unreachable while the schema enum holds
+            return "—"
+        source = geo.get("source")
+        if not source:
+            return text
+        return f'[{text}]({source} "{title}")' if title else f"[{text}]({source})"
+
+    return geo_cell
 
 
 def vol(platform):
@@ -217,7 +275,7 @@ def group_tools(tools, config):
     return groups
 
 
-def render(config, platforms, tools, sources, generated_on):
+def render(config, platforms, tools, sources, excluded, generated_on):
     env = Environment(
         loader=FileSystemLoader(ROOT / "templates"),
         trim_blocks=True,
@@ -225,12 +283,15 @@ def render(config, platforms, tools, sources, generated_on):
         undefined=StrictUndefined,
         keep_trailing_newline=True,
     )
-    env.filters.update(md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=geo_cell, vol=vol)
+    env.filters.update(
+        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol
+    )
     # dead/deprecated entries stay in data/ (cross-links, history) but aren't rendered
     platforms = [p for p in platforms if p["status"] not in ("dead", "deprecated")]
     return env.get_template("README.md.j2").render(
         config=config,
         platforms=platforms,
+        excluded=excluded,
         tools=tools,
         sources=sorted(sources, key=lambda s: s["name"].lower()),
         sources_by_slug={s["slug"]: s for s in sources},
@@ -253,16 +314,22 @@ def main():
     platforms = load_entries("platforms")
     tools = load_entries("tools")
     sources = load_entries("sources")
+    excluded = load_yaml(ROOT / "data" / "excluded.yml") or []
 
     errors = []
     for kind, entries in (("platforms", platforms), ("tools", tools), ("sources", sources)):
         errors += validate(kind, entries)
+    errors += check_country_codes(platforms)
     errors += cross_check(platforms, tools, sources)
+    excluded_schema = json.loads((ROOT / "schema" / "excluded.schema.json").read_text())
+    for err in Draft202012Validator(excluded_schema).iter_errors(excluded):
+        where = "/".join(str(p) for p in err.absolute_path) or "<root>"
+        errors.append(f"data/excluded.yml: {where}: {err.message}")
     if errors:
         fail(errors)
 
     today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
-    output = render(config, platforms, tools, sources, today)
+    output = render(config, platforms, tools, sources, excluded, today)
     readme = ROOT / "README.md"
     hidden = sum(1 for p in platforms if p["status"] in ("dead", "deprecated"))
     summary = (

@@ -50,7 +50,8 @@ prediction-almanac/
 ├─ data/
 │  ├─ platforms/*.yaml            # one file per entry (clean diffs, no merge conflicts)
 │  ├─ tools/*.yaml
-│  └─ sources/*.yaml              # data-availability entries — the differentiator
+│  ├─ sources/*.yaml              # data-availability entries — the differentiator
+│  └─ excluded.yml                # considered and rejected, with reasons (intake checks it)
 ├─ schema/                        # JSON Schema (2020-12) for each type
 ├─ templates/README.md.j2         # jinja2
 ├─ scripts/
@@ -94,6 +95,13 @@ real-money groups (config `show_volume`) — play-money volume isn't USD.
 dashboard | alerting | arbitrage | data | extension | infra | education`), `platforms`
 covered, auto-filled `github:` block (stars, last_commit, license, archived, derived
 `health: active | stale | archived`).
+
+**Scope** — the directory lists venues trading contracts on the outcome of real-world
+events, preferring genuine order books. Sportsbooks, casinos, and betting-liquidity
+protocols are adjacent but out of scope even when they settle on-chain. Rejections are
+recorded in `data/excluded.yml` with a reason and rendered in a collapsed README section,
+so the same submission doesn't return every few weeks and the intake bot can auto-reject
+against it.
 
 **Source** — a way to get data out: `kind` (`live-api | historical-archive | subgraph |
 dataset`), format, granularity, `coverage` (range, completeness, known gaps), `access`

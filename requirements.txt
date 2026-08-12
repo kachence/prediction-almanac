@@ -2,5 +2,6 @@
 ruamel.yaml>=0.18
 jsonschema>=4.21
 jinja2>=3.1
+pycountry>=24.6      # ISO 3166 names/validation for the "who can trade" column
 # refresh + intake (steps 2+), kept here so one install covers all scripts
 httpx>=0.27

@@ -43,6 +43,14 @@ tool_categories:
   infra: Infrastructure
   education: Education
 
+# "Who can trade" cell rendering.
+geo_display:
+  max_flags: 8          # up to this many restricted countries render as flags; above it,
+                        # show the notable ones + a count (a 55-flag wall helps nobody)
+  lead_flags: 4         # how many notable flags to lead with when over max_flags
+  # Countries most readers check first, in priority order. Only affects display order.
+  notable: [us, gb, ca, au, de, fr, nl, it, es, cn, in, jp, sg, br]
+
 # Used by scripts/refresh.py (step 2+).
 thresholds:
   stale_days: 365          # last commit older than this -> github.health: stale

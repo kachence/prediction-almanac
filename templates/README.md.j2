@@ -42,11 +42,25 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 {% endif %}
 
 {% endfor %}
-*“Who can trade” is factual, per each platform’s own terms (each cell links to its
-source; 🌐 permissionless = protocol enforces nothing, official frontends may geoblock) —
-not advice, and never guidance around restrictions. Volume is notional USD over the
-stated period. Dead or deprecated platforms keep their entry in [`data/`](data/) but
-aren’t listed here.*
+*“Who can trade” is factual, per each platform’s own terms — not advice, and never
+guidance around restrictions. Hover a cell to name the countries; click it for the terms
+it was read from. 🌐 permissionless = the protocol enforces nothing, though official
+frontends may still geoblock. Volume is notional USD over the stated period. Dead or
+deprecated platforms keep their entry in [`data/`](data/) but aren’t listed here.*
+
+{% if excluded %}
+<details>
+<summary><b>Considered and not listed</b> — this is a prediction-market directory, so adjacent venues are deliberately out of scope</summary>
+
+| Resource | Why not |
+|---|---|
+{% for e in excluded %}
+| [{{ e.name | md }}]({{ e.url }}) | {{ e.reason | md }} |
+{% endfor %}
+
+Disagree? [Open an issue]({{ 'https://github.com/' ~ config.site.repo ~ '/issues' }}) — the reasons live in [`data/excluded.yml`](data/excluded.yml), so changing our mind is a one-line edit.
+</details>
+{% endif %}
 
 ## Data coverage
 

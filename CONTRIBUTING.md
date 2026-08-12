@@ -38,6 +38,12 @@ An issue-form submission flow (bot-vetted, auto-merged) is coming — see
 
 ## What gets an entry
 
-Platforms with real usage (any mechanism, including play-money and forecasting sites);
-tools that work today against a listed platform; sources that a stranger can actually
-access. Broken links, pure marketing pages, and copies of existing entries get pruned.
+**Platforms** must trade contracts on the outcome of real-world events — genuine order
+books preferred, with play-money and forecasting sites welcome. Sportsbooks, casinos,
+and betting-liquidity protocols are out of scope even when they settle on-chain; past
+calls and their reasons live in [`data/excluded.yml`](data/excluded.yml), so check there
+first and open an issue if you think one is wrong.
+
+**Tools** must work today against a listed platform. **Sources** must be something a
+stranger can actually access. Broken links, pure marketing pages, and duplicates of
+existing entries get pruned.

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "excluded.schema.json",
+  "title": "Excluded",
+  "description": "Resources considered and deliberately not listed, with the reason why.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["name", "url", "type", "reason", "decided"],
+    "additionalProperties": false,
+    "properties": {
+      "name": { "type": "string", "minLength": 1 },
+      "url": { "type": "string", "pattern": "^https?://" },
+      "type": { "enum": ["platform", "tool", "source"] },
+      "reason": { "type": "string", "minLength": 10, "maxLength": 300 },
+      "decided": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+    }
+  }
+}
