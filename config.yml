@@ -20,14 +20,14 @@ platform_groups:
     title: Regulated exchanges & brokers
     mechanisms: [regulated-exchange, broker]
     show_volume: true
-  - key: play-money
-    title: Play-money markets
-    mechanisms: [play-money]
+  - key: research
+    title: Research & play-money venues
+    mechanisms: [play-money, forecasting]
     show_volume: false
-  - key: forecasting
-    title: Forecasting platforms
-    mechanisms: [forecasting]
-    show_volume: false
+    note: >-
+      Listed for their data, not for trading. These are the only platforms here
+      with complete, free, public history, which is what you backtest and
+      calibrate against before risking money on the venues above.
 
 # Tool categories, in display order. Keys must match schema/tool.schema.json enum.
 tool_categories:

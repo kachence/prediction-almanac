@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**18 platforms · 14 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 14 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -47,26 +47,26 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 | **[Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/)** | Broker → Kalshi, ForecastEx, Rothera | 2024 | — | [only 🇺🇸](https://robinhood.com/us/en/support/articles/event-contracts-restrictions/ "Can trade: United States") | Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges. |
 | **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | — | [🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more") | UK-licensed betting exchange with notably deep political markets. |
 
-### Play-money markets
+### Research & play-money venues
+
+*Listed for their data, not for trading. These are the only platforms here with complete, free, public history, which is what you backtest and calibrate against before risking money on the venues above.*
 
 | Platform | Type | Since | Who can trade | Description |
 |---|---|---|---|---|
-| **[Futuur](https://futuur.com)** | Play-money | 2017 | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +35](https://help.futuur.com/Terms-of-Service-a2f757178971446cba1402b3cdc9a799 "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, United Arab Emirates, Austria, Barbados, Burkina Faso, Bulgaria, DR Congo, Cameroon, Gibraltar, +24 more") | Social prediction markets in play-money and real-money (crypto) flavors. |
-| **[Hypermind](https://www.hypermind.com)** | Play-money | 2014 | [🌍 everyone](https://predict.hypermind.com/hypermind/RulesTextPage.html) | Prize-based prediction market and forecasting panel; long-running French-American operation. |
 | **[Manifold](https://manifold.markets)** | Play-money | 2021 | [🌍 everyone](https://docs.manifold.markets/terms) | Play-money markets anyone can create; the most open API and data of any platform. |
-
-### Forecasting platforms
-
-| Platform | Type | Since | Who can trade | Description |
-|---|---|---|---|---|
-| **[Good Judgment Open](https://www.gjopen.com)** | Forecasting | 2015 | [🌍 everyone](https://www.gjopen.com/terms) | Public forecasting tournament from Good Judgment, of Superforecasting fame. |
 | **[Metaculus](https://www.metaculus.com)** | Forecasting | 2015 | [🌍 everyone](https://www.metaculus.com/terms-of-use/) | Long-horizon forecasting community with tournaments and track records; aggregates probabilistic forecasts rather than trading. |
 
 *“Who can trade” is factual, per each platform’s own terms — not advice, and never
 guidance around restrictions. Hover a cell to name the countries; click it for the terms
 it was read from. 🌐 permissionless = the protocol enforces nothing, though official
-frontends may still geoblock. Volume is notional USD over the stated period. Dead or
-deprecated platforms keep their entry in [`data/`](data/) but aren’t listed here.*
+frontends may still geoblock.*
+
+*Volume is notional USD over the stated period, and a blank means no free, comparable
+figure exists — each entry’s known-gaps note says why, since several venues publish only
+commission revenue or contract counts, which are not volume. **Don’t total the column:**
+brokers route their flow into exchanges listed in the same table, so it would be counted
+twice. Dead or deprecated platforms keep their entry in [`data/`](data/) but aren’t
+listed here.*
 
 <details>
 <summary><b>Considered and not listed</b> — this is a prediction-market directory, so adjacent venues are deliberately out of scope</summary>
@@ -78,6 +78,9 @@ deprecated platforms keep their entry in [`data/`](data/) but aren’t listed he
 | [Hyperliquid Outcomes (HIP-4)](https://app.hyperliquid.xyz/outcomes) | Exchange infrastructure rather than a venue in its own right — HIP-4 is an order-book primitive that front-ends build on, and mainnet inventory is a handful of recurring crypto price binaries. |
 | [ForecastEx](https://forecastex.com) | A CFTC-licensed exchange that retail cannot access directly; it is the matching venue behind broker front-ends such as IBKR ForecastTrader, which are listed instead. |
 | [Iowa Electronic Markets](https://iem.uiowa.edu) | Academic research market with $500 account caps, no API, and negligible volume; of historical interest rather than practical use. |
+| [Futuur](https://futuur.com) | Play-money side adds no data or liquidity, and the real-money side is offshore-licensed with 39 countries blocked and no historical API. Nothing in the directory references it. |
+| [Hypermind](https://www.hypermind.com) | Prize-based forecasting with no public API and no exportable data, so it offers nothing to a trader or a builder. |
+| [Good Judgment Open](https://www.gjopen.com) | No API and no data export. Metaculus covers the same ground with full public forecast history. |
 
 Disagree? [Open an issue](https://github.com/kachence/prediction-almanac/issues) — the reasons live in [`data/excluded.yml`](data/excluded.yml), so changing our mind is a one-line edit.
 </details>
@@ -90,10 +93,7 @@ backtesting, or building. Per platform first, then the concrete sources.
 | Platform | Public API | Live book | Historical | Granularity | Free archive | Known gaps |
 |---|---|---|---|---|---|---|
 | [Betfair Exchange](https://www.betfair.com/exchange) | ✓ | ✓ | partial | odds ticks+book | — | No compliant free path: the free Delayed App Key omits totalMatched, the GBP 499 Live key forbids read-only data collection, and anonymous routes sit behind bot protection. No venue-level figure is published either — Flutter never sizes the Exchange separately, and regulator statistics aggregate all licensed exchanges and report commission rather than turnover. |
-| [Futuur](https://futuur.com) | ✓ | — | none | current odds | — | API serves current markets/odds; no historical endpoint. |
 | [Gemini Predictions](https://www.gemini.com/predictions) | ✓ | ✓ | partial | trade+book | — | No REST order-book snapshot; depth is WebSocket-only. Volume comes from a documented per-day endpoint and is counted in contracts at $1 face, not cash exchanged — at the ~$0.41 blended traded price, cash turnover is far lower. Summing the events list instead undercounts ~6.5x, because expired short-dated markets drop out of it. |
-| [Good Judgment Open](https://www.gjopen.com) | — | — | none | — | — | No public API; forecast data is not exported. |
-| [Hypermind](https://www.hypermind.com) | — | — | none | — | — | No public API. |
 | [IBKR Prediction Markets](https://www.interactivebrokers.com/predictionmarkets/en/home.php) | — | — | none | — | — | Market data only through the authenticated Web API, needing a funded account. Monthly metrics and SEC filings omit event contracts entirely; the one public figure is an earnings-call remark — 286m contract pairs in Q4 2025, roughly $286m of committed capital at $1 settlement — with no time series behind it. |
 | [Kalshi](https://kalshi.com) | ✓ | ✓ | partial | trade+candlestick | [prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) | History served per-market via API (trades, candlesticks); no official bulk archive. |
 | [Limitless](https://limitless.exchange) | ✓ | ✓ | none | live markets+book | — | No historical archive; markets are short-lived by design. |
@@ -133,7 +133,7 @@ backtesting, or building. Per platform first, then the concrete sources.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, good-judgment-open, infer | 68 | 2025-02-09 | Meta search engine aggregating forecasts and odds across platforms. |
+| **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, infer | 68 | 2025-02-09 | Meta search engine aggregating forecasts and odds across platforms. |
 | **[Adjacent News](https://adj.news)** | polymarket, kalshi, manifold, metaculus | — | — | News and research terminal built around prediction-market data, with a market-data API. |
 | **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair | — | — | Long-running site charting election odds averaged across real-money markets. |
 

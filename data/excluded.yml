@@ -47,3 +47,28 @@
     Academic research market with $500 account caps, no API, and negligible
     volume; of historical interest rather than practical use.
   decided: "2026-08-12"
+
+- name: Futuur
+  url: https://futuur.com
+  type: platform
+  reason: >-
+    Play-money side adds no data or liquidity, and the real-money side is
+    offshore-licensed with 39 countries blocked and no historical API. Nothing
+    in the directory references it.
+  decided: "2026-08-12"
+
+- name: Hypermind
+  url: https://www.hypermind.com
+  type: platform
+  reason: >-
+    Prize-based forecasting with no public API and no exportable data, so it
+    offers nothing to a trader or a builder.
+  decided: "2026-08-12"
+
+- name: Good Judgment Open
+  url: https://www.gjopen.com
+  type: platform
+  reason: >-
+    No API and no data export. Metaculus covers the same ground with full
+    public forecast history.
+  decided: "2026-08-12"

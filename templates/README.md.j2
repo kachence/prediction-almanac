@@ -27,6 +27,10 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 {% for group in platform_groups %}
 ### {{ group.title }}
 
+{% if group.note %}
+*{{ group.note }}*
+
+{% endif %}
 {% if group.show_volume %}
 | Platform | Type | Since | Volume | Who can trade | Description |
 |---|---|---|---|---|---|
@@ -45,8 +49,14 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 *“Who can trade” is factual, per each platform’s own terms — not advice, and never
 guidance around restrictions. Hover a cell to name the countries; click it for the terms
 it was read from. 🌐 permissionless = the protocol enforces nothing, though official
-frontends may still geoblock. Volume is notional USD over the stated period. Dead or
-deprecated platforms keep their entry in [`data/`](data/) but aren’t listed here.*
+frontends may still geoblock.*
+
+*Volume is notional USD over the stated period, and a blank means no free, comparable
+figure exists — each entry’s known-gaps note says why, since several venues publish only
+commission revenue or contract counts, which are not volume. **Don’t total the column:**
+brokers route their flow into exchanges listed in the same table, so it would be counted
+twice. Dead or deprecated platforms keep their entry in [`data/`](data/) but aren’t
+listed here.*
 
 {% if excluded %}
 <details>

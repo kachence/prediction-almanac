@@ -3,7 +3,7 @@ name: Metaforecast
 url: https://metaforecast.org
 repo: https://github.com/quantified-uncertainty/metaforecast
 category: aggregator
-platforms: [polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, good-judgment-open, infer]
+platforms: [polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, infer]
 # ---- auto-filled by scripts/refresh.py ----
 github:
   stars: 68

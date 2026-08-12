@@ -270,6 +270,7 @@ def group_platforms(platforms, config):
                     "title": g["title"],
                     "platforms": members,
                     "show_volume": g.get("show_volume", True),
+                    "note": g.get("note"),
                 }
             )
     return groups
