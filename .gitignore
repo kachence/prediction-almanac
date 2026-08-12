@@ -5,3 +5,8 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+
+# secrets — never commit
+.env
+.env.*
+!.env.example
