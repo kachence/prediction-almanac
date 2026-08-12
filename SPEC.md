@@ -159,30 +159,26 @@ collateral notional (contracts × $1, both legs), roughly 1.8x a price-weighted 
 like Polymarket's, because no free source publishes the price-weighted number for a
 whole month. Both are stated in each entry's `metrics.source`.
 
-Hyperliquid HIP-4 deserves its own note, since it took real work to establish. Its
-official API cannot produce a historical figure at all: expired outcome coins are fully
-delisted (`candleSnapshot`, `l2Book`, `allMids` all return null), candle `v` is contracts
-rather than USD and is mirrored across the Yes/No legs, and the exact notional field
-(`dayNtlVlm`) is reachable only over a WebSocket `activeAssetCtx` subscription covering
-the current 06:00-UTC contract day. DefiLlama has no whole-market adapter — only
-builder-code frontends that see ~10% of flow, since ~85% of HIP-4 volume carries no
-builder code. So the 30d number comes from `stats.outcome.xyz`, which is free and
-unauthenticated but **undocumented and therefore fragile**. Two mitigations: the fetcher
-checks it against an invariant it cannot legitimately violate — DefiLlama's single
-tracked builder cannot out-trade the whole network, and today that line is 9.3% of the
-total, matching an independently measured ~10% — and, since completed days there are
-immutable, the durable fix is to accumulate our own daily snapshots and demote the third
-party to backfill.
+Where no aggregator measures a venue correctly, a **saved Dune query** fills the gap:
+ids live under `dune:` in `config.yml`, SQL in `scripts/queries/`, and `refresh.py` skips
+those venues cleanly when `DUNE_API_KEY` is absent so the build never depends on a key.
+Rain is the current case — DefiLlama reads $0 for it because its adapter watches two
+retired factories and an AMM-era event, while the live deployment is an order book on a
+third factory. The query sums `ExecuteBuy/SellOrder` `baseAmount`, excludes self-trades
+(maker and taker are indexed, so `topic1 = topic2` catches them, and one address
+accounts for about half of all-time volume that way), handles both live event variants,
+and joins pools to their collateral token so RAIN-denominated pools cannot corrupt a sum
+scaled for USDT0. It agrees with an independent RPC scan to within 0.5%.
 
-Treat that figure as an order of magnitude, not a precise one: ASXN's HIP-4 store
-reports ~$111M for the same 30d window against stats.outcome.xyz's ~$56M, a ~2x spread
-that comes down to whether fills are counted per leg or per trade. ASXN has the best
-data found — per-market daily volume including settled markets, back to 2026-05-07 —
-but it sits behind a WASM anti-bot gate on an unpublished product backend, so we do not
-call it. If that data becomes important, ask ASXN for access rather than defeating the
-gate. Also ruled out: Blockworks (auth-gated, $1,350 tier), Hyperdash (Cloudflare 403),
-Hypurrscan and Oak Research (both 24h-only pass-throughs of Hyperliquid's own API),
-loris.tools ($79/mo), Dune (HIP-4 is a premium dataset).
+Hyperliquid HIP-4 was researched at length before being excluded as infrastructure; the
+findings are preserved in git history around commit `720ce00` should a HIP-4 front-end
+ever be listed. The short version: the official API cannot produce any historical
+figure, DefiLlama sees only ~10% of flow through builder codes, and the two free
+third-party sources disagree by ~2x. One of them, ASXN, has the best data available but
+sits behind a WASM anti-bot gate on an unpublished backend — **the answer there is to
+ask for access, never to defeat the gate**, and that principle applies to any future
+source.
+
 GitHub API with the auto-provided `GITHUB_TOKEN` (5k req/h) for
 stars/last-commit/license/archived.
 Plain HTTP for liveness. On-chain long-tail (predict.fun, Limitless, Zeitgeist) via
