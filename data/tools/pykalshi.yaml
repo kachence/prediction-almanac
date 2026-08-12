@@ -1,0 +1,14 @@
+slug: pykalshi
+name: pykalshi
+url: https://github.com/arshka/pykalshi
+repo: https://github.com/arshka/pykalshi
+category: api-sdk
+platforms: [kalshi]
+github:
+  stars: 120
+  last_commit: '2026-07-29'
+  license: MIT
+  archived: false
+  health: active
+description: "Unofficial Kalshi client with order amend/cancel, WebSocket book and trade feeds, Pydantic models, typed errors and pandas integration."
+tags: [python, community]

@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 13 data sources · 22 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 13 data sources · 33 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -99,7 +99,7 @@ its own live endpoints.
 | **[Betfair Historical Data](https://historicdata.betfair.com)** | betfair | historical-archive | compressed JSON (market ticks) · odds ticks + book | varies by sport/tier (full) | paid | Politics/specials coverage thinner than sports. |
 | **[pmxt](https://pmxt.dev)** | polymarket, kalshi, limitless, gemini-predictions, myriad | historical-archive | parquet · trade+book | 2024–present (partial) | free | Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list. |
 | **[Dune (decoded on-chain tables)](https://dune.com)** | polymarket | dataset | SQL over decoded Polygon tables · on-chain events | 2020–present (full) | gated | Requires writing SQL against raw/decoded contract tables; API export is metered. |
-| **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | bulk files (see repo) · trade | through 2025 (partial) | free | Point-in-time snapshots; check the repo for freshness. |
+| **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | compressed bulk dataset (~36GB) · trade | through 2025 (partial) | free | A research framework as much as a dataset — it ships indexers for collecting new data, so freshness depends on running them yourself. |
 | **[Betfair Exchange API](https://developer.betfair.com)** | betfair | odds-feed | JSON-RPC / REST · prices and market book | live only (partial) | gated | Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection. |
 | **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair, smarkets | odds-feed | HTML (no API) · per-market odds and cumulative matched USD, by venue | election markets only (partial) | free | Scraped from the page, with no API and no time series — figures are cumulative per market rather than per period, and only election markets are covered. |
 | **[Pinnacle API](https://github.com/pinnacleapi)** | — | odds-feed | JSON REST · pre-match and live odds, lines, limits | live only (partial) | gated | Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
@@ -119,9 +119,24 @@ its own live endpoints.
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
 | **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,767 | 2024-11-05 · archived | Official framework for building LLM trading agents on Polymarket. |
+| **[poly-maker](https://github.com/warproxxx/poly-maker)** | polymarket | 1,448 | 2026-07-09 | Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine. |
+| **[CloddsBot](https://github.com/alsk1992/CloddsBot)** | polymarket, kalshi, manifold, metaculus, predict-fun | 663 | 2026-06-26 | Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers. |
+| **[kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot)** | kalshi | 569 | 2026-07-06 | Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents. |
+| **[Kalshi Trading Bot CLI](https://github.com/OctagonAI/kalshi-trading-bot-cli)** | kalshi | 369 | 2026-06-25 | CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly — with a demo mode. |
+| **[PolyClaw](https://github.com/chainstacklabs/polyclaw)** | polymarket | 357 | 2026-04-28 | Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking. |
 | **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 · stale | Reference market-making bot for the Polymarket CLOB. |
+| **[KalshiMarketMaker](https://github.com/rodlaf/KalshiMarketMaker)** | kalshi | 227 | 2026-04-14 | Avellaneda-Stoikov market making on Kalshi — reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment. |
+| **[Homerun](https://github.com/braedonsaunders/homerun)** | polymarket, kalshi | 168 | 2026-07-04 | Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode. |
 | **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
 | **[polymm](https://github.com/kachence/polymm)** | polymarket | 72 | 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
+
+### Arbitrage & screeners
+
+*Finding the same event priced differently across venues, which is where most of the edge in this space actually lives.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Polymarket Alpha Bot](https://github.com/chainstacklabs/polymarket-alpha-bot)** | polymarket | 169 | 2026-08-05 | Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes. |
 
 ### Dashboards & market data
 
@@ -157,7 +172,10 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,609 | 2026-08-12 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
 | **[polymarket-cli](https://github.com/Polymarket/polymarket-cli)** | polymarket | 2,847 | 2026-05-26 | Official Rust CLI to browse markets, place orders and manage positions from a terminal, or drive them as a JSON API from scripts and agents. |
+| **[PMXT SDK](https://github.com/pmxt-dev/pmxt)** | polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions | 2,077 | 2026-07-18 | CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration — one integration instead of fourteen. |
+| **[pykalshi](https://github.com/arshka/pykalshi)** | kalshi | 120 | 2026-07-29 | Unofficial Kalshi client with order amend/cancel, WebSocket book and trade feeds, Pydantic models, typed errors and pandas integration. |
 | **[Polymarket py-sdk](https://github.com/Polymarket/py-sdk)** | polymarket | 95 | 2026-08-12 | Official unified Python SDK — public data, authenticated account, trading, builder attribution and wallet workflows in one package. |
 | **[forecasting-tools](https://github.com/Metaculus/forecasting-tools)** | metaculus | 76 | 2026-08-09 | Python framework for building LLM forecasting bots, used in Metaculus AI tournaments. |
 | **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 58 | 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |

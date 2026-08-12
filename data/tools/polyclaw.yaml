@@ -1,0 +1,14 @@
+slug: polyclaw
+name: PolyClaw
+url: https://github.com/chainstacklabs/polyclaw
+repo: https://github.com/chainstacklabs/polyclaw
+category: bot
+platforms: [polymarket]
+github:
+  stars: 357
+  last_commit: '2026-04-28'
+  license: Apache-2.0
+  archived: false
+  health: active
+description: "Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking."
+tags: [agents, onchain]

@@ -1,0 +1,14 @@
+slug: pmxt-sdk
+name: PMXT SDK
+url: https://github.com/pmxt-dev/pmxt
+repo: https://github.com/pmxt-dev/pmxt
+category: api-sdk
+platforms: [polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions]
+github:
+  stars: 2077
+  last_commit: '2026-07-18'
+  license: MIT
+  archived: false
+  health: active
+description: "CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration — one integration instead of fourteen."
+tags: [python, typescript, multi-venue, cli]

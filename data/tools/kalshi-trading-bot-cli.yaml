@@ -1,0 +1,14 @@
+slug: kalshi-trading-bot-cli
+name: Kalshi Trading Bot CLI
+url: https://github.com/OctagonAI/kalshi-trading-bot-cli
+repo: https://github.com/OctagonAI/kalshi-trading-bot-cli
+category: bot
+platforms: [kalshi]
+github:
+  stars: 369
+  last_commit: '2026-06-25'
+  license: MIT
+  archived: false
+  health: active
+description: "CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly — with a demo mode."
+tags: [cli, research, kelly]

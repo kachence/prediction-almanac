@@ -1,0 +1,14 @@
+slug: cloddsbot
+name: CloddsBot
+url: https://github.com/alsk1992/CloddsBot
+repo: https://github.com/alsk1992/CloddsBot
+category: bot
+platforms: [polymarket, kalshi, manifold, metaculus, predict-fun]
+github:
+  stars: 663
+  last_commit: '2026-06-26'
+  license: MIT
+  archived: false
+  health: active
+description: "Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers."
+tags: [agents, multi-venue, risk]

@@ -1,0 +1,14 @@
+slug: poly-maker
+name: poly-maker
+url: https://github.com/warproxxx/poly-maker
+repo: https://github.com/warproxxx/poly-maker
+category: bot
+platforms: [polymarket]
+github:
+  stars: 1448
+  last_commit: '2026-07-09'
+  license: MIT
+  archived: false
+  health: active
+description: "Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine."
+tags: [market-making, python]

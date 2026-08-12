@@ -1,0 +1,14 @@
+slug: kalshi-market-maker
+name: KalshiMarketMaker
+url: https://github.com/rodlaf/KalshiMarketMaker
+repo: https://github.com/rodlaf/KalshiMarketMaker
+category: bot
+platforms: [kalshi]
+github:
+  stars: 227
+  last_commit: '2026-04-14'
+  license: MIT
+  archived: false
+  health: active
+description: "Avellaneda-Stoikov market making on Kalshi — reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment."
+tags: [market-making, python]

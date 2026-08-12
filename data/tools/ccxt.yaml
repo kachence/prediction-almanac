@@ -1,0 +1,14 @@
+slug: ccxt
+name: CCXT
+url: https://github.com/ccxt/ccxt
+repo: https://github.com/ccxt/ccxt
+category: api-sdk
+platforms: [polymarket, kalshi, limitless, myriad]
+github:
+  stars: 43609
+  last_commit: '2026-08-12'
+  license: MIT
+  archived: false
+  health: active
+description: "The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages."
+tags: [multi-venue, battle-tested]

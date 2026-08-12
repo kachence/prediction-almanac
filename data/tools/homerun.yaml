@@ -1,0 +1,14 @@
+slug: homerun
+name: Homerun
+url: https://github.com/braedonsaunders/homerun
+repo: https://github.com/braedonsaunders/homerun
+category: bot
+platforms: [polymarket, kalshi]
+github:
+  stars: 168
+  last_commit: '2026-07-04'
+  license: AGPL-3.0
+  archived: false
+  health: active
+description: "Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode."
+tags: [backtesting, python, execution]
