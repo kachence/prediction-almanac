@@ -289,11 +289,15 @@ def group_platforms(platforms, config):
 
 
 def group_tools(tools, config):
+    """Active projects lead each section: a retired repo shouldn't head the list
+    just because it collected stars before it was archived."""
+    order = {"active": 0, None: 1, "stale": 2, "archived": 3}
     groups = []
     for spec in config["tool_categories"]:
         members = sorted(
-            (t for t in tools if t["category"] == spec["key"]),
+            (t for t in tools if t["category"] in spec["keys"]),
             key=lambda t: (
+                order.get((t.get("github") or {}).get("health"), 1),
                 (t.get("github") or {}).get("stars") is None,
                 -((t.get("github") or {}).get("stars") or 0),
                 t["name"].lower(),
