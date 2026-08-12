@@ -14,11 +14,11 @@ def client():
     )
 
 
-def get_json(http, url, params=None, attempts=3):
+def get_json(http, url, params=None, attempts=3, headers=None):
     """GET returning parsed JSON, retrying transient failures; None if it never works."""
     for attempt in range(attempts):
         try:
-            response = http.get(url, params=params)
+            response = http.get(url, params=params, headers=headers)
             response.raise_for_status()
             return response.json()
         except Exception:

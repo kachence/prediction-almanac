@@ -5,10 +5,10 @@ repo: https://github.com/Metaculus/forecasting-tools
 category: api-sdk
 platforms: [metaculus]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 76
+  last_commit: '2026-08-09'
+  license: MIT
+  archived: false
+  health: active
 description: "Python framework for building LLM forecasting bots, used in Metaculus AI tournaments."
 tags: [python, ai, llm]

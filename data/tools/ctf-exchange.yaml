@@ -5,10 +5,10 @@ repo: https://github.com/Polymarket/ctf-exchange
 category: infra
 platforms: [polymarket]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 356
+  last_commit: '2026-05-11'
+  license: MIT
+  archived: true
+  health: archived
 description: "Polymarket's audited on-chain exchange contracts for settling CTF outcome tokens."
 tags: [solidity, contracts, official]

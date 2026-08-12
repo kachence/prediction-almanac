@@ -5,10 +5,10 @@ repo: https://github.com/vluzko/manifoldpy
 category: api-sdk
 platforms: [manifold]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 41
+  last_commit: '2026-07-10'
+  license: MIT
+  archived: false
+  health: active
 description: "Community Python wrapper for the Manifold API."
 tags: [python, community]

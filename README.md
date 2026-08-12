@@ -33,14 +33,14 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 | **[SX Bet](https://sx.bet)** | CLOB · SX Rollup | 2019 | $58.2M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19](https://help.sx.bet/en/articles/3613372-terms-and-conditions "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more") | Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports. |
 | **[Limitless](https://limitless.exchange)** | CLOB · Base | 2024 | $48.9M/30d | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
 | **[Myriad](https://myriad.markets)** | CLOB · BNB Chain +3 | 2025 | $2M/30d | [🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14](https://help.myriad.markets/myriad-terms-of-use "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more") | Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea. |
-| **[Rain](https://www.rain.trade)** | CLOB · Arbitrum | 2026 | $815.4k/30d | [❔ unverified](https://www.rain.trade/terms-and-conditions) | Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets. |
+| **[Rain](https://www.rain.trade)** | CLOB · Arbitrum | 2026 | $815.3k/30d | [❔ unverified](https://www.rain.trade/terms-and-conditions) | Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets. |
 
 ### Regulated & traditional exchanges
 
 | Platform | Type | Since | Volume | Who can trade | Description |
 |---|---|---|---|---|---|
 | **[Kalshi](https://kalshi.com)** | Regulated exchange | 2021 | $10.9B/30d | [🌍 exc. 🇬🇧🇨🇦🇦🇺🇫🇷 +51](https://kalshi.com/docs/kalshi-member-agreement.pdf "Cannot trade: United Kingdom, Canada, Australia, France, Italy, China, India, Singapore, United Arab Emirates, Afghanistan, Angola, Belgium, Burkina Faso, Bulgaria, Bolivia, +40 more") | CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports. |
-| **[Gemini Predictions](https://www.gemini.com/predictions)** | Regulated exchange | 2025 | $124.1k/24h | [only 🇺🇸](https://www.gemini.com/legal/predictions-user-agreement "Can trade: United States") | CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD. |
+| **[Gemini Predictions](https://www.gemini.com/predictions)** | Regulated exchange | 2025 | $130.3k/24h | [only 🇺🇸](https://www.gemini.com/legal/predictions-user-agreement "Can trade: United States") | CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD. |
 | **[Betfair Exchange](https://www.betfair.com/exchange)** | Regulated exchange | 2000 | — | [licensed countries only](https://support.betfair.com/app/answers/detail/betfair-general-terms-and-conditions/) | The largest betting exchange; politics and current-affairs markets alongside sports. |
 | **[PredictIt](https://www.predictit.org)** | Regulated exchange | 2014 | — | [only 🇺🇸](https://www.predictit.org/terms-and-conditions "Can trade: United States") | Long-running US political research market; capped stakes and a small contract universe. |
 | **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | — | [🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more") | UK-licensed betting exchange with notably deep political markets. |
@@ -129,35 +129,35 @@ backtesting, or building. Per platform first, then the concrete sources.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, good-judgment-open, infer | 68 | 2025-02-09 | Meta search engine aggregating forecasts and odds across platforms. |
 | **[Adjacent News](https://adj.news)** | polymarket, kalshi, manifold, metaculus | — | — | News and research terminal built around prediction-market data, with a market-data API. |
 | **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair | — | — | Long-running site charting election odds averaged across real-money markets. |
-| **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, good-judgment-open, infer | — | — | Meta search engine aggregating forecasts and odds across platforms. |
 
 ### Analytics & calibration
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[Fatebook](https://fatebook.io)** | — | 60 | 2026-06-12 | Quick personal forecast logging and calibration tracking, from Sage. |
 | **[Calibration City](https://calibration.city)** | polymarket, kalshi, manifold, metaculus | — | — | Cross-platform calibration explorer scoring how well market prices predict real outcomes. |
-| **[Fatebook](https://fatebook.io)** | — | — | — | Quick personal forecast logging and calibration tracking, from Sage. |
 
 ### APIs & SDKs
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[clob-client](https://github.com/Polymarket/clob-client)** | polymarket | — | — | Official TypeScript client for the Polymarket CLOB API. |
-| **[forecasting-tools](https://github.com/Metaculus/forecasting-tools)** | metaculus | — | — | Python framework for building LLM forecasting bots, used in Metaculus AI tournaments. |
+| **[py-clob-client](https://github.com/Polymarket/py-clob-client)** | polymarket | 1,234 | 2026-05-25 | Official Python client for the Polymarket CLOB API. |
+| **[clob-client](https://github.com/Polymarket/clob-client)** | polymarket | 513 | 2026-05-25 | Official TypeScript client for the Polymarket CLOB API. |
+| **[forecasting-tools](https://github.com/Metaculus/forecasting-tools)** | metaculus | 76 | 2026-08-09 | Python framework for building LLM forecasting bots, used in Metaculus AI tournaments. |
+| **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 58 | 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
+| **[manifoldpy](https://github.com/vluzko/manifoldpy)** | manifold | 41 | 2026-07-10 | Community Python wrapper for the Manifold API. |
 | **[kalshi-python](https://pypi.org/project/kalshi-python/)** | kalshi | — | — | Official Python SDK for Kalshi's trading API. |
-| **[manifoldpy](https://github.com/vluzko/manifoldpy)** | manifold | — | — | Community Python wrapper for the Manifold API. |
-| **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | — | — | Gnosis toolkit for building AI agents that trade on prediction markets. |
-| **[py-clob-client](https://github.com/Polymarket/py-clob-client)** | polymarket | — | — | Official Python client for the Polymarket CLOB API. |
 
 ### Bots & agents
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | — | — | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
-| **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | — | — | Reference market-making bot for the Polymarket CLOB. |
-| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | — | — | Official framework for building LLM trading agents on Polymarket. |
+| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,767 | 2024-11-05 | Official framework for building LLM trading agents on Polymarket. |
+| **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 | Reference market-making bot for the Polymarket CLOB. |
+| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
 
 ### Dashboards
 
@@ -169,9 +169,9 @@ backtesting, or building. Per platform first, then the concrete sources.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | — | — | Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on. |
-| **[ctf-exchange](https://github.com/Polymarket/ctf-exchange)** | polymarket | — | — | Polymarket's audited on-chain exchange contracts for settling CTF outcome tokens. |
-| **[Squiggle](https://www.squiggle-language.com)** | — | — | — | Probabilistic estimation language for building and sanity-checking forecasts. |
+| **[ctf-exchange](https://github.com/Polymarket/ctf-exchange)** | polymarket | 356 | 2026-05-11 | Polymarket's audited on-chain exchange contracts for settling CTF outcome tokens. |
+| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 | Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on. |
+| **[Squiggle](https://www.squiggle-language.com)** | — | 218 | 2026-08-11 | Probabilistic estimation language for building and sanity-checking forecasts. |
 
 ### Education
 

@@ -122,6 +122,60 @@ NO_SOURCE = {
 }
 
 
+def fetch_github(http, repo_url, token):
+    """stars, last commit, licence and archived flag for one repo."""
+    slug = repo_url.rstrip("/").removeprefix("https://github.com/")
+    headers = {"Authorization": f"Bearer {token}"} if token else {}
+    data = get_json(http, f"https://api.github.com/repos/{slug}", headers=headers)
+    if not data:
+        return None
+    licence = (data.get("license") or {}).get("spdx_id")
+    return {
+        "stars": data.get("stargazers_count"),
+        "last_commit": (data.get("pushed_at") or "")[:10] or None,
+        "license": None if licence in (None, "NOASSERTION") else licence,
+        "archived": bool(data.get("archived")),
+    }
+
+
+def derive_health(github, stale_days):
+    """archived beats stale beats active — readers filter on this, it isn't a gate."""
+    if github.get("archived"):
+        return "archived"
+    last = github.get("last_commit")
+    if not last:
+        return None
+    age = (dt.date.today() - dt.date.fromisoformat(last)).days
+    return "stale" if age > stale_days else "active"
+
+
+def refresh_tools(http, config, dry_run):
+    """Fill the github block for every tool that names a repo."""
+    token = secret("GITHUB_TOKEN")
+    stale_days = (config.get("thresholds") or {}).get("stale_days", 365)
+    yaml = YAML(typ="safe")
+    updated = 0
+    print(f"\nGitHub ({'authenticated' if token else 'anonymous, 60 req/h'}):")
+    for path in sorted((ROOT / "data" / "tools").glob("*.yaml")):
+        with open(path) as f:
+            entry = yaml.load(f)
+        repo_url = entry.get("repo")
+        if not repo_url:
+            continue
+        github = fetch_github(http, repo_url, token)
+        if not github:
+            print(f"  {entry['slug']:34} unreachable")
+            continue
+        github["health"] = derive_health(github, stale_days)
+        print(
+            f"  {entry['slug']:34} {github['stars'] or 0:>7,} stars  "
+            f"{github['last_commit'] or '—':>10}  {github['health'] or '—'}"
+        )
+        if not dry_run and write_block(path, "github", github):
+            updated += 1
+    return updated
+
+
 def _represent_none(representer, _data):
     """Keep `null` explicit; ruamel's default writes an empty value."""
     return representer.represent_scalar("tag:yaml.org,2002:null", "null")
@@ -147,7 +201,7 @@ def load_platforms():
     return platforms
 
 
-def write_back(slug, volume, period, source, as_of):
+def write_block(path, block, values):
     """Round-trip YAML so comments, key order, and layout survive the write.
 
     A daily job touching these files must not reflow unrelated lines, or every
@@ -157,23 +211,34 @@ def write_back(slug, volume, period, source, as_of):
     yaml.preserve_quotes = True
     yaml.width = 4096  # never re-wrap long flow lists or folded strings
     yaml.representer.add_representer(type(None), _represent_none)
-    path = ROOT / "data" / "platforms" / f"{slug}.yaml"
     data = yaml.load(path)
-    metrics = data.get("metrics")
-    if metrics is None:
+    target = data.get(block)
+    if target is None:
         return False
-    metrics["volume_usd"] = round(volume, 2)
-    metrics["period"] = period
-    metrics["source"] = source
-    metrics["as_of"] = DoubleQuotedScalarString(as_of)  # match the hand-written style
+    for key, value in values.items():
+        target[key] = value
     yaml.dump(data, path)
     return True
+
+
+def write_back(slug, volume, period, source, as_of):
+    return write_block(
+        ROOT / "data" / "platforms" / f"{slug}.yaml",
+        "metrics",
+        {
+            "volume_usd": round(volume, 2),
+            "period": period,
+            "source": source,
+            "as_of": DoubleQuotedScalarString(as_of),  # match the hand-written style
+        },
+    )
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run", action="store_true", help="fetch and report, write nothing")
     parser.add_argument("--only", action="append", help="limit to these platform slugs")
+    parser.add_argument("--skip-tools", action="store_true", help="don't refresh tool health")
     args = parser.parse_args()
 
     config = load_yaml(ROOT / "config.yml")
@@ -227,6 +292,9 @@ def main():
             print(f"  {slug:24} ${volume:>16,.0f}  {period}  {source}")
             if not args.dry_run and write_back(slug, volume, period, source, as_of):
                 written += 1
+
+        if not args.only and not args.skip_tools:
+            written += refresh_tools(http, config, args.dry_run)
 
     print()
     for slug, reason in sorted(skipped):

@@ -5,10 +5,10 @@ repo: https://github.com/quantified-uncertainty/squiggle
 category: infra
 platforms: []
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 218
+  last_commit: '2026-08-11'
+  license: MIT
+  archived: false
+  health: active
 description: "Probabilistic estimation language for building and sanity-checking forecasts."
 tags: [language, estimation]

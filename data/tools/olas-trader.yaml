@@ -5,10 +5,10 @@ repo: https://github.com/valory-xyz/trader
 category: bot
 platforms: [omen]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 72
+  last_commit: '2026-08-12'
+  license: Apache-2.0
+  archived: false
+  health: active
 description: "Autonomous prediction-market trading agent that runs as an on-chain Olas service."
 tags: [agents, autonomous, gnosis]

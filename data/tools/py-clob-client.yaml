@@ -5,10 +5,10 @@ repo: https://github.com/Polymarket/py-clob-client
 category: api-sdk
 platforms: [polymarket]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 1234
+  last_commit: '2026-05-25'
+  license: MIT
+  archived: true
+  health: archived
 description: "Official Python client for the Polymarket CLOB API."
 tags: [python, official]

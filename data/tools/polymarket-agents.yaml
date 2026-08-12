@@ -5,10 +5,10 @@ repo: https://github.com/Polymarket/agents
 category: bot
 platforms: [polymarket]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 3767
+  last_commit: '2024-11-05'
+  license: MIT
+  archived: true
+  health: archived
 description: "Official framework for building LLM trading agents on Polymarket."
 tags: [agents, ai, llm, official]

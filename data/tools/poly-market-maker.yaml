@@ -5,10 +5,10 @@ repo: https://github.com/Polymarket/poly-market-maker
 category: bot
 platforms: [polymarket]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 321
+  last_commit: '2024-07-05'
+  license: MIT
+  archived: false
+  health: stale
 description: "Reference market-making bot for the Polymarket CLOB."
 tags: [market-making, python, official]

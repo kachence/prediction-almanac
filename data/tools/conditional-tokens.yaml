@@ -5,10 +5,10 @@ repo: https://github.com/gnosis/conditional-tokens-contracts
 category: infra
 platforms: [polymarket, omen]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 305
+  last_commit: '2023-01-24'
+  license: LGPL-3.0
+  archived: false
+  health: stale
 description: "Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on."
 tags: [solidity, standard, gnosis]

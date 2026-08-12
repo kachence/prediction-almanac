@@ -5,10 +5,10 @@ repo: https://github.com/sage-future/fatebook
 category: analytics
 platforms: []
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 60
+  last_commit: '2026-06-12'
+  license: MIT
+  archived: false
+  health: active
 description: "Quick personal forecast logging and calibration tracking, from Sage."
 tags: [calibration, personal]
