@@ -21,7 +21,7 @@ data:
   historical: none
   granularity: snapshot quotes
   free_archive: null
-  known_gaps: "Official API is a current-price snapshot only; no historical endpoint."
+  known_gaps: "The public API is a price snapshot with no volume. Daily share volume does exist per market via GetMarketChartData, but it needs US egress (other regions get a Cloudflare country block), rate-limits to ~15 req/min across ~197 markets, reports shares rather than USD, and its terms restrict use to non-commercial with attribution."
   recorder_support: no
 description: "Long-running US political research market; capped stakes and a small contract universe."
 tags: [regulated, us, politics]

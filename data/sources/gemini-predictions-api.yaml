@@ -4,10 +4,10 @@ url: https://api.gemini.com/v1/prediction-markets/events
 platforms: [gemini-predictions]
 kind: live-api
 format: JSON REST + WebSocket
-granularity: prices, per-event volume; L2 depth over WebSocket
+granularity: daily volume by category; prices, per-event volume; L2 depth over WebSocket
 coverage:
   range: 2025–present
   completeness: partial
-  known_gaps: "No REST depth snapshot, no candles, no historical volume series."
+  known_gaps: "Daily volume is T-1 only and counted in contracts at $1 face; category rows nest, so only top-level rows may be summed. No REST depth snapshot."
 access: free
-description: "Public, key-free API listing every Gemini Predictions event with prices and 24h volume."
+description: "Public, key-free API: every Gemini Predictions event with prices, plus a documented per-day volume endpoint reaching back a year."

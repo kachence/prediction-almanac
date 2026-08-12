@@ -11,9 +11,9 @@ geo:
   as_of: "2026-08-12"
   notes: "All 50 states via Gemini's own CFTC-licensed DCM affiliate (Gemini Titan, licensed 2025-12-11) — not routed to a partner exchange; UK/EEA/Australia accounts closed April 2026. Several states are litigating sports event contracts."
 metrics:
-  volume_usd: 130314.87
-  period: 24h
-  source: gemini-api (Σ event volume24h)
+  volume_usd: 38071653.39
+  period: 30d
+  source: gemini-api (Σ 30 daily totals, contracts at $1 face)
   as_of: "2026-08-12"
 data:
   public_api: true
@@ -21,7 +21,7 @@ data:
   historical: partial
   granularity: trade+book
   free_archive: null
-  known_gaps: "No REST order-book snapshot (depth is WebSocket-only); no candles/OHLC or historical volume series — only per-event cumulative and 24h."
+  known_gaps: "No REST order-book snapshot; depth is WebSocket-only. Volume comes from a documented per-day endpoint and is counted in contracts at $1 face, not cash exchanged — at the ~$0.41 blended traded price, cash turnover is far lower. Summing the events list instead undercounts ~6.5x, because expired short-dated markets drop out of it."
   recorder_support: no
 description: "CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD."
 tags: [regulated, us, clob, politics, sports, economics]

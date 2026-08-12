@@ -67,23 +67,33 @@ def fetch_defillama_urls(http):
 
 
 def fetch_gemini(http):
-    total, offset = 0.0, 0
-    for _ in range(20):
-        page = get_json(
+    """Gemini's documented per-day volume endpoint, summed over 30 complete UTC days.
+
+    Not the events list: expired short-dated markets drop out of it, which undercounts
+    by roughly 6.5x. Rows nest by category and a child's volume is included in its
+    parent's, so only top-level rows are summed — adding every row would more than
+    double the total. Today's date is rejected by the API, so the window is T-1 back.
+
+    Units are contracts, which Gemini reports as USD on a $1 face value. That is
+    notional, not cash exchanged; at the ~$0.41 blended price contracts actually
+    trade at, cash turnover is far lower.
+    """
+    today = dt.datetime.now(dt.timezone.utc).date()
+    total, days = 0.0, 0
+    for offset in range(1, 31):
+        rows = get_json(
             http,
-            "https://api.gemini.com/v1/prediction-markets/events",
-            params={"limit": 200, "offset": offset},
+            f"https://api.gemini.com/v1/prediction-markets/volume/{today - dt.timedelta(days=offset)}",
         )
-        events = (page or {}).get("data") or []
-        if not events:
-            break
-        total += sum(as_float(e.get("volume24h")) for e in events)
-        if len(events) < 200:
-            break
-        offset += 200
-    # Gemini publishes cumulative and 24h only — no 30d — so this one cell is a
-    # different period, which is why the column labels each figure.
-    return (total or None, "24h", "gemini-api (Σ event volume24h)")
+        if not rows:
+            continue
+        total += sum(
+            as_float(r.get("volume")) for r in rows if len(r.get("categoryPath") or []) == 1
+        )
+        days += 1
+    if not total:
+        return None, PERIOD, "gemini volume endpoint returned nothing"
+    return total, PERIOD, f"gemini-api (Σ {days} daily totals, contracts at $1 face)"
 
 
 def fetch_rain(http, query_id):
@@ -112,9 +122,9 @@ DUNE_FETCHERS = {"rain": fetch_rain}
 # gaps stay visible instead of looking like an oversight.
 NO_SOURCE = {
     "manifold": "play-money (mana), not USD",
-    "betfair": "no free aggregate volume",
-    "smarkets": "no free aggregate volume",
-    "predictit": "snapshot API only, no volume",
+    "betfair": "free key omits totalMatched; the paid key forbids data-only use",
+    "smarkets": "endpoint exists but their API terms prohibit extraction and benchmarking",
+    "predictit": "per-market volume needs US egress, 15 req/min, and non-commercial terms",
     "robinhood": "discloses contracts traded, not USD; its routed flow is counted inside Kalshi and ForecastEx",
     "ibkr": "no free volume anywhere — event contracts are absent from IBKR's monthly metrics",
     "hypermind": "no public API",

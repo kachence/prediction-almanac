@@ -20,7 +20,7 @@ data:
   historical: partial
   granularity: odds ticks+book
   free_archive: null
-  known_gaps: "Historical exchange data is a separate paid product (historicdata.betfair.com)."
+  known_gaps: "No compliant free path to volume: the free Delayed App Key explicitly omits totalMatched, and the GBP 499 Live key forbids read-only data collection without commensurate betting. History is a separate paid product. Every anonymous route returns 403 behind bot protection."
   recorder_support: no
 description: "The largest betting exchange; politics and current-affairs markets alongside sports."
 tags: [betting-exchange, politics, sports, uk]
