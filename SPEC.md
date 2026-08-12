@@ -96,6 +96,19 @@ dashboard | alerting | arbitrage | data | extension | infra | education`), `plat
 covered, auto-filled `github:` block (stars, last_commit, license, archived, derived
 `health: active | stale | archived`).
 
+README sections are defined in `config.yml`, each spanning one or more category keys
+(like platform groups span mechanisms) and carrying a `note` that names the reader it
+serves — a bare label like "Infrastructure" tells nobody why they should care. **Sorting
+is health first, then stars**: ranking by popularity alone put Polymarket's archived
+agents framework at the top of Trading bots on 3.7k stars, above nine maintained
+alternatives, which is exactly the stale recommendation this project exists to prevent.
+Retired projects stay listed when they remain the reference implementation, but they sink
+and the Last-commit column flags them (`2024-11-05 · archived`). Curation bar: a tool
+must do something real. Star counts are gamed in this niche — the research behind the
+current list rejected repos with hundreds of stars and four commits advertising win
+rates, keyword-stuffed SEO farms, and one "arbitrage bot" whose contents were a Java
+console game.
+
 **Why `geo.as_of` earns its place.** These rules move fast enough that an undated list is
 untrustworthy. IBKR's EEA position changed three times in ten months, and archived page
 bytes date the latest change to between 2026-07-21 and 2026-08-12: retail access with a
