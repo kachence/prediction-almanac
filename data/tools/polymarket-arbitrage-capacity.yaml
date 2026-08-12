@@ -1,0 +1,7 @@
+slug: polymarket-arbitrage-capacity
+name: "Arbitrage Analysis in Polymarket NBA Markets"
+url: https://arxiv.org/abs/2605.00864
+category: research
+platforms: [polymarket]
+description: "75M book snapshots over 173 NBA games: only 7 executable single-market arbs with a median 3.6s life, and combinatorial episodes mostly capped near 15 shares."
+tags: [paper, arbitrage, capacity]

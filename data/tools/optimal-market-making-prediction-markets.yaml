@@ -1,0 +1,7 @@
+slug: optimal-market-making-prediction-markets
+name: "Optimal Market Making in Prediction Markets"
+url: https://arxiv.org/abs/2607.17991
+category: research
+platforms: []
+description: "Derives optimal bid and ask quotes for binary event contracts via an HJB equation, handling inventory and terminal settlement risk — the binary analogue of Avellaneda-Stoikov."
+tags: [paper, market-making]

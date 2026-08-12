@@ -1,0 +1,7 @@
+slug: hanson-market-scoring-rules
+name: "Logarithmic Market Scoring Rules"
+url: https://mason.gmu.edu/~rhanson/mktscore.pdf
+category: research
+platforms: []
+description: "Hanson's LMSR — a scoring rule doubling as a bounded-loss automated market maker, and the pricing engine behind most subsidised event markets."
+tags: [paper, canon, amm]

@@ -1,0 +1,7 @@
+slug: polymarket-docs
+name: Polymarket Documentation
+url: https://docs.polymarket.com
+category: education
+platforms: [polymarket]
+description: "Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks."
+tags: [docs, resolution-risk]

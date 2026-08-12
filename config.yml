@@ -68,11 +68,19 @@ tool_categories:
       Settlement mechanics rather than convenience tooling. Relevant if you hedge
       by splitting and merging outcome tokens, or you are building execution that
       touches the contracts directly.
-  - keys: [education]
-    title: Research & education
+  - keys: [research]
+    title: Research
     note: >-
-      Material that teaches something durable about pricing, mechanism design, and
-      forecasting skill.
+      Mostly papers, because that is the actual shape of this field: the 2026
+      academic output is free, unusually trader-relevant, and better than any
+      venue's "learn" page. Order-book microstructure, maker-versus-taker returns,
+      calibration by domain and horizon, and measured arbitrage capacity.
+  - keys: [education]
+    title: Docs & training
+    note: >-
+      Platform documentation worth reading and the two calibration-practice sites
+      that exist. We looked for newsletters and podcasts and found none current
+      enough to list, which is itself worth knowing.
   - keys: [alerting]
     title: Alerting
   - keys: [extension]

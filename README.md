@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 13 data sources · 44 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 13 data sources · 58 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -203,13 +203,34 @@ its own live endpoints.
 | **[ctf-exchange-v2](https://github.com/Polymarket/ctf-exchange-v2)** | polymarket | 75 | 2026-08-03 | Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1. |
 | **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 · stale | Gnosis' ERC-1155 outcome-token standard Polymarket settles on — the split and merge mechanics you use to hedge or construct a position from collateral. |
 
-### Research & education
+### Research
 
-*Material that teaches something durable about pricing, mechanism design, and forecasting skill.*
+*Mostly papers, because that is the actual shape of this field: the 2026 academic output is free, unusually trader-relevant, and better than any venue's "learn" page. Order-book microstructure, maker-versus-taker returns, calibration by domain and horizon, and measured arbitrage capacity.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Arbitrage Analysis in Polymarket NBA Markets](https://arxiv.org/abs/2605.00864)** | polymarket | — | — | 75M book snapshots over 173 NBA games: only 7 executable single-market arbs with a median 3.6s life, and combinatorial episodes mostly capped near 15 shares. |
+| **[Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics](https://arxiv.org/abs/2602.19520)** | kalshi, polymarket | — | — | 353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong — political markets stay compressed toward 50%. |
+| **[Interpreting Prediction Market Prices as Probabilities](https://www.nber.org/system/files/working_papers/w12200/w12200.pdf)** | — | — | — | Derives when a market price equals mean belief, and the wedge that risk aversion and belief heterogeneity create — that is, when 60c is not 60%. |
+| **[Logarithmic Market Scoring Rules](https://mason.gmu.edu/~rhanson/mktscore.pdf)** | — | — | — | Hanson's LMSR — a scoring rule doubling as a bounded-loss automated market maker, and the pricing engine behind most subsidised event markets. |
+| **[Makers and Takers: The Economics of the Kalshi Prediction Market](https://www2.gwu.edu/~forcpgm/2026-001.pdf)** | kalshi | — | — | Transaction-level study of 300k+ Kalshi contracts: a strong favorite-longshot bias after fees, and higher realised returns for makers than for takers. |
+| **[Optimal Market Making in Prediction Markets](https://arxiv.org/abs/2607.17991)** | — | — | — | Derives optimal bid and ask quotes for binary event contracts via an HJB equation, handling inventory and terminal settlement risk — the binary analogue of Avellaneda-Stoikov. |
+| **[Prediction Markets (Wolfers & Zitzewitz, JEP 2004)](https://www.nber.org/system/files/working_papers/w10504/w10504.pdf)** | — | — | — | The founding survey: how markets aggregate dispersed information, and which contract design extracts a probability versus a mean versus a median. |
+| **[Price Discovery Across Political Prediction Markets](https://web.bogazici.edu.tr/torul/pridis.pdf)** | polymarket, kalshi, betfair, predictit | — | — | Information shares across nine venues trading the 2024 US presidential outcome: Polymarket and Betfair hold ~85%, and the consensus led S&P 500 futures on election night. |
+| **[Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets](https://arxiv.org/abs/2607.14430)** | kalshi | — | — | 23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs. |
+| **[SoK: Market Microstructure for Decentralized Prediction Markets](https://arxiv.org/abs/2510.15612)** | — | — | — | Systematization of prediction-market design: CLOB versus AMM and LMSR mechanics, and which design stage introduces resolution risk. |
+| **[Strictly Proper Scoring Rules, Prediction, and Estimation](https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf)** | — | — | — | The canonical treatment of strictly proper scoring rules — logarithmic, Brier, spherical, CRPS — and the mathematical parent of the LMSR. |
+| **[The Anatomy of a Decentralized Prediction Market](https://arxiv.org/abs/2604.24366)** | polymarket | — | — | Microstructure of 30bn Polymarket book events — longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate. |
+
+### Docs & training
+
+*Platform documentation worth reading and the two calibration-practice sites that exist. We looked for newsletters and podcasts and found none current enough to list, which is itself worth knowing.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
 | **[Forecasting Wiki](https://forecasting.wiki)** | — | — | — | Community wiki collecting forecasting concepts, techniques, and platform know-how. |
+| **[IBKR Campus: Predictive Markets](https://www.interactivebrokers.com/campus/traders-academy/predict-market/)** | ibkr | — | — | Two free CFA-accredited courses on event contracts and how they settle — genuinely structured, but explicitly beginner level. |
+| **[Polymarket Documentation](https://docs.polymarket.com)** | polymarket | — | — | Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks. |
 | **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | — | — | — | Calibration-training games (estimation, pastcasting) from Sage. |
 
 ## Contributing

@@ -1,0 +1,7 @@
+slug: prediction-market-calibration-decomposition
+name: "Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics"
+url: https://arxiv.org/abs/2602.19520
+category: research
+platforms: [kalshi, polymarket]
+description: "353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong — political markets stay compressed toward 50%."
+tags: [paper, calibration]

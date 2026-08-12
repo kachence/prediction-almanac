@@ -12,7 +12,7 @@
     "url": { "type": "string", "pattern": "^https?://" },
     "repo": { "type": ["string", "null"], "pattern": "^https://github\\.com/" },
     "category": {
-      "enum": ["aggregator", "analytics", "bot", "api-sdk", "dashboard", "alerting", "arbitrage", "data", "extension", "infra", "education"]
+      "enum": ["aggregator", "analytics", "bot", "api-sdk", "dashboard", "alerting", "arbitrage", "data", "extension", "infra", "education", "research"]
     },
     "platforms": {
       "description": "Slugs from data/platforms/ this tool covers; empty/omitted = platform-agnostic.",
