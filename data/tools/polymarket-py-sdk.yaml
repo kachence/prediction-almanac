@@ -1,0 +1,14 @@
+slug: polymarket-py-sdk
+name: Polymarket py-sdk
+url: https://github.com/Polymarket/py-sdk
+repo: https://github.com/Polymarket/py-sdk
+category: api-sdk
+platforms: [polymarket]
+github:
+  stars: 95
+  last_commit: '2026-08-12'
+  license: MIT
+  archived: false
+  health: active
+description: "Official unified Python SDK — public data, authenticated account, trading, builder attribution and wallet workflows in one package."
+tags: [python, official, current]

@@ -1,0 +1,14 @@
+slug: polymarket-cli
+name: polymarket-cli
+url: https://github.com/Polymarket/polymarket-cli
+repo: https://github.com/Polymarket/polymarket-cli
+category: api-sdk
+platforms: [polymarket]
+github:
+  stars: 2847
+  last_commit: '2026-05-26'
+  license: null
+  archived: false
+  health: active
+description: "Official Rust CLI to browse markets, place orders and manage positions from a terminal, or drive them as a JSON API from scripts and agents."
+tags: [rust, cli, official, experimental]

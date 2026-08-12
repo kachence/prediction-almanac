@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**15 platforms · 12 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 12 data sources · 22 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -129,11 +129,12 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[py-clob-client](https://github.com/Polymarket/py-clob-client)** | polymarket | 1,234 | 2026-05-25 | Official Python client for the Polymarket CLOB API. |
-| **[clob-client](https://github.com/Polymarket/clob-client)** | polymarket | 513 | 2026-05-25 | Official TypeScript client for the Polymarket CLOB API. |
+| **[polymarket-cli](https://github.com/Polymarket/polymarket-cli)** | polymarket | 2,847 | 2026-05-26 | Official Rust CLI to browse markets, place orders and manage positions from a terminal, or drive them as a JSON API from scripts and agents. |
+| **[Polymarket py-sdk](https://github.com/Polymarket/py-sdk)** | polymarket | 95 | 2026-08-12 | Official unified Python SDK — public data, authenticated account, trading, builder attribution and wallet workflows in one package. |
 | **[forecasting-tools](https://github.com/Metaculus/forecasting-tools)** | metaculus | 76 | 2026-08-09 | Python framework for building LLM forecasting bots, used in Metaculus AI tournaments. |
 | **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 58 | 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
 | **[manifoldpy](https://github.com/vluzko/manifoldpy)** | manifold | 41 | 2026-07-10 | Community Python wrapper for the Manifold API. |
+| **[Polymarket ts-sdk](https://github.com/Polymarket/ts-sdk)** | polymarket | 29 | 2026-08-12 | Official unified TypeScript SDK, the JS counterpart to py-sdk and the current replacement for the archived clob-client. |
 | **[kalshi-python](https://pypi.org/project/kalshi-python/)** | kalshi | — | — | Official Python SDK for Kalshi's trading API. |
 
 ### Bots & agents
@@ -143,6 +144,7 @@ its own live endpoints.
 | **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,767 | 2024-11-05 | Official framework for building LLM trading agents on Polymarket. |
 | **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 | Reference market-making bot for the Polymarket CLOB. |
 | **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
+| **[polymm](https://github.com/kachence/polymm)** | polymarket | 72 | 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
 
 ### Dashboards
 
@@ -154,9 +156,9 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[ctf-exchange](https://github.com/Polymarket/ctf-exchange)** | polymarket | 356 | 2026-05-11 | Polymarket's audited on-chain exchange contracts for settling CTF outcome tokens. |
 | **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 | Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on. |
 | **[Squiggle](https://www.squiggle-language.com)** | — | 218 | 2026-08-11 | Probabilistic estimation language for building and sanity-checking forecasts. |
+| **[ctf-exchange-v2](https://github.com/Polymarket/ctf-exchange-v2)** | polymarket | 75 | 2026-08-03 | Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1. |
 
 ### Education
 

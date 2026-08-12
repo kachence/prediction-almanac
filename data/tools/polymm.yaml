@@ -1,0 +1,14 @@
+slug: polymm
+name: polymm
+url: https://github.com/kachence/polymm
+repo: https://github.com/kachence/polymm
+category: bot
+platforms: [polymarket]
+github:
+  stars: 72
+  last_commit: '2026-07-22'
+  license: MIT
+  archived: false
+  health: active
+description: "Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills."
+tags: [market-making, arbitrage, sports, python]

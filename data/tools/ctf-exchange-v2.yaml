@@ -1,0 +1,14 @@
+slug: ctf-exchange-v2
+name: ctf-exchange-v2
+url: https://github.com/Polymarket/ctf-exchange-v2
+repo: https://github.com/Polymarket/ctf-exchange-v2
+category: infra
+platforms: [polymarket]
+github:
+  stars: 75
+  last_commit: '2026-08-03'
+  license: null
+  archived: false
+  health: active
+description: "Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1."
+tags: [solidity, contracts, official]
