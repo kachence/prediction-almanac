@@ -3,14 +3,14 @@ name: Zeitgeist
 url: https://zeitgeist.pm
 mechanism: onchain-amm
 chain: Polkadot parachain
-status: live
+status: dead
 launched: 2022
 geo:
   model: global-restrictions
   restricted: [us]
   source: https://app.zeitgeist.pm/terms
   as_of: "2026-08-12"
-  notes: "Terms bar US clients and unenumerated 'Regulated Jurisdictions'; the parachain itself is permissionless with no evident IP geoblocking."
+  notes: "Moot — the chain is dead. Terms barred US clients and unenumerated 'Regulated Jurisdictions'."
 metrics:
   volume_usd: null
   period: null
@@ -22,7 +22,7 @@ data:
   historical: partial
   granularity: on-chain (indexer)
   free_archive: null
-  known_gaps: "Data via its own indexer/SDK; no simple REST archive."
+  known_gaps: "Indexer and every public RPC are offline; on-chain data is only reachable by archive-node recovery."
   recorder_support: no
-description: "Prediction-market parachain in the Polkadot ecosystem with on-chain market governance."
-tags: [crypto, polkadot, amm]
+description: "Polkadot prediction-market parachain; block production stopped 2026-03-23 with no wind-down notice, leaving open markets frozen and unresolvable."
+tags: [crypto, polkadot, amm, historical]

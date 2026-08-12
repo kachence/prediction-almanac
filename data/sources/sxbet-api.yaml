@@ -1,0 +1,13 @@
+slug: sxbet-api
+name: SX Bet API
+url: https://api.sx.bet
+platforms: [sxbet]
+kind: live-api
+format: JSON REST + WebSocket
+granularity: order book, trades, market metadata
+coverage:
+  range: 2019–present
+  completeness: partial
+  known_gaps: "No aggregate volume endpoint; /trades needs a filter, so totals require pagination."
+access: free
+description: "SX Bet's public API for its on-chain order book, trades, and active markets."

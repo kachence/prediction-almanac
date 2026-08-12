@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
 
-**18 platforms · 13 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**19 platforms · 15 data sources · 20 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
@@ -29,11 +29,12 @@ show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-
 | Platform | Type | Since | Volume | Who can trade | Description |
 |---|---|---|---|---|---|
 | **[Hyperliquid Outcomes](https://app.hyperliquid.xyz/outcomes)** | CLOB · HyperCore | 2026 | — | [🌍 exc. 🇺🇸🇨🇺🇮🇷🇰🇵🇸🇾](https://app.hyperliquid.xyz/termsOfUse "Cannot trade: United States, Cuba, Iran, North Korea, Syria") | Binary outcome contracts native to Hyperliquid's HyperCore order book (HIP-4); Yes/No books merge to share liquidity, settling 0 or 1 in USDC. |
-| **[Limitless](https://limitless.exchange)** | CLOB · Base | 2024 | — | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
+| **[Limitless](https://limitless.exchange)** | CLOB · Base | 2024 | — | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
+| **[Myriad](https://myriad.markets)** | CLOB · BNB Chain +3 | 2025 | — | [🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14](https://help.myriad.markets/myriad-terms-of-use "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more") | Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea. |
 | **[Polymarket](https://polymarket.com)** | CLOB · Polygon | 2020 | — | [🌍 exc. 🇺🇸🇬🇧🇨🇦🇦🇺 +39](https://polymarket.com/tos "Cannot trade: United States, United Kingdom, Canada, Australia, Germany, France, Netherlands, Italy, Japan, Singapore, Brazil, Belgium, Burundi, Belarus, DR Congo, +28 more") | Largest on-chain prediction market; USDC-settled CLOB on Polygon. |
 | **[predict.fun](https://predict.fun)** | CLOB · Blast | 2024 | — | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9](https://docs.predict.fun/terms-of-service "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan") | Polymarket-style on-chain CLOB prediction market on Blast. |
 | **[Rain](https://www.rain.trade)** | AMM · Arbitrum | 2026 | — | [❔ unverified](https://www.rain.trade/terms-and-conditions) | Permissionless pool-priced event markets on Arbitrum settled in USDT0, where users create their own politics, sports, and crypto markets. |
-| **[Zeitgeist](https://zeitgeist.pm)** | AMM · Polkadot parachain | 2022 | — | [🌍 exc. 🇺🇸](https://app.zeitgeist.pm/terms "Cannot trade: United States") | Prediction-market parachain in the Polkadot ecosystem with on-chain market governance. |
+| **[SX Bet](https://sx.bet)** | CLOB · SX Rollup | 2019 | — | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19](https://help.sx.bet/en/articles/3613372-terms-and-conditions "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more") | Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports. |
 
 ### Regulated & traditional exchanges
 
@@ -98,12 +99,13 @@ backtesting, or building. Per platform first, then the concrete sources.
 | [Limitless](https://limitless.exchange) | ✓ | ✓ | none | live markets+book | — | No historical archive; markets are short-lived by design. |
 | [Manifold](https://manifold.markets) | ✓ | — | full | bet-level | — | Full history only via paginated API; rate limits make whole-site pulls slow. |
 | [Metaculus](https://www.metaculus.com) | ✓ | — | full | aggregate forecast history | — | Individual forecasts mostly private; aggregates and resolutions are public via API. |
+| [Myriad](https://myriad.markets) | ✓ | ✓ | partial | trade+book | — | Order book is BNB Chain only; /markets returns AMM markets unless trading_model=ob\|all, and the book endpoint is keyed by slug not id. No aggregate stats or OHLC history. |
 | [Polymarket](https://polymarket.com) | ✓ | ✓ | partial | trade+book | [pmxt](https://pmxt.dev) | No official bulk historical-trade endpoint; third-party archives have day/week gaps on some markets. |
 | [predict.fun](https://predict.fun) | ✓ | ✓ | none | live markets+book | — | No historical archive. |
 | [PredictIt](https://www.predictit.org) | ✓ | — | none | snapshot quotes | — | Official API is a current-price snapshot only; no historical endpoint. |
 | [Rain](https://www.rain.trade) | ✓ | — | none | market snapshots (price, 24h change, cumulative volume) | — | No trades, candles, or book endpoint for event markets; API is undocumented and unversioned; the subgraph its frontend references returns 404. |
 | [Smarkets](https://smarkets.com) | ✓ | ✓ | none | live odds+book | — | Trading API requires an account; no public historical archive. |
-| [Zeitgeist](https://zeitgeist.pm) | ✓ | — | partial | on-chain (indexer) | — | Data via its own indexer/SDK; no simple REST archive. |
+| [SX Bet](https://sx.bet) | ✓ | ✓ | partial | trade+book | — | No aggregate volume or stats endpoint, and /trades requires a filter — volume has to be derived by paginating trades. |
 
 ### Sources
 
@@ -116,12 +118,14 @@ backtesting, or building. Per platform first, then the concrete sources.
 | **[Kalshi Trading API](https://docs.kalshi.com)** | kalshi | live-api | JSON REST + WebSocket · trades, candlesticks, order book | 2021–present (full) | free | Per-market pagination; no bulk download. |
 | **[Manifold API](https://docs.manifold.markets/api)** | manifold | live-api | JSON REST · bet-level | 2021–present (full) | free | Rate limits make whole-site pulls slow. |
 | **[Metaculus API](https://www.metaculus.com/api/)** | metaculus | live-api | JSON REST · question + aggregate forecast history | 2015–present (full) | free | Individual forecasts mostly private; aggregates and resolutions are public. |
+| **[Myriad API](https://api-v2.myriadprotocol.com/markets)** | myriad | live-api | JSON REST · markets, order book, 24h volume | 2025–present (partial) | free | Book endpoint keyed by slug, not id; AMM markets returned by default; no OHLC or aggregate stats. |
 | **[pmxt](https://pmxt.dev)** | polymarket | historical-archive | parquet (hourly) · trade+book | 2024–present (partial) | free | Multi-day/week gaps on some markets. |
 | **[Polymarket CLOB API](https://docs.polymarket.com)** | polymarket | live-api | JSON REST + WebSocket · L2 order book, prices, recent trades | live (partial) | free | Live and recent data; not a bulk historical source. |
 | **[Polymarket Gamma API](https://gamma-api.polymarket.com)** | polymarket | live-api | JSON REST · markets/events metadata + volumes | 2020–present (full) | free | Metadata and aggregates only — not a trade tape. |
 | **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | subgraph | GraphQL · on-chain events (trades, positions, redemptions) | 2020–present (full) | free | Requires a hosted indexer (Goldsky) or self-indexing; schemas shift between versions. |
 | **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | bulk files (see repo) · trade | through 2025 (partial) | free | Point-in-time snapshots; check the repo for freshness. |
 | **[PredictIt market data API](https://www.predictit.org/api/marketdata/all/)** | predictit | live-api | JSON (single snapshot endpoint) · current quotes | live snapshot only (partial) | free | No history; unofficial and lightly documented. |
+| **[SX Bet API](https://api.sx.bet)** | sxbet | live-api | JSON REST + WebSocket · order book, trades, market metadata | 2019–present (partial) | free | No aggregate volume endpoint; /trades needs a filter, so totals require pagination. |
 
 ## Tools
 
