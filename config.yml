@@ -52,6 +52,11 @@ tool_categories:
     note: >-
       Judging whether prices are any good — accuracy scoring, calibration curves,
       and personal forecast tracking.
+  - keys: [data]
+    title: Data tooling
+    note: >-
+      Paid research infrastructure. Listed because reconstructing historical book
+      depth is the one thing no free source in this directory does.
   - keys: [api-sdk]
     title: APIs, SDKs & CLIs
     note: >-
@@ -70,11 +75,6 @@ tool_categories:
       forecasting skill.
   - keys: [alerting]
     title: Alerting
-  - keys: [data]
-    title: Data tooling
-    note: >-
-      Paid research infrastructure. Listed because reconstructing historical book
-      depth is the one thing no free source in this directory does.
   - keys: [extension]
     title: Browser extensions
 

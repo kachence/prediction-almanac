@@ -169,6 +169,14 @@ its own live endpoints.
 | **[OVERROUND](https://www.overround.pro)** · freemium | polymarket | — | — | Skill-adjusted forecaster leaderboard scoring every on-chain fill against the price paid, with a free public calibration page over 8.9M scored fills. |
 | **[Polysights](https://www.polysights.xyz)** · freemium | polymarket | — | — | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 
+### Data tooling
+
+*Paid research infrastructure. Listed because reconstructing historical book depth is the one thing no free source in this directory does.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Probalytics](https://probalytics.io)** · paid | polymarket | — | — | Millisecond-granularity Polymarket history — full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
+
 ### APIs, SDKs & CLIs
 
 *The connection layer. Only current, maintained clients are listed — a superseded SDK costs more time than it saves.*
@@ -203,14 +211,6 @@ its own live endpoints.
 |---|---|---|---|---|
 | **[Forecasting Wiki](https://forecasting.wiki)** | — | — | — | Community wiki collecting forecasting concepts, techniques, and platform know-how. |
 | **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | — | — | — | Calibration-training games (estimation, pastcasting) from Sage. |
-
-### Data tooling
-
-*Paid research infrastructure. Listed because reconstructing historical book depth is the one thing no free source in this directory does.*
-
-| Tool | Covers | Stars | Last commit | Description |
-|---|---|---|---|---|
-| **[Probalytics](https://probalytics.io)** · paid | polymarket | — | — | Millisecond-granularity Polymarket history — full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
 
 ## Contributing
 
