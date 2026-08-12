@@ -21,7 +21,7 @@ data:
   historical: none
   granularity: live odds+book
   free_archive: null
-  known_gaps: "A documented, unauthenticated /volumes/ endpoint exists, but Smarkets API terms prohibit extraction without commensurate trading, redistribution, and benchmarking liquidity — so this directory does not call it. Volume is also wiped on settlement. Company accounts disclose commission only: GBP 5.71m of exchange revenue for FY2024."
+  known_gaps: "A documented, unauthenticated /volumes/ endpoint exists, but Smarkets API terms prohibit extraction without commensurate trading, redistribution, and benchmarking liquidity — so this directory does not call it. Volume is also wiped on settlement. Smarkets' own investor page reports $60bn lifetime traded volume and $31.4m of 2024 revenue."
   recorder_support: no
 description: "UK-licensed betting exchange with notably deep political markets."
 tags: [betting-exchange, politics, uk]

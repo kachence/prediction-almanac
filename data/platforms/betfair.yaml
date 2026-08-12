@@ -20,7 +20,7 @@ data:
   historical: partial
   granularity: odds ticks+book
   free_archive: null
-  known_gaps: "No compliant free path: the free Delayed App Key omits totalMatched and the GBP 499 Live key forbids read-only data collection. Nothing is published either — Flutter's filings never size the Exchange. Closest proxies are sector-wide, covering all licensed exchanges: GB betting-exchange GGY of GBP 101.4m (FY24-25, commission not volume) and Italian ADM turnover of EUR 3.0bn (2024)."
+  known_gaps: "No compliant free path: the free Delayed App Key omits totalMatched, the GBP 499 Live key forbids read-only data collection, and anonymous routes sit behind bot protection. No venue-level figure is published either — Flutter never sizes the Exchange separately, and regulator statistics aggregate all licensed exchanges and report commission rather than turnover."
   recorder_support: no
 description: "The largest betting exchange; politics and current-affairs markets alongside sports."
 tags: [betting-exchange, politics, sports, uk]
