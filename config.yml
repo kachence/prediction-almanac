@@ -29,19 +29,57 @@ platform_groups:
       with complete, free, public history, which is what you backtest and
       calibrate against before risking money on the venues above.
 
-# Tool categories, in display order. Keys must match schema/tool.schema.json enum.
+# Tool sections, in display order. `key` must match schema/tool.schema.json's category
+# enum; `note` says who the section is for, since a bare label doesn't.
 tool_categories:
-  aggregator: Aggregators
-  analytics: Analytics & calibration
-  api-sdk: APIs & SDKs
-  bot: Bots & agents
-  dashboard: Dashboards
-  alerting: Alerting
-  arbitrage: Arbitrage
-  data: Data tooling
-  extension: Extensions
-  infra: Infrastructure
-  education: Education
+  - key: bot
+    title: Trading bots & agents
+    note: >-
+      Running strategies against these venues: market making, arbitrage, and
+      autonomous agents. Read the licence and the code before pointing anything at
+      real money — none of this is audited, and a stale repo is a liability.
+  - key: arbitrage
+    title: Arbitrage & screeners
+    note: >-
+      Finding the same event priced differently across venues, which is where most
+      of the edge in this space actually lives.
+  - key: dashboard
+    title: Dashboards & market data
+    note: >-
+      Watching flow, positions, and volume without building your own pipeline.
+  - key: analytics
+    title: Analytics & calibration
+    note: >-
+      Judging whether prices are any good — accuracy scoring, calibration curves,
+      and personal forecast tracking.
+  - key: aggregator
+    title: Aggregators
+    note: >-
+      One search box across many venues, useful for finding where an event trades
+      at all.
+  - key: api-sdk
+    title: APIs, SDKs & CLIs
+    note: >-
+      The connection layer. Only current, maintained clients are listed — a
+      superseded SDK costs more time than it saves.
+  - key: infra
+    title: Protocol internals
+    note: >-
+      Settlement mechanics rather than convenience tooling. Relevant if you hedge
+      by splitting and merging outcome tokens, or you are building execution that
+      touches the contracts directly.
+  - key: education
+    title: Research & education
+    note: >-
+      Material that teaches something durable about pricing, mechanism design, and
+      forecasting skill.
+  - key: alerting
+    title: Alerting
+  - key: data
+    title: Data tooling
+  - key: extension
+    title: Browser extensions
+
 
 # "Who can trade" cell rendering.
 geo_display:

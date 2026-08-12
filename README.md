@@ -110,22 +110,47 @@ its own live endpoints.
 
 ## Tools
 
-### Aggregators
+### Trading bots & agents
+
+*Running strategies against these venues: market making, arbitrage, and autonomous agents. Read the licence and the code before pointing anything at real money — none of this is audited, and a stale repo is a liability.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, infer | 68 | 2025-02-09 | Meta search engine aggregating forecasts and odds across platforms. |
-| **[Adjacent News](https://adj.news)** | polymarket, kalshi, manifold, metaculus | — | — | News and research terminal built around prediction-market data, with a market-data API. |
-| **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair | — | — | Long-running site charting election odds averaged across real-money markets. |
+| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,767 | 2024-11-05 · archived | Official framework for building LLM trading agents on Polymarket. |
+| **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 · stale | Reference market-making bot for the Polymarket CLOB. |
+| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
+| **[polymm](https://github.com/kachence/polymm)** | polymarket | 72 | 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
+
+### Dashboards & market data
+
+*Watching flow, positions, and volume without building your own pipeline.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Polymarket on Dune](https://dune.com/rchen8/polymarket)** | polymarket | — | — | Community Dune dashboard tracking Polymarket volume, users, and market activity on-chain. |
 
 ### Analytics & calibration
+
+*Judging whether prices are any good — accuracy scoring, calibration curves, and personal forecast tracking.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
 | **[Fatebook](https://fatebook.io)** | — | 60 | 2026-06-12 | Quick personal forecast logging and calibration tracking, from Sage. |
 | **[Calibration City](https://calibration.city)** | polymarket, kalshi, manifold, metaculus | — | — | Cross-platform calibration explorer scoring how well market prices predict real outcomes. |
 
-### APIs & SDKs
+### Aggregators
+
+*One search box across many venues, useful for finding where an event trades at all.*
+
+| Tool | Covers | Stars | Last commit | Description |
+|---|---|---|---|---|
+| **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, infer | 68 | 2025-02-09 · archived | Meta search engine aggregating forecasts and odds across platforms. |
+| **[Adjacent News](https://adj.news)** | polymarket, kalshi, manifold, metaculus | — | — | News and research terminal built around prediction-market data, with a market-data API. |
+| **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair | — | — | Long-running site charting election odds averaged across real-money markets. |
+
+### APIs, SDKs & CLIs
+
+*The connection layer. Only current, maintained clients are listed — a superseded SDK costs more time than it saves.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
@@ -137,30 +162,19 @@ its own live endpoints.
 | **[Polymarket ts-sdk](https://github.com/Polymarket/ts-sdk)** | polymarket | 29 | 2026-08-12 | Official unified TypeScript SDK, the JS counterpart to py-sdk and the current replacement for the archived clob-client. |
 | **[kalshi-python](https://pypi.org/project/kalshi-python/)** | kalshi | — | — | Official Python SDK for Kalshi's trading API. |
 
-### Bots & agents
+### Protocol internals
+
+*Settlement mechanics rather than convenience tooling. Relevant if you hedge by splitting and merging outcome tokens, or you are building execution that touches the contracts directly.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,767 | 2024-11-05 | Official framework for building LLM trading agents on Polymarket. |
-| **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 | Reference market-making bot for the Polymarket CLOB. |
-| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
-| **[polymm](https://github.com/kachence/polymm)** | polymarket | 72 | 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
-
-### Dashboards
-
-| Tool | Covers | Stars | Last commit | Description |
-|---|---|---|---|---|
-| **[Polymarket on Dune](https://dune.com/rchen8/polymarket)** | polymarket | — | — | Community Dune dashboard tracking Polymarket volume, users, and market activity on-chain. |
-
-### Infrastructure
-
-| Tool | Covers | Stars | Last commit | Description |
-|---|---|---|---|---|
-| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 | Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on. |
+| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 · stale | Gnosis' ERC-1155 outcome-token standard that Polymarket and Omen settle on. |
 | **[Squiggle](https://www.squiggle-language.com)** | — | 218 | 2026-08-11 | Probabilistic estimation language for building and sanity-checking forecasts. |
 | **[ctf-exchange-v2](https://github.com/Polymarket/ctf-exchange-v2)** | polymarket | 75 | 2026-08-03 | Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1. |
 
-### Education
+### Research & education
+
+*Material that teaches something durable about pricing, mechanism design, and forecasting skill.*
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|

@@ -92,11 +92,15 @@ its own live endpoints.
 {% for group in tool_groups %}
 ### {{ group.title }}
 
+{% if group.note %}
+*{{ group.note }}*
+
+{% endif %}
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
 {% for t in group.tools %}
 {% set gh = t.github | default({}, true) %}
-| **[{{ t.name | md }}]({{ t.url }})** | {{ (t.platforms | default([], true)) | join(', ') | md }} | {{ gh.stars | default(none, true) | num }} | {{ gh.last_commit | default(none, true) | md }} | {{ t.description | md }} |
+| **[{{ t.name | md }}]({{ t.url }})** | {{ (t.platforms | default([], true)) | join(', ') | md }} | {{ gh.stars | default(none, true) | num }} | {{ gh | commit }} | {{ t.description | md }} |
 {% endfor %}
 
 {% endfor %}

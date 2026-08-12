@@ -229,6 +229,17 @@ def vol(platform):
     return f"{usd(volume)}/{period}" if period else usd(volume)
 
 
+def commit(github):
+    """Last commit, flagged when the repo is archived or has gone quiet — the date
+    alone doesn't tell a reader the project was retired."""
+    github = github or {}
+    date = github.get("last_commit")
+    if not date:
+        return "—"
+    health = github.get("health")
+    return f"{date} · {health}" if health in ("archived", "stale") else date
+
+
 def ptype(platform):
     label = MECH_LABEL[platform["mechanism"]]
     if platform.get("chain"):
@@ -279,9 +290,9 @@ def group_platforms(platforms, config):
 
 def group_tools(tools, config):
     groups = []
-    for key, title in config["tool_categories"].items():
+    for spec in config["tool_categories"]:
         members = sorted(
-            (t for t in tools if t["category"] == key),
+            (t for t in tools if t["category"] == spec["key"]),
             key=lambda t: (
                 (t.get("github") or {}).get("stars") is None,
                 -((t.get("github") or {}).get("stars") or 0),
@@ -289,7 +300,7 @@ def group_tools(tools, config):
             ),
         )
         if members:
-            groups.append({"title": title, "tools": members})
+            groups.append({"title": spec["title"], "note": spec.get("note"), "tools": members})
     return groups
 
 
@@ -302,7 +313,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         keep_trailing_newline=True,
     )
     env.filters.update(
-        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol
+        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit
     )
     # dead/deprecated entries stay in data/ (cross-links, history) but aren't rendered
     platforms = [p for p in platforms if p["status"] not in ("dead", "deprecated")]
