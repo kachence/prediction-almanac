@@ -96,6 +96,18 @@ dashboard | alerting | arbitrage | data | extension | infra | education`), `plat
 covered, auto-filled `github:` block (stars, last_commit, license, archived, derived
 `health: active | stale | archived`).
 
+**Why `geo.as_of` earns its place.** These rules move fast enough that an undated list is
+untrustworthy. IBKR's EEA position changed three times in ten months, and archived page
+bytes date the latest change to between 2026-07-21 and 2026-08-12: retail access with a
+1%-of-NAV cap (to early 2026), then retail permitted with Spain, Liechtenstein and
+Slovenia excluded (live as late as 2026-07-21), then all MiFID retail clients prohibited.
+The cause is ESMA public statement ESMA35-243228190-8148 (3 July 2026), which holds that
+event contracts meeting the definition of financial instruments fall under the national
+binary-options intervention measures in force in every EU member state — and pre-empts
+the workaround: "The existence of such 'coupon' or 'reward' does not change the binary
+nature of the event contract itself." Expect this to reach other EEA-facing venues, and
+note that a platform's own pages may lag its live rules by weeks.
+
 **Scope** — the directory lists venues trading contracts on the outcome of real-world
 events, preferring genuine order books. Sportsbooks, casinos, and betting-liquidity
 protocols are adjacent but out of scope even when they settle on-chain. Rejections are
