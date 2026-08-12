@@ -8,6 +8,6 @@ granularity: daily network volume; per-market notional, vwap, trades
 coverage:
   range: 2026-05-02–present
   completeness: full
-  known_gaps: "Undocumented and unauthenticated, so it can change without notice; settled-market listings are capped at 100 rows (~13 days). Network totals are collateral notional (both legs), roughly 1.8x a price-weighted figure."
+  known_gaps: "Undocumented and unauthenticated, so it can change without notice; settled-market listings are capped at 100 rows (~13 days). Network totals are collateral notional counted per leg — roughly 1.8x a price-weighted figure, and about half what ASXN reports for the same window."
 access: free
 description: "Third-party stats API covering network-wide Hyperliquid HIP-4 volume back to launch — the only free whole-market source."

@@ -173,6 +173,16 @@ tracked builder cannot out-trade the whole network, and today that line is 9.3% 
 total, matching an independently measured ~10% — and, since completed days there are
 immutable, the durable fix is to accumulate our own daily snapshots and demote the third
 party to backfill.
+
+Treat that figure as an order of magnitude, not a precise one: ASXN's HIP-4 store
+reports ~$111M for the same 30d window against stats.outcome.xyz's ~$56M, a ~2x spread
+that comes down to whether fills are counted per leg or per trade. ASXN has the best
+data found — per-market daily volume including settled markets, back to 2026-05-07 —
+but it sits behind a WASM anti-bot gate on an unpublished product backend, so we do not
+call it. If that data becomes important, ask ASXN for access rather than defeating the
+gate. Also ruled out: Blockworks (auth-gated, $1,350 tier), Hyperdash (Cloudflare 403),
+Hypurrscan and Oak Research (both 24h-only pass-throughs of Hyperliquid's own API),
+loris.tools ($79/mo), Dune (HIP-4 is a premium dataset).
 GitHub API with the auto-provided `GITHUB_TOKEN` (5k req/h) for
 stars/last-commit/license/archived.
 Plain HTTP for liveness. On-chain long-tail (predict.fun, Limitless, Zeitgeist) via

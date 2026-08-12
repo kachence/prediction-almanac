@@ -22,7 +22,7 @@ data:
   historical: partial
   granularity: trade+book (L2, 20 levels/side)
   free_archive: null
-  known_gaps: "Expired outcome coins are fully delisted — candleSnapshot, l2Book and allMids all return null — so the official API reaches back no further than the current 06:00 UTC contract day. Exact live volume needs a WebSocket activeAssetCtx subscription; history only via third parties or S3 node fills."
+  known_gaps: "Expired outcome coins are delisted — candleSnapshot, l2Book and allMids return null — so the official API reaches back no further than the current 06:00 UTC contract day, and live volume needs a WebSocket activeAssetCtx subscription. Third-party 30d totals diverge ~2x (~$56M vs ~$111M) by whether fills are counted per leg or per trade; read it as an order of magnitude."
   recorder_support: planned
 description: "Binary outcome contracts native to Hyperliquid's HyperCore order book (HIP-4); Yes/No books merge to share liquidity, settling 0 or 1 in USDC."
 tags: [onchain, clob, hip-4, binary-outcomes, crypto]
