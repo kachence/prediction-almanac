@@ -7,10 +7,10 @@ status: live
 launched: 2024
 geo:
   model: allowlist
-  allowed: [us, ca, hk, sg, ie]
-  source: https://forecasttrader.interactivebrokers.ie/en/home.php
+  allowed: [us, ca, hk, sg]
+  source: https://www.interactivebrokers.ie/predictionmarkets/en/home.php
   as_of: "2026-08-12"
-  notes: "Eligibility follows the IBKR entity carrying the account, not the country as such. Belgian clients of IB Ireland are barred outright and MiFID retail clients are prohibited, so the EEA offering is professional-only."
+  notes: "Retail is limited to clients of IB LLC, Canada, Hong Kong and Singapore. In the EEA, IB Ireland bars Belgium outright and all MiFID retail clients — professional only — after ESMA ruled in July 2026 that binary event contracts are financial instruments. IBKR's own pages disagree on scope."
 metrics:
   volume_usd: null
   period: null
@@ -24,5 +24,5 @@ data:
   free_archive: null
   known_gaps: "Market data only through the authenticated Web API, needing a funded account. Monthly metrics and SEC filings omit event contracts entirely; the one public figure is an earnings-call remark — 286m contract pairs in Q4 2025, roughly $286m of committed capital at $1 settlement — with no time series behind it."
   recorder_support: no
-description: "Interactive Brokers' retail front-end for binary forecast and event contracts, routing to its wholly-owned ForecastEx exchange plus Kalshi and CME since May 2026."
+description: "Interactive Brokers' front-end for binary event contracts, routing to its wholly-owned ForecastEx plus Kalshi and CME; the EEA offering is ForecastEx-only and professional-clients-only."
 tags: [regulated, broker, economics, climate, elections]

@@ -10,7 +10,7 @@ geo:
   allowed: [us]
   source: https://robinhood.com/us/en/support/articles/event-contracts-restrictions/
   as_of: "2026-08-12"
-  notes: "US residents only, 18+, individual brokerage accounts. Maryland residents cannot trade event contracts at all and Nevada residents cannot open new sports contracts; Robinhood warns more state restrictions may follow."
+  notes: "Verbatim: 'You must be a US resident' — there is no EEA or UK route. Robinhood Europe (Lithuania) offers stocks, crypto and perps, not event contracts. Maryland is barred outright, Nevada allows no new sports contracts since 2025-12-01, and further states are in active litigation."
 metrics:
   volume_usd: null
   period: null
