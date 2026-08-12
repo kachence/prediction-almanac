@@ -1,9 +1,13 @@
 slug: rain
 name: Rain
 url: https://www.rain.trade
-mechanism: onchain-amm
+aliases: [rain.one]         # same protocol; rain.one hosts the retired deployment
+mechanism: onchain-clob
 chain: Arbitrum
 status: live
+# No defillama: slug on purpose. DefiLlama's `rain` IS this protocol, but its adapter
+# discovers pools from two retired factories and sums an AMM-era EnterOption event, so
+# it reports $0 for the order-book deployment now in use. See data.known_gaps.
 launched: 2026
 geo:
   model: unknown
@@ -19,9 +23,9 @@ data:
   public_api: true
   live_orderbook: false
   historical: none
-  granularity: market snapshots (price, 24h change, cumulative volume)
+  granularity: market snapshots (price, 24h change, pool collateral)
   free_archive: null
-  known_gaps: "No trades, candles, or book endpoint for event markets; API is undocumented and unversioned; the subgraph its frontend references returns 404."
+  known_gaps: "No trades, candles, or book endpoint, and the API's totalVolume reports pool collateral rather than traded volume (~27x actual fills). DefiLlama's adapter watches retired factories and AMM-era events, so it reads $0 for the current order-book deployment. On-chain matched volume was ~$811k/30d at 2026-08-12 — about half self-traded by one address, and ~98% of it before 2026-07-19."
   recorder_support: no
-description: "Permissionless pool-priced event markets on Arbitrum settled in USDT0, where users create their own politics, sports, and crypto markets."
-tags: [onchain, arbitrum, amm, user-created]
+description: "Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets."
+tags: [onchain, arbitrum, clob, user-created]

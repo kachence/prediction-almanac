@@ -19,6 +19,12 @@
       "type": ["string", "null"],
       "pattern": "^[a-z0-9][a-z0-9.-]*$"
     },
+    "aliases": {
+      "description": "Other domains this venue operates under; used for dedupe and to accept a third party listing it under a different host.",
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9.-]+\\.[a-z]{2,}$" },
+      "uniqueItems": true
+    },
     "status": { "enum": ["live", "beta", "deprecated", "dead"] },
     "launched": { "type": ["integer", "null"], "minimum": 1980, "maximum": 2100 },
     "geo": {
@@ -66,7 +72,7 @@
         "historical": { "enum": ["none", "partial", "full", null] },
         "granularity": { "type": ["string", "null"], "maxLength": 100 },
         "free_archive": { "type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]*$" },
-        "known_gaps": { "type": ["string", "null"], "maxLength": 300 },
+        "known_gaps": { "type": ["string", "null"], "maxLength": 420 },
         "recorder_support": { "enum": ["yes", "planned", "no", null] }
       }
     },

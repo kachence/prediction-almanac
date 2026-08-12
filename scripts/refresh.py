@@ -138,6 +138,7 @@ FETCHERS = {
 # Platforms with no free volume anywhere, and why. Shown in the run report so the
 # gaps stay visible instead of looking like an oversight.
 NO_SOURCE = {
+    "rain": "DefiLlama's adapter tracks the retired deployment and reads $0; on-chain volume needs a log scan and is ~half self-traded",
     "manifold": "play-money (mana), not USD",
     "betfair": "no free aggregate volume",
     "smarkets": "no free aggregate volume",
@@ -165,7 +166,9 @@ def load_platforms():
             entry = yaml.load(f)
         if entry.get("status") in ("dead", "deprecated"):
             continue
-        platforms[entry["slug"]] = (entry.get("defillama"), entry.get("url"))
+        domains = {registrable(entry.get("url"))}
+        domains |= {registrable(f"https://{a}") for a in entry.get("aliases") or []}
+        platforms[entry["slug"]] = (entry.get("defillama"), domains)
     return platforms
 
 
@@ -212,15 +215,15 @@ def main():
         llama_urls = fetch_defillama_urls(http)
         print(f"DefiLlama: {len(llama)} protocols with volume\n")
         for slug in sorted(targets):
-            dl_slug, url = platforms[slug]
+            dl_slug, domains = platforms[slug]
             if dl_slug:
-                # A slug matched by name alone can point at an unrelated protocol —
-                # DefiLlama's `rain` is rain.one, not rain.trade. Refuse the mismatch
-                # rather than publish another venue's numbers under this name.
+                # A slug matched by name alone can point at an unrelated protocol, so
+                # check the homepage domain against the platform's own and its declared
+                # aliases (a venue may legitimately be listed under an older host).
                 dl_url = llama_urls.get(dl_slug)
-                if dl_url and registrable(dl_url) != registrable(url):
+                if dl_url and registrable(dl_url) not in domains:
                     skipped.append(
-                        (slug, f"REFUSED: '{dl_slug}' is {registrable(dl_url)}, not {registrable(url)}")
+                        (slug, f"REFUSED: '{dl_slug}' is {registrable(dl_url)}, not {'/'.join(sorted(domains))}")
                     )
                     continue
                 volume = llama.get(dl_slug)
