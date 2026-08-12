@@ -127,10 +127,7 @@ NO_SOURCE = {
     "predictit": "per-market volume needs US egress, 15 req/min, and non-commercial terms",
     "robinhood": "discloses contracts traded, not USD; its routed flow is counted inside Kalshi and ForecastEx",
     "ibkr": "no free volume anywhere — event contracts are absent from IBKR's monthly metrics",
-    "hypermind": "no public API",
-    "futuur": "no historical/aggregate volume endpoint",
     "metaculus": "forecasting, no trading volume",
-    "good-judgment-open": "forecasting, no trading volume",
 }
 
 
