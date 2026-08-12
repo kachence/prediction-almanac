@@ -11,8 +11,9 @@
 **15 platforms · 12 data sources · 22 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
-Live columns (volume, stars, health, link liveness) refresh on a schedule — nulls
-show as “—” until their refresh pipeline lands ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
+Volume, stars, and repo health are measured, not asserted — a “—” means no free,
+comparable figure exists, and the entry says why. Link-rot sweeps and the
+contribution bot are still to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 
 ## Contents
 
