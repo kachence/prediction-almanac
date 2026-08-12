@@ -108,7 +108,25 @@ def fetch_hyperliquid(http):
     if not rows:
         return None, PERIOD, "stats.outcome.xyz unreachable or empty"
     total = sum(as_float(r.get("volume")) for r in rows)
-    return total or None, PERIOD, "stats.outcome.xyz (network HIP-4, collateral notional)"
+    if not total:
+        return None, PERIOD, "stats.outcome.xyz returned no volume"
+
+    # The endpoint is undocumented and can change shape silently, so check it against
+    # an invariant it cannot legitimately violate: DefiLlama tracks one HIP-4 builder
+    # (Outcome.xyz, ~10% of flow), and a single builder cannot out-trade the network.
+    builder = get_json(
+        http,
+        "https://api.llama.fi/summary/dexs/outcome.xyz",
+        params={"dataType": "dailyVolume"},
+    )
+    builder_30d = as_float((builder or {}).get("total30d"))
+    if builder_30d and total < builder_30d:
+        return (
+            None,
+            PERIOD,
+            f"REFUSED: network total ${total:,.0f} < one builder's ${builder_30d:,.0f}",
+        )
+    return total, PERIOD, "stats.outcome.xyz (network HIP-4, collateral notional)"
 
 
 # Venues with no DefiLlama adapter but their own usable endpoint.

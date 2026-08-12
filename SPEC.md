@@ -167,8 +167,12 @@ rather than USD and is mirrored across the Yes/No legs, and the exact notional f
 the current 06:00-UTC contract day. DefiLlama has no whole-market adapter — only
 builder-code frontends that see ~10% of flow, since ~85% of HIP-4 volume carries no
 builder code. So the 30d number comes from `stats.outcome.xyz`, which is free and
-unauthenticated but **undocumented and therefore fragile**; the durable fix is to
-accumulate our own daily snapshots and treat the third party as backfill.
+unauthenticated but **undocumented and therefore fragile**. Two mitigations: the fetcher
+checks it against an invariant it cannot legitimately violate — DefiLlama's single
+tracked builder cannot out-trade the whole network, and today that line is 9.3% of the
+total, matching an independently measured ~10% — and, since completed days there are
+immutable, the durable fix is to accumulate our own daily snapshots and demote the third
+party to backfill.
 GitHub API with the auto-provided `GITHUB_TOKEN` (5k req/h) for
 stars/last-commit/license/archived.
 Plain HTTP for liveness. On-chain long-tail (predict.fun, Limitless, Zeitgeist) via
