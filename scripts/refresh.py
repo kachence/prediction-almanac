@@ -18,6 +18,7 @@ import argparse
 import datetime as dt
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import DoubleQuotedScalarString
@@ -26,6 +27,7 @@ from enrich import as_float, client, get_json, post_json
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFILLAMA_DEXS = "https://api.llama.fi/overview/dexs"
+DEFILLAMA_PROTOCOLS = "https://api.llama.fi/protocols"
 # 30d rather than 24h: a quiet day makes a working venue look dead (Rain reports $0 on
 # some days), and this column exists to tell real venues from ghost towns.
 PERIOD = "30d"
@@ -49,6 +51,19 @@ def fetch_defillama(http):
         for p in data.get("protocols") or []
         if p.get("slug")
     }
+
+
+def registrable(url):
+    """example.co.uk-style suffixes aren't handled; the last two labels are enough
+    to catch the mistake this guards against (rain.one vs rain.trade)."""
+    host = urlparse(url or "").hostname or ""
+    return ".".join(host.lower().lstrip("www.").split(".")[-2:])
+
+
+def fetch_defillama_urls(http):
+    """slug -> homepage, so a slug can be checked against the platform it claims to be."""
+    data = get_json(http, DEFILLAMA_PROTOCOLS)
+    return {p["slug"]: p.get("url") for p in data or [] if p.get("slug")}
 
 
 def fetch_gemini(http):
@@ -97,7 +112,7 @@ def _represent_none(representer, _data):
 
 
 def load_platforms():
-    """slug -> defillama slug (or None), for live platforms only."""
+    """slug -> (defillama slug or None, homepage), for live platforms only."""
     yaml = YAML(typ="safe")
     platforms = {}
     for path in sorted((ROOT / "data" / "platforms").glob("*.yaml")):
@@ -105,7 +120,7 @@ def load_platforms():
             entry = yaml.load(f)
         if entry.get("status") in ("dead", "deprecated"):
             continue
-        platforms[entry["slug"]] = entry.get("defillama")
+        platforms[entry["slug"]] = (entry.get("defillama"), entry.get("url"))
     return platforms
 
 
@@ -149,10 +164,20 @@ def main():
     written, skipped = 0, []
     with client() as http:
         llama = fetch_defillama(http)
-        print(f"DefiLlama: {len(llama)} protocols\n")
+        llama_urls = fetch_defillama_urls(http)
+        print(f"DefiLlama: {len(llama)} protocols with volume\n")
         for slug in sorted(targets):
-            dl_slug = platforms[slug]
+            dl_slug, url = platforms[slug]
             if dl_slug:
+                # A slug matched by name alone can point at an unrelated protocol —
+                # DefiLlama's `rain` is rain.one, not rain.trade. Refuse the mismatch
+                # rather than publish another venue's numbers under this name.
+                dl_url = llama_urls.get(dl_slug)
+                if dl_url and registrable(dl_url) != registrable(url):
+                    skipped.append(
+                        (slug, f"REFUSED: '{dl_slug}' is {registrable(dl_url)}, not {registrable(url)}")
+                    )
+                    continue
                 volume = llama.get(dl_slug)
                 period, source = PERIOD, f"defillama ({dl_slug})"
                 if volume is None:
