@@ -23,7 +23,7 @@ from urllib.parse import urlparse
 from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import DoubleQuotedScalarString
 
-from enrich import as_float, client, get_json, post_json
+from enrich import as_float, client, dune_run, get_json, secret
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFILLAMA_DEXS = "https://api.llama.fi/overview/dexs"
@@ -86,65 +86,35 @@ def fetch_gemini(http):
     return (total or None, "24h", "gemini-api (Σ event volume24h)")
 
 
-def fetch_hyperliquid(http):
-    """HIP-4 outcome markets, via a third party — Hyperliquid's own API cannot do it.
+def fetch_rain(http, query_id):
+    """On-chain fills, because no aggregator measures the live deployment correctly.
 
-    Expired outcome coins are fully delisted (candleSnapshot, l2Book and allMids all
-    return null for them), so nothing official reaches back beyond the current
-    contract day, and DefiLlama only has builder-code adapters covering ~10% of the
-    market. stats.outcome.xyz publishes network-wide daily volume back to launch.
-
-    Its figure is collateral notional (contracts × $1, i.e. both legs summed), which
-    runs ~1.8x a price-weighted figure like Polymarket's — noted in `source` so the
-    column doesn't imply a like-for-like comparison it can't make.
+    Self-trades are excluded: one address is maker on over half of Rain's all-time
+    volume and has traded with itself. See scripts/queries/rain_volume.sql.
     """
-    start = (dt.date.today() - dt.timedelta(days=30)).isoformat()
-    data = get_json(
-        http,
-        "https://stats.outcome.xyz/api/builder/volume-daily",
-        params={"startDate": start, "limitBuilders": 500, "format": "rows"},
-    )
-    rows = (data or {}).get("days") or []
+    api_key = secret("DUNE_API_KEY")
+    if not api_key:
+        return None, PERIOD, "needs DUNE_API_KEY"
+    rows = dune_run(query_id, api_key)
     if not rows:
-        return None, PERIOD, "stats.outcome.xyz unreachable or empty"
-    total = sum(as_float(r.get("volume")) for r in rows)
-    if not total:
-        return None, PERIOD, "stats.outcome.xyz returned no volume"
-
-    # The endpoint is undocumented and can change shape silently, so check it against
-    # an invariant it cannot legitimately violate: DefiLlama tracks one HIP-4 builder
-    # (Outcome.xyz, ~10% of flow), and a single builder cannot out-trade the network.
-    builder = get_json(
-        http,
-        "https://api.llama.fi/summary/dexs/outcome.xyz",
-        params={"dataType": "dailyVolume"},
-    )
-    builder_30d = as_float((builder or {}).get("total30d"))
-    if builder_30d and total < builder_30d:
-        return (
-            None,
-            PERIOD,
-            f"REFUSED: network total ${total:,.0f} < one builder's ${builder_30d:,.0f}",
-        )
-    return total, PERIOD, "stats.outcome.xyz (network HIP-4, collateral notional)"
+        return None, PERIOD, "Dune query failed"
+    volume = as_float(rows[0].get("volume_usd"))
+    return volume or None, PERIOD, f"dune query {query_id} (pool fills, excl. self-trades)"
 
 
 # Venues with no DefiLlama adapter but their own usable endpoint.
-FETCHERS = {
-    "gemini-predictions": fetch_gemini,
-    "hyperliquid-outcomes": fetch_hyperliquid,
-}
+FETCHERS = {"gemini-predictions": fetch_gemini}
+
+# Venues needing a saved Dune query; ids live in config.yml under `dune`.
+DUNE_FETCHERS = {"rain": fetch_rain}
 
 # Platforms with no free volume anywhere, and why. Shown in the run report so the
 # gaps stay visible instead of looking like an oversight.
 NO_SOURCE = {
-    "rain": "DefiLlama's adapter tracks the retired deployment and reads $0; on-chain volume needs a log scan and is ~half self-traded",
     "manifold": "play-money (mana), not USD",
     "betfair": "no free aggregate volume",
     "smarkets": "no free aggregate volume",
     "predictit": "snapshot API only, no volume",
-    "forecastex": "no public data API",
-    "iowa-electronic-markets": "no API",
     "hypermind": "no public API",
     "futuur": "no historical/aggregate volume endpoint",
     "metaculus": "forecasting, no trading volume",
@@ -157,8 +127,13 @@ def _represent_none(representer, _data):
     return representer.represent_scalar("tag:yaml.org,2002:null", "null")
 
 
+def load_yaml(path):
+    with open(path) as f:
+        return YAML(typ="safe").load(f)
+
+
 def load_platforms():
-    """slug -> (defillama slug or None, homepage), for live platforms only."""
+    """slug -> (defillama slug or None, domains), for live platforms only."""
     yaml = YAML(typ="safe")
     platforms = {}
     for path in sorted((ROOT / "data" / "platforms").glob("*.yaml")):
@@ -201,6 +176,7 @@ def main():
     parser.add_argument("--only", action="append", help="limit to these platform slugs")
     args = parser.parse_args()
 
+    config = load_yaml(ROOT / "config.yml")
     platforms = load_platforms()
     targets = args.only or list(platforms)
     unknown = [t for t in targets if t not in platforms]
@@ -230,6 +206,15 @@ def main():
                 period, source = PERIOD, f"defillama ({dl_slug})"
                 if volume is None:
                     skipped.append((slug, f"no DefiLlama data for '{dl_slug}'"))
+                    continue
+            elif slug in DUNE_FETCHERS:
+                query_id = (config.get("dune") or {}).get(slug)
+                if not query_id:
+                    skipped.append((slug, f"no dune query id in config.yml for '{slug}'"))
+                    continue
+                volume, period, source = DUNE_FETCHERS[slug](http, query_id)
+                if volume is None:
+                    skipped.append((slug, source))
                     continue
             elif slug in FETCHERS:
                 volume, period, source = FETCHERS[slug](http)

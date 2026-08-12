@@ -21,3 +21,29 @@
     Sports betting (Thales protocol family) with an AMM, not event-outcome
     prediction markets.
   decided: "2026-08-12"
+
+- name: Hyperliquid Outcomes (HIP-4)
+  url: https://app.hyperliquid.xyz/outcomes
+  type: platform
+  reason: >-
+    Exchange infrastructure rather than a venue in its own right — HIP-4 is an
+    order-book primitive that front-ends build on, and mainnet inventory is a
+    handful of recurring crypto price binaries.
+  decided: "2026-08-12"
+
+- name: ForecastEx
+  url: https://forecastex.com
+  type: platform
+  reason: >-
+    A CFTC-licensed exchange that retail cannot access directly; it is the
+    matching venue behind broker front-ends such as IBKR ForecastTrader, which
+    are listed instead.
+  decided: "2026-08-12"
+
+- name: Iowa Electronic Markets
+  url: https://iem.uiowa.edu
+  type: platform
+  reason: >-
+    Academic research market with $500 account caps, no API, and negligible
+    volume; of historical interest rather than practical use.
+  decided: "2026-08-12"

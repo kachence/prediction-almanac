@@ -15,17 +15,17 @@ geo:
   as_of: "2026-08-12"
   notes: "Terms render client-side so no country list could be read; the site ships geo-detection and its footer says prediction markets are 'prohibited in some' jurisdictions. Operated under a Liberian National Lottery Authority licence, not a financial one."
 metrics:
-  volume_usd: null
-  period: null
-  source: null
-  as_of: null
+  volume_usd: 815361.46
+  period: 30d
+  source: dune query 8304985 (pool fills, excl. self-trades)
+  as_of: "2026-08-12"
 data:
   public_api: true
   live_orderbook: false
   historical: none
   granularity: market snapshots (price, 24h change, pool collateral)
   free_archive: null
-  known_gaps: "No trades, candles, or book endpoint, and the API's totalVolume reports pool collateral rather than traded volume (~27x actual fills). DefiLlama's adapter watches retired factories and AMM-era events, so it reads $0 for the current order-book deployment. On-chain matched volume was ~$811k/30d at 2026-08-12 — about half self-traded by one address, and ~98% of it before 2026-07-19."
+  known_gaps: "No trades, candles, or book endpoint, and the API's totalVolume reports pool collateral rather than traded volume (~27x actual fills). DefiLlama reads $0 here — its adapter watches retired factories and AMM-era events — so volume is measured from on-chain fills instead. Read it with care: activity collapsed after 2026-07-19 and the trailing 7 days annualise to roughly $60k/30d."
   recorder_support: no
 description: "Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets."
 tags: [onchain, arbitrum, clob, user-created]

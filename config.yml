@@ -51,6 +51,12 @@ geo_display:
   # Countries most readers check first, in priority order. Only affects display order.
   notable: [us, gb, ca, au, de, fr, nl, it, es, cn, in, jp, sg, br]
 
+# Saved Dune queries, for venues no free aggregator covers correctly. The SQL lives in
+# scripts/queries/ and must be re-saved to Dune if edited; refresh.py skips these
+# silently when DUNE_API_KEY is absent, so the build still works without a key.
+dune:
+  rain: 8304985      # scripts/queries/rain_volume.sql
+
 # Used by scripts/refresh.py (step 2+).
 thresholds:
   stale_days: 365          # last commit older than this -> github.health: stale
