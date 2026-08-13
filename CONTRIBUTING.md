@@ -3,6 +3,9 @@
 Two ways in. Open an issue with a link and I'll do the rest, or send a PR that touches
 `data/` only.
 
+If you want to know how the thing is built before you touch it, that's [SPEC.md](SPEC.md):
+the data model, the pipelines, and why each decision went the way it did.
+
 **Never edit `README.md`.** It's generated from `data/` and rebuilt automatically after
 every merge. Edit it and the next build overwrites you, and your PR conflicts with every
 other open PR for no reason at all.
