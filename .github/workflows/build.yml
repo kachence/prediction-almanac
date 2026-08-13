@@ -1,0 +1,39 @@
+# Rebuilds README.md after anything that feeds it lands on main, so a contributor never
+# has to run the build or resolve a conflict in a generated file.
+#
+# No infinite loop: this only triggers on the paths below, and the commit it makes
+# touches README.md alone.
+name: build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/**"
+      - "config.yml"
+      - "templates/**"
+      - "scripts/build.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/build.py
+      - name: Commit the rebuild, if anything changed
+        run: |
+          git config user.name "almanac-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet README.md; then
+            git add README.md
+            git commit -m "chore: rebuild README from data"
+            git push
+          fi

@@ -372,6 +372,11 @@ def main():
         action="store_true",
         help="validate data and verify README.md is up to date; write nothing",
     )
+    parser.add_argument(
+        "--validate",
+        action="store_true",
+        help="validate data only; ignore README.md entirely (what PR CI runs)",
+    )
     args = parser.parse_args()
 
     config = load_yaml(ROOT / "config.yml")
@@ -391,6 +396,10 @@ def main():
         errors.append(f"data/excluded.yml: {where}: {err.message}")
     if errors:
         fail(errors)
+
+    if args.validate:
+        print(f"OK: data valid ({len(platforms)} platforms, {len(sources)} sources, {len(tools)} tools).")
+        return
 
     today = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
     output = render(config, platforms, tools, sources, excluded, today)

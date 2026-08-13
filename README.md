@@ -225,9 +225,13 @@ something that isn't here,
 
 ## Contributing
 
-One YAML file per entry in [`data/`](data/), checked against [`schema/`](schema/).
-**Edit the data, never this README.** [CONTRIBUTING.md](CONTRIBUTING.md) has the
-two-minute version. A bot that vets submissions and merges them itself is on the
+Two ways in. [Open an issue with a link](https://github.com/kachence/prediction-almanac/issues/new?template=submit-resource.yml)
+and I'll do the rest, or send a PR touching `data/` only - the README rebuilds itself
+after merge, so it never goes in your diff.
+
+[CONTRIBUTING.md](CONTRIBUTING.md) spells out exactly what gets an entry, section by
+section, so you can tell before you write anything whether I'd say no. A bot that vets
+submissions and merges them itself is on the
 [roadmap](SPEC.md#7-build-order-each-step-ships-something).
 
 ## Related

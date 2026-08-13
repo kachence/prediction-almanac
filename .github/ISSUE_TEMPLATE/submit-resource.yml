@@ -1,0 +1,71 @@
+name: Submit a resource
+description: A venue, dataset, feed, tool, paper, blog or X account that should be on the list.
+title: "[submission] "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        You don't need to know git for this. Paste a link, answer four questions, done.
+
+        Worth reading [what gets an entry](../blob/main/CONTRIBUTING.md#what-gets-an-entry)
+        first, and [what already got rejected](../blob/main/data/excluded.yml) so we
+        don't go round the same argument twice.
+
+  - type: input
+    id: url
+    attributes:
+      label: Link
+      placeholder: https://
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: What is it
+      options:
+        - Platform - somewhere you can trade event contracts
+        - Dataset - history you can backtest on
+        - Odds or reference feed - something you price against
+        - Tool - a bot, screener, dashboard or execution layer
+        - Paper - research with a finding a trader can act on
+        - Blog - writing with an RSS feed
+        - X account
+    validations:
+      required: true
+
+  - type: input
+    id: platforms
+    attributes:
+      label: Which venues does it cover
+      description: Slugs if you know them (polymarket, kalshi, limitless), plain names if you don't. Leave blank if it isn't venue-specific.
+      placeholder: polymarket, kalshi
+
+  - type: textarea
+    id: why
+    attributes:
+      label: What does it do, and why does it beat what's already listed
+      description: |
+        One or two sentences. Be concrete. "Faster" and "better UX" tell me nothing;
+        "the only free source with L2 depth back to 2024" tells me everything.
+
+        If it's a repo, say whether it's maintained. If it's paid, say so.
+      placeholder: The only free archive with hourly order-book snapshots for Kalshi, back to May 2026, CC BY 4.0.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: own
+    attributes:
+      label: Is this yours
+      options:
+        - label: I made this, or I work on it.
+          required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        Submitting your own work is fine and encouraged, just tick the box. The bar is
+        the same either way: it has to be real, it has to work today, and it has to do
+        something the list doesn't already cover.

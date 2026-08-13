@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Something here is wrong or dead
+    url: https://github.com/kachence/prediction-almanac/issues/new
+    about: Open a blank issue. Stale entries are the whole thing this list exists to avoid, so these get fixed first.
