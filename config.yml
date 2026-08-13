@@ -21,7 +21,8 @@ platform_groups:
     mechanisms: [regulated-exchange, broker]
     show_volume: true
   - keys: [research]
-    title: Research & play-money venues
+    title: Research
+    covers_default: general & play-money venues
     extra: year
     mechanisms: [play-money, forecasting]
     show_volume: false
@@ -34,11 +35,11 @@ platform_groups:
 # enum; `note` says who the section is for, since a bare label doesn't.
 tool_categories:
   - keys: [bot]
-    title: Trading bots & agents
+    title: Trading bots, agents & execution
     extra: status
     note: >-
-      Running strategies against these venues: market making, arbitrage, and
-      autonomous agents. Read the licence and the code before pointing anything at
+      Running strategies against these venues: market making, arbitrage,
+      autonomous agents, and the cross-venue layers you execute through. Read the licence and the code before pointing anything at
       real money — none of this is audited, and a stale repo is a liability.
   - keys: [arbitrage, aggregator]
     title: Cross-venue search & arbitrage
@@ -52,23 +53,17 @@ tool_categories:
     note: >-
       Watching flow, positions, and volume without building your own pipeline.
   - keys: [analytics]
-    title: Analytics & calibration
+    title: Calibration & accuracy
     extra: access
     note: >-
-      Judging whether prices are any good — accuracy scoring, calibration curves,
-      and personal forecast tracking.
+      Where prices are systematically wrong. Calibration is not trivia here — a
+      venue that runs 2 points cold at the same quote is an edge you can size.
   - keys: [data]
     title: Data tooling
     extra: access
     note: >-
       Paid research infrastructure. Listed because reconstructing historical book
       depth is the one thing no free source in this directory does.
-  - keys: [api-sdk]
-    title: APIs, SDKs & CLIs
-    extra: status
-    note: >-
-      The connection layer. Only current, maintained clients are listed — a
-      superseded SDK costs more time than it saves.
   - keys: [infra]
     title: Protocol internals
     extra: status
@@ -78,6 +73,7 @@ tool_categories:
       touches the contracts directly.
   - keys: [research]
     title: Research
+    covers_default: general
     extra: year
     note: >-
       Mostly papers, because that is the actual shape of this field: the 2026
@@ -86,11 +82,14 @@ tool_categories:
       calibration by domain and horizon, and measured arbitrage capacity.
   - keys: [education]
     title: Docs & training
+    covers: false
+    extra: kind
     note: >-
       Platform documentation worth reading, and the calibration training that
       measurably improves forecasting rather than just describing it.
   - keys: [newsletter]
     title: Newsletters & regular writing
+    covers: false
     extra: cadence
     note: >-
       Free, current, and not owned by an exchange. Podcasts were checked and none

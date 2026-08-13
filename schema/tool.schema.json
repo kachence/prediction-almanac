@@ -29,6 +29,10 @@
       "type": ["integer", "null"],
       "minimum": 1
     },
+    "kind": {
+      "description": "For training entries: what form it takes.",
+      "enum": ["docs", "training", "course", null]
+    },
     "year": {
       "description": "Publication year, for research entries.",
       "type": ["integer", "null"],

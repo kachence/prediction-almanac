@@ -1,8 +1,0 @@
-slug: depm-microstructure-sok
-name: "SoK: Market Microstructure for Decentralized Prediction Markets"
-url: https://arxiv.org/abs/2510.15612
-category: research
-year: 2025
-platforms: []
-description: "Systematization of prediction-market design: CLOB versus AMM and LMSR mechanics, and which design stage introduces resolution risk."
-tags: [paper, mechanism-design]

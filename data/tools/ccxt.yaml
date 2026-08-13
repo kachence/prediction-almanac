@@ -2,7 +2,7 @@ slug: ccxt
 name: CCXT
 url: https://github.com/ccxt/ccxt
 repo: https://github.com/ccxt/ccxt
-category: api-sdk
+category: bot
 platforms: [polymarket, kalshi, limitless, myriad]
 github:
   stars: 43615

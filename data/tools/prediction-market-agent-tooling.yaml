@@ -2,7 +2,7 @@ slug: prediction-market-agent-tooling
 name: prediction-market-agent-tooling
 url: https://github.com/gnosis/prediction-market-agent-tooling
 repo: https://github.com/gnosis/prediction-market-agent-tooling
-category: api-sdk
+category: bot
 platforms: [polymarket, manifold, omen]
 github:
   stars: 58

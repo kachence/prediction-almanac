@@ -2,6 +2,7 @@ slug: calibrate-your-judgment
 name: Calibrate Your Judgment
 url: https://80000hours.org/calibration-training/
 category: education
+kind: training
 platforms: []
 description: "Calibration web app with thousands of questions scoring whether your 80% really means 80%, charted over time — the direct fix for overconfident sizing."
 tags: [training, calibration]

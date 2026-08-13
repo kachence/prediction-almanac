@@ -2,7 +2,7 @@ slug: pmxt-sdk
 name: PMXT SDK
 url: https://github.com/pmxt-dev/pmxt
 repo: https://github.com/pmxt-dev/pmxt
-category: api-sdk
+category: bot
 platforms: [polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions]
 github:
   stars: 2077

@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 10 data sources · 62 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 10 data sources · 44 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -48,7 +48,7 @@ contribution bot are still to come ([roadmap](SPEC.md#7-build-order-each-step-sh
 | **[Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/)** | Broker → Kalshi, ForecastEx, Rothera | 2024 | — | [only 🇺🇸](https://robinhood.com/us/en/support/articles/event-contracts-restrictions/ "Can trade: United States") | Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges. |
 | **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | — | [🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more") | UK-licensed betting exchange with notably deep political markets. |
 
-### Research & play-money venues
+### Research
 
 *Listed for their data, not for trading. These are the only platforms here with complete, free, public history, which is what you backtest and calibrate against before risking money on the venues above.*
 
@@ -124,12 +124,14 @@ against something that belongs here,
 
 ## Tools
 
-### Trading bots & agents
+### Trading bots, agents & execution
 
-*Running strategies against these venues: market making, arbitrage, and autonomous agents. Read the licence and the code before pointing anything at real money — none of this is audited, and a stale repo is a liability.*
+*Running strategies against these venues: market making, arbitrage, autonomous agents, and the cross-venue layers you execute through. Read the licence and the code before pointing anything at real money — none of this is audited, and a stale repo is a liability.*
 
 | Tool | Covers | Status | Description |
 |---|---|---|---|
+| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,615★ · 2026-08-13 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
+| **[PMXT SDK](https://github.com/pmxt-dev/pmxt)** | polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions | 2,077★ · 2026-07-18 | CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration — one integration instead of fourteen. |
 | **[poly-maker](https://github.com/warproxxx/poly-maker)** | polymarket | 1,447★ · 2026-07-09 | Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine. |
 | **[CloddsBot](https://github.com/alsk1992/CloddsBot)** | polymarket, kalshi, manifold, metaculus, predict-fun | 676★ · 2026-06-26 | Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers. |
 | **[kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot)** | kalshi | 570★ · 2026-07-06 | Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents. |
@@ -140,6 +142,7 @@ against something that belongs here,
 | **[Homerun](https://github.com/braedonsaunders/homerun)** | polymarket, kalshi | 168★ · 2026-07-04 | Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode. |
 | **[Olas Predict trader](https://github.com/valory-xyz/trader)** | polymarket, omen | 72★ · 2026-08-12 | Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis. |
 | **[polymm](https://github.com/kachence/polymm)** | polymarket | 72★ · 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
+| **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 58★ · 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
 
 ### Cross-venue search & arbitrage
 
@@ -161,20 +164,18 @@ against something that belongs here,
 | **[Dune: Kalshi Overview](https://dune.com/datadashboards/kalshi-overview)** | kalshi | free | Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription. |
 | **[Dune: Prediction Markets](https://dune.com/datadashboards/prediction-markets)** | polymarket, kalshi, limitless, myriad, predict-fun | free | Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues — the broadest free venue-share view. |
 | **[Polyguana](https://polyguana.com)** | polymarket | free | Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive. |
+| **[Polysights](https://www.polysights.xyz)** | polymarket | freemium | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 | **[Resolve Markets](https://resolvemarkets.com)** | polymarket, kalshi, predict-fun, predictit, manifold | freemium | Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool. |
 
-### Analytics & calibration
+### Calibration & accuracy
 
-*Judging whether prices are any good — accuracy scoring, calibration curves, and personal forecast tracking.*
+*Where prices are systematically wrong. Calibration is not trivia here — a venue that runs 2 points cold at the same quote is an edge you can size.*
 
 | Tool | Covers | Access | Description |
 |---|---|---|---|
-| **[Squiggle](https://www.squiggle-language.com)** | — | free | Probabilistic estimation language for building and sanity-checking forecasts. |
-| **[Fatebook](https://fatebook.io)** | — | free | Quick personal forecast logging and calibration tracking, from Sage. |
 | **[Calibration City](https://calibration.city)** | polymarket, kalshi, manifold, metaculus | free | Cross-platform calibration explorer scoring how well market prices predict real outcomes. |
 | **[Dune: How Accurate Is Polymarket](https://dune.com/alexmccullough/how-accurate-is-polymarket)** | polymarket | free | Dune dashboard measuring Polymarket's realised accuracy, bias and outcome distribution against resolved markets — forkable and re-queryable. |
 | **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted forecaster leaderboard scoring every on-chain fill against the price paid, with a free public calibration page over 8.9M scored fills. |
-| **[Polysights](https://www.polysights.xyz)** | polymarket | freemium | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 
 ### Data tooling
 
@@ -183,23 +184,6 @@ against something that belongs here,
 | Tool | Covers | Access | Description |
 |---|---|---|---|
 | **[Probalytics](https://probalytics.io)** | polymarket | paid | Millisecond-granularity Polymarket history — full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
-
-### APIs, SDKs & CLIs
-
-*The connection layer. Only current, maintained clients are listed — a superseded SDK costs more time than it saves.*
-
-| Tool | Covers | Status | Description |
-|---|---|---|---|
-| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,615★ · 2026-08-13 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
-| **[polymarket-cli](https://github.com/Polymarket/polymarket-cli)** | polymarket | 2,846★ · 2026-05-26 | Official Rust CLI to browse markets, place orders and manage positions from a terminal, or drive them as a JSON API from scripts and agents. |
-| **[PMXT SDK](https://github.com/pmxt-dev/pmxt)** | polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions | 2,077★ · 2026-07-18 | CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration — one integration instead of fourteen. |
-| **[pykalshi](https://github.com/arshka/pykalshi)** | kalshi | 120★ · 2026-07-29 | Unofficial Kalshi client with order amend/cancel, WebSocket book and trade feeds, Pydantic models, typed errors and pandas integration. |
-| **[Polymarket py-sdk](https://github.com/Polymarket/py-sdk)** | polymarket | 98★ · 2026-08-12 | Official unified Python SDK — public data, authenticated account, trading, builder attribution and wallet workflows in one package. |
-| **[forecasting-tools](https://github.com/Metaculus/forecasting-tools)** | metaculus | 76★ · 2026-08-09 | Python framework for building LLM forecasting bots, used in Metaculus AI tournaments. |
-| **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 58★ · 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
-| **[manifoldpy](https://github.com/vluzko/manifoldpy)** | manifold | 41★ · 2026-07-10 | Community Python wrapper for the Manifold API. |
-| **[Polymarket ts-sdk](https://github.com/Polymarket/ts-sdk)** | polymarket | 29★ · 2026-08-12 | Official unified TypeScript SDK, the JS counterpart to py-sdk and the current replacement for the archived clob-client. |
-| **[kalshi-python](https://pypi.org/project/kalshi-python/)** | kalshi | — | Official Python SDK for Kalshi's trading API. |
 
 ### Protocol internals
 
@@ -219,42 +203,33 @@ against something that belongs here,
 |---|---|---|---|
 | **[Arbitrage Analysis in Polymarket NBA Markets](https://arxiv.org/abs/2605.00864)** | polymarket | 2026 | 75M book snapshots over 173 NBA games: only 7 executable single-market arbs with a median 3.6s life, and combinatorial episodes mostly capped near 15 shares. |
 | **[Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics](https://arxiv.org/abs/2602.19520)** | kalshi, polymarket | 2026 | 353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong — political markets stay compressed toward 50%. |
-| **[ForecastBench](https://www.forecastbench.org)** | — | — | Live contamination-free benchmark from Tetlock's Forecasting Research Institute comparing LLM and human forecasting accuracy — evidence for how far to trust a model's edge. |
-| **[Interpreting Prediction Market Prices as Probabilities](https://www.nber.org/system/files/working_papers/w12200/w12200.pdf)** | — | 2006 | Derives when a market price equals mean belief, and the wedge that risk aversion and belief heterogeneity create — that is, when 60c is not 60%. |
-| **[Logarithmic Market Scoring Rules](https://mason.gmu.edu/~rhanson/mktscore.pdf)** | — | 2002 | Hanson's LMSR — a scoring rule doubling as a bounded-loss automated market maker, and the pricing engine behind most subsidised event markets. |
+| **[Logarithmic Market Scoring Rules](https://mason.gmu.edu/~rhanson/mktscore.pdf)** | general | 2002 | Hanson's LMSR — a scoring rule doubling as a bounded-loss automated market maker, and the pricing engine behind most subsidised event markets. |
 | **[Makers and Takers: The Economics of the Kalshi Prediction Market](https://www2.gwu.edu/~forcpgm/2026-001.pdf)** | kalshi | 2026 | Transaction-level study of 300k+ Kalshi contracts: a strong favorite-longshot bias after fees, and higher realised returns for makers than for takers. |
-| **[Optimal Market Making in Prediction Markets](https://arxiv.org/abs/2607.17991)** | — | 2026 | Derives optimal bid and ask quotes for binary event contracts via an HJB equation, handling inventory and terminal settlement risk — the binary analogue of Avellaneda-Stoikov. |
-| **[Prediction Markets (Wolfers & Zitzewitz, JEP 2004)](https://www.nber.org/system/files/working_papers/w10504/w10504.pdf)** | — | 2004 | The founding survey: how markets aggregate dispersed information, and which contract design extracts a probability versus a mean versus a median. |
-| **[Price Discovery Across Political Prediction Markets](https://web.bogazici.edu.tr/torul/pridis.pdf)** | polymarket, kalshi, betfair, predictit | 2026 | Information shares across nine venues trading the 2024 US presidential outcome: Polymarket and Betfair hold ~85%, and the consensus led S&P 500 futures on election night. |
+| **[Optimal Market Making in Prediction Markets](https://arxiv.org/abs/2607.17991)** | general | 2026 | Derives optimal bid and ask quotes for binary event contracts via an HJB equation, handling inventory and terminal settlement risk — the binary analogue of Avellaneda-Stoikov. |
 | **[Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets](https://arxiv.org/abs/2607.14430)** | kalshi | 2026 | 23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs. |
-| **[SoK: Market Microstructure for Decentralized Prediction Markets](https://arxiv.org/abs/2510.15612)** | — | 2025 | Systematization of prediction-market design: CLOB versus AMM and LMSR mechanics, and which design stage introduces resolution risk. |
-| **[Strictly Proper Scoring Rules, Prediction, and Estimation](https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf)** | — | 2007 | The canonical treatment of strictly proper scoring rules — logarithmic, Brier, spherical, CRPS — and the mathematical parent of the LMSR. |
 | **[The Anatomy of a Decentralized Prediction Market](https://arxiv.org/abs/2604.24366)** | polymarket | 2026 | Microstructure of 30bn Polymarket book events — longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate. |
 
 ### Docs & training
 
 *Platform documentation worth reading, and the calibration training that measurably improves forecasting rather than just describing it.*
 
-| Tool | Covers | Description |
+| Tool | Kind | Description |
 |---|---|---|
-| **[Calibrate Your Judgment](https://80000hours.org/calibration-training/)** | — | Calibration web app with thousands of questions scoring whether your 80% really means 80%, charted over time — the direct fix for overconfident sizing. |
-| **[Forecasting Wiki](https://forecasting.wiki)** | — | Community wiki collecting forecasting concepts, techniques, and platform know-how. |
-| **[IBKR Campus: Predictive Markets](https://www.interactivebrokers.com/campus/traders-academy/predict-market/)** | ibkr | Two free CFA-accredited courses on event contracts and how they settle — genuinely structured, but explicitly beginner level. |
-| **[Metaculus Scores FAQ](https://www.metaculus.com/help/scores-faq/)** | metaculus | The clearest free explanation of proper scoring rules — log score, spot, baseline and peer scores, and why honest probabilities beat extremizing. |
-| **[Polymarket Documentation](https://docs.polymarket.com)** | polymarket | Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks. |
-| **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | — | Calibration-training games (estimation, pastcasting) from Sage. |
-| **[Ten Commandments for Aspiring Superforecasters](https://fs.blog/ten-commandments-for-superforecasters/)** | — | Tetlock and Gardner's full checklist — triage, decompose, balance inside and outside views, update in small increments, hunt your own errors. |
+| **[Fatebook](https://fatebook.io)** | training | Quick personal forecast logging and calibration tracking, from Sage. |
+| **[Calibrate Your Judgment](https://80000hours.org/calibration-training/)** | training | Calibration web app with thousands of questions scoring whether your 80% really means 80%, charted over time — the direct fix for overconfident sizing. |
+| **[Metaculus Scores FAQ](https://www.metaculus.com/help/scores-faq/)** | docs | The clearest free explanation of proper scoring rules — log score, spot, baseline and peer scores, and why honest probabilities beat extremizing. |
+| **[Polymarket Documentation](https://docs.polymarket.com)** | docs | Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks. |
+| **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | training | Calibration-training games (estimation, pastcasting) from Sage. |
 
 ### Newsletters & regular writing
 
 *Free, current, and not owned by an exchange. Podcasts were checked and none qualified: the main one is four months stale and exchange-sponsored.*
 
-| Tool | Covers | Cadence | Description |
-|---|---|---|---|
-| **[Imperfect Information](https://rajivsethi.substack.com)** | polymarket | occasional | Rajiv Sethi on prediction-market accuracy, wash trading and market design — the most rigorous writing on when prices beat polls and where they fail. |
-| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | — | weekly | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
-| **[Superforecasting the Week Ahead](https://goodjudgment.substack.com)** | — | weekly | Good Judgment's weekly letter, showing how professional superforecasters frame and decompose live questions. Carries some house marketing. |
-| **[The Event Horizon](https://nexteventhorizon.substack.com)** | kalshi, polymarket | near-daily | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity. |
+| Tool | Cadence | Description |
+|---|---|---|
+| **[Imperfect Information](https://rajivsethi.substack.com)** | occasional | Rajiv Sethi on prediction-market accuracy, wash trading and market design — the most rigorous writing on when prices beat polls and where they fail. |
+| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | weekly | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
+| **[The Event Horizon](https://nexteventhorizon.substack.com)** | near-daily | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity. |
 
 ## Contributing
 

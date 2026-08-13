@@ -2,7 +2,8 @@ slug: fatebook
 name: Fatebook
 url: https://fatebook.io
 repo: https://github.com/sage-future/fatebook
-category: analytics
+category: education
+kind: training
 platforms: []
 github:
   stars: 60

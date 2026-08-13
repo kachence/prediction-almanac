@@ -1,8 +1,0 @@
-slug: gneiting-raftery-scoring-rules
-name: "Strictly Proper Scoring Rules, Prediction, and Estimation"
-url: https://sites.stat.washington.edu/raftery/Research/PDF/Gneiting2007jasa.pdf
-category: research
-year: 2007
-platforms: []
-description: "The canonical treatment of strictly proper scoring rules — logarithmic, Brier, spherical, CRPS — and the mathematical parent of the LMSR."
-tags: [paper, canon, scoring]

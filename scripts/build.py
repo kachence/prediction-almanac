@@ -324,6 +324,8 @@ def group_tools(tools, config):
                 "title": spec["title"],
                 "note": spec.get("note"),
                 "extra": spec.get("extra"),
+                "covers": spec.get("covers", True),
+                "covers_default": spec.get("covers_default"),
                 "tools": members,
             })
     return groups

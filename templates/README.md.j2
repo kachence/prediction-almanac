@@ -116,11 +116,11 @@ against something that belongs here,
 *{{ group.note }}*
 
 {% endif %}
-{% set head = {'status': 'Status', 'access': 'Access', 'year': 'Year', 'cadence': 'Cadence'} %}
-| Tool | Covers |{% if group.extra %} {{ head[group.extra] }} |{% endif %} Description |
-|---|---|{% if group.extra %}---|{% endif %}---|
+{% set head = {'status': 'Status', 'access': 'Access', 'year': 'Year', 'cadence': 'Cadence', 'kind': 'Kind'} %}
+| Tool |{% if group.covers %} Covers |{% endif %}{% if group.extra %} {{ head[group.extra] }} |{% endif %} Description |
+|---|{% if group.covers %}---|{% endif %}{% if group.extra %}---|{% endif %}---|
 {% for t in group.tools %}
-| {{ t | tname }} | {{ (t.platforms | default([], true)) | join(', ') | md }} |{% if group.extra == 'status' %} {{ t | status }} |{% elif group.extra == 'access' %} {{ t.access | default('free', true) | md }} |{% elif group.extra == 'year' %} {{ t.year | default(none, true) | md }} |{% elif group.extra == 'cadence' %} {{ t.cadence | default(none, true) | md }} |{% endif %} {{ t.description | md }} |
+| {{ t | tname }} |{% if group.covers %} {{ ((t.platforms | default([], true)) | join(', ')) or group.covers_default | md }} |{% endif %}{% if group.extra == 'status' %} {{ t | status }} |{% elif group.extra == 'access' %} {{ t.access | default('free', true) | md }} |{% elif group.extra == 'year' %} {{ t.year | default(none, true) | md }} |{% elif group.extra == 'cadence' %} {{ t.cadence | default(none, true) | md }} |{% elif group.extra == 'kind' %} {{ t.kind | default(none, true) | md }} |{% endif %} {{ t.description | md }} |
 {% endfor %}
 
 {% endfor %}

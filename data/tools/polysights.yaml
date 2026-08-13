@@ -1,7 +1,7 @@
 slug: polysights
 name: Polysights
 url: https://www.polysights.xyz
-category: analytics
+category: dashboard
 platforms: [polymarket]
 access: freemium
 description: "Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access."

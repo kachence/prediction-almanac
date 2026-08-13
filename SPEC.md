@@ -110,6 +110,18 @@ current list rejected repos with hundreds of stars and four commits advertising 
 rates, keyword-stuffed SEO farms, and one "arbitrage bot" whose contents were a Java
 console game.
 
+Sections choose their own columns, because one shape did not fit: `covers` toggles the
+platform column off where it is meaningless (a newsletter does not cover a venue list),
+`covers_default` supplies a label like "general" for papers that are not venue-specific,
+and `extra` picks the single column that helps — Status for repos, Access for services,
+Year for research, Cadence for newsletters, Kind for training. Before this, 39 of 64 rows
+rendered two empty columns. A `rank` field allows editorial ordering where the automatic
+sort has nothing to work with.
+
+Official first-party SDKs are **not** listed, for the same reason platform APIs are not:
+you find them from the venue's own docs in seconds. Only cross-venue abstractions earn a
+row — PMXT and CCXT replace fourteen integrations and are genuinely hard to discover.
+
 Two curation findings worth preserving. **Sources and tools are curated, not exhaustive**
 — every venue has an API and every niche has fifty SEO repos, so listing them all
 destroys the signal the directory exists to provide. And the **Research** section is
