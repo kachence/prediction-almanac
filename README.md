@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 11 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 10 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -111,12 +111,16 @@ for its own book, and they are linked from the platform tables above.
 
 | Feed | Prices | Format · granularity | Coverage | Known gaps |
 |---|---|---|---|---|
-| **[Betfair Exchange API](https://developer.betfair.com)** · gated | Sports and politics, live | JSON-RPC / REST · prices and market book | live only (partial) | Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection. |
-| **[Betfair Historical Data](https://historicdata.betfair.com)** · paid | Sports and politics, historical | compressed JSON (market ticks) · odds ticks + book | varies by sport/tier (full) | Politics/specials coverage thinner than sports. |
+| **[Betfair Exchange](https://developer.betfair.com)** | Sports and politics | JSON-RPC / REST · prices and market book; historical as market ticks | live, plus a separate historical archive (partial) | Needs an account and app key. The free Delayed key omits traded volume, and the GBP 499 Live key forbids read-only data collection. History is a separate paid product at historicdata.betfair.com, with politics coverage thinner than sports. |
 | **[ElectionBettingOdds](https://electionbettingodds.com)** | Elections | HTML (no API) · per-market odds and cumulative matched USD, by venue | election markets only (partial) | Scraped from the page, with no API and no time series — figures are cumulative per market rather than per period, and only election markets are covered. |
 | **[Open-Meteo](https://open-meteo.com)** | Weather | JSON REST · hourly forecast, ensemble members, historical reanalysis | 1940–present, plus forecasts (full) | Non-commercial use is free without a key; commercial use needs a paid plan. Ensembles are raw members, so you compute the probability yourself. |
-| **[Pinnacle API](https://github.com/pinnacleapi)** · gated | Sports | JSON REST · pre-match and live odds, lines, limits | live only (partial) | Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
-| **[The Odds API](https://the-odds-api.com)** | Sports | JSON REST · odds by bookmaker, per market | live + limited history (partial) | Free tier is request-capped and historical odds sit behind a paid plan; bookmaker coverage varies by region. |
+| **[Pinnacle API](https://github.com/pinnacleapi)** | Sports | JSON REST · pre-match and live odds, lines, limits | live only (partial) | Account credentials required, and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
+| **[The Odds API](https://the-odds-api.com)** | Sports | JSON REST · odds by bookmaker, per market | live + limited history (partial) | The free tier is request-capped and keyed; historical odds sit behind a paid plan, and bookmaker coverage varies by region. |
+
+*This list is deliberately short — a directory that lists everything is as useless as one
+that lists nothing. But short lists carry the taste of whoever wrote them, so if you price
+against something that belongs here,
+[suggest it](https://github.com/kachence/prediction-almanac/issues).*
 
 ## Tools
 

@@ -88,7 +88,7 @@ for its own book, and they are linked from the platform tables above.
 |---|---|---|---|---|
 {% for s in sources if s.kind == 'dataset' %}
 {% set cov = s.coverage | default({}, true) %}
-| {{ s | sname }} | {{ (s.platforms | default([], true)) | join(', ') | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
+| **[{{ s.name | md }}]({{ s.url }})** | {{ (s.platforms | default([], true)) | join(', ') | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
 {% endfor %}
 
 ### Odds & reference feeds
@@ -99,8 +99,13 @@ for its own book, and they are linked from the platform tables above.
 |---|---|---|---|---|
 {% for s in sources if s.kind == 'odds-feed' %}
 {% set cov = s.coverage | default({}, true) %}
-| {{ s | sname }} | {{ s.prices | default(none, true) | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
+| **[{{ s.name | md }}]({{ s.url }})** | {{ s.prices | default(none, true) | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
 {% endfor %}
+
+*This list is deliberately short — a directory that lists everything is as useless as one
+that lists nothing. But short lists carry the taste of whoever wrote them, so if you price
+against something that belongs here,
+[suggest it]({{ 'https://github.com/' ~ config.site.repo ~ '/issues' }}).*
 
 ## Tools
 
