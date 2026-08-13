@@ -143,15 +143,22 @@ recorded in `data/excluded.yml` with a reason and rendered in a collapsed README
 so the same submission doesn't return every few weeks and the intake bot can auto-reject
 against it.
 
-**Source** — a way to get data out that beats the platform's own live endpoints: `kind`
-(`historical-archive | dataset | odds-feed | subgraph | live-api`), format, granularity,
-`coverage` (range, completeness, known gaps), `access` (`free | paid | gated`). This is
-the differentiator no other directory has, so it is curated, not exhaustive: **every venue
-has a live API for its own book, and saying so adds nothing.** A source earns a row only
-if it gives history you can backtest on, or cross-platform odds worth pricing against —
-which is why live-only endpoints were removed and a platform absent from the table can be
-read as having nothing better than its own live feed. `platforms` may be empty for
-cross-cutting feeds such as Pinnacle. Sorted by kind so archives and feeds lead.
+**Source** — **external** data worth building on, in exactly two kinds: a `dataset` you
+backtest a strategy against, or an `odds-feed` you derive a fair probability from and
+then compare to the market's price. Fields: `platforms` (datasets) or `prices` (feeds),
+format, granularity, `coverage`, `access` (`free | paid | gated`, rendered as a suffix
+rather than a column).
+
+Platform-owned live APIs are deliberately **not** listed. Every venue has one for its own
+book, they are already linked from the platform tables, and a row per venue saying "this
+exchange has an exchange API" buries the entries that carry real signal. Subgraphs are
+not sources either — shipping mapping code you must deploy and sync yourself is
+infrastructure, so Polymarket's lives under Protocol internals.
+
+This is the differentiator, and it is framed from a market maker's point of view: they
+need a venue to trade on, history to evaluate a model against, and a reference feed to
+price with. Weather is the clearest case — Open-Meteo's ensemble members are what turn
+into a probability for a Kalshi temperature contract.
 
 See `data/platforms/polymarket.yaml` for the annotated exemplar.
 

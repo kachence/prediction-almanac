@@ -229,6 +229,13 @@ def vol(platform):
     return f"{usd(volume)}/{period}" if period else usd(volume)
 
 
+def source_name(source):
+    """Access is a suffix, not a column — it matters, but not enough for a whole column."""
+    label = f"**[{md(source['name'])}]({source['url']})**"
+    access = source.get("access")
+    return f"{label} · {access}" if access in ("paid", "gated") else label
+
+
 def tool_name(tool):
     """Flag anything that isn't simply free — a reader shouldn't click to find a paywall."""
     label = f"**[{md(tool['name'])}]({tool['url']})**"
@@ -324,7 +331,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         keep_trailing_newline=True,
     )
     env.filters.update(
-        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit, tname=tool_name
+        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit, tname=tool_name, sname=source_name
     )
     # dead/deprecated entries stay in data/ (cross-links, history) but aren't rendered
     platforms = [p for p in platforms if p["status"] not in ("dead", "deprecated")]
@@ -336,7 +343,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         sources=sorted(
             sources,
             key=lambda s: (
-                ["historical-archive", "dataset", "odds-feed", "subgraph", "live-api"].index(s["kind"]),
+                ["dataset", "odds-feed"].index(s["kind"]),
                 s["name"].lower(),
             ),
         ),

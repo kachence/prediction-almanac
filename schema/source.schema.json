@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "source.schema.json",
   "title": "Source",
-  "description": "A way to get data out of a platform: live API, archive, subgraph, or dataset.",
+  "description": "External data worth building on: a dataset to backtest against, or a feed to price against.",
   "type": "object",
   "required": ["slug", "name", "url", "kind", "access"],
   "additionalProperties": false,
@@ -16,7 +16,12 @@
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
       "uniqueItems": true
     },
-    "kind": { "enum": ["live-api", "historical-archive", "subgraph", "dataset", "odds-feed"] },
+    "kind": { "enum": ["dataset", "odds-feed"] },
+    "prices": {
+      "description": "For feeds: which market categories this helps you price.",
+      "type": ["string", "null"],
+      "maxLength": 80
+    },
     "format": { "type": ["string", "null"], "maxLength": 100 },
     "granularity": { "type": ["string", "null"], "maxLength": 100 },
     "coverage": {

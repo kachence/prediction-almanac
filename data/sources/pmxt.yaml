@@ -2,7 +2,7 @@ slug: pmxt
 name: pmxt
 url: https://pmxt.dev
 platforms: [polymarket, kalshi, limitless, gemini-predictions, myriad]
-kind: historical-archive
+kind: dataset
 format: parquet
 granularity: trade+book
 coverage:

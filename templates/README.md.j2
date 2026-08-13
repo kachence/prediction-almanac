@@ -75,17 +75,31 @@ Disagree? [Open an issue]({{ 'https://github.com/' ~ config.site.repo ~ '/issues
 
 ## Data sources
 
-Every venue has a live API for its own book — that part is unremarkable. What is worth
-tracking is where you get **history you can backtest on**, and the **cross-platform odds
-feeds** worth pricing against. A platform missing from this table has nothing better than
-its own live endpoints.
+A market maker or informed taker needs three things beyond a venue: **a dataset** to
+evaluate a strategy on before risking money, **a feed** to derive a fair probability
+from, and the tools below. Platform APIs are deliberately absent — every venue has one
+for its own book, and they are linked from the platform tables above.
 
+### Datasets
 
-| Source | Covers | Kind | Format · granularity | Coverage | Access | Known gaps |
-|---|---|---|---|---|---|---|
-{% for s in sources %}
+*History to backtest against.*
+
+| Dataset | Covers | Format · granularity | Coverage | Known gaps |
+|---|---|---|---|---|
+{% for s in sources if s.kind == 'dataset' %}
 {% set cov = s.coverage | default({}, true) %}
-| **[{{ s.name | md }}]({{ s.url }})** | {{ (s.platforms | default([], true)) | join(', ') | md }} | {{ s.kind }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ s.access }} | {{ cov.known_gaps | default(none, true) | md }} |
+| {{ s | sname }} | {{ (s.platforms | default([], true)) | join(', ') | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
+{% endfor %}
+
+### Odds & reference feeds
+
+*Inputs for computing a fair probability, then comparing it against the market's price.*
+
+| Feed | Prices | Format · granularity | Coverage | Known gaps |
+|---|---|---|---|---|
+{% for s in sources if s.kind == 'odds-feed' %}
+{% set cov = s.coverage | default({}, true) %}
+| {{ s | sname }} | {{ s.prices | default(none, true) | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
 {% endfor %}
 
 ## Tools

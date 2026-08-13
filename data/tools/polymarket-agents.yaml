@@ -5,7 +5,7 @@ repo: https://github.com/Polymarket/agents
 category: bot
 platforms: [polymarket]
 github:
-  stars: 3767
+  stars: 3768
   last_commit: '2024-11-05'
   license: MIT
   archived: true

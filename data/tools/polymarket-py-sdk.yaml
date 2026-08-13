@@ -5,7 +5,7 @@ repo: https://github.com/Polymarket/py-sdk
 category: api-sdk
 platforms: [polymarket]
 github:
-  stars: 95
+  stars: 98
   last_commit: '2026-08-12'
   license: MIT
   archived: false

@@ -5,7 +5,7 @@ repo: https://github.com/Polymarket/polymarket-cli
 category: api-sdk
 platforms: [polymarket]
 github:
-  stars: 2847
+  stars: 2846
   last_commit: '2026-05-26'
   license: null
   archived: false

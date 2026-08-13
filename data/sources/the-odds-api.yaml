@@ -2,6 +2,7 @@ slug: the-odds-api
 name: The Odds API
 url: https://the-odds-api.com
 kind: odds-feed
+prices: Sports
 format: JSON REST
 granularity: odds by bookmaker, per market
 coverage:

@@ -1,0 +1,13 @@
+slug: open-meteo
+name: Open-Meteo
+url: https://open-meteo.com
+kind: odds-feed
+prices: Weather
+format: JSON REST
+granularity: hourly forecast, ensemble members, historical reanalysis
+coverage:
+  range: 1940–present, plus forecasts
+  completeness: full
+  known_gaps: "Non-commercial use is free without a key; commercial use needs a paid plan. Ensembles are raw members, so you compute the probability yourself."
+access: free
+description: "Free keyless weather API with forecast, ensemble and archive endpoints — the ensemble members are what you turn into a probability for weather contracts."

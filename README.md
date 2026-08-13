@@ -6,9 +6,9 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![README: generated](https://img.shields.io/badge/README-generated_from_data%2F-blue)](SPEC.md)
 
-> The self-updating almanac of prediction markets — every platform, the data you can actually get out of it, and the tools around them.
+> The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 13 data sources · 66 tools** — generated 2026-08-12 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 8 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -88,27 +88,32 @@ Disagree? [Open an issue](https://github.com/kachence/prediction-almanac/issues)
 
 ## Data sources
 
-Every venue has a live API for its own book — that part is unremarkable. What is worth
-tracking is where you get **history you can backtest on**, and the **cross-platform odds
-feeds** worth pricing against. A platform missing from this table has nothing better than
-its own live endpoints.
+A market maker or informed taker needs three things beyond a venue: **a dataset** to
+evaluate a strategy on before risking money, **a feed** to derive a fair probability
+from, and the tools below. Platform APIs are deliberately absent — every venue has one
+for its own book, and they are linked from the platform tables above.
 
+### Datasets
 
-| Source | Covers | Kind | Format · granularity | Coverage | Access | Known gaps |
-|---|---|---|---|---|---|---|
-| **[Betfair Historical Data](https://historicdata.betfair.com)** | betfair | historical-archive | compressed JSON (market ticks) · odds ticks + book | varies by sport/tier (full) | paid | Politics/specials coverage thinner than sports. |
-| **[pmxt](https://pmxt.dev)** | polymarket, kalshi, limitless, gemini-predictions, myriad | historical-archive | parquet · trade+book | 2024–present (partial) | free | Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list. |
-| **[Dune (decoded on-chain tables)](https://dune.com)** | polymarket | dataset | SQL over decoded Polygon tables · on-chain events | 2020–present (full) | gated | Requires writing SQL against raw/decoded contract tables; API export is metered. |
-| **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | dataset | compressed bulk dataset (~36GB) · trade | through 2025 (partial) | free | A research framework as much as a dataset — it ships indexers for collecting new data, so freshness depends on running them yourself. |
-| **[Betfair Exchange API](https://developer.betfair.com)** | betfair | odds-feed | JSON-RPC / REST · prices and market book | live only (partial) | gated | Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection. |
-| **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair, smarkets | odds-feed | HTML (no API) · per-market odds and cumulative matched USD, by venue | election markets only (partial) | free | Scraped from the page, with no API and no time series — figures are cumulative per market rather than per period, and only election markets are covered. |
-| **[Pinnacle API](https://github.com/pinnacleapi)** | — | odds-feed | JSON REST · pre-match and live odds, lines, limits | live only (partial) | gated | Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
-| **[The Odds API](https://the-odds-api.com)** | — | odds-feed | JSON REST · odds by bookmaker, per market | live + limited history (partial) | free | Free tier is request-capped and historical odds sit behind a paid plan; bookmaker coverage varies by region. |
-| **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | subgraph | GraphQL · on-chain events (trades, positions, redemptions) | 2020–present (full) | free | Requires a hosted indexer (Goldsky) or self-indexing; schemas shift between versions. |
-| **[Gemini Predictions API](https://api.gemini.com/v1/prediction-markets/events)** | gemini-predictions | live-api | JSON REST + WebSocket · daily volume by category; prices, per-event volume; L2 depth over WebSocket | 2025–present (partial) | free | Daily volume is T-1 only and counted in contracts at $1 face; category rows nest, so only top-level rows may be summed. No REST depth snapshot. |
-| **[Kalshi Trading API](https://docs.kalshi.com)** | kalshi | live-api | JSON REST + WebSocket · trades, candlesticks, order book | 2021–present (full) | free | Per-market pagination; no bulk download. |
-| **[Manifold API](https://docs.manifold.markets/api)** | manifold | live-api | JSON REST · bet-level | 2021–present (full) | free | Rate limits make whole-site pulls slow. |
-| **[Metaculus API](https://www.metaculus.com/api/)** | metaculus | live-api | JSON REST · question + aggregate forecast history | 2015–present (full) | free | Individual forecasts mostly private; aggregates and resolutions are public. |
+*History to backtest against.*
+
+| Dataset | Covers | Format · granularity | Coverage | Known gaps |
+|---|---|---|---|---|
+| **[pmxt](https://pmxt.dev)** | polymarket, kalshi, limitless, gemini-predictions, myriad | parquet · trade+book | 2024–present (partial) | Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list. |
+| **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | compressed bulk dataset (~36GB) · trade | through 2025 (partial) | A research framework as much as a dataset — it ships indexers for collecting new data, so freshness depends on running them yourself. |
+
+### Odds & reference feeds
+
+*Inputs for computing a fair probability, then comparing it against the market's price.*
+
+| Feed | Prices | Format · granularity | Coverage | Known gaps |
+|---|---|---|---|---|
+| **[Betfair Exchange API](https://developer.betfair.com)** · gated | Sports and politics, live | JSON-RPC / REST · prices and market book | live only (partial) | Needs an account and app key. The free Delayed key omits traded volume entirely, and the GBP 499 Live key forbids read-only data collection. |
+| **[Betfair Historical Data](https://historicdata.betfair.com)** · paid | Sports and politics, historical | compressed JSON (market ticks) · odds ticks + book | varies by sport/tier (full) | Politics/specials coverage thinner than sports. |
+| **[ElectionBettingOdds](https://electionbettingodds.com)** | Elections | HTML (no API) · per-market odds and cumulative matched USD, by venue | election markets only (partial) | Scraped from the page, with no API and no time series — figures are cumulative per market rather than per period, and only election markets are covered. |
+| **[Open-Meteo](https://open-meteo.com)** | Weather | JSON REST · hourly forecast, ensemble members, historical reanalysis | 1940–present, plus forecasts (full) | Non-commercial use is free without a key; commercial use needs a paid plan. Ensembles are raw members, so you compute the probability yourself. |
+| **[Pinnacle API](https://github.com/pinnacleapi)** · gated | Sports | JSON REST · pre-match and live odds, lines, limits | live only (partial) | Account credentials required and no history — Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
+| **[The Odds API](https://the-odds-api.com)** | Sports | JSON REST · odds by bookmaker, per market | live + limited history (partial) | Free tier is request-capped and historical odds sit behind a paid plan; bookmaker coverage varies by region. |
 
 ## Tools
 
@@ -118,9 +123,9 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[poly-maker](https://github.com/warproxxx/poly-maker)** | polymarket | 1,448 | 2026-07-09 | Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine. |
-| **[CloddsBot](https://github.com/alsk1992/CloddsBot)** | polymarket, kalshi, manifold, metaculus, predict-fun | 663 | 2026-06-26 | Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers. |
-| **[kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot)** | kalshi | 569 | 2026-07-06 | Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents. |
+| **[poly-maker](https://github.com/warproxxx/poly-maker)** | polymarket | 1,447 | 2026-07-09 | Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine. |
+| **[CloddsBot](https://github.com/alsk1992/CloddsBot)** | polymarket, kalshi, manifold, metaculus, predict-fun | 676 | 2026-06-26 | Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers. |
+| **[kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot)** | kalshi | 570 | 2026-07-06 | Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents. |
 | **[Kalshi Trading Bot CLI](https://github.com/OctagonAI/kalshi-trading-bot-cli)** | kalshi | 369 | 2026-06-25 | CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly — with a demo mode. |
 | **[PolyClaw](https://github.com/chainstacklabs/polyclaw)** | polymarket | 357 | 2026-04-28 | Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking. |
 | **[KalshiMarketMaker](https://github.com/rodlaf/KalshiMarketMaker)** | kalshi | 227 | 2026-04-14 | Avellaneda-Stoikov market making on Kalshi — reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment. |
@@ -128,7 +133,7 @@ its own live endpoints.
 | **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
 | **[polymm](https://github.com/kachence/polymm)** | polymarket | 72 | 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
 | **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 · stale | Reference market-making bot for the Polymarket CLOB. |
-| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,767 | 2024-11-05 · archived | Official framework for building LLM trading agents on Polymarket. |
+| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,768 | 2024-11-05 · archived | Official framework for building LLM trading agents on Polymarket. |
 
 ### Cross-venue search & arbitrage
 
@@ -183,11 +188,11 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
-| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,609 | 2026-08-12 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
-| **[polymarket-cli](https://github.com/Polymarket/polymarket-cli)** | polymarket | 2,847 | 2026-05-26 | Official Rust CLI to browse markets, place orders and manage positions from a terminal, or drive them as a JSON API from scripts and agents. |
+| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,615 | 2026-08-13 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
+| **[polymarket-cli](https://github.com/Polymarket/polymarket-cli)** | polymarket | 2,846 | 2026-05-26 | Official Rust CLI to browse markets, place orders and manage positions from a terminal, or drive them as a JSON API from scripts and agents. |
 | **[PMXT SDK](https://github.com/pmxt-dev/pmxt)** | polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions | 2,077 | 2026-07-18 | CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration — one integration instead of fourteen. |
 | **[pykalshi](https://github.com/arshka/pykalshi)** | kalshi | 120 | 2026-07-29 | Unofficial Kalshi client with order amend/cancel, WebSocket book and trade feeds, Pydantic models, typed errors and pandas integration. |
-| **[Polymarket py-sdk](https://github.com/Polymarket/py-sdk)** | polymarket | 95 | 2026-08-12 | Official unified Python SDK — public data, authenticated account, trading, builder attribution and wallet workflows in one package. |
+| **[Polymarket py-sdk](https://github.com/Polymarket/py-sdk)** | polymarket | 98 | 2026-08-12 | Official unified Python SDK — public data, authenticated account, trading, builder attribution and wallet workflows in one package. |
 | **[forecasting-tools](https://github.com/Metaculus/forecasting-tools)** | metaculus | 76 | 2026-08-09 | Python framework for building LLM forecasting bots, used in Metaculus AI tournaments. |
 | **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 58 | 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
 | **[manifoldpy](https://github.com/vluzko/manifoldpy)** | manifold | 41 | 2026-07-10 | Community Python wrapper for the Manifold API. |
@@ -200,6 +205,7 @@ its own live endpoints.
 
 | Tool | Covers | Stars | Last commit | Description |
 |---|---|---|---|---|
+| **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | 217 | 2026-02-13 | Official subgraph definitions for positions, open interest and PnL. Ships mappings, not data — you deploy it to an indexer and sync Polygon yourself. |
 | **[ctf-exchange-v2](https://github.com/Polymarket/ctf-exchange-v2)** | polymarket | 75 | 2026-08-03 | Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1. |
 | **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305 | 2023-01-24 · stale | Gnosis' ERC-1155 outcome-token standard Polymarket settles on — the split and merge mechanics you use to hedge or construct a position from collateral. |
 
@@ -264,5 +270,5 @@ Entries are one YAML file each under [`data/`](data/), validated against
 
 ---
 
-_Generated 2026-08-12 from [`data/`](data/). Found something stale or dead? The
+_Generated 2026-08-13 from [`data/`](data/). Found something stale or dead? The
 refresh bot will too — but [issues](https://github.com/kachence/prediction-almanac/issues) are welcome._

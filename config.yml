@@ -5,8 +5,8 @@ site:
   title: Prediction Almanac
   repo: kachence/prediction-almanac
   tagline: >-
-    The self-updating almanac of prediction markets — every platform, the data you can
-    actually get out of it, and the tools around them.
+    The self-updating almanac of prediction markets — where to trade, the datasets and
+    feeds to build against, and the tools people have actually published.
 
 # Display groups for the Platforms section, in order. Every mechanism must be covered.
 # show_volume: whether the group's table gets a Volume column (real-money groups only —

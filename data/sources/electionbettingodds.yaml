@@ -3,6 +3,7 @@ name: ElectionBettingOdds
 url: https://electionbettingodds.com
 platforms: [polymarket, kalshi, predictit, betfair, smarkets]
 kind: odds-feed
+prices: Elections
 format: HTML (no API)
 granularity: per-market odds and cumulative matched USD, by venue
 coverage:

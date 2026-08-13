@@ -3,6 +3,7 @@ name: Betfair Exchange API
 url: https://developer.betfair.com
 platforms: [betfair]
 kind: odds-feed
+prices: Sports and politics, live
 format: JSON-RPC / REST
 granularity: prices and market book
 coverage:

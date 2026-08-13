@@ -5,8 +5,8 @@ repo: https://github.com/ccxt/ccxt
 category: api-sdk
 platforms: [polymarket, kalshi, limitless, myriad]
 github:
-  stars: 43609
-  last_commit: '2026-08-12'
+  stars: 43615
+  last_commit: '2026-08-13'
   license: MIT
   archived: false
   health: active

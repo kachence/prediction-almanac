@@ -2,6 +2,7 @@ slug: pinnacle-api
 name: Pinnacle API
 url: https://github.com/pinnacleapi
 kind: odds-feed
+prices: Sports
 format: JSON REST
 granularity: pre-match and live odds, lines, limits
 coverage:

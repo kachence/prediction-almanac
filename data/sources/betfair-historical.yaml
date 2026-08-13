@@ -2,7 +2,8 @@ slug: betfair-historical
 name: Betfair Historical Data
 url: https://historicdata.betfair.com
 platforms: [betfair]
-kind: historical-archive
+kind: odds-feed
+prices: Sports and politics, historical
 format: compressed JSON (market ticks)
 granularity: odds ticks + book
 coverage:
