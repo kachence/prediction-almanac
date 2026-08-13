@@ -54,27 +54,6 @@ def secret(name):
     return None
 
 
-def dune_run(query_id, api_key, timeout=300):
-    """Execute a saved Dune query and return its rows."""
-    import time
-
-    headers = {"X-Dune-Api-Key": api_key}
-    with httpx.Client(timeout=TIMEOUT, headers=headers) as http:
-        started = http.post(f"https://api.dune.com/api/v1/query/{query_id}/execute", json={})
-        started.raise_for_status()
-        execution = started.json()["execution_id"]
-        deadline = time.time() + timeout
-        while time.time() < deadline:
-            state = http.get(f"https://api.dune.com/api/v1/execution/{execution}/status").json()
-            if state.get("state") == "QUERY_STATE_COMPLETED":
-                results = http.get(f"https://api.dune.com/api/v1/execution/{execution}/results")
-                return results.json().get("result", {}).get("rows", [])
-            if state.get("state") in ("QUERY_STATE_FAILED", "QUERY_STATE_CANCELLED"):
-                return None
-            time.sleep(5)
-    return None
-
-
 def as_float(value):
     """APIs mix numbers and numeric strings; anything unparseable counts as zero."""
     try:

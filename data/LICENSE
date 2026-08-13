@@ -1,0 +1,20 @@
+CC0 1.0 Universal (Public Domain Dedication)
+
+Everything in this directory - every YAML file describing a platform, data
+source or tool - is dedicated to the public domain under CC0 1.0.
+
+To the extent possible under law, the contributors to this repository have
+waived all copyright and related or neighbouring rights to the contents of
+data/. You can copy it, change it, redistribute it, and build a commercial
+product on it, without asking and without attribution.
+
+Full text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+Summary:   https://creativecommons.org/publicdomain/zero/1.0/
+
+Attribution isn't required, but it is appreciated, and a link back helps other
+people find corrections.
+
+Note that this covers the data describing these resources, not the resources
+themselves. Each dataset, feed and tool listed here carries its own licence,
+and several carry none at all - which the entries say so you find out before
+you build on them, not after.

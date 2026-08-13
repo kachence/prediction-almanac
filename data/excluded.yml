@@ -72,3 +72,13 @@
     No API and no data export. Metaculus covers the same ground with full
     public forecast history.
   decided: "2026-08-12"
+
+- name: Rain
+  url: https://www.rain.trade
+  type: platform
+  reason: >-
+    A real venue, but not a measurable one. DefiLlama tracks its retired
+    deployment and reads zero, its own API reports pool collateral rather than
+    traded volume, and roughly half the all-time volume was one address trading
+    with itself.
+  decided: "2026-08-13"

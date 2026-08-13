@@ -4,10 +4,12 @@
 # Prediction Almanac
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
-[![platforms](https://img.shields.io/badge/platforms-15-2ea44f)](#platforms)
+[![platforms](https://img.shields.io/badge/platforms-14-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-10-2ea44f)](#data-sources)
 [![tools](https://img.shields.io/badge/tools-39-2ea44f)](#tools)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
+[![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
+[![data licence](https://img.shields.io/badge/data-CC0-lightgrey)](data/LICENSE)
 
 > Every prediction market worth trading, the data you can actually backtest on, and the tools people have really shipped. Rebuilt from scratch daily, so it can't rot.
 
@@ -40,7 +42,6 @@ That's the only way a list like this stays correct.
 | **[SX Bet](https://sx.bet)** | CLOB, SX Rollup | 2019 | $58.2M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19](https://help.sx.bet/en/articles/3613372-terms-and-conditions "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more") | Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports. |
 | **[Limitless](https://limitless.exchange)** | CLOB, Base | 2024 | $48.9M/30d | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
 | **[Myriad](https://myriad.markets)** | CLOB, BNB Chain +3 | 2025 | $2M/30d | [🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14](https://help.myriad.markets/myriad-terms-of-use "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more") | Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea. |
-| **[Rain](https://www.rain.trade)** | CLOB, Arbitrum | 2026 | $815.3k/30d | [🌍 everyone](https://www.rain.trade/terms-and-conditions) | Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets. |
 
 ### Regulated exchanges & brokers
 
@@ -89,6 +90,7 @@ drop off the page.*
 | [Futuur](https://futuur.com) | Play-money side adds no data or liquidity, and the real-money side is offshore-licensed with 39 countries blocked and no historical API. Nothing in the directory references it. |
 | [Hypermind](https://www.hypermind.com) | Prize-based forecasting with no public API and no exportable data, so it offers nothing to a trader or a builder. |
 | [Good Judgment Open](https://www.gjopen.com) | No API and no data export. Metaculus covers the same ground with full public forecast history. |
+| [Rain](https://www.rain.trade) | A real venue, but not a measurable one. DefiLlama tracks its retired deployment and reads zero, its own API reports pool collateral rather than traded volume, and roughly half the all-time volume was one address trading with itself. |
 
 Think one of these belongs? [Open an issue](https://github.com/kachence/prediction-almanac/issues). The reasons live in [`data/excluded.yml`](data/excluded.yml) and changing my mind is a one-line edit.
 </details>
@@ -233,6 +235,13 @@ after merge, so it never goes in your diff.
 section, so you can tell before you write anything whether I'd say no. A bot that vets
 submissions and merges them itself is on the
 [roadmap](SPEC.md#7-build-order-each-step-ships-something).
+
+## Licence
+
+Code is [MIT](LICENSE). Everything in [`data/`](data/) is [CC0](data/LICENSE), so take
+it, build on it, sell it, no attribution needed. That covers the data describing these
+resources, not the resources themselves - each one carries its own terms, and a few
+carry none, which the entries tell you.
 
 ## Related
 

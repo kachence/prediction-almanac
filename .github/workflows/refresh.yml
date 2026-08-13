@@ -1,0 +1,43 @@
+# The self-updating half. Fetches volume, repo health and blog freshness, rebuilds the
+# README, and commits only if something actually moved.
+#
+# Needs no secrets beyond the token GitHub hands every run: DefiLlama, Gemini and the
+# blog feeds are all keyless, and GITHUB_TOKEN just raises the API rate limit.
+#
+# GitHub disables scheduled workflows after 60 days without repo activity. This one
+# commits most days, which keeps it alive.
+name: refresh
+
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Fetch live numbers
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/refresh.py
+      - run: python scripts/build.py
+      - name: Commit, if anything moved
+        run: |
+          git config user.name "almanac-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add -A
+            git commit -m "chore: daily refresh"
+            git push
+          else
+            echo "Nothing changed."
+          fi

@@ -24,7 +24,7 @@ from urllib.parse import urlparse
 from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import DoubleQuotedScalarString
 
-from enrich import as_float, client, dune_run, get_json, secret
+from enrich import as_float, client, get_json, secret
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFILLAMA_DEXS = "https://api.llama.fi/overview/dexs"
@@ -97,27 +97,8 @@ def fetch_gemini(http):
     return total, PERIOD, f"gemini-api (Σ {days} daily totals, contracts at $1 face)"
 
 
-def fetch_rain(http, query_id):
-    """On-chain fills, because no aggregator measures the live deployment correctly.
-
-    Self-trades are excluded: one address is maker on over half of Rain's all-time
-    volume and has traded with itself. See scripts/queries/rain_volume.sql.
-    """
-    api_key = secret("DUNE_API_KEY")
-    if not api_key:
-        return None, PERIOD, "needs DUNE_API_KEY"
-    rows = dune_run(query_id, api_key)
-    if not rows:
-        return None, PERIOD, "Dune query failed"
-    volume = as_float(rows[0].get("volume_usd"))
-    return volume or None, PERIOD, f"dune query {query_id} (pool fills, excl. self-trades)"
-
-
 # Venues with no DefiLlama adapter but their own usable endpoint.
 FETCHERS = {"gemini-predictions": fetch_gemini}
-
-# Venues needing a saved Dune query; ids live in config.yml under `dune`.
-DUNE_FETCHERS = {"rain": fetch_rain}
 
 # Platforms with no free volume anywhere, and why. Shown in the run report so the
 # gaps stay visible instead of looking like an oversight.
@@ -323,15 +304,6 @@ def main():
                 period, source = PERIOD, f"defillama ({dl_slug})"
                 if volume is None:
                     skipped.append((slug, f"no DefiLlama data for '{dl_slug}'"))
-                    continue
-            elif slug in DUNE_FETCHERS:
-                query_id = (config.get("dune") or {}).get(slug)
-                if not query_id:
-                    skipped.append((slug, f"no dune query id in config.yml for '{slug}'"))
-                    continue
-                volume, period, source = DUNE_FETCHERS[slug](http, query_id)
-                if volume is None:
-                    skipped.append((slug, source))
                     continue
             elif slug in FETCHERS:
                 volume, period, source = FETCHERS[slug](http)
