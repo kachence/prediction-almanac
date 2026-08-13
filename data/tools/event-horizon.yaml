@@ -2,7 +2,7 @@ slug: event-horizon
 name: The Event Horizon
 url: https://nexteventhorizon.substack.com
 category: newsletter
-cadence: near-daily
+kind: newsletter
 platforms: [kalshi, polymarket]
 description: "Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity."
 tags: [newsletter, regulation, market-structure]

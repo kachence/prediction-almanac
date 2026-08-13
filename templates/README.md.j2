@@ -116,7 +116,7 @@ against something that belongs here,
 *{{ group.note }}*
 
 {% endif %}
-{% set head = {'status': 'Status', 'access': 'Access', 'year': 'Year', 'cadence': 'Cadence', 'kind': 'Kind'} %}
+{% set head = {'status': 'Status', 'access': 'Access', 'year': 'Year', 'cadence': 'Cadence', 'kind': 'Medium'} %}
 | Tool |{% if group.covers %} Covers |{% endif %}{% if group.extra %} {{ head[group.extra] }} |{% endif %} Description |
 |---|{% if group.covers %}---|{% endif %}{% if group.extra %}---|{% endif %}---|
 {% for t in group.tools %}

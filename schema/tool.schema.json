@@ -30,8 +30,8 @@
       "minimum": 1
     },
     "kind": {
-      "description": "For training entries: what form it takes.",
-      "enum": ["docs", "training", "course", null]
+      "description": "For writing entries: blog, newsletter, or X account.",
+      "enum": ["blog", "newsletter", "x", null]
     },
     "year": {
       "description": "Publication year, for research entries.",

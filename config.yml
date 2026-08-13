@@ -68,14 +68,16 @@ tool_categories:
       venue's "learn" page. Order-book microstructure, maker-versus-taker returns,
       calibration by domain and horizon, and measured arbitrage capacity.
   - keys: [newsletter]
-    title: Blogs & newsletters
+    title: Blogs, newsletters & X
     covers: false
-    extra: cadence
+    extra: kind
     note: >-
-      People writing regularly about this space — free, current, and not owned by
-      an exchange. Building something in it? This is the section to put yourself
-      in. Podcasts were checked and none qualified: the main one is four months
-      stale and exchange-sponsored.
+      People worth reading on this space — free, current, and not owned by an
+      exchange. Building something here? This is the section to put yourself in.
+      The X entries are the one part of this directory nothing can verify: X
+      killed its free API tier in February 2026, so there is no way to check an
+      account is still active without paying per lookup. Podcasts were checked
+      and none qualified — the main one is months stale and exchange-sponsored.
   - keys: [alerting]
     title: Alerting
   - keys: [extension]
