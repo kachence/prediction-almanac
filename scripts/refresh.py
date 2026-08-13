@@ -16,6 +16,7 @@ information, a wrong one is worse than none.
 
 import argparse
 import datetime as dt
+import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
@@ -185,6 +186,48 @@ def refresh_tools(http, config, dry_run):
     return updated
 
 
+def fetch_last_post(http, feed_url):
+    """Newest pubDate/updated in a feed, so cadence is measured rather than claimed."""
+    try:
+        response = http.get(feed_url)
+        response.raise_for_status()
+        body = response.text
+    except Exception:
+        return None
+    stamps = re.findall(r"<(?:pubDate|updated|published)>([^<]+)<", body)
+    for raw in stamps[:1]:
+        for fmt in ("%a, %d %b %Y %H:%M:%S %Z", "%a, %d %b %Y %H:%M:%S %z", "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ"):
+            try:
+                return dt.datetime.strptime(raw.strip(), fmt).strftime("%Y-%m-%d")
+            except ValueError:
+                continue
+    return None
+
+
+def refresh_blogs(http, dry_run):
+    """Fill last_post for every entry that names a feed."""
+    yaml = YAML(typ="safe")
+    updated = 0
+    print("\nBlog feeds:")
+    for path in sorted((ROOT / "data" / "tools").glob("*.yaml")):
+        with open(path) as f:
+            entry = yaml.load(f)
+        feed = entry.get("feed")
+        if not feed:
+            continue
+        date = fetch_last_post(http, feed)
+        print(f"  {entry['slug']:24} {date or 'unreachable'}")
+        if date and not dry_run:
+            yml = YAML()
+            yml.preserve_quotes, yml.width = True, 4096
+            yml.representer.add_representer(type(None), _represent_none)
+            data = yml.load(path)
+            data["last_post"] = date
+            yml.dump(data, path)
+            updated += 1
+    return updated
+
+
 def _represent_none(representer, _data):
     """Keep `null` explicit; ruamel's default writes an empty value."""
     return representer.represent_scalar("tag:yaml.org,2002:null", "null")
@@ -304,6 +347,7 @@ def main():
 
         if not args.only and not args.skip_tools:
             written += refresh_tools(http, config, args.dry_run)
+            written += refresh_blogs(http, args.dry_run)
 
     print()
     for slug, reason in sorted(skipped):

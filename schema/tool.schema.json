@@ -12,7 +12,7 @@
     "url": { "type": "string", "pattern": "^https?://" },
     "repo": { "type": ["string", "null"], "pattern": "^https://github\\.com/" },
     "category": {
-      "enum": ["aggregator", "analytics", "bot", "api-sdk", "dashboard", "alerting", "arbitrage", "data", "extension", "infra", "education", "research", "newsletter"]
+      "enum": ["aggregator", "analytics", "bot", "api-sdk", "dashboard", "alerting", "arbitrage", "data", "extension", "infra", "education", "research", "newsletter", "social"]
     },
     "platforms": {
       "description": "Slugs from data/platforms/ this tool covers; empty/omitted = platform-agnostic.",
@@ -28,6 +28,16 @@
       "description": "Editorial order within a section; lower first. Omit to sort by health then stars.",
       "type": ["integer", "null"],
       "minimum": 1
+    },
+    "feed": {
+      "description": "RSS/Atom URL, so refresh.py can measure last_post rather than trusting a claimed cadence.",
+      "type": ["string", "null"],
+      "pattern": "^https?://"
+    },
+    "last_post": {
+      "description": "Auto-filled by scripts/refresh.py from the feed — seed as null.",
+      "type": ["string", "null"],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "kind": {
       "description": "For writing entries: blog, newsletter, or X account.",

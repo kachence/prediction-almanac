@@ -122,6 +122,11 @@ Official first-party SDKs are **not** listed, for the same reason platform APIs 
 you find them from the venue's own docs in seconds. Only cross-venue abstractions earn a
 row — PMXT and CCXT replace fourteen integrations and are genuinely hard to discover.
 
+Blogs carry a `feed` URL and refresh.py fills `last_post` from it, so freshness is
+measured the same way repo health is. X accounts cannot be: X ended its free API tier on
+6 February 2026 and moved to pay-per-use at \$0.010 a profile lookup, so they sit in
+their own table with the note saying plainly that nothing verifies them.
+
 Two curation findings worth preserving. **Sources and tools are curated, not exhaustive**
 — every venue has an API and every niche has fifty SEO repos, so listing them all
 destroys the signal the directory exists to provide. And the **Research** section is

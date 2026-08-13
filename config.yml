@@ -68,16 +68,21 @@ tool_categories:
       venue's "learn" page. Order-book microstructure, maker-versus-taker returns,
       calibration by domain and horizon, and measured arbitrage capacity.
   - keys: [newsletter]
-    title: Blogs, newsletters & X
+    title: Blogs
     covers: false
-    extra: kind
+    extra: last_post
     note: >-
       People worth reading on this space — free, current, and not owned by an
-      exchange. Building something here? This is the section to put yourself in.
-      The X entries are the one part of this directory nothing can verify: X
-      killed its free API tier in February 2026, so there is no way to check an
-      account is still active without paying per lookup. Podcasts were checked
-      and none qualified — the main one is months stale and exchange-sponsored.
+      exchange. Last post is read from each feed, so a blog that goes quiet shows
+      it. Building something here? This is the section to put yourself in.
+  - keys: [social]
+    title: X accounts
+    covers: false
+    note: >-
+      The only rows in this directory nothing can verify: X ended its free API
+      tier in February 2026, so confirming an account is still active costs money
+      per lookup. Listed on outside corroboration rather than follower counts,
+      and kept deliberately short. Podcasts were checked and none qualified.
   - keys: [alerting]
     title: Alerting
   - keys: [extension]

@@ -190,20 +190,27 @@ against something that belongs here,
 | **[Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets](https://arxiv.org/abs/2607.14430)** | kalshi | 2026 | 23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs. |
 | **[The Anatomy of a Decentralized Prediction Market](https://arxiv.org/abs/2604.24366)** | polymarket | 2026 | Microstructure of 30bn Polymarket book events — longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate. |
 
-### Blogs, newsletters & X
+### Blogs
 
-*People worth reading on this space — free, current, and not owned by an exchange. Building something here? This is the section to put yourself in. The X entries are the one part of this directory nothing can verify: X killed its free API tier in February 2026, so there is no way to check an account is still active without paying per lookup. Podcasts were checked and none qualified — the main one is months stale and exchange-sponsored.*
+*People worth reading on this space — free, current, and not owned by an exchange. Last post is read from each feed, so a blog that goes quiet shows it. Building something here? This is the section to put yourself in.*
 
-| Tool | Medium | Description |
+| Tool | Last post | Description |
 |---|---|---|
-| **[Alphanume Research](https://alphanume.substack.com)** | newsletter | Free quant-flavoured writing on actually trading these venues — order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets. |
-| **[Domer (@Domahhhh)](https://x.com/Domahhhh)** | x | Polymarket's number one all-time trader by volume and profit, around $300M across 5,000+ markets, and the most-cited independent voice in the space. |
-| **[Esoteric Catboy (@catboyautist)](https://x.com/catboyautist)** | x | Trader who posts positions and reasoning openly, particularly on Kalshi mention markets; quoted in Bloomberg's 2026 prediction-markets feature. |
-| **[Imperfect Information](https://rajivsethi.substack.com)** | blog | Rajiv Sethi on prediction-market accuracy, wash trading and market design — the most rigorous writing on when prices beat polls and where they fail. |
-| **[Kacho](https://kacho.io)** | blog | Data engineer building side projects in public, including the Polymarket market-making bot polymm, and posting the verified metrics behind them. |
-| **[Kyle (@KyleDeWriter)](https://x.com/KyleDeWriter)** | x | Tracks the Polymarket leaderboard and explains platform mechanics, such as what removing the 500ms order delay did to short-dated markets. |
-| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | newsletter | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
-| **[The Event Horizon](https://nexteventhorizon.substack.com)** | newsletter | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity. |
+| **[Alphanume Research](https://www.alphanume-research.com/)** | 2026-08-12 | Free quant-flavoured writing on actually trading these venues — order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets. |
+| **[Imperfect Information](https://rajivsethi.substack.com)** | 2026-08-06 | Rajiv Sethi on prediction-market accuracy, wash trading and market design — the most rigorous writing on when prices beat polls and where they fail. |
+| **[Kacho](https://kacho.io)** | 2026-07-29 | Data engineer building side projects in public, including the Polymarket market-making bot polymm, and posting the verified metrics behind them. |
+| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | 2026-08-10 | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
+| **[The Event Horizon](https://nexteventhorizon.substack.com)** | 2026-08-12 | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity. |
+
+### X accounts
+
+*The only rows in this directory nothing can verify: X ended its free API tier in February 2026, so confirming an account is still active costs money per lookup. Listed on outside corroboration rather than follower counts, and kept deliberately short. Podcasts were checked and none qualified.*
+
+| Tool | Description |
+|---|---|
+| **[Domer (@Domahhhh)](https://x.com/Domahhhh)** | Polymarket's number one all-time trader by volume and profit, around $300M across 5,000+ markets, and the most-cited independent voice in the space. |
+| **[Esoteric Catboy (@catboyautist)](https://x.com/catboyautist)** | Trader who posts positions and reasoning openly, particularly on Kalshi mention markets; quoted in Bloomberg's 2026 prediction-markets feature. |
+| **[Kyle (@KyleDeWriter)](https://x.com/KyleDeWriter)** | Tracks the Polymarket leaderboard and explains platform mechanics, such as what removing the 500ms order delay did to short-dated markets. |
 
 ## Contributing
 
