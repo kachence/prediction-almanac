@@ -1,0 +1,13 @@
+slug: hf-kalshi-trades
+name: Kalshi trades (TrevorJS)
+url: https://huggingface.co/datasets/TrevorJS/kalshi-trades
+platforms: [kalshi]
+kind: dataset
+format: parquet
+granularity: trades + market metadata with outcomes
+coverage:
+  range: 2021-06–2026-01
+  completeness: full
+  known_gaps: "Stops January 2026 and has not been updated since. No order book."
+access: free
+description: "154M Kalshi trades with market metadata and resolution outcomes over four and a half years — the longest permissively licensed history at any venue."

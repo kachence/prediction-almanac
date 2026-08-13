@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 10 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 11 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -99,9 +99,10 @@ for its own book, and they are linked from the platform tables above.
 
 | Dataset | Covers | Format · granularity | Coverage | Known gaps |
 |---|---|---|---|---|
-| **[pmxt](https://pmxt.dev)** | polymarket, kalshi, limitless, gemini-predictions, myriad | parquet · trade+book | 2024–present (partial) | Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list. |
-| **[Polymarket 5-minute crypto up/down markets](https://huggingface.co/datasets/kachoio/polymarket-5-minute-crypto-up-down-markets)** | polymarket | parquet · per-market metadata + price ticks, per asset | through 2026-06 (partial) | Covers only the 5-minute crypto up/down series, so it is a deep slice rather than a broad history. |
-| **[Polymarket_data (HuggingFace)](https://huggingface.co/datasets/SII-WANGZJ/Polymarket_data)** | polymarket | parquet · markets, trades, OrderFilled events | through 2026-07 (partial) | No licence stated on the dataset card, which matters if you build something commercial on it. Point-in-time, so it goes stale unless re-pulled. |
+| **[Kalshi trades (TrevorJS)](https://huggingface.co/datasets/TrevorJS/kalshi-trades)** | kalshi | parquet · trades + market metadata with outcomes | 2021-06–2026-01 (full) | Stops January 2026 and has not been updated since. No order book. |
+| **[pmxt archive](https://archive.pmxt.dev/)** | polymarket, kalshi, limitless | parquet · hourly order-book snapshots | 2026–present (partial) | Per-venue start dates differ — Polymarket from February 2026, Kalshi and Limitless from May. Polymarket splits into v1 and v2 across the CLOB migration. Also archives Opinion, a venue this directory does not list. |
+| **[Polymarket aligned tape (TimeSeventeen)](https://huggingface.co/datasets/TimeSeventeen/Polymarket-v1)** | polymarket | parquet · trades with resolution, fees and event-normalised probability | 2022-11–2026-04, v2 continues to date (full) | Needs the companion v2 repo for coverage past the April 2026 migration. Do not pool binary, up-down and NegRisk markets without checking category. |
+| **[Polymarket L2 depth (vpcapitano)](https://huggingface.co/datasets/vpcapitano/polymarket-genesis-liquidity)** | polymarket | parquet · 10-level book depth, spread, best bid/ask | 2025-10–2026-03 (partial) | Six months only, and no resolution column — join outcomes yourself. |
 | **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | compressed bulk dataset (~36GB) · trade | through 2025 (partial) | A research framework as much as a dataset — it ships indexers for collecting new data, so freshness depends on running them yourself. |
 
 ### Odds & reference feeds

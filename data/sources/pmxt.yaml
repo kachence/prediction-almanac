@@ -1,13 +1,13 @@
 slug: pmxt
-name: pmxt
-url: https://pmxt.dev
-platforms: [polymarket, kalshi, limitless, gemini-predictions, myriad]
+name: pmxt archive
+url: https://archive.pmxt.dev/
+platforms: [polymarket, kalshi, limitless]
 kind: dataset
 format: parquet
-granularity: trade+book
+granularity: hourly order-book snapshots
 coverage:
-  range: 2024–present
+  range: 2026–present
   completeness: partial
-  known_gaps: "Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list."
+  known_gaps: "Per-venue start dates differ — Polymarket from February 2026, Kalshi and Limitless from May. Polymarket splits into v1 and v2 across the CLOB migration. Also archives Opinion, a venue this directory does not list."
 access: free
-description: "Free multi-platform parquet archive of prediction-market trades and books — the broadest free history in the space."
+description: "Hourly order-book snapshots for Polymarket, Kalshi, Limitless and Opinion, CC BY 4.0 with commercial use explicitly permitted."
