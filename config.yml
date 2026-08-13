@@ -64,13 +64,6 @@ tool_categories:
     note: >-
       Paid research infrastructure. Listed because reconstructing historical book
       depth is the one thing no free source in this directory does.
-  - keys: [infra]
-    title: Protocol internals
-    extra: status
-    note: >-
-      Settlement mechanics rather than convenience tooling. Relevant if you hedge
-      by splitting and merging outcome tokens, or you are building execution that
-      touches the contracts directly.
   - keys: [research]
     title: Research
     covers_default: general
@@ -88,12 +81,14 @@ tool_categories:
       Platform documentation worth reading, and the calibration training that
       measurably improves forecasting rather than just describing it.
   - keys: [newsletter]
-    title: Newsletters & regular writing
+    title: Blogs & newsletters
     covers: false
     extra: cadence
     note: >-
-      Free, current, and not owned by an exchange. Podcasts were checked and none
-      qualified: the main one is four months stale and exchange-sponsored.
+      People writing regularly about this space — free, current, and not owned by
+      an exchange. Building something in it? This is the section to put yourself
+      in. Podcasts were checked and none qualified: the main one is four months
+      stale and exchange-sponsored.
   - keys: [alerting]
     title: Alerting
   - keys: [extension]

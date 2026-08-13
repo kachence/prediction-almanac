@@ -1,0 +1,8 @@
+slug: kacho
+name: Kacho
+url: https://kacho.io
+category: newsletter
+cadence: occasional
+platforms: [polymarket]
+description: "Data engineer building side projects in public, including the Polymarket market-making bot polymm, and posting the verified metrics behind them."
+tags: [blog, build-in-public, market-making]

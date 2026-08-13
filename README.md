@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 10 data sources · 44 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 10 data sources · 42 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -185,16 +185,6 @@ against something that belongs here,
 |---|---|---|---|
 | **[Probalytics](https://probalytics.io)** | polymarket | paid | Millisecond-granularity Polymarket history — full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
 
-### Protocol internals
-
-*Settlement mechanics rather than convenience tooling. Relevant if you hedge by splitting and merging outcome tokens, or you are building execution that touches the contracts directly.*
-
-| Tool | Covers | Status | Description |
-|---|---|---|---|
-| **[Polymarket subgraph](https://github.com/Polymarket/polymarket-subgraph)** | polymarket | 217★ · 2026-02-13 | Official subgraph definitions for positions, open interest and PnL. Ships mappings, not data — you deploy it to an indexer and sync Polygon yourself. |
-| **[ctf-exchange-v2](https://github.com/Polymarket/ctf-exchange-v2)** | polymarket | 75★ · 2026-08-03 | Polymarket's current core contracts: operator-driven order matching over Conditional Token Framework assets, superseding the archived v1. |
-| **[Conditional Token Framework](https://github.com/gnosis/conditional-tokens-contracts)** | polymarket, omen | 305★ · 2023-01-24 · stale | Gnosis' ERC-1155 outcome-token standard Polymarket settles on — the split and merge mechanics you use to hedge or construct a position from collateral. |
-
 ### Research
 
 *Mostly papers, because that is the actual shape of this field: the 2026 academic output is free, unusually trader-relevant, and better than any venue's "learn" page. Order-book microstructure, maker-versus-taker returns, calibration by domain and horizon, and measured arbitrage capacity.*
@@ -221,13 +211,14 @@ against something that belongs here,
 | **[Polymarket Documentation](https://docs.polymarket.com)** | docs | Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks. |
 | **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | training | Calibration-training games (estimation, pastcasting) from Sage. |
 
-### Newsletters & regular writing
+### Blogs & newsletters
 
-*Free, current, and not owned by an exchange. Podcasts were checked and none qualified: the main one is four months stale and exchange-sponsored.*
+*People writing regularly about this space — free, current, and not owned by an exchange. Building something in it? This is the section to put yourself in. Podcasts were checked and none qualified: the main one is four months stale and exchange-sponsored.*
 
 | Tool | Cadence | Description |
 |---|---|---|
 | **[Imperfect Information](https://rajivsethi.substack.com)** | occasional | Rajiv Sethi on prediction-market accuracy, wash trading and market design — the most rigorous writing on when prices beat polls and where they fail. |
+| **[Kacho](https://kacho.io)** | occasional | Data engineer building side projects in public, including the Polymarket market-making bot polymm, and posting the verified metrics behind them. |
 | **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | weekly | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
 | **[The Event Horizon](https://nexteventhorizon.substack.com)** | near-daily | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation — the structural risk that moves liquidity. |
 
