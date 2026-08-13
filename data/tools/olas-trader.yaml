@@ -3,12 +3,12 @@ name: Olas Predict trader
 url: https://github.com/valory-xyz/trader
 repo: https://github.com/valory-xyz/trader
 category: bot
-platforms: [omen]
+platforms: [polymarket, omen]
 github:
   stars: 72
   last_commit: '2026-08-12'
   license: Apache-2.0
   archived: false
   health: active
-description: "Autonomous prediction-market trading agent that runs as an on-chain Olas service."
+description: "Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis."
 tags: [agents, autonomous, gnosis]

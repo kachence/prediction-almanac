@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 10 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 10 data sources · 64 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -137,10 +137,8 @@ against something that belongs here,
 | **[PolyClaw](https://github.com/chainstacklabs/polyclaw)** | polymarket | 357 | 2026-04-28 | Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking. |
 | **[KalshiMarketMaker](https://github.com/rodlaf/KalshiMarketMaker)** | kalshi | 227 | 2026-04-14 | Avellaneda-Stoikov market making on Kalshi — reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment. |
 | **[Homerun](https://github.com/braedonsaunders/homerun)** | polymarket, kalshi | 168 | 2026-07-04 | Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode. |
-| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | omen | 72 | 2026-08-12 | Autonomous prediction-market trading agent that runs as an on-chain Olas service. |
+| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | polymarket, omen | 72 | 2026-08-12 | Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis. |
 | **[polymm](https://github.com/kachence/polymm)** | polymarket | 72 | 2026-07-22 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
-| **[poly-market-maker](https://github.com/Polymarket/poly-market-maker)** | polymarket | 321 | 2024-07-05 · stale | Reference market-making bot for the Polymarket CLOB. |
-| **[Polymarket Agents](https://github.com/Polymarket/agents)** | polymarket | 3,768 | 2024-11-05 · archived | Official framework for building LLM trading agents on Polymarket. |
 
 ### Cross-venue search & arbitrage
 
@@ -151,7 +149,6 @@ against something that belongs here,
 | **[Polymarket Alpha Bot](https://github.com/chainstacklabs/polymarket-alpha-bot)** | polymarket | 169 | 2026-08-05 | Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes. |
 | **[Adjacent News](https://adj.news)** | polymarket, kalshi, manifold, metaculus | — | — | News and research terminal built around prediction-market data, with a market-data API. |
 | **[Chironus Scanner](https://chironus.com/scanner)** · freemium | polymarket, kalshi | — | — | Scanner across all live Polymarket and Kalshi markets with category, volume, price-band and time-to-close filters; free tier serves delayed prices. |
-| **[ElectionBettingOdds](https://electionbettingodds.com)** | polymarket, kalshi, predictit, betfair | — | — | Long-running site charting election odds averaged across real-money markets. |
 | **[Prediction Market News](https://predictionmarketnews.org)** | polymarket, kalshi | — | — | Cross-venue screener over 10,752 matched Polymarket and Kalshi markets, showing consensus odds, per-venue spread, open interest, depth and resolution rules. |
 | **[Predicts.guru](https://www.predicts.guru)** | polymarket, kalshi, limitless | — | — | No-login wallet checker, smart-money radar and live trade feed, plus an arbitrage scanner matching Polymarket against Kalshi and Limitless. |
 | **[Metaforecast](https://metaforecast.org)** | polymarket, kalshi, manifold, metaculus, predictit, smarkets, betfair, infer | 68 | 2025-02-09 · archived | Meta search engine aggregating forecasts and odds across platforms. |
