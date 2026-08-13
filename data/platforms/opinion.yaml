@@ -1,0 +1,29 @@
+slug: opinion
+name: Opinion
+url: https://app.opinion.trade
+mechanism: onchain-clob
+chain: BNB Chain
+status: live
+defillama: opinion
+launched: 2025
+geo:
+  model: global-restrictions
+  restricted: [cn, cu, fr, gb, hk, ir, kp, kr, pl, sg, sy, th, tw, us]
+  source: https://docs.opinion.trade/legal/terms-of-use
+  as_of: "2026-08-13"
+  notes: "Terms section 4 'Restricted Jurisdictions' lists 14 countries plus Ontario (sub-national) and Crimea, Donetsk and Luhansk, and bars VPN circumvention. Restricted users get a view-only mode: news and prices, no trading. Taiwan is listed as 'Taiwan Province' beside Hong Kong and the PRC."
+metrics:
+  volume_usd: 405985759
+  period: 30d
+  source: defillama (opinion)
+  as_of: "2026-08-13"
+data:
+  public_api: true
+  live_orderbook: true
+  historical: partial
+  granularity: trade+book
+  free_archive: null
+  known_gaps: "Open API needs no key for market, order book, latest price and price history, but public callers get 5 req/s and the docs describe no OHLC or bulk trade export. The API enforces the same geo block as the site."
+  recorder_support: no
+description: "CLOB on BNB Chain, YZi Labs backed, covering macro, crypto and sports. Volume ranks near the top but its points programme pays on trade size, so treat the figure as contested."
+tags: [crypto, bnb-chain, clob, macro, sports]

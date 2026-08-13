@@ -13,10 +13,10 @@ geo:
   as_of: "2026-08-12"
   notes: "ToS section 2 'Restricted Use / Prohibited Territories' bars residents of 18 countries plus Ontario, Canada (sub-national), and forbids VPN circumvention."
 metrics:
-  volume_usd: 2028806
+  volume_usd: 2058882
   period: 30d
   source: defillama (myriad-markets)
-  as_of: "2026-08-12"
+  as_of: "2026-08-13"
 data:
   public_api: true
   live_orderbook: true

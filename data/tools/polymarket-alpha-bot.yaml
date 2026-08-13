@@ -5,10 +5,10 @@ repo: https://github.com/chainstacklabs/polymarket-alpha-bot
 category: bot
 platforms: [polymarket]
 github:
- stars: 169
- last_commit: '2026-08-05'
- license: Apache-2.0
- archived: false
- health: active
+  stars: 168
+  last_commit: '2026-08-05'
+  license: Apache-2.0
+  archived: false
+  health: active
 description: "Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes."
 tags: [arbitrage, correlated-markets]

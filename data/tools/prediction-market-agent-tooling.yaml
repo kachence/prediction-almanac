@@ -5,10 +5,10 @@ repo: https://github.com/gnosis/prediction-market-agent-tooling
 category: bot
 platforms: [polymarket, manifold, omen]
 github:
- stars: 58
- last_commit: '2026-04-22'
- license: LGPL-3.0
- archived: false
- health: active
+  stars: 58
+  last_commit: '2026-04-22'
+  license: LGPL-3.0
+  archived: false
+  health: active
 description: "Gnosis toolkit for building AI agents that trade on prediction markets."
 tags: [python, agents, ai]

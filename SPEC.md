@@ -301,7 +301,7 @@ vetting lands it's cents per submission.
 1. ✅ Schema, `build.py`, hand-seeded entries, generated README.
 2. ✅ `refresh.py` for stars, last commit and derived health.
 3. ✅ Volume via DefiLlama and Gemini, plus blog `last_post`, wired into a daily cron.
-   7 of 14 live platforms carry a figure, and the rest are null with a stated reason.
+   8 of 15 live platforms carry a figure, and the rest are null with a stated reason.
 4. 🟡 Contribution path. Issue form and data-only PRs ship; merges are manual while the
    submissions teach us what the gates should be.
 5. ⬜ `vet.py` and `intake.py`: model vetting, auto-merge above the confidence bar. The
