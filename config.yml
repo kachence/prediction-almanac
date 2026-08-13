@@ -22,6 +22,7 @@ platform_groups:
     show_volume: true
   - keys: [research]
     title: Research & play-money venues
+    extra: year
     mechanisms: [play-money, forecasting]
     show_volume: false
     note: >-
@@ -34,42 +35,50 @@ platform_groups:
 tool_categories:
   - keys: [bot]
     title: Trading bots & agents
+    extra: status
     note: >-
       Running strategies against these venues: market making, arbitrage, and
       autonomous agents. Read the licence and the code before pointing anything at
       real money — none of this is audited, and a stale repo is a liability.
   - keys: [arbitrage, aggregator]
     title: Cross-venue search & arbitrage
+    extra: access
     note: >-
       Finding where an event trades at all, and where it trades at a different
       price — which is where most of the edge in this space actually lives.
   - keys: [dashboard]
     title: Dashboards & market data
+    extra: access
     note: >-
       Watching flow, positions, and volume without building your own pipeline.
   - keys: [analytics]
     title: Analytics & calibration
+    extra: access
     note: >-
       Judging whether prices are any good — accuracy scoring, calibration curves,
       and personal forecast tracking.
   - keys: [data]
     title: Data tooling
+    extra: access
     note: >-
       Paid research infrastructure. Listed because reconstructing historical book
       depth is the one thing no free source in this directory does.
   - keys: [api-sdk]
     title: APIs, SDKs & CLIs
+    extra: status
     note: >-
       The connection layer. Only current, maintained clients are listed — a
       superseded SDK costs more time than it saves.
   - keys: [infra]
     title: Protocol internals
+    extra: status
     note: >-
       Settlement mechanics rather than convenience tooling. Relevant if you hedge
       by splitting and merging outcome tokens, or you are building execution that
       touches the contracts directly.
   - keys: [research]
     title: Research
+    extra: year
     note: >-
       Mostly papers, because that is the actual shape of this field: the 2026
       academic output is free, unusually trader-relevant, and better than any
@@ -82,6 +91,7 @@ tool_categories:
       measurably improves forecasting rather than just describing it.
   - keys: [newsletter]
     title: Newsletters & regular writing
+    extra: cadence
     note: >-
       Free, current, and not owned by an exchange. Podcasts were checked and none
       qualified: the main one is four months stale and exchange-sponsored.

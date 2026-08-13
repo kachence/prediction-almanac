@@ -2,6 +2,7 @@ slug: kalshi-makers-and-takers
 name: "Makers and Takers: The Economics of the Kalshi Prediction Market"
 url: https://www2.gwu.edu/~forcpgm/2026-001.pdf
 category: research
+year: 2026
 platforms: [kalshi]
 description: "Transaction-level study of 300k+ Kalshi contracts: a strong favorite-longshot bias after fees, and higher realised returns for makers than for takers."
 tags: [paper, microstructure, market-making]

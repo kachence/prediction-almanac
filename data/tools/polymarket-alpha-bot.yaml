@@ -2,7 +2,7 @@ slug: polymarket-alpha-bot
 name: Polymarket Alpha Bot
 url: https://github.com/chainstacklabs/polymarket-alpha-bot
 repo: https://github.com/chainstacklabs/polymarket-alpha-bot
-category: arbitrage
+category: bot
 platforms: [polymarket]
 github:
   stars: 169

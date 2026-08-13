@@ -2,6 +2,7 @@ slug: kalshi-parlay-bias
 name: "Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets"
 url: https://arxiv.org/abs/2607.14430
 category: research
+year: 2026
 platforms: [kalshi]
 description: "23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs."
 tags: [paper, sports, calibration]

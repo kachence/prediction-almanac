@@ -230,10 +230,18 @@ def vol(platform):
 
 
 def tool_name(tool):
-    """Flag anything that isn't simply free — a reader shouldn't click to find a paywall."""
-    label = f"**[{md(tool['name'])}]({tool['url']})**"
-    access = tool.get("access")
-    return f"{label} · {access}" if access in ("freemium", "paid") else label
+    return f"**[{md(tool['name'])}]({tool['url']})**"
+
+
+def status(tool):
+    """Repos live or die by their last commit; stars say whether anyone else agrees."""
+    github = tool.get("github") or {}
+    date, stars = github.get("last_commit"), github.get("stars")
+    if not date:
+        return "—"
+    health = github.get("health")
+    cell = f"{stars:,}★ · {date}" if stars is not None else date
+    return f"{cell} · {health}" if health in ("archived", "stale") else cell
 
 
 def commit(github):
@@ -304,6 +312,7 @@ def group_tools(tools, config):
         members = sorted(
             (t for t in tools if t["category"] in spec["keys"]),
             key=lambda t: (
+                t.get("rank") or 99,
                 order.get((t.get("github") or {}).get("health"), 1),
                 (t.get("github") or {}).get("stars") is None,
                 -((t.get("github") or {}).get("stars") or 0),
@@ -311,7 +320,12 @@ def group_tools(tools, config):
             ),
         )
         if members:
-            groups.append({"title": spec["title"], "note": spec.get("note"), "tools": members})
+            groups.append({
+                "title": spec["title"],
+                "note": spec.get("note"),
+                "extra": spec.get("extra"),
+                "tools": members,
+            })
     return groups
 
 
@@ -324,7 +338,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         keep_trailing_newline=True,
     )
     env.filters.update(
-        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit, tname=tool_name
+        md=md, usd=usd, num=num, mark=mark, ptype=ptype, geo=make_geo_cell(config), vol=vol, commit=commit, tname=tool_name, status=status
     )
     # dead/deprecated entries stay in data/ (cross-links, history) but aren't rendered
     platforms = [p for p in platforms if p["status"] not in ("dead", "deprecated")]

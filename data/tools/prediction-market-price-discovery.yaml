@@ -2,6 +2,7 @@ slug: prediction-market-price-discovery
 name: "Price Discovery Across Political Prediction Markets"
 url: https://web.bogazici.edu.tr/torul/pridis.pdf
 category: research
+year: 2026
 platforms: [polymarket, kalshi, betfair, predictit]
 description: "Information shares across nine venues trading the 2024 US presidential outcome: Polymarket and Betfair hold ~85%, and the consensus led S&P 500 futures on election night."
 tags: [paper, price-discovery]

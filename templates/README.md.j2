@@ -116,11 +116,11 @@ against something that belongs here,
 *{{ group.note }}*
 
 {% endif %}
-| Tool | Covers | Stars | Last commit | Description |
-|---|---|---|---|---|
+{% set head = {'status': 'Status', 'access': 'Access', 'year': 'Year', 'cadence': 'Cadence'} %}
+| Tool | Covers |{% if group.extra %} {{ head[group.extra] }} |{% endif %} Description |
+|---|---|{% if group.extra %}---|{% endif %}---|
 {% for t in group.tools %}
-{% set gh = t.github | default({}, true) %}
-| {{ t | tname }} | {{ (t.platforms | default([], true)) | join(', ') | md }} | {{ gh.stars | default(none, true) | num }} | {{ gh | commit }} | {{ t.description | md }} |
+| {{ t | tname }} | {{ (t.platforms | default([], true)) | join(', ') | md }} |{% if group.extra == 'status' %} {{ t | status }} |{% elif group.extra == 'access' %} {{ t.access | default('free', true) | md }} |{% elif group.extra == 'year' %} {{ t.year | default(none, true) | md }} |{% elif group.extra == 'cadence' %} {{ t.cadence | default(none, true) | md }} |{% endif %} {{ t.description | md }} |
 {% endfor %}
 
 {% endfor %}

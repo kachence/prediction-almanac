@@ -1,7 +1,0 @@
-slug: dune-polymarket
-name: Polymarket on Dune
-url: https://dune.com/rchen8/polymarket
-category: dashboard
-platforms: [polymarket]
-description: "Community Dune dashboard tracking Polymarket volume, users, and market activity on-chain."
-tags: [onchain, sql, community]

@@ -2,6 +2,7 @@ slug: adjacent-news
 name: Adjacent News
 url: https://adj.news
 category: aggregator
+rank: 4
 platforms: [polymarket, kalshi, manifold, metaculus]
 description: "News and research terminal built around prediction-market data, with a market-data API."
 tags: [news, cross-platform, api]

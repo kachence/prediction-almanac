@@ -2,6 +2,7 @@ slug: chironus-scanner
 name: Chironus Scanner
 url: https://chironus.com/scanner
 category: arbitrage
+rank: 3
 platforms: [polymarket, kalshi]
 access: freemium
 description: "Scanner across all live Polymarket and Kalshi markets with category, volume, price-band and time-to-close filters; free tier serves delayed prices."

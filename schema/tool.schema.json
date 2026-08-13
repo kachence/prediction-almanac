@@ -24,6 +24,22 @@
       "description": "Omit for free tools; state it when money or a signup gates the useful part.",
       "enum": ["free", "freemium", "paid", null]
     },
+    "rank": {
+      "description": "Editorial order within a section; lower first. Omit to sort by health then stars.",
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "year": {
+      "description": "Publication year, for research entries.",
+      "type": ["integer", "null"],
+      "minimum": 1900,
+      "maximum": 2100
+    },
+    "cadence": {
+      "description": "How often it publishes, for newsletters.",
+      "type": ["string", "null"],
+      "maxLength": 40
+    },
     "github": {
       "description": "Auto-filled by scripts/refresh.py — seed as nulls.",
       "type": "object",

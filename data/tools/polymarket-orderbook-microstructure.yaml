@@ -2,6 +2,7 @@ slug: polymarket-orderbook-microstructure
 name: "The Anatomy of a Decentralized Prediction Market"
 url: https://arxiv.org/abs/2604.24366
 category: research
+year: 2026
 platforms: [polymarket]
 description: "Microstructure of 30bn Polymarket book events — longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate."
 tags: [paper, microstructure, execution]

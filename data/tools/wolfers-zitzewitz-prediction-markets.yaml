@@ -2,6 +2,7 @@ slug: wolfers-zitzewitz-prediction-markets
 name: "Prediction Markets (Wolfers & Zitzewitz, JEP 2004)"
 url: https://www.nber.org/system/files/working_papers/w10504/w10504.pdf
 category: research
+year: 2004
 platforms: []
 description: "The founding survey: how markets aggregate dispersed information, and which contract design extracts a probability versus a mean versus a median."
 tags: [paper, canon]
