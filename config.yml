@@ -5,11 +5,11 @@ site:
   title: Prediction Almanac
   repo: kachence/prediction-almanac
   tagline: >-
-    The self-updating almanac of prediction markets — where to trade, the datasets and
-    feeds to build against, and the tools people have actually published.
+    Every prediction market worth trading, the data you can actually backtest on, and
+    the tools people have really shipped. Rebuilt from scratch daily, so it can't rot.
 
 # Display groups for the Platforms section, in order. Every mechanism must be covered.
-# show_volume: whether the group's table gets a Volume column (real-money groups only —
+# show_volume: whether the group's table gets a Volume column (real-money groups only -
 # play-money volume isn't USD and forecasting has none).
 platform_groups:
   - keys: [onchain]
@@ -25,9 +25,9 @@ platform_groups:
     mechanisms: [play-money, forecasting]
     show_volume: false
     note: >-
-      Listed for their data, not for trading. These are the only platforms here
-      with complete, free, public history, which is what you backtest and
-      calibrate against before risking money on the venues above.
+      You can't make real money on these. What you can get is complete, free
+      history, and that's what you backtest on before risking anything on the
+      venues above.
 
 # Tool sections, in display order. `key` must match schema/tool.schema.json's category
 # enum; `note` says who the section is for, since a bare label doesn't.
@@ -36,53 +36,53 @@ tool_categories:
     title: Trading bots, agents & execution
     extra: status
     note: >-
-      Running strategies against these venues: market making, arbitrage,
-      autonomous agents, and the cross-venue layers you execute through. Read the
-      licence and the code before pointing anything at real money — none of this
-      is audited, and a stale repo is a liability.
+      Code that trades: market makers, arbitrage bots, agents, and the layers you
+      execute through. Read the licence and the code before you point any of it at
+      real money. None of it is audited and a stale repo is a liability.
   - keys: [arbitrage, aggregator]
     title: Cross-venue search & arbitrage
     extra: access
     note: >-
-      Finding where an event trades at all, and where it trades at a different
-      price — which is where most of the edge in this space actually lives.
+      Finding where an event trades, and where it trades cheaper. Most of the edge
+      in this space lives in that gap.
   - keys: [dashboard]
     title: Dashboards & market data
     extra: access
     note: >-
-      Watching flow, positions, and volume without building your own pipeline,
-      including the wallet leaderboards that tell you who is actually sharp.
+      Watching flow, positions and volume without building your own pipeline. The
+      leaderboards also tell you which wallets are worth copying, or fading.
   - keys: [data]
     title: Data tooling
     extra: access
     note: >-
-      Paid research infrastructure. Listed because reconstructing historical book
-      depth is the one thing no free source in this directory does.
+      Paid. It's here because reconstructing historical book depth is the one thing
+      nothing free on this page can do.
   - keys: [research]
     title: Research
     covers_default: general
     extra: year
     note: >-
-      Mostly papers, because that is the actual shape of this field: the 2026
-      academic output is free, unusually trader-relevant, and better than any
-      venue's "learn" page. Order-book microstructure, maker-versus-taker returns,
-      calibration by domain and horizon, and measured arbitrage capacity.
+      Mostly papers, and that isn't an accident. Every venue's "learn" page is
+      marketing. The 2026 academic work is free and genuinely useful: order-book
+      microstructure, maker versus taker returns, where prices are systematically
+      wrong, and how much arbitrage capacity really exists.
   - keys: [newsletter]
     title: Blogs
     covers: false
     extra: last_post
     note: >-
-      People worth reading on this space — free, current, and not owned by an
-      exchange. Last post is read from each feed, so a blog that goes quiet shows
-      it. Building something here? This is the section to put yourself in.
+      People worth reading, free and not owned by an exchange. Last post comes from
+      each blog's own feed, so one that goes quiet shows it here instead of sitting
+      around looking current. Building something in this space? Put yourself in
+      this table.
   - keys: [social]
     title: X accounts
     covers: false
     note: >-
-      The only rows in this directory nothing can verify: X ended its free API
-      tier in February 2026, so confirming an account is still active costs money
-      per lookup. Listed on outside corroboration rather than follower counts,
-      and kept deliberately short. Podcasts were checked and none qualified.
+      The only rows here that nothing checks. X killed its free API tier in
+      February 2026, so confirming an account is even still alive now costs money
+      per lookup. These three are in on outside coverage, not follower counts. I
+      checked the podcasts too. None of them qualified.
   - keys: [alerting]
     title: Alerting
   - keys: [extension]
@@ -91,9 +91,9 @@ tool_categories:
 
 # "Who can trade" cell rendering.
 geo_display:
-  max_flags: 8          # up to this many restricted countries render as flags; above it,
+  max_flags: 8 # up to this many restricted countries render as flags; above it,
                         # show the notable ones + a count (a 55-flag wall helps nobody)
-  lead_flags: 4         # how many notable flags to lead with when over max_flags
+  lead_flags: 4 # how many notable flags to lead with when over max_flags
   # Countries most readers check first, in priority order. Only affects display order.
   notable: [us, gb, ca, au, de, fr, nl, it, es, cn, in, jp, sg, br]
 
@@ -101,11 +101,11 @@ geo_display:
 # scripts/queries/ and must be re-saved to Dune if edited; refresh.py skips these
 # silently when DUNE_API_KEY is absent, so the build still works without a key.
 dune:
-  rain: 8304985      # scripts/queries/rain_volume.sql
+  rain: 8304985 # scripts/queries/rain_volume.sql
 
 # Used by scripts/refresh.py (step 2+).
 thresholds:
-  stale_days: 365          # last commit older than this -> github.health: stale
+  stale_days: 365 # last commit older than this -> github.health: stale
   liveness_timeout_s: 10
 
 # Used by scripts/intake.py (step 4+).

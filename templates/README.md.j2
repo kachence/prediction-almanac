@@ -1,4 +1,4 @@
-<!-- ⚠️ GENERATED FILE — do not edit by hand. -->
+<!-- GENERATED FILE - do not edit by hand. -->
 <!-- Edit data/*.yaml and run `python scripts/build.py`. CI rejects hand edits. -->
 
 # Prediction Almanac
@@ -8,17 +8,24 @@
 
 > {{ config.site.tagline }}
 
-**{{ platforms | length }} platforms · {{ sources | length }} data sources · {{ tools | length }} tools** — generated {{ generated_on }} by [`scripts/build.py`](scripts/build.py)
+**{{ platforms | length }} platforms · {{ sources | length }} data sources · {{ tools | length }} tools** - generated {{ generated_on }} by [`scripts/build.py`](scripts/build.py)
 
-Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
-Volume, stars, and repo health are measured, not asserted — a “—” means no free,
-comparable figure exists, and the entry says why. Link-rot sweeps and the
-contribution bot are still to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
+Most awesome lists are a photo of what somebody found interesting one afternoon two
+years ago. The links rot and nobody notices.
+
+**This one measures itself.** Volume comes from an API, repo health from GitHub, a
+blog's last post from its own feed. Nothing here is a number I typed once and left to
+age. Where a cell is blank it's because no free source exists, and the entry tells you
+what I looked for.
+
+Every entry is a YAML file in [`data/`](data/). This page is built from them, so don't
+edit it, the build will overwrite you. Link-rot sweeps and the submission bot are still
+to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 
 ## Contents
 
 - [Platforms](#platforms)
-- [Data sources](#data-sources) — *archives and feeds worth building on*
+- [Data sources](#data-sources) - *what to backtest on and what to price against*
 - [Tools](#tools)
 - [Contributing](#contributing)
 - [Related](#related)
@@ -47,21 +54,22 @@ contribution bot are still to come ([roadmap](SPEC.md#7-build-order-each-step-sh
 {% endif %}
 
 {% endfor %}
-*“Who can trade” is factual, per each platform’s own terms — not advice, and never
-guidance around restrictions. Hover a cell to name the countries; click it for the terms
-it was read from. 🌐 permissionless = the protocol enforces nothing, though official
-frontends may still geoblock.*
+*"Who can trade" comes straight out of each platform's own terms. It's a fact about
+their rules, not advice, and definitely not a workaround. Hover a cell to see the
+countries by name, click it for the document I read them from. 🌐 permissionless means
+the protocol enforces nothing, though the official front end may still block you.*
 
-*Volume is notional USD over the stated period, and a blank means no free, comparable
-figure exists — each entry’s known-gaps note says why, since several venues publish only
-commission revenue or contract counts, which are not volume. **Don’t total the column:**
-brokers route their flow into exchanges listed in the same table, so it would be counted
-twice. Dead or deprecated platforms keep their entry in [`data/`](data/) but aren’t
-listed here.*
+*Volume is notional USD over the period shown. A blank means nobody publishes a free
+comparable figure, and the entry says what turned up instead. Some venues disclose only
+commission revenue or a contract count. Neither of those is volume.*
+
+***Don't add the column up.*** *Brokers route their flow into exchanges sitting in the
+same table, so you'd count it twice. Dead venues keep their file in [`data/`](data/) but
+drop off the page.*
 
 {% if excluded %}
 <details>
-<summary><b>Considered and not listed</b> — this is a prediction-market directory, so adjacent venues are deliberately out of scope</summary>
+<summary><b>Considered and left out, with the reason</b></summary>
 
 | Resource | Why not |
 |---|---|
@@ -69,20 +77,22 @@ listed here.*
 | [{{ e.name | md }}]({{ e.url }}) | {{ e.reason | md }} |
 {% endfor %}
 
-Disagree? [Open an issue]({{ 'https://github.com/' ~ config.site.repo ~ '/issues' }}) — the reasons live in [`data/excluded.yml`](data/excluded.yml), so changing our mind is a one-line edit.
+Think one of these belongs? [Open an issue]({{ 'https://github.com/' ~ config.site.repo ~ '/issues' }}). The reasons live in [`data/excluded.yml`](data/excluded.yml) and changing my mind is a one-line edit.
 </details>
 {% endif %}
 
 ## Data sources
 
-A market maker or informed taker needs three things beyond a venue: **a dataset** to
-evaluate a strategy on before risking money, **a feed** to derive a fair probability
-from, and the tools below. Platform APIs are deliberately absent — every venue has one
-for its own book, and they are linked from the platform tables above.
+Beyond a venue you need **history to test a strategy on** and a feed to price against.
+That's it.
+
+Platform APIs aren't here. Every venue has one for its own book and you'll find it in
+their docs in about thirty seconds, so a row saying "this exchange has an exchange API"
+would only push the useful entries further down the page.
 
 ### Datasets
 
-*History to backtest against.*
+*History you can backtest on.*
 
 | Dataset | Covers | Format · granularity | Coverage | Known gaps |
 |---|---|---|---|---|
@@ -93,7 +103,7 @@ for its own book, and they are linked from the platform tables above.
 
 ### Odds & reference feeds
 
-*Inputs for computing a fair probability, then comparing it against the market's price.*
+*What you price against. Work out your own number, then go and see where the market has it.*
 
 | Feed | Prices | Format · granularity | Coverage | Known gaps |
 |---|---|---|---|---|
@@ -102,9 +112,9 @@ for its own book, and they are linked from the platform tables above.
 | **[{{ s.name | md }}]({{ s.url }})** | {{ s.prices | default(none, true) | md }} | {{ s.format | default(none, true) | md }}{% if s.granularity | default(none, true) %} · {{ s.granularity | md }}{% endif %} | {{ cov.range | default(none, true) | md }}{% if cov.completeness | default(none, true) %} ({{ cov.completeness }}){% endif %} | {{ cov.known_gaps | default(none, true) | md }} |
 {% endfor %}
 
-*This list is deliberately short — a directory that lists everything is as useless as one
-that lists nothing. But short lists carry the taste of whoever wrote them, so if you price
-against something that belongs here,
+*This list is short on purpose. A directory that lists everything is as useless as one
+that lists nothing. But a short list is one person's taste, so if you price against
+something that isn't here,
 [suggest it]({{ 'https://github.com/' ~ config.site.repo ~ '/issues' }}).*
 
 ## Tools
@@ -126,19 +136,18 @@ against something that belongs here,
 {% endfor %}
 ## Contributing
 
-Entries are one YAML file each under [`data/`](data/), validated against
-[`schema/`](schema/) — **edit data, never this README**. See
-[CONTRIBUTING.md](CONTRIBUTING.md) for the two-minute guide. An issue-form intake bot
-(deterministic checks + LLM vetting + auto-merge) is on the
+One YAML file per entry in [`data/`](data/), checked against [`schema/`](schema/).
+**Edit the data, never this README.** [CONTRIBUTING.md](CONTRIBUTING.md) has the
+two-minute version. A bot that vets submissions and merges them itself is on the
 [roadmap](SPEC.md#7-build-order-each-step-ships-something).
 
 ## Related
 
-- [PM Atlas](https://pmatlas.xyz) — hosted dashboard mapping the platform landscape.
-- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) — large public Polymarket + Kalshi trade dataset (also listed under [Data sources](#data-sources)).
-- [sindresorhus/awesome](https://github.com/sindresorhus/awesome) — the genre this almanac grew out of.
+- [PM Atlas](https://pmatlas.xyz) - hosted dashboard mapping the platform landscape.
+- [jon-becker/prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis) - large public Polymarket + Kalshi trade dataset (also listed under [Data sources](#data-sources)).
+- [sindresorhus/awesome](https://github.com/sindresorhus/awesome) - the genre this almanac grew out of.
 
 ---
 
-_Generated {{ generated_on }} from [`data/`](data/). Found something stale or dead? The
-refresh bot will too — but [issues](https://github.com/{{ config.site.repo }}/issues) are welcome._
+_Generated {{ generated_on }} from [`data/`](data/). Found something dead? The refresh bot
+probably will too, but [open an issue](https://github.com/{{ config.site.repo }}/issues) anyway._

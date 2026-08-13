@@ -5,10 +5,10 @@ repo: https://github.com/ryanfrigo/kalshi-ai-trading-bot
 category: bot
 platforms: [kalshi]
 github:
-  stars: 570
-  last_commit: '2026-07-06'
-  license: MIT
-  archived: false
-  health: active
+ stars: 570
+ last_commit: '2026-07-06'
+ license: MIT
+ archived: false
+ health: active
 description: "Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents."
 tags: [python, kelly, paper-trading]

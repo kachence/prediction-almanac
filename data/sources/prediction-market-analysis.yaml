@@ -6,8 +6,8 @@ kind: dataset
 format: compressed bulk dataset (~36GB)
 granularity: trade
 coverage:
-  range: through 2025
-  completeness: partial
-  known_gaps: "A research framework as much as a dataset — it ships indexers for collecting new data, so freshness depends on running them yourself."
+ range: through 2025
+ completeness: partial
+ known_gaps: "A research framework as much as a dataset - it ships indexers for collecting new data, so freshness depends on running them yourself."
 access: free
-description: "Public Polymarket and Kalshi market and trade history with indexers to keep collecting — where most backtests should start."
+description: "Public Polymarket and Kalshi market and trade history with indexers to keep collecting - where most backtests should start."

@@ -9,7 +9,7 @@ geo:
   restricted: [au, be, by, ch, cn, cz, dk, fr, hk, it, kz, nl, no, pt, ru, tr, ua, us, za]
   source: https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions
   as_of: "2026-08-12"
-  notes: "Blocklist per T&C 2.2, explicitly non-exhaustive; UK customers served under the UKGC licence, all others under Malta (MGA). Separately, Bulgaria blacklists smarkets.com at ISP level by court order even though Bulgaria is absent from the T&C list — a state block, not a platform one."
+  notes: "Blocklist per T&C 2.2, explicitly non-exhaustive; UK customers served under the UKGC licence, all others under Malta (MGA). Separately, Bulgaria blacklists smarkets.com at ISP level by court order even though Bulgaria is absent from the T&C list - a state block, not a platform one."
 metrics:
   volume_usd: null
   period: null

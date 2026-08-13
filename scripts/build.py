@@ -107,13 +107,13 @@ def cross_check(platforms, tools, sources):
 def md(text):
     """Make a value safe inside a markdown table cell."""
     if text is None or text == "":
-        return "—"
+        return "-"
     return str(text).replace("|", "\\|").replace("\n", " ").strip()
 
 
 def usd(value):
     if value is None:
-        return "—"
+        return "-"
     for cut, suffix in ((1e9, "B"), (1e6, "M"), (1e3, "k")):
         if value >= cut:
             text = f"{value / cut:.1f}".rstrip("0").rstrip(".")
@@ -122,11 +122,11 @@ def usd(value):
 
 
 def num(value):
-    return "—" if value is None else f"{value:,}"
+    return "-" if value is None else f"{value:,}"
 
 
 def mark(value):
-    return "✓" if value else "—"
+    return "✓" if value else "-"
 
 
 def flags(codes):
@@ -179,7 +179,7 @@ def make_geo_cell(config):
     def geo_cell(platform):
         geo = platform.get("geo")
         if not geo:
-            return "—"
+            return "-"
         model = geo["model"]
         title = None
         if model == "everyone":
@@ -211,7 +211,7 @@ def make_geo_cell(config):
                 text = f"only {len(allowed)} countries"
                 title = _tooltip("Can trade", allowed)
         else:  # unreachable while the schema enum holds
-            return "—"
+            return "-"
         source = geo.get("source")
         if not source:
             return text
@@ -224,7 +224,7 @@ def vol(platform):
     metrics = platform.get("metrics") or {}
     volume = metrics.get("volume_usd")
     if volume is None:
-        return "—"
+        return "-"
     period = metrics.get("period")
     return f"{usd(volume)}/{period}" if period else usd(volume)
 
@@ -238,7 +238,7 @@ def status(tool):
     github = tool.get("github") or {}
     date, stars = github.get("last_commit"), github.get("stars")
     if not date:
-        return "—"
+        return "-"
     health = github.get("health")
     cell = f"{stars:,}★ · {date}" if stars is not None else date
     return f"{cell} · {health}" if health in ("archived", "stale") else cell
@@ -250,7 +250,7 @@ def commit(github):
     github = github or {}
     date = github.get("last_commit")
     if not date:
-        return "—"
+        return "-"
     health = github.get("health")
     return f"{date} · {health}" if health in ("archived", "stale") else date
 

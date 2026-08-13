@@ -6,8 +6,8 @@ kind: dataset
 format: parquet
 granularity: trades with resolution, fees and event-normalised probability
 coverage:
-  range: 2022-11–2026-04, v2 continues to date
-  completeness: full
-  known_gaps: "Needs the companion v2 repo for coverage past the April 2026 migration. Do not pool binary, up-down and NegRisk markets without checking category."
+ range: 2022-11-2026-04, v2 continues to date
+ completeness: full
+ known_gaps: "Needs the companion v2 repo for coverage past the April 2026 migration. Do not pool binary, up-down and NegRisk markets without checking category."
 access: free
 description: "The most backtest-ready Polymarket tape: relayer noise stripped, resolution and fees joined, binary legs polarity-aligned with an event probability column."

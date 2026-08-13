@@ -10,5 +10,5 @@ github:
   license: MIT
   archived: false
   health: active
-description: "Avellaneda-Stoikov market making on Kalshi — reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment."
+description: "Avellaneda-Stoikov market making on Kalshi - reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment."
 tags: [market-making, python]

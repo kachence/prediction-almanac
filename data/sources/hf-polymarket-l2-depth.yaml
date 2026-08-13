@@ -6,8 +6,8 @@ kind: dataset
 format: parquet
 granularity: 10-level book depth, spread, best bid/ask
 coverage:
-  range: 2025-10–2026-03
-  completeness: partial
-  known_gaps: "Six months only, and no resolution column — join outcomes yourself."
+ range: 2025-10-2026-03
+ completeness: partial
+ known_gaps: "Six months only, and no resolution column - join outcomes yourself."
 access: free
-description: "339M rows of ten-level order-book depth with spreads — the only free multi-month L2 history for Polymarket."
+description: "339M rows of ten-level order-book depth with spreads - the only free multi-month L2 history for Polymarket."

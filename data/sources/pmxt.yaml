@@ -6,8 +6,8 @@ kind: dataset
 format: parquet
 granularity: hourly order-book snapshots
 coverage:
-  range: 2026–present
+  range: 2026-present
   completeness: partial
-  known_gaps: "Per-venue start dates differ — Polymarket from February 2026, Kalshi and Limitless from May. Polymarket splits into v1 and v2 across the CLOB migration. Also archives Opinion, a venue this directory does not list."
+  known_gaps: "Per-venue start dates differ - Polymarket from February 2026, Kalshi and Limitless from May. Polymarket splits into v1 and v2 across the CLOB migration. Also archives Opinion, a venue this directory does not list."
 access: free
 description: "Hourly order-book snapshots for Polymarket, Kalshi, Limitless and Opinion, CC BY 4.0 with commercial use explicitly permitted."

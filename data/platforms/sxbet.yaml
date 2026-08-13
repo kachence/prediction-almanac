@@ -11,7 +11,7 @@ geo:
   restricted: [af, at, au, by, cu, de, es, fr, gb, ir, iq, km, kp, mm, nl, ru, sd, ss, sy, us, ve, ye, zw]
   source: https://help.sx.bet/en/articles/3613372-terms-and-conditions
   as_of: "2026-08-12"
-  notes: "Terms bar residents of 22 countries plus Ontario, Canada (sub-national), and frame the service as online gambling. The terms page is stale — it still names DAI and Ether as betting assets where the platform uses USDC."
+  notes: "Terms bar residents of 22 countries plus Ontario, Canada (sub-national), and frame the service as online gambling. The terms page is stale - it still names DAI and Ether as betting assets where the platform uses USDC."
 metrics:
   volume_usd: 58231627
   period: 30d
@@ -23,7 +23,7 @@ data:
   historical: partial
   granularity: trade+book
   free_archive: null
-  known_gaps: "No aggregate volume or stats endpoint, and /trades requires a filter — volume has to be derived by paginating trades."
+  known_gaps: "No aggregate volume or stats endpoint, and /trades requires a filter - volume has to be derived by paginating trades."
   recorder_support: no
 description: "Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports."
 tags: [sports, betting-exchange, clob, peer-to-peer]

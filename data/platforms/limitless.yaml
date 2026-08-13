@@ -11,7 +11,7 @@ geo:
   restricted: [by, cu, ir, kp, ru, sy, us]
   source: https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility
   as_of: "2026-08-12"
-  notes: "Two tiers under Eligibility: no access at all from RU, BY, CU, IR, KP, SY and Crimea/Donetsk/Luhansk; access but no trading for the US, Ontario and Alberta (Canada), and 'Republic of China' — quoted verbatim and ambiguous between Taiwan and the PRC, so left uncoded."
+  notes: "Two tiers under Eligibility: no access at all from RU, BY, CU, IR, KP, SY and Crimea/Donetsk/Luhansk; access but no trading for the US, Ontario and Alberta (Canada), and 'Republic of China' - quoted verbatim and ambiguous between Taiwan and the PRC, so left uncoded."
 metrics:
   volume_usd: 48928277
   period: 30d

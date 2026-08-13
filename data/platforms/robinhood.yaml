@@ -10,7 +10,7 @@ geo:
   allowed: [us]
   source: https://robinhood.com/us/en/support/articles/event-contracts-restrictions/
   as_of: "2026-08-12"
-  notes: "Verbatim: 'You must be a US resident' — there is no EEA or UK route. Robinhood Europe (Lithuania) offers stocks, crypto and perps, not event contracts. Maryland is barred outright, Nevada allows no new sports contracts since 2025-12-01, and further states are in active litigation."
+  notes: "Verbatim: 'You must be a US resident' - there is no EEA or UK route. Robinhood Europe (Lithuania) offers stocks, crypto and perps, not event contracts. Maryland is barred outright, Nevada allows no new sports contracts since 2025-12-01, and further states are in active litigation."
 metrics:
   volume_usd: null
   period: null
@@ -22,7 +22,7 @@ data:
   historical: none
   granularity: null
   free_archive: null
-  known_gaps: "No prediction-markets API — prices render only in the app. Volume is disclosed as contracts (13.6bn in Q2 2026), never USD: Robinhood reports notional for equities and crypto but pointedly not for event contracts, so 13.6bn is a ceiling, not a total. Its flow routes through Kalshi, ForecastEx and Rothera, so it must never be added to theirs."
+  known_gaps: "No prediction-markets API - prices render only in the app. Volume is disclosed as contracts (13.6bn in Q2 2026), never USD: Robinhood reports notional for equities and crypto but pointedly not for event contracts, so 13.6bn is a ceiling, not a total. Its flow routes through Kalshi, ForecastEx and Rothera, so it must never be added to theirs."
   recorder_support: no
 description: "Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges."
 tags: [regulated, us, broker, sports, politics, economics]

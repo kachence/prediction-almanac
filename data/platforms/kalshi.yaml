@@ -10,7 +10,7 @@ geo:
   restricted: [ae, af, ao, au, be, bf, bg, bo, by, ca, cd, cf, ch, ci, cm, cn, cu, dz, et, fr, gb, ht, hu, ie, in, iq, ir, it, ke, kp, la, lb, ly, mc, ml, mm, mz, na, ne, ni, nz, pl, pt, ru, sd, sg, so, ss, sy, th, tw, ua, ve, ye, zw]
   source: https://kalshi.com/docs/kalshi-member-agreement.pdf
   as_of: "2026-08-12"
-  notes: "CFTC-regulated US exchange. Restriction applies to trading event contracts only — non-trading access allowed; plus any jurisdiction under US country- or territory-wide sanctions."
+  notes: "CFTC-regulated US exchange. Restriction applies to trading event contracts only - non-trading access allowed; plus any jurisdiction under US country- or territory-wide sanctions."
 metrics:
   volume_usd: 10898559799
   period: 30d

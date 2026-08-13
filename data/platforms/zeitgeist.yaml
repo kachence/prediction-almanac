@@ -10,7 +10,7 @@ geo:
   restricted: [us]
   source: https://app.zeitgeist.pm/terms
   as_of: "2026-08-12"
-  notes: "Moot — the chain is dead. Terms barred US clients and unenumerated 'Regulated Jurisdictions'."
+  notes: "Moot - the chain is dead. Terms barred US clients and unenumerated 'Regulated Jurisdictions'."
 metrics:
   volume_usd: null
   period: null

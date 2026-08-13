@@ -4,5 +4,5 @@ url: https://arxiv.org/abs/2602.19520
 category: research
 year: 2026
 platforms: [kalshi, polymarket]
-description: "353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong — political markets stay compressed toward 50%."
+description: "353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong - political markets stay compressed toward 50%."
 tags: [paper, calibration]

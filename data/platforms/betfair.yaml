@@ -6,7 +6,7 @@ status: live
 launched: 2000
 geo:
   model: global-restrictions
-  restricted: []            # deliberately empty — the list is not public, see notes
+  restricted: []            # deliberately empty - the list is not public, see notes
   source: https://www.sec.gov/Archives/edgar/data/1635327/000163532726000005/flut-20251231.htm
   as_of: "2026-08-12"    # re-check after 2026-08-31: Romania licence expires, no renewal filed
   notes: "A blocklist, not an allowlist: the .com Exchange blocks a non-public, non-exhaustive list changed by unilateral closure notice (Japan, Latvia, Sri Lanka Dec 2025; Canada Jan 2026; Mexico May 2026). Regulator registers confirm exchange licences in the UK, Malta, Spain, Romania and Italy; Denmark is licensed but lists no exchange category. Australia runs under a separate company outside Flutter."
