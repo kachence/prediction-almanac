@@ -7,10 +7,10 @@ status: live
 launched: 2024
 geo:
   model: allowlist
-  allowed: [us]
+  allowed: [us, at, bg, hr, cy, cz, dk, ee, fi, fr, de, gr, hu, ie, is, it, lv, li, lt, lu, mt, nl, no, pl, pt, ro, sk, si, es, se]
   source: https://robinhood.com/us/en/support/articles/event-contracts-restrictions/
   as_of: "2026-08-12"
-  notes: "Verbatim: 'You must be a US resident' - there is no EEA or UK route. Robinhood Europe (Lithuania) offers stocks, crypto and perps, not event contracts. Maryland is barred outright, Nevada allows no new sports contracts since 2025-12-01, and further states are in active litigation."
+  notes: "US residents through Robinhood Derivatives, and EEA residents through Robinhood Europe in Lithuania. Maryland is barred outright and Nevada allows no new sports contracts since 2025-12-01, with more states in active litigation."
 metrics:
   volume_usd: null
   period: null

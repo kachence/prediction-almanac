@@ -34,6 +34,8 @@ platform_groups:
 tool_categories:
   - keys: [bot]
     title: Trading bots, agents & execution
+    parent: tools
+    item_label: Tool
     extra: status
     note: >-
       Code that trades: market makers, arbitrage bots, agents, and the layers you
@@ -41,24 +43,32 @@ tool_categories:
       real money. None of it is audited and a stale repo is a liability.
   - keys: [arbitrage, aggregator]
     title: Cross-venue search & arbitrage
+    parent: tools
+    item_label: Tool
     extra: access
     note: >-
       Finding where an event trades, and where it trades cheaper. Most of the edge
       in this space lives in that gap.
   - keys: [dashboard]
     title: Dashboards & market data
+    parent: tools
+    item_label: Tool
     extra: access
     note: >-
       Watching flow, positions and volume without building your own pipeline. The
       leaderboards also tell you which wallets are worth copying, or fading.
   - keys: [data]
     title: Data tooling
+    parent: tools
+    item_label: Tool
     extra: access
     note: >-
       Paid. It's here because reconstructing historical book depth is the one thing
       nothing free on this page can do.
   - keys: [research]
     title: Research
+    parent: research
+    item_label: Paper
     covers_default: general
     extra: year
     note: >-
@@ -68,6 +78,8 @@ tool_categories:
       wrong, and how much arbitrage capacity really exists.
   - keys: [newsletter]
     title: Blogs
+    parent: writing
+    item_label: Blog
     covers: false
     extra: last_post
     note: >-
@@ -77,6 +89,8 @@ tool_categories:
       this table.
   - keys: [social]
     title: X accounts
+    parent: writing
+    item_label: Account
     covers: false
     note: >-
       The only rows here that nothing checks. X killed its free API tier in

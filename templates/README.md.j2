@@ -4,11 +4,14 @@
 # Prediction Almanac
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
-[![README: generated](https://img.shields.io/badge/README-generated_from_data%2F-blue)](SPEC.md)
+[![platforms](https://img.shields.io/badge/platforms-{{ platforms | length }}-2ea44f)](#platforms)
+[![data sources](https://img.shields.io/badge/data%20sources-{{ sources | length }}-2ea44f)](#data-sources)
+[![tools](https://img.shields.io/badge/tools-{{ tools | length }}-2ea44f)](#tools)
+[![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 
 > {{ config.site.tagline }}
 
-**{{ platforms | length }} platforms · {{ sources | length }} data sources · {{ tools | length }} tools** - generated {{ generated_on }} by [`scripts/build.py`](scripts/build.py)
+[Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Contributing](#contributing)
 
 Most awesome lists are a photo of what somebody found interesting one afternoon two
 years ago. The links rot and nobody notices.
@@ -22,13 +25,9 @@ Every entry is a YAML file in [`data/`](data/). This page is built from them, so
 edit it, the build will overwrite you. Link-rot sweeps and the submission bot are still
 to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 
-## Contents
-
-- [Platforms](#platforms)
-- [Data sources](#data-sources) - *what to backtest on and what to price against*
-- [Tools](#tools)
-- [Contributing](#contributing)
-- [Related](#related)
+I built this and I maintain it, which means it carries my blind spots. If something is
+missing, wrong, or has quietly died, [open an issue or send a PR](https://github.com/{{ config.site.repo }}/issues).
+That's the only way a list like this stays correct.
 
 ## Platforms
 
@@ -117,23 +116,32 @@ that lists nothing. But a short list is one person's taste, so if you price agai
 something that isn't here,
 [suggest it]({{ 'https://github.com/' ~ config.site.repo ~ '/issues' }}).*
 
-## Tools
-
-{% for group in tool_groups %}
+{% macro table(group, heading=true) %}
+{% if heading %}
 ### {{ group.title }}
 
+{% endif %}
 {% if group.note %}
 *{{ group.note }}*
 
 {% endif %}
 {% set head = {'status': 'Status', 'access': 'Access', 'year': 'Year', 'cadence': 'Cadence', 'kind': 'Medium', 'last_post': 'Last post'} %}
-| Tool |{% if group.covers %} Covers |{% endif %}{% if group.extra %} {{ head[group.extra] }} |{% endif %} Description |
+| {{ group.item_label }} |{% if group.covers %} Covers |{% endif %}{% if group.extra %} {{ head[group.extra] }} |{% endif %} Description |
 |---|{% if group.covers %}---|{% endif %}{% if group.extra %}---|{% endif %}---|
 {% for t in group.tools %}
 | {{ t | tname }} |{% if group.covers %} {{ ((t.platforms | default([], true)) | join(', ')) or group.covers_default | md }} |{% endif %}{% if group.extra == 'status' %} {{ t | status }} |{% elif group.extra == 'access' %} {{ t.access | default('free', true) | md }} |{% elif group.extra == 'year' %} {{ t.year | default(none, true) | md }} |{% elif group.extra == 'cadence' %} {{ t.cadence | default(none, true) | md }} |{% elif group.extra == 'kind' %} {{ t.kind | default(none, true) | md }} |{% elif group.extra == 'last_post' %} {{ t.last_post | default(none, true) | md }} |{% endif %} {{ t.description | md }} |
 {% endfor %}
 
-{% endfor %}
+{% endmacro %}
+## Tools
+
+{% for group in tool_groups if group.parent == 'tools' %}{{ table(group) }}{% endfor %}
+## Research
+
+{% for group in tool_groups if group.parent == 'research' %}{{ table(group, false) }}{% endfor %}
+## Blogs & X accounts
+
+{% for group in tool_groups if group.parent == 'writing' %}{{ table(group) }}{% endfor %}
 ## Contributing
 
 One YAML file per entry in [`data/`](data/), checked against [`schema/`](schema/).

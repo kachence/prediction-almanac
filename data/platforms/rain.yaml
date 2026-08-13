@@ -10,10 +10,10 @@ status: live
 # it reports $0 for the order-book deployment now in use. See data.known_gaps.
 launched: 2026
 geo:
-  model: unknown
+  model: everyone
   source: https://www.rain.trade/terms-and-conditions
   as_of: "2026-08-12"
-  notes: "Its config API declares blocked_countries and restricted_countries - a two-tier structure - but both return null, and the terms body renders client-side, so no list is verifiable at source. Front-end run by Mindmarket under a Liberian gaming licence; the Arbitrum protocol itself is permissionless."
+  notes: "Its config API declares blocked_countries and restricted_countries and both come back empty, and the front end lets EU residents register. Run by Mindmarket under a Liberian gaming licence; the Arbitrum contracts underneath are permissionless."
 metrics:
   volume_usd: 815279.46
   period: 30d

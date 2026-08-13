@@ -4,11 +4,14 @@
 # Prediction Almanac
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
-[![README: generated](https://img.shields.io/badge/README-generated_from_data%2F-blue)](SPEC.md)
+[![platforms](https://img.shields.io/badge/platforms-15-2ea44f)](#platforms)
+[![data sources](https://img.shields.io/badge/data%20sources-10-2ea44f)](#data-sources)
+[![tools](https://img.shields.io/badge/tools-39-2ea44f)](#tools)
+[![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 
 > Every prediction market worth trading, the data you can actually backtest on, and the tools people have really shipped. Rebuilt from scratch daily, so it can't rot.
 
-**15 platforms · 10 data sources · 39 tools** - generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+[Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Contributing](#contributing)
 
 Most awesome lists are a photo of what somebody found interesting one afternoon two
 years ago. The links rot and nobody notices.
@@ -22,13 +25,9 @@ Every entry is a YAML file in [`data/`](data/). This page is built from them, so
 edit it, the build will overwrite you. Link-rot sweeps and the submission bot are still
 to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 
-## Contents
-
-- [Platforms](#platforms)
-- [Data sources](#data-sources) - *what to backtest on and what to price against*
-- [Tools](#tools)
-- [Contributing](#contributing)
-- [Related](#related)
+I built this and I maintain it, which means it carries my blind spots. If something is
+missing, wrong, or has quietly died, [open an issue or send a PR](https://github.com/kachence/prediction-almanac/issues).
+That's the only way a list like this stays correct.
 
 ## Platforms
 
@@ -41,7 +40,7 @@ to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 | **[SX Bet](https://sx.bet)** | CLOB, SX Rollup | 2019 | $58.2M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19](https://help.sx.bet/en/articles/3613372-terms-and-conditions "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more") | Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports. |
 | **[Limitless](https://limitless.exchange)** | CLOB, Base | 2024 | $48.9M/30d | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
 | **[Myriad](https://myriad.markets)** | CLOB, BNB Chain +3 | 2025 | $2M/30d | [🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14](https://help.myriad.markets/myriad-terms-of-use "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more") | Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea. |
-| **[Rain](https://www.rain.trade)** | CLOB, Arbitrum | 2026 | $815.3k/30d | [❔ unverified](https://www.rain.trade/terms-and-conditions) | Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets. |
+| **[Rain](https://www.rain.trade)** | CLOB, Arbitrum | 2026 | $815.3k/30d | [🌍 everyone](https://www.rain.trade/terms-and-conditions) | Permissionless event markets on Arbitrum settled in USDT0 and matched by on-chain order books, where users create their own politics, sports, and crypto markets. |
 
 ### Regulated exchanges & brokers
 
@@ -52,7 +51,7 @@ to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 | **[Betfair Exchange](https://www.betfair.com/exchange)** | Regulated exchange | 2000 | - | [🌍 exc. an undisclosed list](https://www.sec.gov/Archives/edgar/data/1635327/000163532726000005/flut-20251231.htm) | The largest betting exchange; politics and current-affairs markets alongside sports. |
 | **[IBKR Prediction Markets](https://www.interactivebrokers.com/predictionmarkets/en/home.php)** | Broker → ForecastEx, Kalshi, CME | 2024 | - | [only 🇺🇸🇨🇦🇸🇬🇭🇰](https://www.interactivebrokers.ie/predictionmarkets/en/home.php "Can trade: United States, Canada, Singapore, Hong Kong") | Interactive Brokers' front-end for binary event contracts, routing to its wholly-owned ForecastEx plus Kalshi and CME; the EEA offering is ForecastEx-only and professional-clients-only. |
 | **[PredictIt](https://www.predictit.org)** | Regulated exchange | 2014 | - | [only 🇺🇸](https://www.predictit.org/terms-and-conditions "Can trade: United States") | Long-running US political research market; capped stakes and a small contract universe. |
-| **[Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/)** | Broker → Kalshi, ForecastEx, Rothera | 2024 | - | [only 🇺🇸](https://robinhood.com/us/en/support/articles/event-contracts-restrictions/ "Can trade: United States") | Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges. |
+| **[Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/)** | Broker → Kalshi, ForecastEx, Rothera | 2024 | - | [only 30 countries](https://robinhood.com/us/en/support/articles/event-contracts-restrictions/ "Can trade: United States, Germany, France, Netherlands, Italy, Spain, Austria, Bulgaria, Cyprus, Czechia, Denmark, Estonia, Finland, Greece, Croatia, +15 more") | Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges. |
 | **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | - | [🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more") | UK-licensed betting exchange with notably deep political markets. |
 
 ### Research & play-money venues
@@ -186,11 +185,11 @@ something that isn't here,
 |---|---|---|---|
 | **[Probalytics](https://probalytics.io)** | polymarket | paid | Millisecond-granularity Polymarket history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
 
-### Research
+## Research
 
 *Mostly papers, and that isn't an accident. Every venue's "learn" page is marketing. The 2026 academic work is free and genuinely useful: order-book microstructure, maker versus taker returns, where prices are systematically wrong, and how much arbitrage capacity really exists.*
 
-| Tool | Covers | Year | Description |
+| Paper | Covers | Year | Description |
 |---|---|---|---|
 | **[Arbitrage Analysis in Polymarket NBA Markets](https://arxiv.org/abs/2605.00864)** | polymarket | 2026 | 75M book snapshots over 173 NBA games: only 7 executable single-market arbs with a median 3.6s life, and combinatorial episodes mostly capped near 15 shares. |
 | **[Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics](https://arxiv.org/abs/2602.19520)** | kalshi, polymarket | 2026 | 353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong - political markets stay compressed toward 50%. |
@@ -200,11 +199,13 @@ something that isn't here,
 | **[Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets](https://arxiv.org/abs/2607.14430)** | kalshi | 2026 | 23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs. |
 | **[The Anatomy of a Decentralized Prediction Market](https://arxiv.org/abs/2604.24366)** | polymarket | 2026 | Microstructure of 30bn Polymarket book events - longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate. |
 
+## Blogs & X accounts
+
 ### Blogs
 
 *People worth reading, free and not owned by an exchange. Last post comes from each blog's own feed, so one that goes quiet shows it here instead of sitting around looking current. Building something in this space? Put yourself in this table.*
 
-| Tool | Last post | Description |
+| Blog | Last post | Description |
 |---|---|---|
 | **[Alphanume Research](https://www.alphanume-research.com/)** | 2026-08-12 | Free quant-flavoured writing on actually trading these venues - order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets. |
 | **[Imperfect Information](https://rajivsethi.substack.com)** | 2026-08-06 | Rajiv Sethi on prediction-market accuracy, wash trading and market design - the most rigorous writing on when prices beat polls and where they fail. |
@@ -216,7 +217,7 @@ something that isn't here,
 
 *The only rows here that nothing checks. X killed its free API tier in February 2026, so confirming an account is even still alive now costs money per lookup. These three are in on outside coverage, not follower counts. I checked the podcasts too. None of them qualified.*
 
-| Tool | Description |
+| Account | Description |
 |---|---|
 | **[Domer (@Domahhhh)](https://x.com/Domahhhh)** | Polymarket's number one all-time trader by volume and profit, around $300M across 5,000+ markets, and the most-cited independent voice in the space. |
 | **[Esoteric Catboy (@catboyautist)](https://x.com/catboyautist)** | Trader who posts positions and reasoning openly, particularly on Kalshi mention markets; quoted in Bloomberg's 2026 prediction-markets feature. |
