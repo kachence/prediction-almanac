@@ -1,8 +1,0 @@
-slug: metaculus-scores-faq
-name: Metaculus Scores FAQ
-url: https://www.metaculus.com/help/scores-faq/
-category: education
-kind: docs
-platforms: [metaculus]
-description: "The clearest free explanation of proper scoring rules — log score, spot, baseline and peer scores, and why honest probabilities beat extremizing."
-tags: [scoring-rules, calibration]

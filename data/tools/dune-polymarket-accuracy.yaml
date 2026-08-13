@@ -1,7 +1,0 @@
-slug: dune-polymarket-accuracy
-name: "Dune: How Accurate Is Polymarket"
-url: https://dune.com/alexmccullough/how-accurate-is-polymarket
-category: analytics
-platforms: [polymarket]
-description: "Dune dashboard measuring Polymarket's realised accuracy, bias and outcome distribution against resolved markets — forkable and re-queryable."
-tags: [calibration, onchain, sql]

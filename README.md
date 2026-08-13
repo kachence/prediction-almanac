@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 10 data sources · 42 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 10 data sources · 35 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -48,7 +48,7 @@ contribution bot are still to come ([roadmap](SPEC.md#7-build-order-each-step-sh
 | **[Robinhood Prediction Markets](https://robinhood.com/us/en/prediction-markets/)** | Broker → Kalshi, ForecastEx, Rothera | 2024 | — | [only 🇺🇸](https://robinhood.com/us/en/support/articles/event-contracts-restrictions/ "Can trade: United States") | Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges. |
 | **[Smarkets](https://smarkets.com)** | Regulated exchange | 2008 | — | [🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15](https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more") | UK-licensed betting exchange with notably deep political markets. |
 
-### Research
+### Research & play-money venues
 
 *Listed for their data, not for trading. These are the only platforms here with complete, free, public history, which is what you backtest and calibrate against before risking money on the venues above.*
 
@@ -157,25 +157,16 @@ against something that belongs here,
 
 ### Dashboards & market data
 
-*Watching flow, positions, and volume without building your own pipeline.*
+*Watching flow, positions, and volume without building your own pipeline, including the wallet leaderboards that tell you who is actually sharp.*
 
 | Tool | Covers | Access | Description |
 |---|---|---|---|
 | **[Dune: Kalshi Overview](https://dune.com/datadashboards/kalshi-overview)** | kalshi | free | Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription. |
 | **[Dune: Prediction Markets](https://dune.com/datadashboards/prediction-markets)** | polymarket, kalshi, limitless, myriad, predict-fun | free | Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues — the broadest free venue-share view. |
+| **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted leaderboard scoring every on-chain fill against the price paid, de-correlating events and shrinking small samples so sharp money is defensible. |
 | **[Polyguana](https://polyguana.com)** | polymarket | free | Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive. |
 | **[Polysights](https://www.polysights.xyz)** | polymarket | freemium | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 | **[Resolve Markets](https://resolvemarkets.com)** | polymarket, kalshi, predict-fun, predictit, manifold | freemium | Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool. |
-
-### Calibration & accuracy
-
-*Where prices are systematically wrong. Calibration is not trivia here — a venue that runs 2 points cold at the same quote is an edge you can size.*
-
-| Tool | Covers | Access | Description |
-|---|---|---|---|
-| **[Calibration City](https://calibration.city)** | polymarket, kalshi, manifold, metaculus | free | Cross-platform calibration explorer scoring how well market prices predict real outcomes. |
-| **[Dune: How Accurate Is Polymarket](https://dune.com/alexmccullough/how-accurate-is-polymarket)** | polymarket | free | Dune dashboard measuring Polymarket's realised accuracy, bias and outcome distribution against resolved markets — forkable and re-queryable. |
-| **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted forecaster leaderboard scoring every on-chain fill against the price paid, with a free public calibration page over 8.9M scored fills. |
 
 ### Data tooling
 
@@ -198,18 +189,6 @@ against something that belongs here,
 | **[Optimal Market Making in Prediction Markets](https://arxiv.org/abs/2607.17991)** | general | 2026 | Derives optimal bid and ask quotes for binary event contracts via an HJB equation, handling inventory and terminal settlement risk — the binary analogue of Avellaneda-Stoikov. |
 | **[Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets](https://arxiv.org/abs/2607.14430)** | kalshi | 2026 | 23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs. |
 | **[The Anatomy of a Decentralized Prediction Market](https://arxiv.org/abs/2604.24366)** | polymarket | 2026 | Microstructure of 30bn Polymarket book events — longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate. |
-
-### Docs & training
-
-*Platform documentation worth reading, and the calibration training that measurably improves forecasting rather than just describing it.*
-
-| Tool | Kind | Description |
-|---|---|---|
-| **[Fatebook](https://fatebook.io)** | training | Quick personal forecast logging and calibration tracking, from Sage. |
-| **[Calibrate Your Judgment](https://80000hours.org/calibration-training/)** | training | Calibration web app with thousands of questions scoring whether your 80% really means 80%, charted over time — the direct fix for overconfident sizing. |
-| **[Metaculus Scores FAQ](https://www.metaculus.com/help/scores-faq/)** | docs | The clearest free explanation of proper scoring rules — log score, spot, baseline and peer scores, and why honest probabilities beat extremizing. |
-| **[Polymarket Documentation](https://docs.polymarket.com)** | docs | Order-book mechanics, fees and market-making operations — and the only platform-native page teaching resolution risk: bond sizes, dispute windows and 50/50 fallbacks. |
-| **[Quantified Intuitions](https://www.quantifiedintuitions.org)** | training | Calibration-training games (estimation, pastcasting) from Sage. |
 
 ### Blogs & newsletters
 

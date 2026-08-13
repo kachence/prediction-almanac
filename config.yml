@@ -20,10 +20,8 @@ platform_groups:
     title: Regulated exchanges & brokers
     mechanisms: [regulated-exchange, broker]
     show_volume: true
-  - keys: [research]
-    title: Research
-    covers_default: general & play-money venues
-    extra: year
+  - keys: [research-venues]
+    title: Research & play-money venues
     mechanisms: [play-money, forecasting]
     show_volume: false
     note: >-
@@ -39,8 +37,9 @@ tool_categories:
     extra: status
     note: >-
       Running strategies against these venues: market making, arbitrage,
-      autonomous agents, and the cross-venue layers you execute through. Read the licence and the code before pointing anything at
-      real money — none of this is audited, and a stale repo is a liability.
+      autonomous agents, and the cross-venue layers you execute through. Read the
+      licence and the code before pointing anything at real money — none of this
+      is audited, and a stale repo is a liability.
   - keys: [arbitrage, aggregator]
     title: Cross-venue search & arbitrage
     extra: access
@@ -51,13 +50,8 @@ tool_categories:
     title: Dashboards & market data
     extra: access
     note: >-
-      Watching flow, positions, and volume without building your own pipeline.
-  - keys: [analytics]
-    title: Calibration & accuracy
-    extra: access
-    note: >-
-      Where prices are systematically wrong. Calibration is not trivia here — a
-      venue that runs 2 points cold at the same quote is an edge you can size.
+      Watching flow, positions, and volume without building your own pipeline,
+      including the wallet leaderboards that tell you who is actually sharp.
   - keys: [data]
     title: Data tooling
     extra: access
@@ -73,13 +67,6 @@ tool_categories:
       academic output is free, unusually trader-relevant, and better than any
       venue's "learn" page. Order-book microstructure, maker-versus-taker returns,
       calibration by domain and horizon, and measured arbitrage capacity.
-  - keys: [education]
-    title: Docs & training
-    covers: false
-    extra: kind
-    note: >-
-      Platform documentation worth reading, and the calibration training that
-      measurably improves forecasting rather than just describing it.
   - keys: [newsletter]
     title: Blogs & newsletters
     covers: false
