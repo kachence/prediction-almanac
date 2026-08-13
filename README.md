@@ -8,7 +8,7 @@
 
 > The self-updating almanac of prediction markets — where to trade, the datasets and feeds to build against, and the tools people have actually published.
 
-**15 platforms · 8 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
+**15 platforms · 10 data sources · 67 tools** — generated 2026-08-13 by [`scripts/build.py`](scripts/build.py)
 
 Every entry is a YAML file under [`data/`](data/); this page is a build artifact.
 Volume, stars, and repo health are measured, not asserted — a “—” means no free,
@@ -100,6 +100,8 @@ for its own book, and they are linked from the platform tables above.
 | Dataset | Covers | Format · granularity | Coverage | Known gaps |
 |---|---|---|---|---|
 | **[pmxt](https://pmxt.dev)** | polymarket, kalshi, limitless, gemini-predictions, myriad | parquet · trade+book | 2024–present (partial) | Multi-day gaps on some markets. Also archives Opinion, which this directory does not yet list. |
+| **[Polymarket 5-minute crypto up/down markets](https://huggingface.co/datasets/kachoio/polymarket-5-minute-crypto-up-down-markets)** | polymarket | parquet · per-market metadata + price ticks, per asset | through 2026-06 (partial) | Covers only the 5-minute crypto up/down series, so it is a deep slice rather than a broad history. |
+| **[Polymarket_data (HuggingFace)](https://huggingface.co/datasets/SII-WANGZJ/Polymarket_data)** | polymarket | parquet · markets, trades, OrderFilled events | through 2026-07 (partial) | No licence stated on the dataset card, which matters if you build something commercial on it. Point-in-time, so it goes stale unless re-pulled. |
 | **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | compressed bulk dataset (~36GB) · trade | through 2025 (partial) | A research framework as much as a dataset — it ships indexers for collecting new data, so freshness depends on running them yourself. |
 
 ### Odds & reference feeds
