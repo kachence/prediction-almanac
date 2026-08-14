@@ -11,10 +11,10 @@ geo:
   as_of: "2026-08-12"
   notes: "All 50 states via Gemini's own CFTC-licensed DCM affiliate (Gemini Titan, licensed 2025-12-11) - not routed to a partner exchange; UK/EEA/Australia accounts closed April 2026. Several states are litigating sports event contracts."
 metrics:
-  volume_usd: 37966262.45
+  volume_usd: 37310000.64
   period: 30d
   source: gemini-api (Σ 30 daily totals, contracts at $1 face)
-  as_of: "2026-08-13"
+  as_of: "2026-08-14"
 data:
   public_api: true
   live_orderbook: true
