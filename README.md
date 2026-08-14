@@ -6,7 +6,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![platforms](https://img.shields.io/badge/platforms-15-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-10-2ea44f)](#data-sources)
-[![tools](https://img.shields.io/badge/tools-39-2ea44f)](#tools)
+[![tools](https://img.shields.io/badge/tools-40-2ea44f)](#tools)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
 [![data licence](https://img.shields.io/badge/data-CC0-lightgrey)](data/LICENSE)
@@ -186,6 +186,7 @@ something that isn't here,
 
 | Tool | Covers | Access | Description |
 |---|---|---|---|
+| **[Marketlens](https://marketlens.trade)** | polymarket | freemium | Tick-level Polymarket book history from March 2026 across the whole catalog, not just crypto, with a backtester that models queue position, latency and slippage. Free tier, then $39/mo. |
 | **[Probalytics](https://probalytics.io)** | polymarket | paid | Millisecond-granularity Polymarket history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
 
 ## Research
