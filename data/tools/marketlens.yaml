@@ -1,0 +1,9 @@
+slug: marketlens
+name: Marketlens
+url: https://marketlens.trade
+repo: https://github.com/marketlenstrade/marketlens-python
+category: data
+platforms: [polymarket]
+access: freemium
+description: "Tick-level Polymarket book history from March 2026 across the whole catalog, not just crypto, with a backtester that models queue position, latency and slippage. Free tier, then $39/mo."
+tags: [orderbook-history, backtesting, parquet, python-sdk]
