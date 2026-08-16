@@ -9,5 +9,5 @@ coverage:
   range: live + limited history
   completeness: partial
   known_gaps: "The free tier is request-capped and keyed; historical odds sit behind a paid plan, and bookmaker coverage varies by region."
-access: free
+access: freemium
 description: "Aggregated bookmaker odds across dozens of books including Pinnacle, on a free keyed tier - the accessible route to a sports pricing benchmark."

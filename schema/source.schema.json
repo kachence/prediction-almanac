@@ -33,7 +33,7 @@
         "known_gaps": { "type": ["string", "null"], "maxLength": 300 }
       }
     },
-    "access": { "enum": ["free", "paid", "gated"] },
+    "access": { "enum": ["free", "freemium", "paid", "gated"] },
     "description": { "type": ["string", "null"], "minLength": 10, "maxLength": 200 },
     "tags": {
       "type": "array",
