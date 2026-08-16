@@ -5,7 +5,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![platforms](https://img.shields.io/badge/platforms-15-2ea44f)](#platforms)
-[![data sources](https://img.shields.io/badge/data%20sources-10-2ea44f)](#data-sources)
+[![data sources](https://img.shields.io/badge/data%20sources-11-2ea44f)](#data-sources)
 [![tools](https://img.shields.io/badge/tools-40-2ea44f)](#tools)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
@@ -125,6 +125,7 @@ would only push the useful entries further down the page.
 |---|---|---|---|---|
 | **[Betfair Exchange](https://developer.betfair.com)** | Sports and politics | JSON-RPC / REST · prices and market book; historical as market ticks | live, plus a separate historical archive (partial) | Needs an account and app key. The free Delayed key omits traded volume, and the GBP 499 Live key forbids read-only data collection. History is a separate paid product at historicdata.betfair.com, with politics coverage thinner than sports. |
 | **[ElectionBettingOdds](https://electionbettingodds.com)** | Elections | HTML (no API) · per-market odds and cumulative matched USD, by venue | election markets only (partial) | Scraped from the page, with no API and no time series - figures are cumulative per market rather than per period, and only election markets are covered. |
+| **[Live Tennis API](https://livetennisapi.com)** | Tennis | JSON REST / WebSocket / MCP · live match state per point, plus fixtures, H2H and rankings | live + 1968-2022 results archive (partial) | Free tier is keyed and capped at 30 req/min and 100/day, and covers live scores, players, fixtures and usage only. Completed-match history needs a paid plan, and the WebSocket feed plus model win probability sit on the top tier. |
 | **[Open-Meteo](https://open-meteo.com)** | Weather | JSON REST · hourly forecast, ensemble members, historical reanalysis | 1940-present, plus forecasts (full) | Non-commercial use is free without a key; commercial use needs a paid plan. Ensembles are raw members, so you compute the probability yourself. |
 | **[Pinnacle API](https://github.com/pinnacleapi)** | Sports | JSON REST · pre-match and live odds, lines, limits | live only (partial) | Account credentials required, and no history - Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset. |
 | **[The Odds API](https://the-odds-api.com)** | Sports | JSON REST · odds by bookmaker, per market | live + limited history (partial) | The free tier is request-capped and keyed; historical odds sit behind a paid plan, and bookmaker coverage varies by region. |
