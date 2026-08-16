@@ -15,10 +15,10 @@ geo:                        # factual "who may trade" - never an evasion guide
   notes: "Trading-only restriction; content stays available. US blocked/close-only on the global venue - the CFTC-regulated Polymarket US exchange (Dec 2025, via QCX) is separate. Canada at province level (AB/BC/ON/QC), Ukraine only Crimea/Donetsk/Luhansk. Separately, Bulgaria blacklists polymarket.com at ISP level (NRA, Jan 2026) - a state block, not Polymarket's."
 # ---- auto-filled by scripts/refresh.py - seed as nulls ----
 metrics:
-  volume_usd: 2354575844
+  volume_usd: 2356631773
   period: 30d
   source: defillama (polymarket-international)
-  as_of: "2026-08-15"
+  as_of: "2026-08-16"
 # -----------------------------------------------------------
 data:                       # what you can get out - cross-links data/sources/ slugs
   public_api: true
