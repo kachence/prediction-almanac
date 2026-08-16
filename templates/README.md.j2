@@ -7,11 +7,16 @@
 [![platforms](https://img.shields.io/badge/platforms-{{ platforms | length }}-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-{{ sources | length }}-2ea44f)](#data-sources)
 [![tools](https://img.shields.io/badge/tools-{{ tools | length }}-2ea44f)](#tools)
+[![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)]({{ config.site.page }})
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
 [![data licence](https://img.shields.io/badge/data-CC0-lightgrey)](data/LICENSE)
 
 > {{ config.site.tagline }}
+
+[![The almanac rendered as a browsable page on kacho.io](docs/preview.png)]({{ config.site.page }})
+
+**Now a browsable page too: [kacho.io/prediction-markets]({{ config.site.page }}).** It renders straight from this repo and rebuilds daily, so anything accepted here shows up there as well, automatically. One submission, both places.
 
 [Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Contributing](#contributing) · [How it works](SPEC.md)
 
@@ -148,7 +153,8 @@ something that isn't here,
 
 Two ways in. [Open an issue with a link]({{ 'https://github.com/' ~ config.site.repo ~ '/issues/new?template=submit-resource.yml' }})
 and I'll do the rest, or send a PR touching `data/` only - the README rebuilds itself
-after merge, so it never goes in your diff.
+after merge, so it never goes in your diff. Whatever lands here also lands on the
+[hosted page]({{ config.site.page }}), rebuilt daily, so a good entry gets seen in both places.
 
 [CONTRIBUTING.md](CONTRIBUTING.md) spells out exactly what gets an entry, section by
 section, so you can tell before you write anything whether I'd say no. A bot that vets
