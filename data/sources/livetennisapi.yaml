@@ -1,0 +1,13 @@
+slug: livetennisapi
+name: Live Tennis API
+url: https://livetennisapi.com
+kind: odds-feed
+prices: Tennis
+format: JSON REST / WebSocket / MCP
+granularity: live match state per point, plus fixtures, H2H and rankings
+coverage:
+  range: live + 1968-2022 results archive
+  completeness: partial
+  known_gaps: "Free tier is keyed and capped at 30 req/min and 100/day, and covers live scores, players, fixtures and usage only. Completed-match history needs a paid plan, and the WebSocket feed plus model win probability sit on the top tier."
+access: free
+description: "Live tennis match state and a deep results archive for building fair probabilities on tennis event markets - the event side, not bookmaker odds."
