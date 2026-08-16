@@ -170,49 +170,57 @@ def _ordered(codes, notable):
     return ranked
 
 
-def make_geo_cell(config):
-    """Compact 'who may trade' cell: flags where they fit, notable flags + count where
-    they don't, hover text naming the countries, linked to the terms page we read."""
+def geo_parts(platform, config):
+    """Structured 'who may trade': {text, title, source} or None. Both the README cell
+    and the JSON export are built from this, so the branching lives in exactly one place."""
+    geo = platform.get("geo")
+    if not geo:
+        return None
     display = config["geo_display"]
     max_flags, lead, notable = display["max_flags"], display["lead_flags"], display["notable"]
+    model = geo["model"]
+    title = None
+    if model == "everyone":
+        text = "🌍 everyone"
+    elif model == "permissionless":
+        text = "🌐 permissionless"
+    elif model == "unknown":
+        # We looked and couldn't establish it — better stated than implied.
+        text = "❔ unverified"
+    elif model == "global-restrictions":
+        excluded = _ordered(geo.get("restricted") or [], notable)
+        if not excluded:
+            # the model asserts restrictions exist; the list just isn't public
+            text = "🌍 exc. an undisclosed list"
+        elif len(excluded) <= max_flags:
+            text = f"🌍 exc. {flags(excluded)}"
+            title = _tooltip("Cannot trade", excluded)
+        else:
+            text = f"🌍 exc. {flags(excluded[:lead])} +{len(excluded) - lead}"
+            title = _tooltip("Cannot trade", excluded)
+    elif model == "allowlist":
+        allowed = _ordered(geo.get("allowed") or [], notable)
+        if not allowed:
+            text = "licensed countries only"
+        elif len(allowed) <= max_flags:
+            text = f"only {flags(allowed)}"
+            title = _tooltip("Can trade", allowed)
+        else:
+            text = f"only {len(allowed)} countries"
+            title = _tooltip("Can trade", allowed)
+    else:  # unreachable while the schema enum holds
+        return None
+    return {"text": text, "title": title, "source": geo.get("source")}
+
+
+def make_geo_cell(config):
+    """Compact 'who may trade' cell for the markdown table, linked to the terms page."""
 
     def geo_cell(platform):
-        geo = platform.get("geo")
-        if not geo:
+        parts = geo_parts(platform, config)
+        if parts is None:
             return "-"
-        model = geo["model"]
-        title = None
-        if model == "everyone":
-            text = "🌍 everyone"
-        elif model == "permissionless":
-            text = "🌐 permissionless"
-        elif model == "unknown":
-            # We looked and couldn't establish it — better stated than implied.
-            text = "❔ unverified"
-        elif model == "global-restrictions":
-            excluded = _ordered(geo.get("restricted") or [], notable)
-            if not excluded:
-                # the model asserts restrictions exist; the list just isn't public
-                text = "🌍 exc. an undisclosed list"
-            elif len(excluded) <= max_flags:
-                text = f"🌍 exc. {flags(excluded)}"
-                title = _tooltip("Cannot trade", excluded)
-            else:
-                text = f"🌍 exc. {flags(excluded[:lead])} +{len(excluded) - lead}"
-                title = _tooltip("Cannot trade", excluded)
-        elif model == "allowlist":
-            allowed = _ordered(geo.get("allowed") or [], notable)
-            if not allowed:
-                text = "licensed countries only"
-            elif len(allowed) <= max_flags:
-                text = f"only {flags(allowed)}"
-                title = _tooltip("Can trade", allowed)
-            else:
-                text = f"only {len(allowed)} countries"
-                title = _tooltip("Can trade", allowed)
-        else:  # unreachable while the schema enum holds
-            return "-"
-        source = geo.get("source")
+        text, title, source = parts["text"], parts["title"], parts["source"]
         if not source:
             return text
         return f'[{text}]({source} "{title}")' if title else f"[{text}]({source})"
@@ -365,6 +373,126 @@ def render(config, platforms, tools, sources, excluded, generated_on):
     )
 
 
+# ---- JSON export -----------------------------------------------------------
+# A hosted front end (kacho.io) renders the same directory. Rather than have it
+# re-implement the grouping, sorting, geo and volume logic and drift, we emit a
+# display-ready view model here — the single place that logic lives — and it just
+# paints the result. Same helpers as render(), decomposed into JSON instead of
+# markdown cells.
+
+EXTRA_LABELS = {
+    "status": "Status", "access": "Access", "year": "Year",
+    "cadence": "Cadence", "kind": "Medium", "last_post": "Last post",
+}
+
+
+def _platform_view(p, config):
+    v = vol(p)
+    return {
+        "name": p["name"],
+        "url": p["url"],
+        "type": ptype(p),
+        "launched": p.get("launched"),
+        "volume": None if v == "-" else v,
+        "geo": geo_parts(p, config),
+        "description": p.get("description"),
+    }
+
+
+def _source_view(s):
+    cov = s.get("coverage") or {}
+    return {
+        "name": s["name"],
+        "url": s["url"],
+        "covers": ", ".join(s.get("platforms") or []) or None,
+        "prices": s.get("prices"),
+        "format": s.get("format"),
+        "granularity": s.get("granularity"),
+        "coverage": {
+            "range": cov.get("range"),
+            "completeness": cov.get("completeness"),
+            "known_gaps": cov.get("known_gaps"),
+        },
+        "access": s.get("access"),
+        "description": s.get("description"),
+    }
+
+
+def _tool_view(t, group):
+    gh = t.get("github") or {}
+    key = group.get("extra")
+    raw = {
+        "status": lambda: (None if status(t) == "-" else status(t)),
+        "access": lambda: t.get("access") or "free",
+        "year": lambda: t.get("year"),
+        "cadence": lambda: t.get("cadence"),
+        "kind": lambda: t.get("kind"),
+        "last_post": lambda: t.get("last_post"),
+    }.get(key, lambda: None)()
+    covers = None
+    if group.get("covers", True):
+        covers = ", ".join(t.get("platforms") or []) or group.get("covers_default")
+    return {
+        "name": t["name"],
+        "url": t["url"],
+        "description": t.get("description"),
+        "covers": covers,
+        "extra": None if raw in (None, "") else str(raw),
+        # structured extras, so the front end can render a richer cell than the string:
+        "stars": gh.get("stars"),
+        "last_commit": gh.get("last_commit"),
+        "health": gh.get("health"),
+        "access": t.get("access"),
+    }
+
+
+def build_data(config, platforms, tools, sources, excluded, generated_on):
+    live = [p for p in platforms if p["status"] not in ("dead", "deprecated")]
+    sorted_sources = sorted(
+        sources, key=lambda s: (["dataset", "odds-feed"].index(s["kind"]), s["name"].lower())
+    )
+    return {
+        "generated_on": generated_on,
+        "site": {
+            "title": config["site"]["title"],
+            "repo": config["site"]["repo"],
+            "tagline": config["site"]["tagline"],
+        },
+        "counts": {"platforms": len(live), "sources": len(sources), "tools": len(tools)},
+        "platform_groups": [
+            {
+                "title": g["title"],
+                "note": g.get("note"),
+                "show_volume": g["show_volume"],
+                "platforms": [_platform_view(p, config) for p in g["platforms"]],
+            }
+            for g in group_platforms(live, config)
+        ],
+        "sources": {
+            "datasets": [_source_view(s) for s in sorted_sources if s["kind"] == "dataset"],
+            "feeds": [_source_view(s) for s in sorted_sources if s["kind"] == "odds-feed"],
+        },
+        "tool_groups": [
+            {
+                "parent": g.get("parent", "tools"),
+                "title": g["title"],
+                "note": g.get("note"),
+                "item_label": g.get("item_label", "Tool"),
+                "covers": g.get("covers", True),
+                "extra": {"key": g["extra"], "label": EXTRA_LABELS.get(g["extra"], g["extra"])}
+                if g.get("extra")
+                else None,
+                "tools": [_tool_view(t, g) for t in g["tools"]],
+            }
+            for g in group_tools(tools, config)
+        ],
+        "excluded": [
+            {"name": e.get("name"), "url": e.get("url"), "reason": e.get("reason")}
+            for e in (excluded or [])
+        ],
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -418,7 +546,9 @@ def main():
         return
 
     readme.write_text(output)
-    print(f"Wrote README.md: {summary}.")
+    data = build_data(config, platforms, tools, sources, excluded, today)
+    (ROOT / "almanac.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    print(f"Wrote README.md and almanac.json: {summary}.")
 
 
 if __name__ == "__main__":

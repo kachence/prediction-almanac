@@ -1,0 +1,979 @@
+{
+  "generated_on": "2026-08-16",
+  "site": {
+    "title": "Prediction Almanac",
+    "repo": "kachence/prediction-almanac",
+    "tagline": "Every prediction market worth trading, the data you can actually backtest on, and the tools people have really shipped. Rebuilt from scratch daily, so it can't rot."
+  },
+  "counts": {
+    "platforms": 15,
+    "sources": 11,
+    "tools": 40
+  },
+  "platform_groups": [
+    {
+      "title": "On-chain markets",
+      "note": null,
+      "show_volume": true,
+      "platforms": [
+        {
+          "name": "Polymarket",
+          "url": "https://polymarket.com",
+          "type": "CLOB, Polygon",
+          "launched": 2020,
+          "volume": "$2.4B/30d",
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇬🇧🇨🇦🇦🇺 +39",
+            "title": "Cannot trade: United States, United Kingdom, Canada, Australia, Germany, France, Netherlands, Italy, Japan, Singapore, Brazil, Belgium, Burundi, Belarus, DR Congo, +28 more",
+            "source": "https://polymarket.com/tos"
+          },
+          "description": "Largest on-chain prediction market; USDC-settled CLOB on Polygon."
+        },
+        {
+          "name": "Opinion",
+          "url": "https://app.opinion.trade",
+          "type": "CLOB, BNB Chain",
+          "launched": 2025,
+          "volume": "$383.4M/30d",
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇬🇧🇫🇷🇨🇳 +10",
+            "title": "Cannot trade: United States, United Kingdom, France, China, Singapore, Cuba, Hong Kong, Iran, North Korea, South Korea, Poland, Syria, Thailand, Taiwan",
+            "source": "https://docs.opinion.trade/legal/terms-of-use"
+          },
+          "description": "CLOB on BNB Chain, YZi Labs backed, covering macro, crypto and sports. Volume ranks near the top but its points programme pays on trade size, so treat the figure as contested."
+        },
+        {
+          "name": "predict.fun",
+          "url": "https://predict.fun",
+          "type": "CLOB, Blast",
+          "launched": 2024,
+          "volume": "$204.1M/30d",
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9",
+            "title": "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan",
+            "source": "https://docs.predict.fun/terms-of-service"
+          },
+          "description": "Polymarket-style on-chain CLOB prediction market on Blast."
+        },
+        {
+          "name": "SX Bet",
+          "url": "https://sx.bet",
+          "type": "CLOB, SX Rollup",
+          "launched": 2019,
+          "volume": "$58.8M/30d",
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19",
+            "title": "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more",
+            "source": "https://help.sx.bet/en/articles/3613372-terms-and-conditions"
+          },
+          "description": "Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports."
+        },
+        {
+          "name": "Limitless",
+          "url": "https://limitless.exchange",
+          "type": "CLOB, Base",
+          "launched": 2024,
+          "volume": "$47.8M/30d",
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾",
+            "title": "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria",
+            "source": "https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility"
+          },
+          "description": "Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders."
+        },
+        {
+          "name": "Myriad",
+          "url": "https://myriad.markets",
+          "type": "CLOB, BNB Chain +3",
+          "launched": 2025,
+          "volume": "$2M/30d",
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14",
+            "title": "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more",
+            "source": "https://help.myriad.markets/myriad-terms-of-use"
+          },
+          "description": "Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea."
+        }
+      ]
+    },
+    {
+      "title": "Regulated exchanges & brokers",
+      "note": null,
+      "show_volume": true,
+      "platforms": [
+        {
+          "name": "Kalshi",
+          "url": "https://kalshi.com",
+          "type": "Regulated exchange",
+          "launched": 2021,
+          "volume": "$10.9B/30d",
+          "geo": {
+            "text": "🌍 exc. 🇬🇧🇨🇦🇦🇺🇫🇷 +51",
+            "title": "Cannot trade: United Kingdom, Canada, Australia, France, Italy, China, India, Singapore, United Arab Emirates, Afghanistan, Angola, Belgium, Burkina Faso, Bulgaria, Bolivia, +40 more",
+            "source": "https://kalshi.com/docs/kalshi-member-agreement.pdf"
+          },
+          "description": "CFTC-regulated US event-contract exchange spanning politics, economics, weather, and sports."
+        },
+        {
+          "name": "Gemini Predictions",
+          "url": "https://www.gemini.com/predictions",
+          "type": "Regulated exchange",
+          "launched": 2025,
+          "volume": "$36.9M/30d",
+          "geo": {
+            "text": "only 🇺🇸",
+            "title": "Can trade: United States",
+            "source": "https://www.gemini.com/legal/predictions-user-agreement"
+          },
+          "description": "CFTC-regulated event contracts from Gemini's own DCM affiliate; yes/no and categorical markets on a central limit order book, settled in USD."
+        },
+        {
+          "name": "Betfair Exchange",
+          "url": "https://www.betfair.com/exchange",
+          "type": "Regulated exchange",
+          "launched": 2000,
+          "volume": null,
+          "geo": {
+            "text": "🌍 exc. an undisclosed list",
+            "title": null,
+            "source": "https://www.sec.gov/Archives/edgar/data/1635327/000163532726000005/flut-20251231.htm"
+          },
+          "description": "The largest betting exchange; politics and current-affairs markets alongside sports."
+        },
+        {
+          "name": "IBKR Prediction Markets",
+          "url": "https://www.interactivebrokers.com/predictionmarkets/en/home.php",
+          "type": "Broker → ForecastEx, Kalshi, CME",
+          "launched": 2024,
+          "volume": null,
+          "geo": {
+            "text": "only 🇺🇸🇨🇦🇸🇬🇭🇰",
+            "title": "Can trade: United States, Canada, Singapore, Hong Kong",
+            "source": "https://www.interactivebrokers.ie/predictionmarkets/en/home.php"
+          },
+          "description": "Interactive Brokers' front-end for binary event contracts, routing to its wholly-owned ForecastEx plus Kalshi and CME; the EEA offering is ForecastEx-only and professional-clients-only."
+        },
+        {
+          "name": "PredictIt",
+          "url": "https://www.predictit.org",
+          "type": "Regulated exchange",
+          "launched": 2014,
+          "volume": null,
+          "geo": {
+            "text": "only 🇺🇸",
+            "title": "Can trade: United States",
+            "source": "https://www.predictit.org/terms-and-conditions"
+          },
+          "description": "Long-running US political research market; capped stakes and a small contract universe."
+        },
+        {
+          "name": "Robinhood Prediction Markets",
+          "url": "https://robinhood.com/us/en/prediction-markets/",
+          "type": "Broker → Kalshi, ForecastEx, Rothera",
+          "launched": 2024,
+          "volume": null,
+          "geo": {
+            "text": "only 30 countries",
+            "title": "Can trade: United States, Germany, France, Netherlands, Italy, Spain, Austria, Bulgaria, Cyprus, Czechia, Denmark, Estonia, Finland, Greece, Croatia, +15 more",
+            "source": "https://robinhood.com/us/en/support/articles/event-contracts-restrictions/"
+          },
+          "description": "Robinhood Derivatives, a CFTC-registered FCM, sells binary event contracts in-app and routes the orders to the Kalshi, ForecastEx, and Rothera exchanges."
+        },
+        {
+          "name": "Smarkets",
+          "url": "https://smarkets.com",
+          "type": "Regulated exchange",
+          "launched": 2008,
+          "volume": null,
+          "geo": {
+            "text": "🌍 exc. 🇺🇸🇦🇺🇫🇷🇳🇱 +15",
+            "title": "Cannot trade: United States, Australia, France, Netherlands, Italy, China, Belgium, Belarus, Switzerland, Czechia, Denmark, Hong Kong, Kazakhstan, Norway, Portugal, +4 more",
+            "source": "https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions"
+          },
+          "description": "UK-licensed betting exchange with notably deep political markets."
+        }
+      ]
+    },
+    {
+      "title": "Research & play-money venues",
+      "note": "You can't make real money on these. What you can get is complete, free history, and that's what you backtest on before risking anything on the venues above.",
+      "show_volume": false,
+      "platforms": [
+        {
+          "name": "Manifold",
+          "url": "https://manifold.markets",
+          "type": "Play-money",
+          "launched": 2021,
+          "volume": null,
+          "geo": {
+            "text": "🌍 everyone",
+            "title": null,
+            "source": "https://docs.manifold.markets/terms"
+          },
+          "description": "Play-money markets anyone can create; the most open API and data of any platform."
+        },
+        {
+          "name": "Metaculus",
+          "url": "https://www.metaculus.com",
+          "type": "Forecasting",
+          "launched": 2015,
+          "volume": null,
+          "geo": {
+            "text": "🌍 everyone",
+            "title": null,
+            "source": "https://www.metaculus.com/terms-of-use/"
+          },
+          "description": "Long-horizon forecasting community with tournaments and track records; aggregates probabilistic forecasts rather than trading."
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "datasets": [
+      {
+        "name": "Kalshi trades (TrevorJS)",
+        "url": "https://huggingface.co/datasets/TrevorJS/kalshi-trades",
+        "covers": "kalshi",
+        "prices": null,
+        "format": "parquet",
+        "granularity": "trades + market metadata with outcomes",
+        "coverage": {
+          "range": "2021-06-2026-01",
+          "completeness": "full",
+          "known_gaps": "Stops January 2026 and has not been updated since. No order book."
+        },
+        "access": "free",
+        "description": "154M Kalshi trades with market metadata and resolution outcomes over four and a half years - the longest permissively licensed history at any venue."
+      },
+      {
+        "name": "pmxt archive",
+        "url": "https://archive.pmxt.dev/",
+        "covers": "polymarket, kalshi, limitless, opinion",
+        "prices": null,
+        "format": "parquet",
+        "granularity": "hourly order-book snapshots",
+        "coverage": {
+          "range": "2026-present",
+          "completeness": "partial",
+          "known_gaps": "Per-venue start dates differ - Polymarket from February 2026, Kalshi, Limitless and Opinion from May. Polymarket splits into v1 and v2 across the CLOB migration."
+        },
+        "access": "free",
+        "description": "Hourly order-book snapshots for Polymarket, Kalshi, Limitless and Opinion, CC BY 4.0 with commercial use explicitly permitted."
+      },
+      {
+        "name": "Polymarket aligned tape (TimeSeventeen)",
+        "url": "https://huggingface.co/datasets/TimeSeventeen/Polymarket-v1",
+        "covers": "polymarket",
+        "prices": null,
+        "format": "parquet",
+        "granularity": "trades with resolution, fees and event-normalised probability",
+        "coverage": {
+          "range": "2022-11-2026-04, v2 continues to date",
+          "completeness": "full",
+          "known_gaps": "Needs the companion v2 repo for coverage past the April 2026 migration. Do not pool binary, up-down and NegRisk markets without checking category."
+        },
+        "access": "free",
+        "description": "The most backtest-ready Polymarket tape: relayer noise stripped, resolution and fees joined, binary legs polarity-aligned with an event probability column."
+      },
+      {
+        "name": "Polymarket L2 depth (vpcapitano)",
+        "url": "https://huggingface.co/datasets/vpcapitano/polymarket-genesis-liquidity",
+        "covers": "polymarket",
+        "prices": null,
+        "format": "parquet",
+        "granularity": "10-level book depth, spread, best bid/ask",
+        "coverage": {
+          "range": "2025-10-2026-03",
+          "completeness": "partial",
+          "known_gaps": "Six months only, and no resolution column - join outcomes yourself."
+        },
+        "access": "free",
+        "description": "339M rows of ten-level order-book depth with spreads - the only free multi-month L2 history for Polymarket."
+      },
+      {
+        "name": "prediction-market-analysis",
+        "url": "https://github.com/jon-becker/prediction-market-analysis",
+        "covers": "polymarket, kalshi",
+        "prices": null,
+        "format": "compressed bulk dataset (~36GB)",
+        "granularity": "trade",
+        "coverage": {
+          "range": "through 2025",
+          "completeness": "partial",
+          "known_gaps": "A research framework as much as a dataset - it ships indexers for collecting new data, so freshness depends on running them yourself."
+        },
+        "access": "free",
+        "description": "Public Polymarket and Kalshi market and trade history with indexers to keep collecting - where most backtests should start."
+      }
+    ],
+    "feeds": [
+      {
+        "name": "Betfair Exchange",
+        "url": "https://developer.betfair.com",
+        "covers": "betfair",
+        "prices": "Sports and politics",
+        "format": "JSON-RPC / REST",
+        "granularity": "prices and market book; historical as market ticks",
+        "coverage": {
+          "range": "live, plus a separate historical archive",
+          "completeness": "partial",
+          "known_gaps": "Needs an account and app key. The free Delayed key omits traded volume, and the GBP 499 Live key forbids read-only data collection. History is a separate paid product at historicdata.betfair.com, with politics coverage thinner than sports."
+        },
+        "access": "gated",
+        "description": "Live prices from the deepest betting-exchange order book, including its politics markets, with a paid tick-level archive alongside."
+      },
+      {
+        "name": "ElectionBettingOdds",
+        "url": "https://electionbettingodds.com",
+        "covers": "polymarket, kalshi, predictit, betfair, smarkets",
+        "prices": "Elections",
+        "format": "HTML (no API)",
+        "granularity": "per-market odds and cumulative matched USD, by venue",
+        "coverage": {
+          "range": "election markets only",
+          "completeness": "partial",
+          "known_gaps": "Scraped from the page, with no API and no time series - figures are cumulative per market rather than per period, and only election markets are covered."
+        },
+        "access": "free",
+        "description": "The only free place showing the same election market priced and matched side by side across five venues, including Betfair, Smarkets and PredictIt."
+      },
+      {
+        "name": "Live Tennis API",
+        "url": "https://livetennisapi.com",
+        "covers": null,
+        "prices": "Tennis",
+        "format": "JSON REST / WebSocket / MCP",
+        "granularity": "live match state per point, plus fixtures, H2H and rankings",
+        "coverage": {
+          "range": "live + 1968-2022 results archive",
+          "completeness": "partial",
+          "known_gaps": "Free tier is keyed and capped at 30 req/min and 100/day, and covers live scores, players, fixtures and usage only. Completed-match history needs a paid plan, and the WebSocket feed plus model win probability sit on the top tier."
+        },
+        "access": "freemium",
+        "description": "Live tennis match state and a deep results archive for building fair probabilities on tennis event markets - the event side, not bookmaker odds."
+      },
+      {
+        "name": "Open-Meteo",
+        "url": "https://open-meteo.com",
+        "covers": null,
+        "prices": "Weather",
+        "format": "JSON REST",
+        "granularity": "hourly forecast, ensemble members, historical reanalysis",
+        "coverage": {
+          "range": "1940-present, plus forecasts",
+          "completeness": "full",
+          "known_gaps": "Non-commercial use is free without a key; commercial use needs a paid plan. Ensembles are raw members, so you compute the probability yourself."
+        },
+        "access": "free",
+        "description": "Free keyless weather API with forecast, ensemble and archive endpoints - the ensemble members are what you turn into a probability for weather contracts."
+      },
+      {
+        "name": "Pinnacle API",
+        "url": "https://github.com/pinnacleapi",
+        "covers": null,
+        "prices": "Sports",
+        "format": "JSON REST",
+        "granularity": "pre-match and live odds, lines, limits",
+        "coverage": {
+          "range": "live only",
+          "completeness": "partial",
+          "known_gaps": "Account credentials required, and no history - Pinnacle is a sharp sportsbook, so this is a pricing benchmark rather than a dataset."
+        },
+        "access": "gated",
+        "description": "Odds feed from the sportsbook most treated as the sharp reference price, useful for pricing sports event contracts against."
+      },
+      {
+        "name": "The Odds API",
+        "url": "https://the-odds-api.com",
+        "covers": null,
+        "prices": "Sports",
+        "format": "JSON REST",
+        "granularity": "odds by bookmaker, per market",
+        "coverage": {
+          "range": "live + limited history",
+          "completeness": "partial",
+          "known_gaps": "The free tier is request-capped and keyed; historical odds sit behind a paid plan, and bookmaker coverage varies by region."
+        },
+        "access": "freemium",
+        "description": "Aggregated bookmaker odds across dozens of books including Pinnacle, on a free keyed tier - the accessible route to a sports pricing benchmark."
+      }
+    ]
+  },
+  "tool_groups": [
+    {
+      "parent": "tools",
+      "title": "Trading bots, agents & execution",
+      "note": "Code that trades: market makers, arbitrage bots, agents, and the layers you execute through. Read the licence and the code before you point any of it at real money. None of it is audited and a stale repo is a liability.",
+      "item_label": "Tool",
+      "covers": true,
+      "extra": {
+        "key": "status",
+        "label": "Status"
+      },
+      "tools": [
+        {
+          "name": "CCXT",
+          "url": "https://github.com/ccxt/ccxt",
+          "description": "The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages.",
+          "covers": "polymarket, kalshi, limitless, myriad",
+          "extra": "43,637★ · 2026-08-16",
+          "stars": 43637,
+          "last_commit": "2026-08-16",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "PMXT SDK",
+          "url": "https://github.com/pmxt-dev/pmxt",
+          "description": "CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration - one integration instead of fourteen.",
+          "covers": "polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions",
+          "extra": "2,084★ · 2026-07-18",
+          "stars": 2084,
+          "last_commit": "2026-07-18",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "poly-maker",
+          "url": "https://github.com/warproxxx/poly-maker",
+          "description": "Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine.",
+          "covers": "polymarket",
+          "extra": "1,449★ · 2026-07-09",
+          "stars": 1449,
+          "last_commit": "2026-07-09",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "CloddsBot",
+          "url": "https://github.com/alsk1992/CloddsBot",
+          "description": "Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers.",
+          "covers": "polymarket, kalshi, manifold, metaculus, predict-fun",
+          "extra": "693★ · 2026-06-26",
+          "stars": 693,
+          "last_commit": "2026-06-26",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "kalshi-ai-trading-bot",
+          "url": "https://github.com/ryanfrigo/kalshi-ai-trading-bot",
+          "description": "Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents.",
+          "covers": "kalshi",
+          "extra": "570★ · 2026-07-06",
+          "stars": 570,
+          "last_commit": "2026-07-06",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "Kalshi Trading Bot CLI",
+          "url": "https://github.com/OctagonAI/kalshi-trading-bot-cli",
+          "description": "CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly - with a demo mode.",
+          "covers": "kalshi",
+          "extra": "369★ · 2026-06-25",
+          "stars": 369,
+          "last_commit": "2026-06-25",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "PolyClaw",
+          "url": "https://github.com/chainstacklabs/polyclaw",
+          "description": "Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking.",
+          "covers": "polymarket",
+          "extra": "357★ · 2026-04-28",
+          "stars": 357,
+          "last_commit": "2026-04-28",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "KalshiMarketMaker",
+          "url": "https://github.com/rodlaf/KalshiMarketMaker",
+          "description": "Avellaneda-Stoikov market making on Kalshi - reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment.",
+          "covers": "kalshi",
+          "extra": "227★ · 2026-04-14",
+          "stars": 227,
+          "last_commit": "2026-04-14",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "Homerun",
+          "url": "https://github.com/braedonsaunders/homerun",
+          "description": "Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode.",
+          "covers": "polymarket, kalshi",
+          "extra": "172★ · 2026-07-04",
+          "stars": 172,
+          "last_commit": "2026-07-04",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "Polymarket Alpha Bot",
+          "url": "https://github.com/chainstacklabs/polymarket-alpha-bot",
+          "description": "Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes.",
+          "covers": "polymarket",
+          "extra": "168★ · 2026-08-05",
+          "stars": 168,
+          "last_commit": "2026-08-05",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "Olas Predict trader",
+          "url": "https://github.com/valory-xyz/trader",
+          "description": "Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis.",
+          "covers": "polymarket, omen",
+          "extra": "73★ · 2026-08-14",
+          "stars": 73,
+          "last_commit": "2026-08-14",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "polymm",
+          "url": "https://github.com/kachence/polymm",
+          "description": "Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills.",
+          "covers": "polymarket",
+          "extra": "72★ · 2026-07-22",
+          "stars": 72,
+          "last_commit": "2026-07-22",
+          "health": "active",
+          "access": null
+        },
+        {
+          "name": "prediction-market-agent-tooling",
+          "url": "https://github.com/gnosis/prediction-market-agent-tooling",
+          "description": "Gnosis toolkit for building AI agents that trade on prediction markets.",
+          "covers": "polymarket, manifold, omen",
+          "extra": "58★ · 2026-04-22",
+          "stars": 58,
+          "last_commit": "2026-04-22",
+          "health": "active",
+          "access": null
+        }
+      ]
+    },
+    {
+      "parent": "tools",
+      "title": "Cross-venue search & arbitrage",
+      "note": "Finding where an event trades, and where it trades cheaper. Most of the edge in this space lives in that gap.",
+      "item_label": "Tool",
+      "covers": true,
+      "extra": {
+        "key": "access",
+        "label": "Access"
+      },
+      "tools": [
+        {
+          "name": "Prediction Market News",
+          "url": "https://predictionmarketnews.org",
+          "description": "Cross-venue screener over 10,752 matched Polymarket and Kalshi markets, showing consensus odds, per-venue spread, open interest, depth and resolution rules.",
+          "covers": "polymarket, kalshi",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Predicts.guru",
+          "url": "https://www.predicts.guru",
+          "description": "No-login wallet checker, smart-money radar and live trade feed, plus an arbitrage scanner matching Polymarket against Kalshi and Limitless.",
+          "covers": "polymarket, kalshi, limitless",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Chironus Scanner",
+          "url": "https://chironus.com/scanner",
+          "description": "Scanner across all live Polymarket and Kalshi markets with category, volume, price-band and time-to-close filters; free tier serves delayed prices.",
+          "covers": "polymarket, kalshi",
+          "extra": "freemium",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "freemium"
+        },
+        {
+          "name": "Adjacent News",
+          "url": "https://adj.news",
+          "description": "News and research terminal built around prediction-market data, with a market-data API.",
+          "covers": "polymarket, kalshi, manifold, metaculus",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        }
+      ]
+    },
+    {
+      "parent": "tools",
+      "title": "Dashboards & market data",
+      "note": "Watching flow, positions and volume without building your own pipeline. The leaderboards also tell you which wallets are worth copying, or fading.",
+      "item_label": "Tool",
+      "covers": true,
+      "extra": {
+        "key": "access",
+        "label": "Access"
+      },
+      "tools": [
+        {
+          "name": "Dune: Kalshi Overview",
+          "url": "https://dune.com/datadashboards/kalshi-overview",
+          "description": "Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription.",
+          "covers": "kalshi",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Dune: Prediction Markets",
+          "url": "https://dune.com/datadashboards/prediction-markets",
+          "description": "Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues - the broadest free venue-share view.",
+          "covers": "polymarket, kalshi, limitless, myriad, predict-fun",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "OVERROUND",
+          "url": "https://www.overround.pro",
+          "description": "Skill-adjusted leaderboard scoring every on-chain fill against the price paid, de-correlating events and shrinking small samples so sharp money is defensible.",
+          "covers": "polymarket",
+          "extra": "freemium",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "freemium"
+        },
+        {
+          "name": "Polyguana",
+          "url": "https://polyguana.com",
+          "description": "Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive.",
+          "covers": "polymarket",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Polysights",
+          "url": "https://www.polysights.xyz",
+          "description": "Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access.",
+          "covers": "polymarket",
+          "extra": "freemium",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "freemium"
+        },
+        {
+          "name": "Resolve Markets",
+          "url": "https://resolvemarkets.com",
+          "description": "Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool.",
+          "covers": "polymarket, kalshi, predict-fun, predictit, manifold",
+          "extra": "freemium",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "freemium"
+        }
+      ]
+    },
+    {
+      "parent": "tools",
+      "title": "Data tooling",
+      "note": "Paid. It's here because reconstructing historical book depth is the one thing nothing free on this page can do.",
+      "item_label": "Tool",
+      "covers": true,
+      "extra": {
+        "key": "access",
+        "label": "Access"
+      },
+      "tools": [
+        {
+          "name": "Marketlens",
+          "url": "https://marketlens.trade",
+          "description": "Tick-level Polymarket book history from March 2026 across the whole catalog, not just crypto, with a backtester that models queue position, latency and slippage. Free tier, then $39/mo.",
+          "covers": "polymarket",
+          "extra": "freemium",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "freemium"
+        },
+        {
+          "name": "Probalytics",
+          "url": "https://probalytics.io",
+          "description": "Millisecond-granularity Polymarket history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo.",
+          "covers": "polymarket",
+          "extra": "paid",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "paid"
+        }
+      ]
+    },
+    {
+      "parent": "research",
+      "title": "Research",
+      "note": "Mostly papers, and that isn't an accident. Every venue's \"learn\" page is marketing. The 2026 academic work is free and genuinely useful: order-book microstructure, maker versus taker returns, where prices are systematically wrong, and how much arbitrage capacity really exists.",
+      "item_label": "Paper",
+      "covers": true,
+      "extra": {
+        "key": "year",
+        "label": "Year"
+      },
+      "tools": [
+        {
+          "name": "Arbitrage Analysis in Polymarket NBA Markets",
+          "url": "https://arxiv.org/abs/2605.00864",
+          "description": "75M book snapshots over 173 NBA games: only 7 executable single-market arbs with a median 3.6s life, and combinatorial episodes mostly capped near 15 shares.",
+          "covers": "polymarket",
+          "extra": "2026",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Decomposing Crowd Wisdom: Domain-Specific Calibration Dynamics",
+          "url": "https://arxiv.org/abs/2602.19520",
+          "description": "353M trades across 429k Kalshi and Polymarket contracts, mapping where prices are systematically wrong - political markets stay compressed toward 50%.",
+          "covers": "kalshi, polymarket",
+          "extra": "2026",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Logarithmic Market Scoring Rules",
+          "url": "https://mason.gmu.edu/~rhanson/mktscore.pdf",
+          "description": "Hanson's LMSR - a scoring rule doubling as a bounded-loss automated market maker, and the pricing engine behind most subsidised event markets.",
+          "covers": "general",
+          "extra": "2002",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Makers and Takers: The Economics of the Kalshi Prediction Market",
+          "url": "https://www2.gwu.edu/~forcpgm/2026-001.pdf",
+          "description": "Transaction-level study of 300k+ Kalshi contracts: a strong favorite-longshot bias after fees, and higher realised returns for makers than for takers.",
+          "covers": "kalshi",
+          "extra": "2026",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Optimal Market Making in Prediction Markets",
+          "url": "https://arxiv.org/abs/2607.17991",
+          "description": "Derives optimal bid and ask quotes for binary event contracts via an HJB equation, handling inventory and terminal settlement risk - the binary analogue of Avellaneda-Stoikov.",
+          "covers": "general",
+          "extra": "2026",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Prices, Probabilities, and Parlays: Systematic Bias in Sports Prediction Markets",
+          "url": "https://arxiv.org/abs/2607.14430",
+          "description": "23M Kalshi moneyline trades: calibration holds mid-contract but breaks in the final ten minutes, and cross-game parlays are overpriced relative to their legs.",
+          "covers": "kalshi",
+          "extra": "2026",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "The Anatomy of a Decentralized Prediction Market",
+          "url": "https://arxiv.org/abs/2604.24366",
+          "description": "Microstructure of 30bn Polymarket book events - longshot spread premium, ~1% wash trading, and a warning that trade direction inferred from the public book is only ~59% accurate.",
+          "covers": "polymarket",
+          "extra": "2026",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        }
+      ]
+    },
+    {
+      "parent": "writing",
+      "title": "Blogs",
+      "note": "People worth reading, free and not owned by an exchange. Last post comes from each blog's own feed, so one that goes quiet shows it here instead of sitting around looking current. Building something in this space? Put yourself in this table.",
+      "item_label": "Blog",
+      "covers": false,
+      "extra": {
+        "key": "last_post",
+        "label": "Last post"
+      },
+      "tools": [
+        {
+          "name": "Alphanume Research",
+          "url": "https://www.alphanume-research.com/",
+          "description": "Free quant-flavoured writing on actually trading these venues - order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets.",
+          "covers": null,
+          "extra": "2026-08-15",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Imperfect Information",
+          "url": "https://rajivsethi.substack.com",
+          "description": "Rajiv Sethi on prediction-market accuracy, wash trading and market design - the most rigorous writing on when prices beat polls and where they fail.",
+          "covers": null,
+          "extra": "2026-08-06",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Kacho",
+          "url": "https://kacho.io",
+          "description": "Data engineer building side projects in public, including the Polymarket market-making bot polymm, and posting the verified metrics behind them.",
+          "covers": null,
+          "extra": "2026-08-13",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Sentinel Global Risks Watch",
+          "url": "https://blog.sentinel-team.org",
+          "description": "Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts.",
+          "covers": null,
+          "extra": "2026-08-10",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "The Event Horizon",
+          "url": "https://nexteventhorizon.substack.com",
+          "description": "Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation - the structural risk that moves liquidity.",
+          "covers": null,
+          "extra": "2026-08-12",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        }
+      ]
+    },
+    {
+      "parent": "writing",
+      "title": "X accounts",
+      "note": "The only rows here that nothing checks. X killed its free API tier in February 2026, so confirming an account is even still alive now costs money per lookup. These three are in on outside coverage, not follower counts. I checked the podcasts too. None of them qualified.",
+      "item_label": "Account",
+      "covers": false,
+      "extra": null,
+      "tools": [
+        {
+          "name": "Domer (@Domahhhh)",
+          "url": "https://x.com/Domahhhh",
+          "description": "Polymarket's number one all-time trader by volume and profit, around $300M across 5,000+ markets, and the most-cited independent voice in the space.",
+          "covers": null,
+          "extra": null,
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Esoteric Catboy (@catboyautist)",
+          "url": "https://x.com/catboyautist",
+          "description": "Trader who posts positions and reasoning openly, particularly on Kalshi mention markets; quoted in Bloomberg's 2026 prediction-markets feature.",
+          "covers": null,
+          "extra": null,
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "Kyle (@KyleDeWriter)",
+          "url": "https://x.com/KyleDeWriter",
+          "description": "Tracks the Polymarket leaderboard and explains platform mechanics, such as what removing the 500ms order delay did to short-dated markets.",
+          "covers": null,
+          "extra": null,
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        }
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Azuro",
+      "url": "https://azuro.org",
+      "reason": "Sports-betting liquidity protocol powering third-party sportsbooks, not a prediction market venue in its own right."
+    },
+    {
+      "name": "Overtime",
+      "url": "https://overtimemarkets.xyz",
+      "reason": "Sports betting (Thales protocol family) with an AMM, not event-outcome prediction markets."
+    },
+    {
+      "name": "Hyperliquid Outcomes (HIP-4)",
+      "url": "https://app.hyperliquid.xyz/outcomes",
+      "reason": "Exchange infrastructure rather than a venue in its own right - HIP-4 is an order-book primitive that front-ends build on, and mainnet inventory is a handful of recurring crypto price binaries."
+    },
+    {
+      "name": "ForecastEx",
+      "url": "https://forecastex.com",
+      "reason": "A CFTC-licensed exchange that retail cannot access directly; it is the matching venue behind broker front-ends such as IBKR ForecastTrader, which are listed instead."
+    },
+    {
+      "name": "Iowa Electronic Markets",
+      "url": "https://iem.uiowa.edu",
+      "reason": "Academic research market with $500 account caps, no API, and negligible volume; of historical interest rather than practical use."
+    },
+    {
+      "name": "Futuur",
+      "url": "https://futuur.com",
+      "reason": "Play-money side adds no data or liquidity, and the real-money side is offshore-licensed with 39 countries blocked and no historical API. Nothing in the directory references it."
+    },
+    {
+      "name": "Hypermind",
+      "url": "https://www.hypermind.com",
+      "reason": "Prize-based forecasting with no public API and no exportable data, so it offers nothing to a trader or a builder."
+    },
+    {
+      "name": "Good Judgment Open",
+      "url": "https://www.gjopen.com",
+      "reason": "No API and no data export. Metaculus covers the same ground with full public forecast history."
+    },
+    {
+      "name": "Rain",
+      "url": "https://www.rain.trade",
+      "reason": "A real venue, but not a measurable one. DefiLlama tracks its retired deployment and reads zero, its own API reports pool collateral rather than traded volume, and roughly half the all-time volume was one address trading with itself."
+    }
+  ]
+}

@@ -32,8 +32,8 @@ jobs:
         run: |
           git config user.name "almanac-bot"
           git config user.email "actions@users.noreply.github.com"
-          if ! git diff --quiet README.md; then
-            git add README.md
-            git commit -m "chore: rebuild README from data"
+          if ! git diff --quiet README.md almanac.json; then
+            git add README.md almanac.json
+            git commit -m "chore: rebuild README + almanac.json from data"
             git push
           fi
