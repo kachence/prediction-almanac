@@ -7,16 +7,16 @@
 [![platforms](https://img.shields.io/badge/platforms-15-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-11-2ea44f)](#data-sources)
 [![tools](https://img.shields.io/badge/tools-40-2ea44f)](#tools)
-[![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/prediction-markets)
+[![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/wiki/prediction-markets-directory)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
 [![data licence](https://img.shields.io/badge/data-CC0-lightgrey)](data/LICENSE)
 
 > Every prediction market worth trading, the data you can actually backtest on, and the tools people have really shipped. Rebuilt from scratch daily, so it can't rot.
 
-[![The almanac rendered as a browsable page on kacho.io](docs/preview.png)](https://kacho.io/prediction-markets)
+[![The almanac rendered as a browsable page on kacho.io](docs/preview.png)](https://kacho.io/wiki/prediction-markets-directory)
 
-**Now a browsable page too: [kacho.io/prediction-markets](https://kacho.io/prediction-markets).** It renders straight from this repo and rebuilds daily, so anything accepted here shows up there as well, automatically. One submission, both places.
+**Now a browsable page too: [kacho.io/wiki/prediction-markets-directory](https://kacho.io/wiki/prediction-markets-directory).** It renders straight from this repo and rebuilds daily, so anything accepted here shows up there as well, automatically. One submission, both places.
 
 [Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Contributing](#contributing) · [How it works](SPEC.md)
 
@@ -238,7 +238,7 @@ something that isn't here,
 Two ways in. [Open an issue with a link](https://github.com/kachence/prediction-almanac/issues/new?template=submit-resource.yml)
 and I'll do the rest, or send a PR touching `data/` only - the README rebuilds itself
 after merge, so it never goes in your diff. Whatever lands here also lands on the
-[hosted page](https://kacho.io/prediction-markets), rebuilt daily, so a good entry gets seen in both places.
+[hosted page](https://kacho.io/wiki/prediction-markets-directory), rebuilt daily, so a good entry gets seen in both places.
 
 [CONTRIBUTING.md](CONTRIBUTING.md) spells out exactly what gets an entry, section by
 section, so you can tell before you write anything whether I'd say no. A bot that vets

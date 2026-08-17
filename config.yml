@@ -4,7 +4,7 @@
 site:
   title: Prediction Almanac
   repo: kachence/prediction-almanac
-  page: https://kacho.io/prediction-markets
+  page: https://kacho.io/wiki/prediction-markets-directory
   tagline: >-
     Every prediction market worth trading, the data you can actually backtest on, and
     the tools people have really shipped. Rebuilt from scratch daily, so it can't rot.
