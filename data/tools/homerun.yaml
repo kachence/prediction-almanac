@@ -6,7 +6,7 @@ category: bot
 platforms: [polymarket, kalshi]
 github:
   stars: 172
-  last_commit: '2026-07-04'
+  last_commit: '2026-08-16'
   license: AGPL-3.0
   archived: false
   health: active
