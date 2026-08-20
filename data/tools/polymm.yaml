@@ -5,7 +5,7 @@ repo: https://github.com/kachence/polymm
 category: bot
 platforms: [polymarket]
 github:
-  stars: 77
+  stars: 78
   last_commit: '2026-08-16'
   license: MIT
   archived: false
