@@ -13,10 +13,10 @@ geo:
   as_of: "2026-08-13"
   notes: "Terms section 4 'Restricted Jurisdictions' lists 14 countries plus Ontario (sub-national) and Crimea, Donetsk and Luhansk, and bars VPN circumvention. Restricted users get a view-only mode: news and prices, no trading. Taiwan is listed as 'Taiwan Province' beside Hong Kong and the PRC."
 metrics:
-  volume_usd: 370127727
+  volume_usd: 370430162
   period: 30d
   source: defillama (opinion)
-  as_of: "2026-08-23"
+  as_of: "2026-08-24"
 data:
   public_api: true
   live_orderbook: true
