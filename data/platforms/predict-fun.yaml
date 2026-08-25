@@ -13,10 +13,10 @@ geo:
   as_of: "2026-08-12"
   notes: "Sanctioned jurisdictions fully restricted; trading additionally barred for US, UK, France, Ontario (Canada), Singapore, Poland, Thailand, Australia, Belgium, Taiwan."
 metrics:
-  volume_usd: 182010205
+  volume_usd: 184789418
   period: 30d
   source: defillama (predict-fun)
-  as_of: "2026-08-24"
+  as_of: "2026-08-25"
 data:
   public_api: true
   live_orderbook: true

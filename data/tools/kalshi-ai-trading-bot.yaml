@@ -5,7 +5,7 @@ repo: https://github.com/ryanfrigo/kalshi-ai-trading-bot
 category: bot
 platforms: [kalshi]
 github:
-  stars: 577
+  stars: 578
   last_commit: '2026-07-06'
   license: MIT
   archived: false

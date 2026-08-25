@@ -42,11 +42,11 @@ That's the only way a list like this stays correct.
 
 | Platform | Type | Since | Volume | Who can trade | Description |
 |---|---|---|---|---|---|
-| **[Polymarket](https://polymarket.com)** | CLOB, Polygon | 2020 | $2.3B/30d | [🌍 exc. 🇺🇸🇬🇧🇨🇦🇦🇺 +39](https://polymarket.com/tos "Cannot trade: United States, United Kingdom, Canada, Australia, Germany, France, Netherlands, Italy, Japan, Singapore, Brazil, Belgium, Burundi, Belarus, DR Congo, +28 more") | Largest on-chain prediction market; USDC-settled CLOB on Polygon. |
-| **[Opinion](https://app.opinion.trade)** | CLOB, BNB Chain | 2025 | $370.4M/30d | [🌍 exc. 🇺🇸🇬🇧🇫🇷🇨🇳 +10](https://docs.opinion.trade/legal/terms-of-use "Cannot trade: United States, United Kingdom, France, China, Singapore, Cuba, Hong Kong, Iran, North Korea, South Korea, Poland, Syria, Thailand, Taiwan") | CLOB on BNB Chain, YZi Labs backed, covering macro, crypto and sports. Volume ranks near the top but its points programme pays on trade size, so treat the figure as contested. |
-| **[predict.fun](https://predict.fun)** | CLOB, Blast | 2024 | $182M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9](https://docs.predict.fun/terms-of-service "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan") | Polymarket-style on-chain CLOB prediction market on Blast. |
-| **[SX Bet](https://sx.bet)** | CLOB, SX Rollup | 2019 | $64M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19](https://help.sx.bet/en/articles/3613372-terms-and-conditions "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more") | Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports. |
-| **[Limitless](https://limitless.exchange)** | CLOB, Base | 2024 | $34.1M/30d | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
+| **[Polymarket](https://polymarket.com)** | CLOB, Polygon | 2020 | $2.2B/30d | [🌍 exc. 🇺🇸🇬🇧🇨🇦🇦🇺 +39](https://polymarket.com/tos "Cannot trade: United States, United Kingdom, Canada, Australia, Germany, France, Netherlands, Italy, Japan, Singapore, Brazil, Belgium, Burundi, Belarus, DR Congo, +28 more") | Largest on-chain prediction market; USDC-settled CLOB on Polygon. |
+| **[Opinion](https://app.opinion.trade)** | CLOB, BNB Chain | 2025 | $372M/30d | [🌍 exc. 🇺🇸🇬🇧🇫🇷🇨🇳 +10](https://docs.opinion.trade/legal/terms-of-use "Cannot trade: United States, United Kingdom, France, China, Singapore, Cuba, Hong Kong, Iran, North Korea, South Korea, Poland, Syria, Thailand, Taiwan") | CLOB on BNB Chain, YZi Labs backed, covering macro, crypto and sports. Volume ranks near the top but its points programme pays on trade size, so treat the figure as contested. |
+| **[predict.fun](https://predict.fun)** | CLOB, Blast | 2024 | $184.8M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9](https://docs.predict.fun/terms-of-service "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan") | Polymarket-style on-chain CLOB prediction market on Blast. |
+| **[SX Bet](https://sx.bet)** | CLOB, SX Rollup | 2019 | $63.1M/30d | [🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19](https://help.sx.bet/en/articles/3613372-terms-and-conditions "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more") | Peer-to-peer betting exchange with a genuine order book on its own Arbitrum Orbit L2; no house or vig, but every currently active market is sports. |
+| **[Limitless](https://limitless.exchange)** | CLOB, Base | 2024 | $32.7M/30d | [🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾](https://docs.limitless.exchange/user-guide/terms-of-service#1-eligibility "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria") | Fast-cycle (hourly/daily/weekly) prediction markets on Base, aimed at traders. |
 | **[Myriad](https://myriad.markets)** | CLOB, BNB Chain +3 | 2025 | $1.9M/30d | [🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14](https://help.myriad.markets/myriad-terms-of-use "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more") | Prediction market from Dastan (Decrypt, Rug Radio): an off-chain-matched, on-chain-settled order book on BNB Chain, plus AMM markets on Abstract, Celo, and Linea. |
 
 ### Regulated exchanges & brokers
@@ -148,18 +148,18 @@ something that isn't here,
 
 | Tool | Covers | Status | Description |
 |---|---|---|---|
-| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,723★ · 2026-08-23 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
-| **[PMXT SDK](https://github.com/pmxt-dev/pmxt)** | polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions | 2,096★ · 2026-07-18 | CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration - one integration instead of fourteen. |
-| **[poly-maker](https://github.com/warproxxx/poly-maker)** | polymarket | 1,460★ · 2026-07-09 | Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine. |
+| **[CCXT](https://github.com/ccxt/ccxt)** | polymarket, kalshi, limitless, myriad | 43,741★ · 2026-08-25 | The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages. |
+| **[PMXT SDK](https://github.com/pmxt-dev/pmxt)** | polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions | 2,098★ · 2026-07-18 | CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration - one integration instead of fourteen. |
+| **[poly-maker](https://github.com/warproxxx/poly-maker)** | polymarket | 1,466★ · 2026-07-09 | Maker-only market making on Polymarket CLOB V2: depth-weighted microprice fair value, inventory skew, volatility-widened spreads and a regime state machine. |
 | **[CloddsBot](https://github.com/alsk1992/CloddsBot)** | polymarket, kalshi, manifold, metaculus, predict-fun | 739★ · 2026-06-26 | Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers. |
-| **[kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot)** | kalshi | 577★ · 2026-07-06 | Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents. |
-| **[Kalshi Trading Bot CLI](https://github.com/OctagonAI/kalshi-trading-bot-cli)** | kalshi | 373★ · 2026-08-22 | CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly - with a demo mode. |
+| **[kalshi-ai-trading-bot](https://github.com/ryanfrigo/kalshi-ai-trading-bot)** | kalshi | 578★ · 2026-07-06 | Kalshi strategy toolkit with authenticated client, position tracking, paper mode and example strategies whose losing periods the README documents. |
+| **[Kalshi Trading Bot CLI](https://github.com/OctagonAI/kalshi-trading-bot-cli)** | kalshi | 375★ · 2026-08-22 | CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly - with a demo mode. |
 | **[PolyClaw](https://github.com/chainstacklabs/polyclaw)** | polymarket | 355★ · 2026-04-28 | Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking. |
-| **[KalshiMarketMaker](https://github.com/rodlaf/KalshiMarketMaker)** | kalshi | 269★ · 2026-04-14 | Avellaneda-Stoikov market making on Kalshi - reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment. |
+| **[KalshiMarketMaker](https://github.com/rodlaf/KalshiMarketMaker)** | kalshi | 279★ · 2026-04-14 | Avellaneda-Stoikov market making on Kalshi - reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment. |
 | **[Homerun](https://github.com/braedonsaunders/homerun)** | polymarket, kalshi | 175★ · 2026-08-21 | Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode. |
-| **[Polymarket Alpha Bot](https://github.com/chainstacklabs/polymarket-alpha-bot)** | polymarket | 169★ · 2026-08-05 | Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes. |
-| **[polymm](https://github.com/kachence/polymm)** | polymarket | 79★ · 2026-08-16 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
-| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | polymarket, omen | 74★ · 2026-08-14 | Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis. |
+| **[Polymarket Alpha Bot](https://github.com/chainstacklabs/polymarket-alpha-bot)** | polymarket | 170★ · 2026-08-05 | Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes. |
+| **[polymm](https://github.com/kachence/polymm)** | polymarket | 80★ · 2026-08-16 | Sports market-making and arbitrage bot for Polymarket: de-vigs sportsbook odds, quotes both sides, and hedges the fills. |
+| **[Olas Predict trader](https://github.com/valory-xyz/trader)** | polymarket, omen | 74★ · 2026-08-24 | Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis. |
 | **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 59★ · 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
 
 ### Cross-venue search & arbitrage
@@ -217,10 +217,10 @@ something that isn't here,
 
 | Blog | Last post | Description |
 |---|---|---|
-| **[Alphanume Research](https://www.alphanume-research.com/)** | 2026-08-20 | Free quant-flavoured writing on actually trading these venues - order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets. |
+| **[Alphanume Research](https://www.alphanume-research.com/)** | 2026-08-24 | Free quant-flavoured writing on actually trading these venues - order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets. |
 | **[Imperfect Information](https://rajivsethi.substack.com)** | 2026-08-06 | Rajiv Sethi on prediction-market accuracy, wash trading and market design - the most rigorous writing on when prices beat polls and where they fail. |
 | **[Kacho](https://kacho.io)** | 2026-08-13 | Data engineer building side projects in public, including the Polymarket market-making bot polymm, and posting the verified metrics behind them. |
-| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | 2026-08-17 | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
+| **[Sentinel Global Risks Watch](https://blog.sentinel-team.org)** | 2026-08-24 | Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts. |
 | **[The Event Horizon](https://nexteventhorizon.substack.com)** | 2026-08-12 | Dustin Gouker's near-daily free trade publication on volume shifts, contract design, exchange litigation and CFTC/state regulation - the structural risk that moves liquidity. |
 
 ### X accounts
@@ -260,5 +260,5 @@ carry none, which the entries tell you.
 
 ---
 
-_Generated 2026-08-24 from [`data/`](data/). Found something dead? The refresh bot
+_Generated 2026-08-25 from [`data/`](data/). Found something dead? The refresh bot
 probably will too, but [open an issue](https://github.com/kachence/prediction-almanac/issues) anyway._
