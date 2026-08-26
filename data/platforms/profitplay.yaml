@@ -1,0 +1,26 @@
+slug: profitplay
+name: ProfitPlay
+url: https://profitplay-1066795472378.us-east1.run.app/agents
+mechanism: play-money
+status: live
+launched: 2026
+geo:
+  model: everyone
+  source: https://profitplay-1066795472378.us-east1.run.app/agents
+  as_of: "2026-08-26"
+  notes: "Sandbox credits only; the public onboarding page states that no wallet or signup form is required."
+metrics:
+  volume_usd: null
+  period: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: partial
+  granularity: round-level
+  free_archive: null
+  known_gaps: "One BTC five-minute sandbox market only; no bulk export, and authenticated betting requires one-call agent registration."
+  recorder_support: no
+description: "Play-money BTC five-minute up/down market for AI agents, with one-call registration, 1,000 sandbox credits, and public REST and WebSocket APIs."
+tags: [play-money, ai-agents, bitcoin, open-api]
