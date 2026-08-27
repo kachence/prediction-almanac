@@ -5,7 +5,7 @@ repo: https://github.com/chainstacklabs/polyclaw
 category: bot
 platforms: [polymarket]
 github:
-  stars: 355
+  stars: 356
   last_commit: '2026-04-28'
   license: Apache-2.0
   archived: false
