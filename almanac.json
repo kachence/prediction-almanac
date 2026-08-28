@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-08-27",
+  "generated_on": "2026-08-28",
   "site": {
     "title": "Prediction Almanac",
     "repo": "kachence/prediction-almanac",
@@ -34,7 +34,7 @@
           "url": "https://app.opinion.trade",
           "type": "CLOB, BNB Chain",
           "launched": 2025,
-          "volume": "$371.9M/30d",
+          "volume": "$365.2M/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇬🇧🇫🇷🇨🇳 +10",
             "title": "Cannot trade: United States, United Kingdom, France, China, Singapore, Cuba, Hong Kong, Iran, North Korea, South Korea, Poland, Syria, Thailand, Taiwan",
@@ -47,7 +47,7 @@
           "url": "https://predict.fun",
           "type": "CLOB, Blast",
           "launched": 2024,
-          "volume": "$188.7M/30d",
+          "volume": "$192.8M/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9",
             "title": "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan",
@@ -60,7 +60,7 @@
           "url": "https://sx.bet",
           "type": "CLOB, SX Rollup",
           "launched": 2019,
-          "volume": "$61.9M/30d",
+          "volume": "$60.4M/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇬🇧🇦🇺🇩🇪 +19",
             "title": "Cannot trade: United States, United Kingdom, Australia, Germany, France, Netherlands, Spain, Afghanistan, Austria, Belarus, Cuba, Iraq, Iran, Comoros, North Korea, +8 more",
@@ -73,7 +73,7 @@
           "url": "https://limitless.exchange",
           "type": "CLOB, Base",
           "launched": 2024,
-          "volume": "$30.9M/30d",
+          "volume": "$30M/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾",
             "title": "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria",
@@ -106,7 +106,7 @@
           "url": "https://kalshi.com",
           "type": "Regulated exchange",
           "launched": 2021,
-          "volume": "$10.9B/30d",
+          "volume": "$11B/30d",
           "geo": {
             "text": "🌍 exc. 🇬🇧🇨🇦🇦🇺🇫🇷 +51",
             "title": "Cannot trade: United Kingdom, Canada, Australia, France, Italy, China, India, Singapore, United Arab Emirates, Afghanistan, Angola, Belgium, Burkina Faso, Bulgaria, Bolivia, +40 more",
@@ -119,7 +119,7 @@
           "url": "https://www.gemini.com/predictions",
           "type": "Regulated exchange",
           "launched": 2025,
-          "volume": "$35.5M/30d",
+          "volume": "$35.8M/30d",
           "geo": {
             "text": "only 🇺🇸",
             "title": "Can trade: United States",
@@ -416,9 +416,9 @@
           "url": "https://github.com/ccxt/ccxt",
           "description": "The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages.",
           "covers": "polymarket, kalshi, limitless, myriad",
-          "extra": "43,770★ · 2026-08-27",
-          "stars": 43770,
-          "last_commit": "2026-08-27",
+          "extra": "43,786★ · 2026-08-28",
+          "stars": 43786,
+          "last_commit": "2026-08-28",
           "health": "active",
           "access": null
         },
@@ -427,8 +427,8 @@
           "url": "https://github.com/pmxt-dev/pmxt",
           "description": "CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration - one integration instead of fourteen.",
           "covers": "polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions",
-          "extra": "2,102★ · 2026-07-18",
-          "stars": 2102,
+          "extra": "2,105★ · 2026-07-18",
+          "stars": 2105,
           "last_commit": "2026-07-18",
           "health": "active",
           "access": null
@@ -449,8 +449,8 @@
           "url": "https://github.com/alsk1992/CloddsBot",
           "description": "Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers.",
           "covers": "polymarket, kalshi, manifold, metaculus, predict-fun",
-          "extra": "753★ · 2026-06-26",
-          "stars": 753,
+          "extra": "777★ · 2026-06-26",
+          "stars": 777,
           "last_commit": "2026-06-26",
           "health": "active",
           "access": null
@@ -471,8 +471,8 @@
           "url": "https://github.com/OctagonAI/kalshi-trading-bot-cli",
           "description": "CLI that researches a question, forms an independent probability, computes edge against the live book and sizes with Kelly - with a demo mode.",
           "covers": "kalshi",
-          "extra": "375★ · 2026-08-22",
-          "stars": 375,
+          "extra": "376★ · 2026-08-22",
+          "stars": 376,
           "last_commit": "2026-08-22",
           "health": "active",
           "access": null
@@ -493,8 +493,8 @@
           "url": "https://github.com/rodlaf/KalshiMarketMaker",
           "description": "Avellaneda-Stoikov market making on Kalshi - reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment.",
           "covers": "kalshi",
-          "extra": "318★ · 2026-04-14",
-          "stars": 318,
+          "extra": "329★ · 2026-04-14",
+          "stars": 329,
           "last_commit": "2026-04-14",
           "health": "active",
           "access": null
@@ -537,9 +537,9 @@
           "url": "https://github.com/valory-xyz/trader",
           "description": "Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis.",
           "covers": "polymarket, omen",
-          "extra": "74★ · 2026-08-27",
-          "stars": 74,
-          "last_commit": "2026-08-27",
+          "extra": "76★ · 2026-08-28",
+          "stars": 76,
+          "last_commit": "2026-08-28",
           "health": "active",
           "access": null
         },
@@ -833,7 +833,7 @@
           "url": "https://www.alphanume-research.com/",
           "description": "Free quant-flavoured writing on actually trading these venues - order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets.",
           "covers": null,
-          "extra": "2026-08-24",
+          "extra": "2026-08-28",
           "stars": null,
           "last_commit": null,
           "health": null,
