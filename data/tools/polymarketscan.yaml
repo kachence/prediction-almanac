@@ -1,0 +1,8 @@
+slug: polymarketscan
+name: PolymarketScan
+url: https://polymarketscan.org/
+category: dashboard
+platforms: [polymarket]
+access: free
+description: "Polymarket explorer with a live whale print feed, wallet and market pages, a trader leaderboard, an airdrop checker, and a no-signup Agent API and MCP endpoint."
+tags: [whale-tracking, wallet-analysis, api]
