@@ -5,7 +5,7 @@ repo: https://github.com/rodlaf/KalshiMarketMaker
 category: bot
 platforms: [kalshi]
 github:
-  stars: 329
+  stars: 335
   last_commit: '2026-04-14'
   license: MIT
   archived: false
