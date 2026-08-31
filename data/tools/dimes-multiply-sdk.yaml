@@ -1,0 +1,14 @@
+slug: dimes-multiply-sdk
+name: Dimes Multiply SDK
+url: https://github.com/dimes-fi/multiply-sdk
+repo: https://github.com/dimes-fi/multiply-sdk
+category: bot
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "TypeScript SDK for opening 2-10x leveraged Polymarket positions from a third-party front-end, putting the borrow, collateral and liquidation handling behind one call."
+tags: [typescript, leverage, margin, sdk]
