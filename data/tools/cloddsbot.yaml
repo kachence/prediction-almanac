@@ -5,8 +5,8 @@ repo: https://github.com/alsk1992/CloddsBot
 category: bot
 platforms: [polymarket, kalshi, manifold, metaculus, predict-fun]
 github:
-  stars: 814
-  last_commit: '2026-08-30'
+  stars: 841
+  last_commit: '2026-08-31'
   license: MIT
   archived: false
   health: active

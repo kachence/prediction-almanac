@@ -13,10 +13,10 @@ geo:
   as_of: "2026-08-12"
   notes: "Two tiers under Eligibility: no access at all from RU, BY, CU, IR, KP, SY and Crimea/Donetsk/Luhansk; access but no trading for the US, Ontario and Alberta (Canada), and 'Republic of China' - quoted verbatim and ambiguous between Taiwan and the PRC, so left uncoded."
 metrics:
-  volume_usd: 29073589
+  volume_usd: 27375906
   period: 30d
   source: defillama (limitless-exchange)
-  as_of: "2026-08-30"
+  as_of: "2026-08-31"
 data:
   public_api: true
   live_orderbook: true
