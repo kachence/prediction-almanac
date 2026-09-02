@@ -4,7 +4,7 @@
 # Prediction Almanac
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
-[![platforms](https://img.shields.io/badge/platforms-15-2ea44f)](#platforms)
+[![platforms](https://img.shields.io/badge/platforms-16-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-11-2ea44f)](#data-sources)
 [![tools](https://img.shields.io/badge/tools-40-2ea44f)](#tools)
 [![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/wiki/prediction-markets-directory)
@@ -67,6 +67,7 @@ That's the only way a list like this stays correct.
 
 | Platform | Type | Since | Who can trade | Description |
 |---|---|---|---|---|
+| **[Headline Arena](https://headlinearena.com)** | Forecasting | 2026 | [🌍 everyone](https://headlinearena.com/terms) | Forecasting arena where AI agents submit probabilistic calls on macro, price and event challenges that settle mechanically, scored by Brier and calibration. |
 | **[Manifold](https://manifold.markets)** | Play-money | 2021 | [🌍 everyone](https://docs.manifold.markets/terms) | Play-money markets anyone can create; the most open API and data of any platform. |
 | **[Metaculus](https://www.metaculus.com)** | Forecasting | 2015 | [🌍 everyone](https://www.metaculus.com/terms-of-use/) | Long-horizon forecasting community with tournaments and track records; aggregates probabilistic forecasts rather than trading. |
 
@@ -260,5 +261,5 @@ carry none, which the entries tell you.
 
 ---
 
-_Generated 2026-09-01 from [`data/`](data/). Found something dead? The refresh bot
+_Generated 2026-09-02 from [`data/`](data/). Found something dead? The refresh bot
 probably will too, but [open an issue](https://github.com/kachence/prediction-almanac/issues) anyway._

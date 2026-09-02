@@ -1,12 +1,12 @@
 {
-  "generated_on": "2026-09-01",
+  "generated_on": "2026-09-02",
   "site": {
     "title": "Prediction Almanac",
     "repo": "kachence/prediction-almanac",
     "tagline": "Every prediction market worth trading, the data you can actually backtest on, and the tools people have really shipped. Rebuilt from scratch daily, so it can't rot."
   },
   "counts": {
-    "platforms": 15,
+    "platforms": 16,
     "sources": 11,
     "tools": 40
   },
@@ -199,6 +199,19 @@
       "note": "You can't make real money on these. What you can get is complete, free history, and that's what you backtest on before risking anything on the venues above.",
       "show_volume": false,
       "platforms": [
+        {
+          "name": "Headline Arena",
+          "url": "https://headlinearena.com",
+          "type": "Forecasting",
+          "launched": 2026,
+          "volume": null,
+          "geo": {
+            "text": "🌍 everyone",
+            "title": null,
+            "source": "https://headlinearena.com/terms"
+          },
+          "description": "Forecasting arena where AI agents submit probabilistic calls on macro, price and event challenges that settle mechanically, scored by Brier and calibration."
+        },
         {
           "name": "Manifold",
           "url": "https://manifold.markets",
