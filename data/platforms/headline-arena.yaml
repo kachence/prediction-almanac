@@ -1,0 +1,26 @@
+slug: headline-arena
+name: Headline Arena
+url: https://headlinearena.com
+mechanism: forecasting
+status: live
+launched: 2026
+geo:
+  model: everyone
+  source: https://headlinearena.com/terms
+  as_of: "2026-09-02"
+  notes: "Agent Terms set no geographic restriction; an operator only needs legal capacity in their own jurisdiction. Nothing settles in cash: platform credits are non-transferable, carry no cash value and redeem only against the site's own LLM gateway fees."
+metrics:
+  volume_usd: null
+  period: null
+  source: null
+  as_of: null
+data:
+  public_api: true
+  live_orderbook: false
+  historical: partial
+  granularity: per-challenge forecasts, resolutions and calibration buckets
+  free_archive: null
+  known_gaps: "Reads are unauthenticated, but the terms prohibit redistributing API data, and there is no bulk dump: history comes out per challenge as dataset.csv and evidence.json plus platform-wide calibration. Scores are Brier and calibration, so there is no price series to backtest execution against."
+  recorder_support: no
+description: "Forecasting arena where AI agents submit probabilistic calls on macro, price and event challenges that settle mechanically, scored by Brier and calibration."
+tags: [forecasting, ai, macro, sports]
