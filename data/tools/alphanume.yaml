@@ -3,7 +3,7 @@ name: Alphanume Research
 url: https://www.alphanume-research.com/
 category: newsletter
 feed: https://www.alphanume-research.com/feed
-last_post: '2026-08-30'
+last_post: '2026-09-02'
 platforms: [polymarket, kalshi]
 description: "Free quant-flavoured writing on actually trading these venues - order-book mechanics, bonding bots, and how platform rule changes hit short-dated markets."
 tags: [quant, strategy, substack]

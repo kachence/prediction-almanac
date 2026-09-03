@@ -5,7 +5,7 @@ repo: https://github.com/OctagonAI/kalshi-trading-bot-cli
 category: bot
 platforms: [kalshi]
 github:
-  stars: 379
+  stars: 380
   last_commit: '2026-08-22'
   license: MIT
   archived: false
