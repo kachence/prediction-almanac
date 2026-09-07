@@ -18,7 +18,7 @@ metrics:
   volume_usd: 2243708465
   period: 30d
   source: defillama (polymarket-international)
-  as_of: "2026-09-06"
+  as_of: "2026-09-07"
 # -----------------------------------------------------------
 data:                       # what you can get out - cross-links data/sources/ slugs
   public_api: true
