@@ -6,7 +6,7 @@ category: bot
 platforms: [kalshi]
 github:
   stars: 384
-  last_commit: '2026-09-09'
+  last_commit: '2026-09-11'
   license: MIT
   archived: false
   health: active
