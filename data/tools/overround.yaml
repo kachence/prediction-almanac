@@ -4,5 +4,5 @@ url: https://www.overround.pro
 category: dashboard
 platforms: [polymarket]
 access: freemium
-description: "Skill-adjusted leaderboard scoring every on-chain fill against the price paid, de-correlating events and shrinking small samples so sharp money is defensible."
+description: "Skill-adjusted leaderboard scoring resolved on-chain positions against the price paid, de-correlating events and shrinking small samples so sharp money is defensible."
 tags: [calibration, skill-scoring, leaderboard]
