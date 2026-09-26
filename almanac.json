@@ -662,7 +662,7 @@
         {
           "name": "OVERROUND",
           "url": "https://www.overround.pro",
-          "description": "Skill-adjusted leaderboard scoring every on-chain fill against the price paid, de-correlating events and shrinking small samples so sharp money is defensible.",
+          "description": "Skill-adjusted leaderboard scoring resolved on-chain positions against the price paid, de-correlating events and shrinking small samples so sharp money is defensible.",
           "covers": "polymarket",
           "extra": "freemium",
           "stars": null,

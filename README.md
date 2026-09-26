@@ -182,7 +182,7 @@ something that isn't here,
 |---|---|---|---|
 | **[Dune: Kalshi Overview](https://dune.com/datadashboards/kalshi-overview)** | kalshi | free | Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription. |
 | **[Dune: Prediction Markets](https://dune.com/datadashboards/prediction-markets)** | polymarket, kalshi, limitless, myriad, predict-fun | free | Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues - the broadest free venue-share view. |
-| **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted leaderboard scoring every on-chain fill against the price paid, de-correlating events and shrinking small samples so sharp money is defensible. |
+| **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted leaderboard scoring resolved on-chain positions against the price paid, de-correlating events and shrinking small samples so sharp money is defensible. |
 | **[Polyguana](https://polyguana.com)** | polymarket | free | Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive. |
 | **[Polysights](https://www.polysights.xyz)** | polymarket | freemium | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 | **[Resolve Markets](https://resolvemarkets.com)** | polymarket, kalshi, predict-fun, predictit, manifold | freemium | Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool. |
