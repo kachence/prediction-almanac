@@ -5,8 +5,8 @@ repo: https://github.com/pmxt-dev/pmxt
 category: bot
 platforms: [polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions]
 github:
-  stars: 2176
-  last_commit: '2026-07-18'
+  stars: 2177
+  last_commit: '2026-09-30'
   license: MIT
   archived: false
   health: active
