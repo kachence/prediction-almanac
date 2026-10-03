@@ -1,0 +1,8 @@
+slug: sg-tips
+name: sg.tips
+url: https://sg.tips
+category: dashboard
+platforms: [polymarket, kalshi, sxbet]
+access: freemium
+description: "Sports prediction market dashboard: per-match Polymarket and Kalshi probabilities, public positions of screened accounts, and a weekly CC BY 4.0 dataset of aggregate stats."
+tags: [sports, leaderboard, dataset]
