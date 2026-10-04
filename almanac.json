@@ -8,7 +8,7 @@
   "counts": {
     "platforms": 16,
     "sources": 11,
-    "tools": 41
+    "tools": 42
   },
   "platform_groups": [
     {
@@ -565,6 +565,17 @@
           "stars": 63,
           "last_commit": "2026-04-22",
           "health": "active",
+          "access": null
+        },
+        {
+          "name": "Garnet",
+          "url": "https://github.com/AndreySchurko/garnet-polymarket",
+          "description": "Self-hosted Polymarket copy-trading engine in Rust: mirrors wallets you pick, detects their fills three ways, with shadow mode at real fees and per-event caps. BUSL, free for individuals only.",
+          "covers": "polymarket",
+          "extra": null,
+          "stars": null,
+          "last_commit": null,
+          "health": null,
           "access": null
         }
       ]
