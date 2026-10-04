@@ -6,7 +6,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![platforms](https://img.shields.io/badge/platforms-16-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-11-2ea44f)](#data-sources)
-[![tools](https://img.shields.io/badge/tools-40-2ea44f)](#tools)
+[![tools](https://img.shields.io/badge/tools-41-2ea44f)](#tools)
 [![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/wiki/prediction-markets-directory)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
@@ -185,6 +185,7 @@ something that isn't here,
 | **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted leaderboard scoring resolved on-chain positions against the price paid, de-correlating events and shrinking small samples so sharp money is defensible. |
 | **[Polyguana](https://polyguana.com)** | polymarket | free | Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive. |
 | **[Polysights](https://www.polysights.xyz)** | polymarket | freemium | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
+| **[PolyTracer](https://polytracer.app)** | polymarket | free | Polymarket wallet analyzer: paste any address and it replays every fill from Polygon chain data, recomputing win rate, ROI and P&L, with per-category breakdowns and a live whale feed. |
 | **[Resolve Markets](https://resolvemarkets.com)** | polymarket, kalshi, predict-fun, predictit, manifold | freemium | Multi-venue suite with separate Kalshi, Polymarket and predict.fun dashboards, whale watch, contract comparison and a purpose-built negative-risk tool. |
 
 ### Data tooling
@@ -261,5 +262,5 @@ carry none, which the entries tell you.
 
 ---
 
-_Generated 2026-10-03 from [`data/`](data/). Found something dead? The refresh bot
+_Generated 2026-10-04 from [`data/`](data/). Found something dead? The refresh bot
 probably will too, but [open an issue](https://github.com/kachence/prediction-almanac/issues) anyway._

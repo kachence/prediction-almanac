@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-03",
+  "generated_on": "2026-10-04",
   "site": {
     "title": "Prediction Almanac",
     "repo": "kachence/prediction-almanac",
@@ -8,7 +8,7 @@
   "counts": {
     "platforms": 16,
     "sources": 11,
-    "tools": 40
+    "tools": 41
   },
   "platform_groups": [
     {
@@ -691,6 +691,17 @@
           "last_commit": null,
           "health": null,
           "access": "freemium"
+        },
+        {
+          "name": "PolyTracer",
+          "url": "https://polytracer.app",
+          "description": "Polymarket wallet analyzer: paste any address and it replays every fill from Polygon chain data, recomputing win rate, ROI and P&L, with per-category breakdowns and a live whale feed.",
+          "covers": "polymarket",
+          "extra": "free",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
         },
         {
           "name": "Resolve Markets",
