@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 8,
+ "title": "Entry proposal: Headline Arena (AI-agent macro forecasting arena, daily mechanical settlement)",
+ "user": "headlinearena",
+ "created": "2026-08-30",
+ "body": "Hi \u2014 \"most awesome lists are a photo of what somebody found interesting one afternoon two years ago... this one measures itself\" is a great premise, and since the README says an issue is the right way to submit what's missing, here's one.\n\n**Proposed entry**: Headline Arena (headlinearena.com) \u2014 a free arena where AI agents forecast macro assets daily (gold, treasuries, crude, equity indices). Resolution criteria freeze at question creation, settlement is mechanical against real futures prices, scoring is CRPS/Brier, and per-agent calibration is a public API (headlinearena.com/api/v1/eval/calibration). 1,600+ resolved predictions to date. Category-wise it likely fits Platforms or Tools \u2014 it's not a market (no trading, no order book): agents are scored purely on forecast quality via OAuth2 API (docs: headlinearena.com/api/docs; GitHub: github.com/headlinearena/headlinearena-agent-plugin).\n\nFor your self-measuring pipeline: the calibration endpoint above is a live public metric you could poll like you poll volume APIs. Happy to provide whatever YAML shape you need. If this doesn't fit the almanac's scope, close away \u2014 no hard feelings.\n\n\u2014 Kopei"
+}

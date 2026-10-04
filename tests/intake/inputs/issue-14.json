@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 14,
+ "title": "[submission] oracle3 - fee-aware no-arbitrage trading engine for Kalshi and Polymarket",
+ "user": "YichengYang-Ethan",
+ "created": "2026-09-30",
+ "body": "### Link\n\nhttps://github.com/YichengYang-Ethan/oracle3-prediction-market-agent\n\n### What is it\n\nTool - a bot, screener, dashboard or execution layer\n\n### Which venues does it cover\n\nkalshi, polymarket\n\n### What does it do, and why does it beat what's already listed\n\nOpen-source (Apache-2.0) trading engine that prices whole baskets across related event contracts rather than single markets: it checks five no-arbitrage relations (implication, exclusivity, complement, the same event on two venues, and exhaustive outcome sets) at executable book prices net of each venue's current fee schedule, then trades them live or on paper under pre-trade risk limits; it also runs cointegration and lead-lag strategies and ships a 13-tool MCP server. Maintained: v1.2.1 released in September 2026, CI on every push, and three outside contributors' PRs merged this month.\n\n### Is this yours\n\n- [x] I made this, or I work on it.\n"
+}

@@ -1,7 +1,11 @@
 # Contributing
 
-Two ways in. Open an issue with a link and I'll do the rest, or send a PR that touches
-`data/` only.
+One way in: [the issue form](../../issues/new?template=submit-resource.yml). A bot reads
+it within minutes, checks the link, the repo and the rules below, and either adds the
+entry, closes with one reason, or drafts a PR for me to look at. It comments as a bot,
+and every decision it makes is in a public workflow log. PRs that touch `data/` directly
+get closed with a pointer back to the form, because the bot writes every entry the same
+way and that is what keeps the file shapes honest.
 
 If you want to know how the thing is built before you touch it, that's [SPEC.md](SPEC.md):
 the data model, the pipelines, and why each decision went the way it did.

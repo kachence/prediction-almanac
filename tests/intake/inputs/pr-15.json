@@ -1,0 +1,9 @@
+{
+ "kind": "pr",
+ "number": 15,
+ "title": "Add PolyTracer to data/tools",
+ "user": "Yannzerrr",
+ "created": "2026-10-03",
+ "body": "Adds `data/tools/polytracer.yaml`. Data file only \u2014 `README.md` is untouched, and `metrics`, `github` and `last_post` are left out so the refresh bot owns them.\r\n\r\nPolyTracer is a Polymarket wallet analyzer: every wallet is replayed fill by fill from raw Polygon chain data, so win rate, ROI and P&L are recomputed rather than read off the site. Leaderboards are ranked by a 0-100 Copy Score, with win rates broken down per category, plus a live whale feed.\r\n\r\nAgainst your gate for dashboards and market data: it loads, it shows live data, and nothing is behind a signup \u2014 wallets, leaderboards and category win rates are all browsable without an account, which is why `access` is omitted rather than set to `freemium`.\r\n\r\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)",
+ "diff": "diff --git a/data/tools/polytracer.yaml b/data/tools/polytracer.yaml\nnew file mode 100644\nindex 0000000..5459061\n--- /dev/null\n+++ b/data/tools/polytracer.yaml\n@@ -0,0 +1,7 @@\n+slug: polytracer\n+name: PolyTracer\n+url: https://polytracer.app\n+category: dashboard\n+platforms: [polymarket]\n+description: \"Polymarket wallet analyzer: paste any address and it replays every fill from Polygon chain data, recomputing win rate, ROI and P&L, with per-category breakdowns and a live whale feed.\"\n+tags: [wallet-analysis, leaderboards, no-signup]\n"
+}

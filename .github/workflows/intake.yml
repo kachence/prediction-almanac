@@ -1,0 +1,50 @@
+# Vets submissions without a human: deterministic gates, one model call, decision in code.
+# See scripts/intake.py for what each outcome does. Runs on the issue itself so a dead
+# link gets its answer in minutes, plus a sweep every two days for anything that errored.
+#
+# Triggered on issues, never pull_request_target: the only untrusted input is form text,
+# no fork code is ever checked out, and the model's output can't cause a write outside
+# one new file under data/.
+name: intake
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+  schedule:
+    - cron: "23 7 */2 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: intake
+  cancel-in-progress: false
+
+jobs:
+  intake:
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: |
+          git config user.name "almanac-bot"
+          git config user.email "actions@users.noreply.github.com"
+      - name: Vet the issue that fired this run
+        if: github.event_name == 'issues'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/intake.py --issue ${{ github.event.issue.number }}
+      - name: Sweep every open submission the bot has not touched
+        if: github.event_name != 'issues'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/intake.py --sweep

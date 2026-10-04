@@ -1,0 +1,9 @@
+{
+ "kind": "pr",
+ "number": 5,
+ "title": "platforms: add ProfitPlay sandbox",
+ "user": "jarvismaximum-hue",
+ "created": "2026-08-26",
+ "body": "Adds ProfitPlay to the research and play-money venues data.\n\nProfitPlay runs a live BTC five-minute up/down sandbox for AI agents. The entry records the verified public API, round-history endpoint, one-call registration, and the current single-market limitation.\n\nI maintain ProfitPlay. The contribution changes one data file only and passes python scripts/build.py --validate.",
+ "diff": "diff --git a/data/platforms/profitplay.yaml b/data/platforms/profitplay.yaml\nnew file mode 100644\nindex 0000000..4752610\n--- /dev/null\n+++ b/data/platforms/profitplay.yaml\n@@ -0,0 +1,26 @@\n+slug: profitplay\n+name: ProfitPlay\n+url: https://profitplay-1066795472378.us-east1.run.app/agents\n+mechanism: play-money\n+status: live\n+launched: 2026\n+geo:\n+  model: everyone\n+  source: https://profitplay-1066795472378.us-east1.run.app/agents\n+  as_of: \"2026-08-26\"\n+  notes: \"Sandbox credits only; the public onboarding page states that no wallet or signup form is required.\"\n+metrics:\n+  volume_usd: null\n+  period: null\n+  source: null\n+  as_of: null\n+data:\n+  public_api: true\n+  live_orderbook: false\n+  historical: partial\n+  granularity: round-level\n+  free_archive: null\n+  known_gaps: \"One BTC five-minute sandbox market only; no bulk export, and authenticated betting requires one-call agent registration.\"\n+  recorder_support: no\n+description: \"Play-money BTC five-minute up/down market for AI agents, with one-call registration, 1,000 sandbox credits, and public REST and WebSocket APIs.\"\n+tags: [play-money, ai-agents, bitcoin, open-api]\n"
+}

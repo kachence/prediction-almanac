@@ -1,0 +1,9 @@
+{
+ "kind": "pr",
+ "number": 2,
+ "title": "sources: add Live Tennis API",
+ "user": "bensynapse",
+ "created": "2026-08-16",
+ "body": "Adds `data/sources/livetennisapi.yaml` under odds and reference feeds \u2014 the tennis event side (live match state per point, fixtures, H2H, rankings, and a 1968\u20132022 results archive) for building fair probabilities to hold against Polymarket/Kalshi tennis prices. No tennis-specific feed is in the list today.\n\nPer the house rules: data file only, `metrics`/`github`/`last_post` untouched, `scripts/build.py --validate` passes locally (20 platforms, 11 sources, 40 tools). The known_gaps field states the freemium split exactly: free tier is 30 req/min / 100 per day and covers live scores, players, fixtures and usage; completed-match history is paid; WebSocket + model win probability are top-tier.\n\n**Submitting my own work** \u2014 I run this API (the CONTRIBUTING disclosure box, ticked in prose since PRs don't carry the form).",
+ "diff": "diff --git a/data/sources/livetennisapi.yaml b/data/sources/livetennisapi.yaml\nnew file mode 100644\nindex 0000000..4b7377b\n--- /dev/null\n+++ b/data/sources/livetennisapi.yaml\n@@ -0,0 +1,13 @@\n+slug: livetennisapi\n+name: Live Tennis API\n+url: https://livetennisapi.com\n+kind: odds-feed\n+prices: Tennis\n+format: JSON REST / WebSocket / MCP\n+granularity: live match state per point, plus fixtures, H2H and rankings\n+coverage:\n+  range: live + 1968-2022 results archive\n+  completeness: partial\n+  known_gaps: \"Free tier is keyed and capped at 30 req/min and 100/day, and covers live scores, players, fixtures and usage only. Completed-match history needs a paid plan, and the WebSocket feed plus model win probability sit on the top tier.\"\n+access: free\n+description: \"Live tennis match state and a deep results archive for building fair probabilities on tennis event markets - the event side, not bookmaker odds.\"\n"
+}
