@@ -238,9 +238,17 @@ def gate_repo(http, form, token):
     if not slug:
         return "skip", "no GitHub repo named", {}
     headers = {"Authorization": f"Bearer {token}"} if token else {}
-    data = get_json(http, f"https://api.github.com/repos/{slug}", headers=headers)
-    if not data:
+    # Status-aware on purpose: only a 404 means the repo is gone. A rate limit, a 5xx or
+    # a network blip must never close a submission, so those come back as skip.
+    try:
+        r = http.get(f"https://api.github.com/repos/{slug}", headers=headers)
+    except Exception as e:
+        return "skip", f"GitHub API unreachable ({type(e).__name__}); repo not checked", {}
+    if r.status_code == 404:
         return "fail", f"github.com/{slug} does not exist or is private", {}
+    if r.status_code != 200:
+        return "skip", f"GitHub API returned {r.status_code} (rate limit?); repo not checked", {}
+    data = r.json()
     if data.get("archived"):
         return "fail", f"github.com/{slug} is archived", {}
     created = dt.date.fromisoformat(data["created_at"][:10])
