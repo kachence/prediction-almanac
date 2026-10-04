@@ -33,7 +33,7 @@ edit it, the build will overwrite you. Link-rot sweeps and the submission bot ar
 to come ([roadmap](SPEC.md#7-build-order-each-step-ships-something)).
 
 I built this and I maintain it, which means it carries my blind spots. If something is
-missing, wrong, or has quietly died, [open an issue or send a PR](https://github.com/kachence/prediction-almanac/issues).
+missing, wrong, or has quietly died, [open an issue](https://github.com/kachence/prediction-almanac/issues).
 That's the only way a list like this stays correct.
 
 ## Platforms
@@ -239,15 +239,16 @@ something that isn't here,
 
 ## Contributing
 
-Two ways in. [Open an issue with a link](https://github.com/kachence/prediction-almanac/issues/new?template=submit-resource.yml)
-and I'll do the rest, or send a PR touching `data/` only - the README rebuilds itself
-after merge, so it never goes in your diff. Whatever lands here also lands on the
-[hosted page](https://kacho.io/wiki/prediction-markets-directory), rebuilt daily, so a good entry gets seen in both places.
+One way in: [the issue form](https://github.com/kachence/prediction-almanac/issues/new?template=submit-resource.yml).
+Paste a link, answer four questions. A bot reads it within minutes, checks the link and
+the repo against the rules, and either adds the entry, closes it with one reason, or
+drafts it as a pull request for me. It comments as a bot and every decision is a public
+workflow log. Whatever lands here also lands on the [hosted page](https://kacho.io/wiki/prediction-markets-directory),
+rebuilt daily.
 
 [CONTRIBUTING.md](CONTRIBUTING.md) spells out exactly what gets an entry, section by
-section, so you can tell before you write anything whether I'd say no. A bot that vets
-submissions and merges them itself is on the
-[roadmap](SPEC.md#7-build-order-each-step-ships-something).
+section, so you can tell before you submit whether the answer is no. How the bot decides
+is in [SPEC.md](SPEC.md).
 
 ## Licence
 
