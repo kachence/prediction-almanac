@@ -3,5 +3,5 @@ name: PolyTracer
 url: https://polytracer.app
 category: dashboard
 platforms: [polymarket]
-description: "Polymarket wallets replayed fill by fill from raw Polygon chain data, so win rate, ROI and P&L are recomputed rather than read off the site. Leaderboards by a 0-100 Copy Score, win rates per category and a live whale feed."
+description: "Polymarket wallet analyzer: paste any address and it replays every fill from Polygon chain data, recomputing win rate, ROI and P&L, with per-category breakdowns and a live whale feed."
 tags: [wallet-analysis, leaderboards, no-signup]
