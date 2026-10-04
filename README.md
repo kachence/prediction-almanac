@@ -6,7 +6,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![platforms](https://img.shields.io/badge/platforms-16-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-11-2ea44f)](#data-sources)
-[![tools](https://img.shields.io/badge/tools-42-2ea44f)](#tools)
+[![tools](https://img.shields.io/badge/tools-43-2ea44f)](#tools)
 [![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/wiki/prediction-markets-directory)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
@@ -163,6 +163,7 @@ something that isn't here,
 | **[Olas Predict trader](https://github.com/valory-xyz/trader)** | polymarket, omen | 81★ · 2026-10-02 | Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis. |
 | **[prediction-market-agent-tooling](https://github.com/gnosis/prediction-market-agent-tooling)** | polymarket, manifold, omen | 63★ · 2026-04-22 | Gnosis toolkit for building AI agents that trade on prediction markets. |
 | **[Garnet](https://github.com/AndreySchurko/garnet-polymarket)** | polymarket | - | Self-hosted Polymarket copy-trading engine in Rust: mirrors wallets you pick, detects their fills three ways, with shadow mode at real fees and per-event caps. BUSL, free for individuals only. |
+| **[oracle3](https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent)** | kalshi, polymarket | - | Prices baskets of related event contracts against five no-arbitrage relations at executable prices net of each venue's fees, then trades them live or on paper under pre-trade risk limits. |
 
 ### Cross-venue search & arbitrage
 

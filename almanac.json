@@ -8,7 +8,7 @@
   "counts": {
     "platforms": 16,
     "sources": 11,
-    "tools": 42
+    "tools": 43
   },
   "platform_groups": [
     {
@@ -572,6 +572,17 @@
           "url": "https://github.com/AndreySchurko/garnet-polymarket",
           "description": "Self-hosted Polymarket copy-trading engine in Rust: mirrors wallets you pick, detects their fills three ways, with shadow mode at real fees and per-event caps. BUSL, free for individuals only.",
           "covers": "polymarket",
+          "extra": null,
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": null
+        },
+        {
+          "name": "oracle3",
+          "url": "https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent",
+          "description": "Prices baskets of related event contracts against five no-arbitrage relations at executable prices net of each venue's fees, then trades them live or on paper under pre-trade risk limits.",
+          "covers": "kalshi, polymarket",
           "extra": null,
           "stars": null,
           "last_commit": null,
