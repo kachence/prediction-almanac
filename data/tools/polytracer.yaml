@@ -1,0 +1,7 @@
+slug: polytracer
+name: PolyTracer
+url: https://polytracer.app
+category: dashboard
+platforms: [polymarket]
+description: "Polymarket wallet analyzer: paste any address and it replays every fill from Polygon chain data, recomputing win rate, ROI and P&L, with per-category breakdowns and a live whale feed."
+tags: [wallet-analysis, leaderboards, no-signup]
