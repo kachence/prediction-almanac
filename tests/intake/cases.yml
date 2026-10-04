@@ -1,0 +1,56 @@
+# Every closed submission so far, with the maintainer's decision and what decided it.
+# `python scripts/intake.py --replay` runs the gates (and optionally the model) against
+# the inputs in inputs/ and reports where it would have disagreed with these calls.
+#
+# Gates run against today's internet, not the state at submission time, so a case can
+# drift: a venue that was empty can fill up, a 404 can come back. The `decided_by` note
+# is there so a disagreement can be read for what it is.
+
+- ref: pr-2
+  decision: merge
+  merged_as: data/sources/livetennisapi.yaml
+  decided_by: Live Tennis API, a real odds feed; access edited to freemium on merge
+
+- ref: issue-3
+  decision: close
+  decided_by: boosted.trading sits entirely behind a Google login and read as pre-launch
+
+- ref: issue-4
+  decision: close
+  decided_by: TayDex is real but had 7 resolved markets, $51 total volume, DefiLlama TVL 0
+
+- ref: pr-5
+  decision: close
+  decided_by: ProfitPlay is a house-vs-player play-money game on a raw Cloud Run URL, no archive
+
+- ref: issue-8
+  decision: merge
+  merged_as: data/platforms/headline-arena.yaml
+  decided_by: Headline Arena has a public API with 1,681 scored forecasts; forecasting mechanism
+
+- ref: pr-9
+  decision: close
+  decided_by: Dimes repo URL 404s; the SDK needs a vendor API key to do anything
+
+- ref: issue-11
+  decision: close
+  decided_by: Kalshi weather archive's premise was false, Kalshi's own endpoint serves more history
+
+- ref: issue-13
+  decision: merge
+  merged_as: data/tools/garnet.yaml
+  decided_by: Garnet fills the copy-trading gap, code is substantial, BUSL noted in description
+
+- ref: issue-14
+  decision: merge
+  merged_as: data/tools/oracle3.yaml
+  decided_by: oracle3, every claim verified, fee-aware cross-venue no-arb engine
+
+- ref: pr-15
+  decision: merge
+  merged_as: data/tools/polytracer.yaml
+  decided_by: PolyTracer is live and free; description had to be cut to 200 chars
+
+- ref: pr-16
+  decision: close
+  decided_by: sg.tips advertises screened-account positions, which is the paid tier

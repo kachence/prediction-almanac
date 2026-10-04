@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 13,
+ "title": "[submission] Garnet - self-hosted Polymarket copy-trading engine in Rust",
+ "user": "AndreySchurko",
+ "created": "2026-09-30",
+ "body": "### Link\n\nhttps://github.com/AndreySchurko/garnet-polymarket\n\n### What is it\n\nTool - a bot, screener, dashboard or execution layer\n\n### Which venues does it cover\n\npolymarket\n\n### What does it do, and why does it beat what's already listed\n\nSelf-hosted copy-trading engine in Rust: mirrors wallets you choose, detecting their trades three independent ways (RTDS websocket, /activity polling, Polygon logs), with a shadow mode at real fees and per-event exposure caps. Nothing in \"Trading bots, agents & execution\" copies trades today. Maintained, first release v0.1.0 on 2026-09-27, 669 tests. Licence file: BUSL-1.1, free for individuals, converts to Apache-2.0 in 2030. The README makes no return claims.\n\n### Is this yours\n\n- [x] I made this, or I work on it."
+}

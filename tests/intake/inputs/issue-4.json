@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 4,
+ "title": "[submission] TayDex - Base AMM prediction market with creator-authored rules",
+ "user": "halittayyar0",
+ "created": "2026-08-22",
+ "body": "### Link\n\nhttps://taydex.fun\n\n### What is it\n\nPlatform - somewhere users can trade event contracts.\n\n### Which venues does it cover\n\nTayDex on Base.\n\n### What does it do, and why does it add something not already listed?\n\nTayDex is a live Base-native USDC AMM where eligible adults in permitted jurisdictions can create source-defined binary event markets. It adds a different Base venue model: creator-authored rules, creator-entered results, a 24-hour objection window, and independent admin/oracle review when a result is challenged or not entered.\n\nFor the record, TayDex has 0 verified independent traders and $0 organic volume today; project/test liquidity and technical transactions are excluded. Public market feed: https://taydex.fun/api/markets. Geographic restrictions: https://taydex.fun/legal/restrictions. DefiLlama slug: `taydex`.\n\n### Is this yours?\n\nYes. I am the founder and built TayDex."
+}

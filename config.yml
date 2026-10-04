@@ -114,4 +114,16 @@ geo_display:
 
 # Used by scripts/intake.py (step 4+).
 intake:
-  auto_merge_confidence: 0.85
+  # Replay of the first 11 submissions (tests/intake): maintainer-merged cases scored
+  # 0.40-0.82, closed ones 0.05-0.60. 0.75 merges the clear case and nothing wrong;
+  # loosen only after more replays say so.
+  auto_merge_confidence: 0.75
+  close_below: 0.5
+  # Only tools are written by the bot without a human. Platform entries carry geo and
+  # data blocks it cannot fill honestly; sources need their archive probed. Those go
+  # to a bot-authored PR for one-click review.
+  auto_merge_kinds: [tools]
+  max_merges_per_run: 3
+  max_submissions_per_author_per_week: 2
+  min_platform_volume_30d: 10000
+  readme_cap_bytes: 20000

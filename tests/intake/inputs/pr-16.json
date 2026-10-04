@@ -1,0 +1,9 @@
+{
+ "kind": "pr",
+ "number": 16,
+ "title": "Add sg.tips (dashboard)",
+ "user": "jasonthai7579-cmd",
+ "created": "2026-10-03",
+ "body": "Adds `data/tools/sg-tips.yaml` (category `dashboard`). Data file only, no README in the diff. `python scripts/build.py --validate` passes locally.\n\nsg.tips shows per-match Polymarket and Kalshi probabilities for sports markets, with public positions of screened accounts on each match. It also publishes a weekly aggregate dataset (CC BY 4.0, CSV): https://github.com/tipsstats/prediction-market-pro-stats\n\nAccess is marked `freemium`: match pages and probabilities are free without signup; some account-level views need a free login or membership.\n\nDisclosure: this is my own work (I work on sg.tips).\n\n\ud83e\udd16 Generated with [Claude Code](https://claude.com/claude-code)",
+ "diff": "diff --git a/data/tools/sg-tips.yaml b/data/tools/sg-tips.yaml\nnew file mode 100644\nindex 0000000..3b0f3a9\n--- /dev/null\n+++ b/data/tools/sg-tips.yaml\n@@ -0,0 +1,8 @@\n+slug: sg-tips\n+name: sg.tips\n+url: https://sg.tips\n+category: dashboard\n+platforms: [polymarket, kalshi, sxbet]\n+access: freemium\n+description: \"Sports prediction market dashboard: per-match Polymarket and Kalshi probabilities, public positions of screened accounts, and a weekly CC BY 4.0 dataset of aggregate stats.\"\n+tags: [sports, leaderboard, dataset]\n"
+}

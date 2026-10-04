@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 11,
+ "title": "[submission] Kalshi weather index archive (minute temperature index, hourly since 2026-09-03, CC BY 4.0)",
+ "user": "CommanderC0dy",
+ "created": "2026-09-06",
+ "body": "### Link\n\nhttps://apify.com/gratified_ashram/kalshi-weather-index#free-public-archive-cc-by-40\n\nDirect data: https://api.apify.com/v2/datasets/sBYy8Bm1pgdPsfvRd/items?format=csv&clean=true (JSON with `format=json`)\n\n### What is it\n\nDataset - history you can backtest on\n\n### Which venues does it cover\n\nkalshi\n\n### What does it do, and why does it beat what's already listed\n\nRolling archive of the minute-level temperature index Kalshi publishes for its hourly temperature markets (KXTEMP*, ten cities), collected hourly since 2026-09-03. Kalshi's own endpoint only serves the last 7\u201310 days, so this is the only place to get the settlement series further back. One row per complete city-hour (no duplicates) with all 60 minute values, min/max and the calibration version. Free, no account needed, CC BY 4.0. Grows by ~240 rows a day; young, so say so in the entry.\n\n### Is this yours\n\n- [x] I made this, or I work on it.\n"
+}

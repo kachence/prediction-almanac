@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 3,
+ "title": "[submission] boosted.trading",
+ "user": "qwpto",
+ "created": "2026-08-17",
+ "body": "### Link\n\nhttps://boosted.trading\n\n### What is it\n\nTool - a bot, screener, dashboard or execution layer\n\n### Which venues does it cover\n\npolymarket\n\n### What does it do, and why does it beat what's already listed\n\nWhether you're a MM, developing a bot, or discretionary trader, there are unique features to support various aspects of planning, analysis, execution, review, and comparison:\n- Accurate journaling supporting analysis against reference markets and odds pricing with comments on the charts for each position, also deep dive into how the top traders on polymarket are executing their strategies.\n- simulation, \n- advanced orders (BBO queue position, Stoploss trailing/breakeven/fixed, prediction market specific ladder/slider position management, split/merge), \n- automated risk management, \n- smart home integration (status light), \n- P2P marketplace, \n- ai trading coaches\n- trading psychology\n- private groups/leaderboards, \n- AML monitoring, \n- unlimited wallets to avoid copy trader drag with results merged for your own accounting.\n- crypto native.\n\n### Is this yours\n\n- [x] I made this, or I work on it."
+}
