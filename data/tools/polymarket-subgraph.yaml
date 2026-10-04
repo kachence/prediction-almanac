@@ -1,0 +1,14 @@
+slug: polymarket-subgraph
+name: polymarket-subgraph
+url: https://github.com/Polymarket/polymarket-subgraph
+repo: https://github.com/Polymarket/polymarket-subgraph
+category: data
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Polymarket's own subgraph manifests for The Graph, indexing order book, FPMM, open interest, activity and P&L events from Polygon; self-host with Docker or deploy to Goldsky."
+tags: [onchain, historical, wallet-analysis, polygon]
