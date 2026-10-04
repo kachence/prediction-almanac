@@ -746,7 +746,7 @@ def act_review(http, token, issue, kind, entry, path, verdict, gates, why):
     git("commit", "-q", "-m", f"draft: {entry['name']} ({kind})\n\nFrom #{issue['number']}; needs a human look.")
     git("push", "-q", "-u", "origin", branch)
     git("checkout", "-q", "main")
-    gate_lines = "\n".join(f"- `{n}` {s}: {d}" for n, (s, d) in gates.items() if s != "pass")
+    gate_lines = "\n".join(f"- `{n}` {s}: {d}" for n, (s, d) in gates.items() if s in ("warn", "fail"))
     body = (
         f"Closes #{issue['number']}.\n\nDrafted by intake.py for review; merge to accept, close to decline.\n\n"
         f"**Why it is here rather than merged:**\n" + "\n".join(f"- {w}" for w in why) + "\n\n"
