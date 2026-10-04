@@ -67,7 +67,7 @@ prediction-almanac/
 │  ├─ refresh.py                   volume, repo health, blog last_post
 │  ├─ enrich.py                    http helpers, shared with intake later
 │  ├─ vet.py                       PLANNED: model vetting -> JSON verdict
-│  └─ intake.py                    PLANNED: issue -> enrich -> vet -> commit
+│  └─ intake.py                    issue -> gates -> model -> merge / close / PR
 └─ .github/
    ├─ ISSUE_TEMPLATE/
    │  ├─ submit-resource.yml       the low-friction contribution path
@@ -76,7 +76,7 @@ prediction-almanac/
       ├─ validate.yml              on PR: build.py --validate, no secrets
       ├─ build.yml                 on push to main: rebuild and commit README
       ├─ refresh.yml               daily cron: fetch, rebuild, commit
-      └─ intake.yml                PLANNED: on issues labelled "submission"
+      └─ intake.yml                on issues labelled "submission" + a 2-day sweep
 ```
 
 ## 4. Data model
@@ -256,7 +256,7 @@ the same decay protection repos get.
 return 403 to automated fetchers. Treat 401/403/429 as alive, because bot protection is
 not death.
 
-### intake.yml, planned
+### intake.yml
 
 Triggered on issues, never `pull_request_target`.
 
@@ -304,7 +304,7 @@ vetting lands it's cents per submission.
    8 of 15 live platforms carry a figure, and the rest are null with a stated reason.
 4. 🟡 Contribution path. Issue form and data-only PRs ship; merges are manual while the
    submissions teach us what the gates should be.
-5. ⬜ `vet.py` and `intake.py`: model vetting, auto-merge above the confidence bar. The
+5. ✅ `intake.py`: gates, one model call, decision in code; auto-merge for tools above the confidence bar. The
    flagship, and the launch post: *"Every awesome list dies the day the maintainer stops
    merging PRs. So I built one that reviews and merges them itself."*
 6. ⬜ MkDocs Pages site off the same data, with per-platform pages carrying the `data:`

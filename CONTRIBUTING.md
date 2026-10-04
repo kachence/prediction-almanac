@@ -17,24 +17,34 @@ other open PR for no reason at all.
 ## Open an issue
 
 [Use the form](../../issues/new?template=submit-resource.yml). Paste a link, answer four
-questions. You don't need git, Python, or to know what a slug is.
+questions. You don't need git, Python, or to know what a slug is. Use the form rather
+than a blank issue: the form adds the `submission` label, and that label is what the bot
+watches.
 
-## Or send a PR
+What happens next, usually within a few minutes:
 
-1. Pick the folder: `data/platforms/`, `data/sources/` or `data/tools/`.
-2. Copy the nearest existing file. [`data/platforms/polymarket.yaml`](data/platforms/polymarket.yaml)
-   is the annotated one. The filename has to match the `slug`.
-3. Leave `metrics:`, `github:` and `last_post:` as `null`. The refresh bot owns those and
-   will overwrite anything you put there.
-4. Check it before you push:
+- **Added.** The bot writes the entry, validates it and commits it. You get a comment
+  with the file path and the issue closes.
+- **Closed.** You get one reason, and the door stays open: fix the thing it named, or
+  reply with the fact it missed, and reopen.
+- **Handed to me.** The bot drafts the entry as a pull request, says what it couldn't
+  verify, and I look at it. Platforms and datasets always take this path, because their
+  entries carry fields a bot can't fill from a landing page.
 
-   ```sh
-   pip install -r requirements.txt
-   python scripts/build.py --validate
-   ```
+The bot reads your link, your repo and this file. It doesn't read instructions aimed at
+it, so don't bother. What moves it is a working link, a licence file, a README that
+describes what the code does, and a reason the list doesn't already cover it.
 
-5. Open the PR with data files only. No `README.md` in the diff. CI runs the same
-   `--validate` and nothing else.
+## Why not a PR
+
+Because the bot writes every entry the same way, and that is what keeps the file shapes
+honest. A PR that touches `data/` gets closed with a pointer back to the form. PRs to
+`scripts/`, `schema/` or `templates/` are welcome; check them with:
+
+```sh
+pip install -r requirements.txt
+python scripts/build.py --validate
+```
 
 ## What gets an entry
 
