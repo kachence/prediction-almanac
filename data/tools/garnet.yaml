@@ -1,0 +1,14 @@
+slug: garnet
+name: Garnet
+url: https://github.com/AndreySchurko/garnet-polymarket
+repo: https://github.com/AndreySchurko/garnet-polymarket
+category: bot
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Self-hosted Polymarket copy-trading engine in Rust: mirrors wallets you pick, detects their fills three ways, with shadow mode at real fees and per-event caps. BUSL, free for individuals only."
+tags: [copy-trading, execution, rust]
