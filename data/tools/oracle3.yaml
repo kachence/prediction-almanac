@@ -5,10 +5,10 @@ repo: https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent
 category: bot
 platforms: [kalshi, polymarket]
 github:
-  stars: null
-  last_commit: null
-  license: null
-  archived: null
-  health: null
+  stars: 300
+  last_commit: '2026-09-30'
+  license: Apache-2.0
+  archived: false
+  health: active
 description: "Prices baskets of related event contracts against five no-arbitrage relations at executable prices net of each venue's fees, then trades them live or on paper under pre-trade risk limits."
 tags: [arbitrage, correlated-markets, python]
