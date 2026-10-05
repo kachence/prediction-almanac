@@ -5,7 +5,7 @@ repo: https://github.com/AndreySchurko/garnet-polymarket
 category: bot
 platforms: [polymarket]
 github:
-  stars: 4
+  stars: 3
   last_commit: '2026-10-02'
   license: null
   archived: false

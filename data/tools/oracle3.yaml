@@ -5,7 +5,7 @@ repo: https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent
 category: bot
 platforms: [kalshi, polymarket]
 github:
-  stars: 300
+  stars: 313
   last_commit: '2026-09-30'
   license: Apache-2.0
   archived: false
