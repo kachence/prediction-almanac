@@ -490,7 +490,7 @@ def comment_for(decision, form, kind, gates, verdict):
     if decision == "close":
         hard = next((d for s, d in gates.values() if s == "fail"), None)
         reason = f"Passing for now: {hard}." if hard else sentence
-        return f"Thanks for the submission. {reason} Reopen this if that changes and I'll take another look."
+        return f"Thanks for the submission. {reason} If that changes, open a new submission and I'll take another look."
     return None
 
 
@@ -744,7 +744,7 @@ def act_review(http, token, issue, kind, entry, path, verdict, gates, why):
     git("checkout", "-q", "-b", branch)
     git("add", rel)
     git("commit", "-q", "-m", f"draft: {entry['name']} ({kind})\n\nFrom #{issue['number']}; needs a human look.")
-    git("push", "-q", "-u", "origin", branch)
+    git("push", "-q", "-f", "-u", "origin", branch)  # intake/ branches are bot-owned
     git("checkout", "-q", "main")
     gate_lines = "\n".join(f"- `{n}` {s}: {d}" for n, (s, d) in gates.items() if s in ("warn", "fail"))
     body = (
@@ -755,16 +755,32 @@ def act_review(http, token, issue, kind, entry, path, verdict, gates, why):
         + (f"\n\n**Gates not passed:**\n{gate_lines}" if gate_lines else "")
         + "\n\nValidated with `build.py --validate` before pushing.\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)"
     )
-    pr = gh(http, "POST", f"/repos/{REPO}/pulls", token, json={"title": f"Add {entry['name']} to {kind}", "head": branch, "base": "main", "body": body})
+    owner = REPO.split("/")[0]
+    existing = gh(http, "GET", f"/repos/{REPO}/pulls?state=open&head={owner}:{branch}", token)
+    if existing:
+        pr = gh(http, "PATCH", f"/repos/{REPO}/pulls/{existing[0]['number']}", token, json={"body": body})
+    else:
+        pr = gh(http, "POST", f"/repos/{REPO}/pulls", token, json={"title": f"Add {entry['name']} to {kind}", "head": branch, "base": "main", "body": body})
     return f"Drafted as #{pr['number']} for a human look: {why[0][:160]}"
 
 
 def process_issue(http, token, issue, config, entries, args, merges_done):
     number = issue["number"]
-    form = parse_issue_form(issue.get("body") or "")
+    labels = {l["name"] for l in issue.get("labels") or []}
     print(f"\n#{number} {issue['title'][:70]}  by {issue['user']['login']}")
+    # One decision per issue. A form submission fires 'opened' and 'labeled' together,
+    # and two model calls near a threshold can disagree, so the second run must see the
+    # first one's label and stop. --fresh (a maintainer reopening) clears it on purpose.
+    if args.fresh:
+        if not args.dry_run:
+            for name in sorted(labels & set(BOT_LABELS)):
+                gh(http, "DELETE", f"/repos/{REPO}/issues/{number}/labels/{name}", token)
+    elif issue.get("state") == "closed" or labels & set(BOT_LABELS):
+        print(f"   already handled ({', '.join(sorted(labels & set(BOT_LABELS))) or issue.get('state')}); skipping")
+        return None
+    form = parse_issue_form(issue.get("body") or "")
     if not form["url"]:
-        return finish(http, token, number, "review", "I couldn't find a link in this issue; add one and reopen.", args)
+        return finish(http, token, number, "review", "I couldn't find a link in this issue; add one and I'll look again.", args)
     limit = config["intake"].get("max_submissions_per_author_per_week", 2)
     if not args.dry_run and author_recent_count(http, token, issue["user"]["login"]) > limit:
         return finish(http, token, number, "review", f"More than {limit} submissions this week from one account; parking for a human.", args)
@@ -849,6 +865,7 @@ def main():
     parser.add_argument("--issue", type=int, help="live: vet one issue by number")
     parser.add_argument("--sweep", action="store_true", help="live: every open 'submission' issue the bot hasn't touched")
     parser.add_argument("--dry-run", action="store_true", help="live: decide and print, change nothing")
+    parser.add_argument("--fresh", action="store_true", help="live: re-vet even if the bot already decided (reopen)")
     parser.add_argument("-v", "--verbose", action="store_true")
     args = parser.parse_args()
     if args.replay:

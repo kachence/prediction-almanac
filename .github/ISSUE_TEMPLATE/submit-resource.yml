@@ -8,8 +8,8 @@ body:
       value: |
         You don't need to know git for this. Paste a link, answer four questions, done.
         A bot answers within a few minutes: added, closed with one reason, or handed to
-        a human. If it closes something it shouldn't have, reply with the fact it missed
-        and reopen.
+        a human. If it closes something it shouldn't have, fix what it named and open a
+        new submission.
 
         Worth reading [what gets an entry](../blob/main/CONTRIBUTING.md#what-gets-an-entry)
         first, and [what already got rejected](../blob/main/data/excluded.yml) so we

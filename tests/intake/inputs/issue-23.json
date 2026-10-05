@@ -1,0 +1,8 @@
+{
+ "kind": "issue",
+ "number": 23,
+ "title": "[submission] Polkamarkt",
+ "user": "takemiyamakoto",
+ "created": "2026-10-05",
+ "body": "### Link\n\nhttps://polkamarkt.com\n\n### What is it\n\nPlatform - somewhere you can trade event contracts\n\n### Which venues does it cover\n\n_No response_\n\n### What does it do, and why does it beat what's already listed\n\nAdd Polkamarkt: a SORA-based binary prediction-market platform using KUSD collateral and XOR network fees, with dynamic pari-mutuel settlement. Available at https://polkamarkt.com and integrated into https://polkaswap.io/#/polkamarkt. Trading fees apply.\n\n### Is this yours\n\n- [x] I made this, or I work on it."
+}

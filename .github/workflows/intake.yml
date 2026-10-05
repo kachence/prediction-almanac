@@ -9,7 +9,7 @@ name: intake
 
 on:
   issues:
-    types: [opened, edited, labeled]
+    types: [opened, reopened, labeled]
   schedule:
     - cron: "23 7 */2 * *"
   workflow_dispatch:
@@ -25,7 +25,12 @@ concurrency:
 
 jobs:
   intake:
-    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'submission')
+    # 'labeled' only counts for the submission label itself (a maintainer tagging a
+    # free-form issue); the bot's own labels are added with GITHUB_TOKEN and never fire.
+    if: >-
+      github.event_name != 'issues' ||
+      (contains(github.event.issue.labels.*.name, 'submission') &&
+       (github.event.action != 'labeled' || github.event.label.name == 'submission'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,7 +46,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/intake.py --issue ${{ github.event.issue.number }}
+        run: python scripts/intake.py --issue ${{ github.event.issue.number }} ${{ github.event.action == 'reopened' && '--fresh' || '' }}
       - name: Sweep every open submission the bot has not touched
         if: github.event_name != 'issues'
         env:

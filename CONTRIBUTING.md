@@ -25,8 +25,8 @@ What happens next, usually within a few minutes:
 
 - **Added.** The bot writes the entry, validates it and commits it. You get a comment
   with the file path and the issue closes.
-- **Closed.** You get one reason, and the door stays open: fix the thing it named, or
-  reply with the fact it missed, and reopen.
+- **Closed.** You get one reason, and the door stays open: fix the thing it named and
+  open a new submission.
 - **Handed to me.** The bot drafts the entry as a pull request, says what it couldn't
   verify, and I look at it. Platforms and datasets always take this path, because their
   entries carry fields a bot can't fill from a landing page.

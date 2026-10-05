@@ -54,3 +54,7 @@
 - ref: pr-16
   decision: close
   decided_by: sg.tips advertises screened-account positions, which is the paid tier
+
+- ref: issue-23
+  decision: close
+  decided_by: Polkamarkt is a real SORA-mainnet DPM app but self-submitted on launch day with no verifiable volume and a name one letter off the established Polkamarkets
