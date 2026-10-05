@@ -1,0 +1,18 @@
+slug: polkamarkt
+name: Polkamarkt
+url: https://polkamarkt.com
+mechanism: onchain-amm
+status: live
+launched: null
+geo:
+  model: unknown
+  source: null
+  as_of: null
+  notes: null
+metrics:
+  volume_usd: null
+  period: null
+  source: null
+  as_of: null
+description: "Binary prediction markets on the SORA network with KUSD collateral, XOR network fees and pari-mutuel settlement, also reachable inside Polkaswap."
+tags: [onchain, pari-mutuel, sora, peer-to-peer]
