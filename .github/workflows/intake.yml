@@ -27,10 +27,16 @@ jobs:
   intake:
     # 'labeled' only counts for the submission label itself (a maintainer tagging a
     # free-form issue); the bot's own labels are added with GITHUB_TOKEN and never fire.
+    # A submission is the form's label, its title prefix, or its '### Link' heading;
+    # labels alone miss issues filed through the API by non-collaborators, which GitHub
+    # strips of labels. 'labeled' only counts for the submission label itself.
     if: >-
       github.event_name != 'issues' ||
-      (contains(github.event.issue.labels.*.name, 'submission') &&
-       (github.event.action != 'labeled' || github.event.label.name == 'submission'))
+      (github.event.action == 'labeled' && github.event.label.name == 'submission') ||
+      (github.event.action != 'labeled' &&
+       (contains(github.event.issue.labels.*.name, 'submission') ||
+        startsWith(github.event.issue.title, '[submission]') ||
+        contains(github.event.issue.body, '### Link')))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

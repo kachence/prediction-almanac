@@ -597,9 +597,25 @@ def ensure_labels(http, token):
             gh(http, "POST", f"/repos/{REPO}/labels", token, json={"name": name, "color": color})
 
 
+def is_submission(issue):
+    """The form's label is not enough: a non-collaborator who files through the API or
+    the CLI has labels silently dropped (#25, #26). The form's title prefix and its
+    '### Link' heading survive either way, so any one of the three counts."""
+    labels = {l["name"] for l in issue.get("labels") or []}
+    return (
+        "submission" in labels
+        or (issue.get("title") or "").lower().startswith("[submission]")
+        or bool(re.search(r"^### Link\s*$", issue.get("body") or "", re.M))
+    )
+
+
 def open_submissions(http, token):
-    issues = gh(http, "GET", f"/repos/{REPO}/issues?state=open&labels=submission&per_page=100", token)
-    return [i for i in issues if "pull_request" not in i and not ({l["name"] for l in i["labels"]} & set(BOT_LABELS))]
+    issues = gh(http, "GET", f"/repos/{REPO}/issues?state=open&per_page=100", token)
+    return [
+        i for i in issues
+        if "pull_request" not in i and is_submission(i)
+        and not ({l["name"] for l in i["labels"]} & set(BOT_LABELS))
+    ]
 
 
 def author_recent_count(http, token, login):
@@ -778,6 +794,8 @@ def process_issue(http, token, issue, config, entries, args, merges_done):
     elif issue.get("state") == "closed" or labels & set(BOT_LABELS):
         print(f"   already handled ({', '.join(sorted(labels & set(BOT_LABELS))) or issue.get('state')}); skipping")
         return None
+    if "submission" not in labels and not args.dry_run:
+        gh(http, "POST", f"/repos/{REPO}/issues/{number}/labels", token, json={"labels": ["submission"]})
     form = parse_issue_form(issue.get("body") or "")
     if not form["url"]:
         return finish(http, token, number, "review", "I couldn't find a link in this issue; add one and I'll look again.", args)
