@@ -1,0 +1,14 @@
+slug: outcometick
+name: outcometick
+url: https://outcometick.com
+platforms: [polymarket, predict-fun]
+kind: dataset
+format: null
+granularity: null
+coverage:
+  range: null
+  completeness: unknown
+  known_gaps: null
+access: paid
+description: "Tick-level Polymarket and Predict.fun crypto Up/Down history since June 2026, with the Chainlink settlement streams, strikes and outcomes so each settlement can be recomputed. From $10/mo."
+tags: [crypto, orderbook-history, historical, backtesting]
