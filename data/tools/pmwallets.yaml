@@ -1,0 +1,8 @@
+slug: pmwallets
+name: PMWallets
+url: https://pmwallets.com
+category: dashboard
+platforms: [polymarket]
+access: freemium
+description: "Polymarket leaderboard built from the Polygon ledger, clustering proxy and owner wallets into one trader, with 95% CI win rates and profit shown without the single best market. Paid live fill feed."
+tags: [wallet-analysis, trader, onchain, calibration]
