@@ -1,0 +1,8 @@
+slug: pmwallets
+name: PMWallets
+url: https://pmwallets.com
+category: dashboard
+platforms: [polymarket]
+access: freemium
+description: "Polymarket leaderboard from the Polygon ledger: linked wallets scored as one trader, 95% CI win rates, profit without the best market. Free board; addresses unlock at $0.50-$1 each."
+tags: [wallet-analysis, trader, onchain, calibration]
