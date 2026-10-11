@@ -1,0 +1,14 @@
+slug: pdata
+name: pdata
+url: https://pdata.world/data
+platforms: [polymarket, kalshi, manifold, myriad, limitless, opinion]
+kind: dataset
+format: null
+granularity: null
+coverage:
+  range: null
+  completeness: unknown
+  known_gaps: null
+access: free
+description: "Keyless data across eight prediction-market venues in one schema - price and volume history, nightly bulk files and a resolved-event archive with each venue's result, CC BY 4.0."
+tags: [multi-venue, historical, open-api, no-signup]
