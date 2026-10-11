@@ -18,7 +18,7 @@
 
 **Now a browsable page too: [kacho.io/wiki/prediction-markets-directory]({{ config.site.page }}).** It renders straight from this repo and rebuilds daily, so anything accepted here shows up there as well, automatically. One submission, both places.
 
-[Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Contributing](#contributing) · [How it works](SPEC.md)
+[Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Paid](#paid-services) · [Contributing](#contributing) · [How it works](SPEC.md)
 
 Most awesome lists are a photo of what somebody found interesting one afternoon two
 years ago. The links rot and nobody notices.
@@ -149,6 +149,18 @@ something that isn't here,
 ## Blogs & X accounts
 
 {% for group in tool_groups if group.parent == 'writing' %}{{ table(group) }}{% endfor %}
+{% if paid %}
+## {{ config.paid_section.title }}
+
+*{{ config.paid_section.note }}*
+
+| Service | What | Covers | Price | Check it free | Description |
+|---|---|---|---|---|---|
+{% for r in paid %}
+| **[{{ r.name | md }}]({{ r.url }})** | {{ r.what | md }} | {{ r.covers | md }} | {{ r.price | md }} | [sample]({{ r.sample }}) | {{ r.description | md }} |
+{% endfor %}
+
+{% endif %}
 ## Contributing
 
 One way in: [the issue form]({{ 'https://github.com/' ~ config.site.repo ~ '/issues/new?template=submit-resource.yml' }}).
