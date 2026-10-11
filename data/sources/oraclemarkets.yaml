@@ -1,0 +1,14 @@
+slug: oraclemarkets
+name: Oracle Markets
+url: https://oraclemarkets.io/predictions
+platforms: [polymarket, kalshi]
+kind: odds-feed
+format: null
+granularity: null
+coverage:
+  range: null
+  completeness: unknown
+  known_gaps: null
+access: free
+description: "Daily probability forecasts from 10 AI agents on live and resolved questions, with per-agent Brier scores and Polymarket and Kalshi prices shown alongside where a market exists."
+tags: [ai, forecasting, calibration, multi-venue]
