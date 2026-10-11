@@ -311,6 +311,33 @@ def group_platforms(platforms, config):
     return groups
 
 
+def is_paid(entry):
+    return entry.get("access") == "paid"
+
+
+def paid_rows(tools, sources, config):
+    """Every paid entry, tools and datasets alike, in one section with its price and a
+    free way to check it. Kept out of the normal sections so those stay usable without
+    a card, and so a paid row never has to argue its way past a free one."""
+    titles = {k: g["title"] for g in config["tool_categories"] for k in g["keys"]}
+    rows = []
+    for s in sources:
+        if is_paid(s):
+            rows.append({"name": s["name"], "url": s["url"],
+                         "what": "Dataset" if s["kind"] == "dataset" else "Feed",
+                         "covers": ", ".join(s.get("platforms") or []) or None,
+                         "price": s.get("price"), "sample": s.get("sample"),
+                         "description": s.get("description")})
+    for t in tools:
+        if is_paid(t):
+            rows.append({"name": t["name"], "url": t["url"],
+                         "what": titles.get(t["category"], t["category"]),
+                         "covers": ", ".join(t.get("platforms") or []) or None,
+                         "price": t.get("price"), "sample": t.get("sample"),
+                         "description": t.get("description")})
+    return sorted(rows, key=lambda r: r["name"].lower())
+
+
 def group_tools(tools, config):
     """Active projects lead each section: a retired repo shouldn't head the list
     just because it collected stars before it was archived."""
@@ -318,7 +345,7 @@ def group_tools(tools, config):
     groups = []
     for spec in config["tool_categories"]:
         members = sorted(
-            (t for t in tools if t["category"] in spec["keys"]),
+            (t for t in tools if t["category"] in spec["keys"] and not is_paid(t)),
             key=lambda t: (
                 t.get("rank") or 99,
                 order.get((t.get("github") or {}).get("health"), 1),
@@ -360,7 +387,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         excluded=excluded,
         tools=tools,
         sources=sorted(
-            sources,
+            (s for s in sources if not is_paid(s)),
             key=lambda s: (
                 ["dataset", "odds-feed"].index(s["kind"]),
                 s["name"].lower(),
@@ -369,6 +396,7 @@ def render(config, platforms, tools, sources, excluded, generated_on):
         sources_by_slug={s["slug"]: s for s in sources},
         platform_groups=group_platforms(platforms, config),
         tool_groups=group_tools(tools, config),
+        paid=paid_rows(tools, sources, config),
         generated_on=generated_on,
     )
 
@@ -449,7 +477,8 @@ def _tool_view(t, group):
 def build_data(config, platforms, tools, sources, excluded, generated_on):
     live = [p for p in platforms if p["status"] not in ("dead", "deprecated")]
     sorted_sources = sorted(
-        sources, key=lambda s: (["dataset", "odds-feed"].index(s["kind"]), s["name"].lower())
+        (s for s in sources if not is_paid(s)),
+        key=lambda s: (["dataset", "odds-feed"].index(s["kind"]), s["name"].lower()),
     )
     return {
         "generated_on": generated_on,
@@ -486,6 +515,11 @@ def build_data(config, platforms, tools, sources, excluded, generated_on):
             }
             for g in group_tools(tools, config)
         ],
+        "paid": {
+            "title": config["paid_section"]["title"],
+            "note": config["paid_section"]["note"],
+            "rows": paid_rows(tools, sources, config),
+        },
         "excluded": [
             {"name": e.get("name"), "url": e.get("url"), "reason": e.get("reason")}
             for e in (excluded or [])

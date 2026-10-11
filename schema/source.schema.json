@@ -34,11 +34,31 @@
       }
     },
     "access": { "enum": ["free", "freemium", "paid", "gated"] },
+    "price": {
+      "description": "Paid entries only: the entry-level price as the vendor states it, e.g. 'from $39/mo'.",
+      "type": ["string", "null"],
+      "maxLength": 60
+    },
+    "sample": {
+      "description": "Paid entries only: something a reader can check without paying - a sample file, a trial, a public endpoint.",
+      "type": ["string", "null"],
+      "pattern": "^https?://"
+    },
     "description": { "type": ["string", "null"], "minLength": 10, "maxLength": 200 },
     "tags": {
       "type": "array",
       "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
       "uniqueItems": true
     }
-  }
+  },
+  "allOf": [
+    {
+      "description": "A paid entry has to say what it costs and how to check it for free.",
+      "if": { "properties": { "access": { "const": "paid" } }, "required": ["access"] },
+      "then": {
+        "required": ["price", "sample"],
+        "properties": { "price": { "type": "string", "minLength": 4 }, "sample": { "type": "string" } }
+      }
+    }
+  ]
 }

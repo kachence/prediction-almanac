@@ -64,8 +64,8 @@ tool_categories:
     item_label: Tool
     extra: access
     note: >-
-      Paid. It's here because reconstructing historical book depth is the one thing
-      nothing free on this page can do.
+      For getting, replaying and cleaning market data yourself. Anything you can only
+      use by paying sits under Paid services instead.
   - keys: [research]
     title: Research
     parent: research
@@ -105,6 +105,14 @@ tool_categories:
 
 
 # "Who can trade" cell rendering.
+paid_section:
+  title: Paid services
+  note: >-
+    These cost money, and they're here because each one publishes its price and lets
+    you check the data before paying: a sample file, a trial, a public endpoint. That
+    free part is what got checked, not the paid tier. Read the terms before you build
+    on any of them.
+
 geo_display:
   max_flags: 8 # up to this many restricted countries render as flags; above it,
                         # show the notable ones + a count (a 55-flag wall helps nobody)

@@ -97,8 +97,24 @@ is fine as long as the entry says so.
 
 ### Tools: data tooling
 
-Paid is allowed here, but only if it does something nothing free on the page can. There
-is exactly one entry in that section, which should tell you how narrow the gate is.
+It gets, replays or cleans market data you'd otherwise have to collect yourself. A free
+tier is fine as long as the entry says so. If it's only usable by paying, it goes under
+Paid services.
+
+### Paid services
+
+Paid is welcome, in its own section, so the rest of the list stays usable without a
+card. Three things get you in, and the entry records the first two:
+
+- **A public price.** The entry-level figure as your site states it, in `price`.
+- **A free way to check it.** A sample file, a trial or a public endpoint, in `sample`.
+  The free part is what gets checked; nobody here buys your paid tier to review it. If
+  there's nothing to check without paying, the answer is no.
+- **Stated terms.** Who may use the data and for what. Say if the paid tier has no
+  licence, because the entry will.
+
+It still has to be about prediction markets, and it still has to work today. Freemium
+stays in its normal section, because its free tier is usable on its own.
 
 ### Research
 
