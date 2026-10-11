@@ -7,7 +7,7 @@
   },
   "counts": {
     "platforms": 16,
-    "sources": 13,
+    "sources": 14,
     "tools": 44
   },
   "platform_groups": [
@@ -394,6 +394,21 @@
         },
         "access": "free",
         "description": "Free keyless weather API with forecast, ensemble and archive endpoints - the ensemble members are what you turn into a probability for weather contracts."
+      },
+      {
+        "name": "Oracle Markets",
+        "url": "https://oraclemarkets.io/predictions",
+        "covers": "polymarket, kalshi",
+        "prices": null,
+        "format": null,
+        "granularity": null,
+        "coverage": {
+          "range": null,
+          "completeness": "unknown",
+          "known_gaps": null
+        },
+        "access": "free",
+        "description": "Daily probability forecasts from 10 AI agents on live and resolved questions, with per-agent Brier scores and Polymarket and Kalshi prices shown alongside where a market exists."
       },
       {
         "name": "Pinnacle API",
