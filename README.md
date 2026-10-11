@@ -5,7 +5,7 @@
 
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![platforms](https://img.shields.io/badge/platforms-16-2ea44f)](#platforms)
-[![data sources](https://img.shields.io/badge/data%20sources-11-2ea44f)](#data-sources)
+[![data sources](https://img.shields.io/badge/data%20sources-12-2ea44f)](#data-sources)
 [![tools](https://img.shields.io/badge/tools-43-2ea44f)](#tools)
 [![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/wiki/prediction-markets-directory)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
@@ -118,6 +118,7 @@ would only push the useful entries further down the page.
 | Dataset | Covers | Format · granularity | Coverage | Known gaps |
 |---|---|---|---|---|
 | **[Kalshi trades (TrevorJS)](https://huggingface.co/datasets/TrevorJS/kalshi-trades)** | kalshi | parquet · trades + market metadata with outcomes | 2021-06-2026-01 (full) | Stops January 2026 and has not been updated since. No order book. |
+| **[pdata](https://pdata.world/data)** | polymarket, kalshi, manifold, myriad, limitless, opinion | - | - (unknown) | - |
 | **[pmxt archive](https://archive.pmxt.dev/)** | polymarket, kalshi, limitless, opinion | parquet · hourly order-book snapshots | 2026-present (partial) | Per-venue start dates differ - Polymarket from February 2026, Kalshi, Limitless and Opinion from May. Polymarket splits into v1 and v2 across the CLOB migration. |
 | **[Polymarket aligned tape (TimeSeventeen)](https://huggingface.co/datasets/TimeSeventeen/Polymarket-v1)** | polymarket | parquet · trades with resolution, fees and event-normalised probability | 2022-11-2026-04, v2 continues to date (full) | Needs the companion v2 repo for coverage past the April 2026 migration. Do not pool binary, up-down and NegRisk markets without checking category. |
 | **[Polymarket L2 depth (vpcapitano)](https://huggingface.co/datasets/vpcapitano/polymarket-genesis-liquidity)** | polymarket | parquet · 10-level book depth, spread, best bid/ask | 2025-10-2026-03 (partial) | Six months only, and no resolution column - join outcomes yourself. |
@@ -265,5 +266,5 @@ carry none, which the entries tell you.
 
 ---
 
-_Generated 2026-10-10 from [`data/`](data/). Found something dead? The refresh bot
+_Generated 2026-10-11 from [`data/`](data/). Found something dead? The refresh bot
 probably will too, but [open an issue](https://github.com/kachence/prediction-almanac/issues) anyway._

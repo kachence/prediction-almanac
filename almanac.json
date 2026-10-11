@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-10-10",
+  "generated_on": "2026-10-11",
   "site": {
     "title": "Prediction Almanac",
     "repo": "kachence/prediction-almanac",
@@ -7,7 +7,7 @@
   },
   "counts": {
     "platforms": 16,
-    "sources": 11,
+    "sources": 12,
     "tools": 43
   },
   "platform_groups": [
@@ -257,6 +257,21 @@
         },
         "access": "free",
         "description": "154M Kalshi trades with market metadata and resolution outcomes over four and a half years - the longest permissively licensed history at any venue."
+      },
+      {
+        "name": "pdata",
+        "url": "https://pdata.world/data",
+        "covers": "polymarket, kalshi, manifold, myriad, limitless, opinion",
+        "prices": null,
+        "format": null,
+        "granularity": null,
+        "coverage": {
+          "range": null,
+          "completeness": "unknown",
+          "known_gaps": null
+        },
+        "access": "free",
+        "description": "Keyless data across eight prediction-market venues in one schema - price and volume history, nightly bulk files and a resolved-event archive with each venue's result, CC BY 4.0."
       },
       {
         "name": "pmxt archive",
