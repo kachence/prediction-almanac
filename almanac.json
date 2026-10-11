@@ -8,7 +8,7 @@
   "counts": {
     "platforms": 16,
     "sources": 13,
-    "tools": 43
+    "tools": 44
   },
   "platform_groups": [
     {
@@ -700,6 +700,17 @@
           "name": "OVERROUND",
           "url": "https://www.overround.pro",
           "description": "Skill-adjusted leaderboard scoring resolved on-chain positions against the price paid, de-correlating events and shrinking small samples so sharp money is defensible.",
+          "covers": "polymarket",
+          "extra": "freemium",
+          "stars": null,
+          "last_commit": null,
+          "health": null,
+          "access": "freemium"
+        },
+        {
+          "name": "PMWallets",
+          "url": "https://pmwallets.com",
+          "description": "Polymarket leaderboard from the Polygon ledger: linked wallets scored as one trader, 95% CI win rates, profit without the best market. Free board; addresses unlock at $0.50-$1 each.",
           "covers": "polymarket",
           "extra": "freemium",
           "stars": null,

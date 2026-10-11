@@ -6,7 +6,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://github.com/sindresorhus/awesome)
 [![platforms](https://img.shields.io/badge/platforms-16-2ea44f)](#platforms)
 [![data sources](https://img.shields.io/badge/data%20sources-12-2ea44f)](#data-sources)
-[![tools](https://img.shields.io/badge/tools-43-2ea44f)](#tools)
+[![tools](https://img.shields.io/badge/tools-44-2ea44f)](#tools)
 [![hosted page](https://img.shields.io/badge/hosted-kacho.io-2ea44f)](https://kacho.io/wiki/prediction-markets-directory)
 [![generated](https://img.shields.io/badge/README-generated%20daily-blue)](SPEC.md)
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE)
@@ -186,6 +186,7 @@ something that isn't here,
 | **[Dune: Kalshi Overview](https://dune.com/datadashboards/kalshi-overview)** | kalshi | free | Dedicated Kalshi dashboard covering exchange volume, trade counts and activity trends, without a research-platform subscription. |
 | **[Dune: Prediction Markets](https://dune.com/datadashboards/prediction-markets)** | polymarket, kalshi, limitless, myriad, predict-fun | free | Multi-venue on-chain dashboard covering weekly volume, trade counts, open interest and unique users across seven venues - the broadest free venue-share view. |
 | **[OVERROUND](https://www.overround.pro)** | polymarket | freemium | Skill-adjusted leaderboard scoring resolved on-chain positions against the price paid, de-correlating events and shrinking small samples so sharp money is defensible. |
+| **[PMWallets](https://pmwallets.com)** | polymarket | freemium | Polymarket leaderboard from the Polygon ledger: linked wallets scored as one trader, 95% CI win rates, profit without the best market. Free board; addresses unlock at $0.50-$1 each. |
 | **[Polyguana](https://polyguana.com)** | polymarket | free | Live rankings across 157k Polymarket markets with 24h movers, a category heatmap, watchlist alerts and a resolved-market archive. |
 | **[Polysights](https://www.polysights.xyz)** | polymarket | freemium | Polymarket analytics suite: market screener, trader and portfolio analytics, a sharp-wallet scanner, and API, MCP and CLI access. |
 | **[PolyTracer](https://polytracer.app)** | polymarket | free | Polymarket wallet analyzer: paste any address and it replays every fill from Polygon chain data, recomputing win rate, ROI and P&L, with per-category breakdowns and a live whale feed. |
