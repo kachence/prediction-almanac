@@ -18,7 +18,7 @@
 
 **Now a browsable page too: [kacho.io/wiki/prediction-markets-directory](https://kacho.io/wiki/prediction-markets-directory).** It renders straight from this repo and rebuilds daily, so anything accepted here shows up there as well, automatically. One submission, both places.
 
-[Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Contributing](#contributing) · [How it works](SPEC.md)
+[Platforms](#platforms) · [Data sources](#data-sources) · [Tools](#tools) · [Research](#research) · [Blogs & X](#blogs--x-accounts) · [Paid](#paid-services) · [Contributing](#contributing) · [How it works](SPEC.md)
 
 Most awesome lists are a photo of what somebody found interesting one afternoon two
 years ago. The links rot and nobody notices.
@@ -193,12 +193,11 @@ something that isn't here,
 
 ### Data tooling
 
-*Paid. It's here because reconstructing historical book depth is the one thing nothing free on this page can do.*
+*For getting, replaying and cleaning market data yourself. Anything you can only use by paying sits under Paid services instead.*
 
 | Tool | Covers | Access | Description |
 |---|---|---|---|
 | **[Marketlens](https://marketlens.trade)** | polymarket | freemium | Tick-level Polymarket book history from March 2026 across the whole catalog, not just crypto, with a backtester that models queue position, latency and slippage. Free tier, then $39/mo. |
-| **[Probalytics](https://probalytics.io)** | polymarket | paid | Millisecond-granularity Polymarket history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo. |
 
 ## Research
 
@@ -237,6 +236,14 @@ something that isn't here,
 | **[Domer (@Domahhhh)](https://x.com/Domahhhh)** | Polymarket's number one all-time trader by volume and profit, around $300M across 5,000+ markets, and the most-cited independent voice in the space. |
 | **[Esoteric Catboy (@catboyautist)](https://x.com/catboyautist)** | Trader who posts positions and reasoning openly, particularly on Kalshi mention markets; quoted in Bloomberg's 2026 prediction-markets feature. |
 | **[Kyle (@KyleDeWriter)](https://x.com/KyleDeWriter)** | Tracks the Polymarket leaderboard and explains platform mechanics, such as what removing the 500ms order delay did to short-dated markets. |
+
+## Paid services
+
+*These cost money, and they're here because each one publishes its price and lets you check the data before paying: a sample file, a trial, a public endpoint. That free part is what got checked, not the paid tier. Read the terms before you build on any of them.*
+
+| Service | What | Covers | Price | Check it free | Description |
+|---|---|---|---|---|---|
+| **[Probalytics](https://probalytics.io)** | Data tooling | polymarket, kalshi | from $39/mo, 3-day trial | [sample](https://probalytics.io/samples/orderbook_sample.parquet) | Millisecond-granularity Polymarket and Kalshi history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. |
 
 ## Contributing
 

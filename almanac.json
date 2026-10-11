@@ -756,7 +756,7 @@
     {
       "parent": "tools",
       "title": "Data tooling",
-      "note": "Paid. It's here because reconstructing historical book depth is the one thing nothing free on this page can do.",
+      "note": "For getting, replaying and cleaning market data yourself. Anything you can only use by paying sits under Paid services instead.",
       "item_label": "Tool",
       "covers": true,
       "extra": {
@@ -774,17 +774,6 @@
           "last_commit": null,
           "health": null,
           "access": "freemium"
-        },
-        {
-          "name": "Probalytics",
-          "url": "https://probalytics.io",
-          "description": "Millisecond-granularity Polymarket history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. From $39/mo.",
-          "covers": "polymarket",
-          "extra": "paid",
-          "stars": null,
-          "last_commit": null,
-          "health": null,
-          "access": "paid"
         }
       ]
     },
@@ -990,6 +979,21 @@
       ]
     }
   ],
+  "paid": {
+    "title": "Paid services",
+    "note": "These cost money, and they're here because each one publishes its price and lets you check the data before paying: a sample file, a trial, a public endpoint. That free part is what got checked, not the paid tier. Read the terms before you build on any of them.",
+    "rows": [
+      {
+        "name": "Probalytics",
+        "url": "https://probalytics.io",
+        "what": "Data tooling",
+        "covers": "polymarket, kalshi",
+        "price": "from $39/mo, 3-day trial",
+        "sample": "https://probalytics.io/samples/orderbook_sample.parquet",
+        "description": "Millisecond-granularity Polymarket and Kalshi history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export."
+      }
+    ]
+  },
   "excluded": [
     {
       "name": "Azuro",
