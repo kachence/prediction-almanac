@@ -243,6 +243,7 @@ something that isn't here,
 
 | Service | What | Covers | Price | Check it free | Description |
 |---|---|---|---|---|---|
+| **[outcometick](https://outcometick.com)** | Dataset | polymarket, predict-fun | from $10/mo per venue, $18/mo both | [sample](https://github.com/outcometick/polymarket-tick-data-samples/releases/latest/download/polymarket-data-samples.tar.gz) | Tick-level Polymarket and Predict.fun crypto Up/Down history since June 2026, with the Chainlink settlement feeds, strikes and outcomes needed to recompute each settlement. |
 | **[Probalytics](https://probalytics.io)** | Data tooling | polymarket, kalshi | from $39/mo, 3-day trial | [sample](https://probalytics.io/samples/orderbook_sample.parquet) | Millisecond-granularity Polymarket and Kalshi history - full orderbook snapshots, fills and metadata via ClickHouse SQL, REST or Parquet export. |
 
 ## Contributing

@@ -7,7 +7,7 @@
   },
   "counts": {
     "platforms": 16,
-    "sources": 12,
+    "sources": 13,
     "tools": 43
   },
   "platform_groups": [
@@ -983,6 +983,15 @@
     "title": "Paid services",
     "note": "These cost money, and they're here because each one publishes its price and lets you check the data before paying: a sample file, a trial, a public endpoint. That free part is what got checked, not the paid tier. Read the terms before you build on any of them.",
     "rows": [
+      {
+        "name": "outcometick",
+        "url": "https://outcometick.com",
+        "what": "Dataset",
+        "covers": "polymarket, predict-fun",
+        "price": "from $10/mo per venue, $18/mo both",
+        "sample": "https://github.com/outcometick/polymarket-tick-data-samples/releases/latest/download/polymarket-data-samples.tar.gz",
+        "description": "Tick-level Polymarket and Predict.fun crypto Up/Down history since June 2026, with the Chainlink settlement feeds, strikes and outcomes needed to recompute each settlement."
+      },
       {
         "name": "Probalytics",
         "url": "https://probalytics.io",
