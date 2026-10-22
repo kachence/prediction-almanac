@@ -5,8 +5,8 @@ repo: https://github.com/valory-xyz/trader
 category: bot
 platforms: [polymarket, omen]
 github:
-  stars: 83
-  last_commit: '2026-10-21'
+  stars: 84
+  last_commit: '2026-10-22'
   license: Apache-2.0
   archived: false
   health: active
