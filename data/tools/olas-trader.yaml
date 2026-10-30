@@ -6,7 +6,7 @@ category: bot
 platforms: [polymarket, omen]
 github:
   stars: 84
-  last_commit: '2026-10-29'
+  last_commit: '2026-10-30'
   license: Apache-2.0
   archived: false
   health: active
