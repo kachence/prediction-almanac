@@ -5,7 +5,7 @@ repo: https://github.com/braedonsaunders/homerun
 category: bot
 platforms: [polymarket, kalshi]
 github:
-  stars: 213
+  stars: 215
   last_commit: '2026-10-27'
   license: AGPL-3.0
   archived: false
