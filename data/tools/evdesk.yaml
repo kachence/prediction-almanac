@@ -1,0 +1,8 @@
+slug: evdesk
+name: EVDESK
+url: https://evdesk.ai/markets
+category: dashboard
+platforms: [kalshi]
+access: freemium
+description: "No-signup pages for every open Kalshi event with implied chance, cost of each side and settlement rule, refreshed daily, plus fee and Kelly calculators; live desk is $149/mo."
+tags: [no-signup, kelly, regulated, us]
