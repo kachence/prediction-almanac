@@ -6,7 +6,7 @@ category: bot
 platforms: [kalshi, polymarket]
 github:
   stars: 569
-  last_commit: '2026-10-12'
+  last_commit: '2026-11-13'
   license: Apache-2.0
   archived: false
   health: active
