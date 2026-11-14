@@ -5,8 +5,8 @@ repo: https://github.com/chainstacklabs/polymarket-alpha-bot
 category: bot
 platforms: [polymarket]
 github:
-  stars: 184
-  last_commit: '2026-08-05'
+  stars: 185
+  last_commit: '2026-11-13'
   license: Apache-2.0
   archived: false
   health: active
