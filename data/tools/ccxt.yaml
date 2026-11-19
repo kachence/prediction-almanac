@@ -5,8 +5,8 @@ repo: https://github.com/ccxt/ccxt
 category: bot
 platforms: [polymarket, kalshi, limitless, myriad]
 github:
-  stars: 44919
-  last_commit: '2026-11-18'
+  stars: 44922
+  last_commit: '2026-11-19'
   license: MIT
   archived: false
   health: active
