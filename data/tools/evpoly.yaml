@@ -1,0 +1,14 @@
+slug: evpoly
+name: EVPoly
+url: https://github.com/Degenapetrader/EVPOLY
+repo: https://github.com/Degenapetrader/EVPOLY
+category: bot
+platforms: [polymarket]
+github:
+  stars: null
+  last_commit: null
+  license: null
+  archived: null
+  health: null
+description: "Rust Polymarket engine: premarket-ladder and EVSnipe loops on crypto markets plus sports market making behind a shared risk arbiter; noncommercial licence, 0.1% builder fee per fill."
+tags: [crypto, market-making, execution]
