@@ -6,7 +6,7 @@ category: bot
 platforms: [polymarket]
 github:
   stars: 362
-  last_commit: '2026-11-23'
+  last_commit: '2026-11-24'
   license: Apache-2.0
   archived: false
   health: active

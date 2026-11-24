@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-11-23",
+  "generated_on": "2026-11-24",
   "site": {
     "title": "Prediction Almanac",
     "repo": "kachence/prediction-almanac",
@@ -21,7 +21,7 @@
           "url": "https://polymarket.com",
           "type": "CLOB, Polygon",
           "launched": 2020,
-          "volume": "$2.7B/30d",
+          "volume": "$2.6B/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇬🇧🇨🇦🇦🇺 +39",
             "title": "Cannot trade: United States, United Kingdom, Canada, Australia, Germany, France, Netherlands, Italy, Japan, Singapore, Brazil, Belgium, Burundi, Belarus, DR Congo, +28 more",
@@ -34,7 +34,7 @@
           "url": "https://predict.fun",
           "type": "CLOB, Blast",
           "launched": 2024,
-          "volume": "$382.9M/30d",
+          "volume": "$376.1M/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇬🇧🇦🇺🇫🇷 +9",
             "title": "Cannot trade: United States, United Kingdom, Australia, France, Singapore, Belgium, Cuba, Iran, North Korea, Poland, Syria, Thailand, Taiwan",
@@ -47,7 +47,7 @@
           "url": "https://app.opinion.trade",
           "type": "CLOB, BNB Chain",
           "launched": 2025,
-          "volume": "$204.2M/30d",
+          "volume": "$205.2M/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇬🇧🇫🇷🇨🇳 +10",
             "title": "Cannot trade: United States, United Kingdom, France, China, Singapore, Cuba, Hong Kong, Iran, North Korea, South Korea, Poland, Syria, Thailand, Taiwan",
@@ -73,7 +73,7 @@
           "url": "https://limitless.exchange",
           "type": "CLOB, Base",
           "launched": 2024,
-          "volume": "$483.5k/30d",
+          "volume": "$471k/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇧🇾🇨🇺🇮🇷🇰🇵🇷🇺🇸🇾",
             "title": "Cannot trade: United States, Belarus, Cuba, Iran, North Korea, Russia, Syria",
@@ -86,7 +86,7 @@
           "url": "https://myriad.markets",
           "type": "CLOB, BNB Chain +3",
           "launched": 2025,
-          "volume": "$130.2k/30d",
+          "volume": "$123.9k/30d",
           "geo": {
             "text": "🌍 exc. 🇺🇸🇫🇷🇸🇬🇧🇸 +14",
             "title": "Cannot trade: United States, France, Singapore, Bahamas, Botswana, Switzerland, Iran, Cambodia, North Korea, Cayman Islands, Libya, Malta, Sudan, Somalia, Syria, +3 more",
@@ -106,7 +106,7 @@
           "url": "https://kalshi.com",
           "type": "Regulated exchange",
           "launched": 2021,
-          "volume": "$19.2B/30d",
+          "volume": "$19.5B/30d",
           "geo": {
             "text": "🌍 exc. 🇬🇧🇨🇦🇦🇺🇫🇷 +51",
             "title": "Cannot trade: United Kingdom, Canada, Australia, France, Italy, China, India, Singapore, United Arab Emirates, Afghanistan, Angola, Belgium, Burkina Faso, Bulgaria, Bolivia, +40 more",
@@ -119,7 +119,7 @@
           "url": "https://www.gemini.com/predictions",
           "type": "Regulated exchange",
           "launched": 2025,
-          "volume": "$41.5M/30d",
+          "volume": "$40.3M/30d",
           "geo": {
             "text": "only 🇺🇸",
             "title": "Can trade: United States",
@@ -459,9 +459,9 @@
           "url": "https://github.com/ccxt/ccxt",
           "description": "The long-established unified trading library, which now lists Polymarket, Kalshi, Limitless and Myriad alongside 100+ crypto exchanges across seven languages.",
           "covers": "polymarket, kalshi, limitless, myriad",
-          "extra": "44,971★ · 2026-11-23",
-          "stars": 44971,
-          "last_commit": "2026-11-23",
+          "extra": "44,976★ · 2026-11-24",
+          "stars": 44976,
+          "last_commit": "2026-11-24",
           "health": "active",
           "access": null
         },
@@ -470,8 +470,8 @@
           "url": "https://github.com/alsk1992/CloddsBot",
           "description": "Self-hosted autonomous agent spanning prediction markets, perps and DEXs, with Kelly sizing, VaR and CVaR limits and circuit breakers.",
           "covers": "polymarket, kalshi, manifold, metaculus, predict-fun",
-          "extra": "3,126★ · 2026-11-13",
-          "stars": 3126,
+          "extra": "3,127★ · 2026-11-13",
+          "stars": 3127,
           "last_commit": "2026-11-13",
           "health": "active",
           "access": null
@@ -481,8 +481,8 @@
           "url": "https://github.com/pmxt-dev/pmxt",
           "description": "CCXT-style unified API across 14+ prediction markets, with Python and TypeScript SDKs, a CLI, and MCP integration - one integration instead of fourteen.",
           "covers": "polymarket, kalshi, limitless, myriad, metaculus, gemini-predictions",
-          "extra": "2,218★ · 2026-09-30",
-          "stars": 2218,
+          "extra": "2,219★ · 2026-09-30",
+          "stars": 2219,
           "last_commit": "2026-09-30",
           "health": "active",
           "access": null
@@ -514,9 +514,9 @@
           "url": "https://github.com/YichengYang-Ethan/oracle3-prediction-market-agent",
           "description": "Prices baskets of related event contracts against five no-arbitrage relations at executable prices net of each venue's fees, then trades them live or on paper under pre-trade risk limits.",
           "covers": "kalshi, polymarket",
-          "extra": "571★ · 2026-11-16",
+          "extra": "571★ · 2026-11-24",
           "stars": 571,
-          "last_commit": "2026-11-16",
+          "last_commit": "2026-11-24",
           "health": "active",
           "access": null
         },
@@ -525,8 +525,8 @@
           "url": "https://github.com/rodlaf/KalshiMarketMaker",
           "description": "Avellaneda-Stoikov market making on Kalshi - reservation price, asymmetric quotes and inventory-risk-adjusted sizing, with portfolio caps and Docker deployment.",
           "covers": "kalshi",
-          "extra": "469★ · 2026-04-14",
-          "stars": 469,
+          "extra": "470★ · 2026-04-14",
+          "stars": 470,
           "last_commit": "2026-04-14",
           "health": "active",
           "access": null
@@ -547,9 +547,9 @@
           "url": "https://github.com/chainstacklabs/polyclaw",
           "description": "Polymarket agent skill that browses markets and executes on-chain via split plus CLOB, showing the mint path rather than naive taking.",
           "covers": "polymarket",
-          "extra": "362★ · 2026-11-23",
+          "extra": "362★ · 2026-11-24",
           "stars": 362,
-          "last_commit": "2026-11-23",
+          "last_commit": "2026-11-24",
           "health": "active",
           "access": null
         },
@@ -558,8 +558,8 @@
           "url": "https://github.com/braedonsaunders/homerun",
           "description": "Write Python strategies, backtest them on L2 book replay with Cox hazard fill modelling, then run the same code in shadow or live mode.",
           "covers": "polymarket, kalshi",
-          "extra": "228★ · 2026-10-27",
-          "stars": 228,
+          "extra": "230★ · 2026-10-27",
+          "stars": 230,
           "last_commit": "2026-10-27",
           "health": "active",
           "access": null
@@ -569,9 +569,9 @@
           "url": "https://github.com/chainstacklabs/polymarket-alpha-bot",
           "description": "Finds covering portfolios across logically related markets by extracting implications, validating them, then pricing the trade on live quotes.",
           "covers": "polymarket",
-          "extra": "185★ · 2026-11-23",
+          "extra": "185★ · 2026-11-24",
           "stars": 185,
-          "last_commit": "2026-11-23",
+          "last_commit": "2026-11-24",
           "health": "active",
           "access": null
         },
@@ -591,8 +591,8 @@
           "url": "https://github.com/valory-xyz/trader",
           "description": "Autonomous trading agent shipped as an on-chain Olas service, with separate strategies for Polymarket on Polygon and Omen on Gnosis.",
           "covers": "polymarket, omen",
-          "extra": "88★ · 2026-11-20",
-          "stars": 88,
+          "extra": "89★ · 2026-11-20",
+          "stars": 89,
           "last_commit": "2026-11-20",
           "health": "active",
           "access": null
@@ -942,7 +942,7 @@
           "url": "https://blog.sentinel-team.org",
           "description": "Free weekly global-risk roundup written with elite forecasters, tracking the geopolitical situations that Kalshi and Polymarket list as contracts.",
           "covers": null,
-          "extra": "2026-11-19",
+          "extra": "2026-11-23",
           "stars": null,
           "last_commit": null,
           "health": null,
