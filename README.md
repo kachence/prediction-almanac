@@ -123,6 +123,7 @@ would only push the useful entries further down the page.
 | **[Polymarket aligned tape (TimeSeventeen)](https://huggingface.co/datasets/TimeSeventeen/Polymarket-v1)** | polymarket | parquet · trades with resolution, fees and event-normalised probability | 2022-11-2026-04, v2 continues to date (full) | Needs the companion v2 repo for coverage past the April 2026 migration. Do not pool binary, up-down and NegRisk markets without checking category. |
 | **[Polymarket L2 depth (vpcapitano)](https://huggingface.co/datasets/vpcapitano/polymarket-genesis-liquidity)** | polymarket | parquet · 10-level book depth, spread, best bid/ask | 2025-10-2026-03 (partial) | Six months only, and no resolution column - join outcomes yourself. |
 | **[prediction-market-analysis](https://github.com/jon-becker/prediction-market-analysis)** | polymarket, kalshi | compressed bulk dataset (~36GB) · trade | through 2025 (partial) | A research framework as much as a dataset - it ships indexers for collecting new data, so freshness depends on running them yourself. |
+| [Calibration Ledger](https://apify.com/publicrecords/calibration-ledger) | Forecast track records (IMF, OECD, Fed, ECB SPF): forecast errors and bias by organization (Apify Actor, API + MCP) |  |  |  |
 
 ### Odds & reference feeds
 
