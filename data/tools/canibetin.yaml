@@ -1,0 +1,7 @@
+slug: canibetin
+name: Can I Bet In?
+url: https://canibetin.com
+category: aggregator
+platforms: [kalshi, polymarket, predictit]
+description: "Free no-signup comparison of the same outcomes across Kalshi, Polymarket and PredictIt, refreshed about every minute, alongside a US state-by-state legality map for prediction-market apps."
+tags: [multi-venue, no-signup, us, cross-platform]
